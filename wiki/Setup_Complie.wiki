@@ -1,0 +1,32 @@
+#summary One-sentence summary of this page.
+
+where package to be complie for .uc:
+dir = C:\Documents and Settings\~\My Documents\My Games\Unreal Tournament 3\UTGame\Src\
+
+where the execute .u:
+dir = C:\Documents and Settings\~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Script
+
+
+clean_u.bat
+{{{
+@echo off
+del *.u
+}}}
+
+dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Config
+UTEditor.ini
+{{{
+...
+[ModPackages]
+ModPackagesInPath=..\UTGame\Src
+ModOutputDir=..\UTGame\Unpublished\CookedPC\Script
+ModPackages=nameofpackage
+...
+}}}
+
+dir = C:\Program Files\Unreal Tournament 3\Binaries
+make.bat
+{{{
+@echo off
+UT3 make -useunpublished
+}}}
