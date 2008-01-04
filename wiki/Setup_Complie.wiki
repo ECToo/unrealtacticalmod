@@ -13,14 +13,15 @@ dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Sc
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC
 
 = clean_u.bat =
+dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Script
 {{{
 @echo off
 del *.u
 }}}
 
-dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Config
 
 = UTEditor.ini =
+dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Config
 {{{
 ...
 [ModPackages]
@@ -30,9 +31,10 @@ ModPackages=nameofpackage
 ...
 }}}
 
-dir = C:\Program Files\Unreal Tournament 3\Binaries
+
 
 = make.bat =
+dir = C:\Program Files\Unreal Tournament 3\Binaries
 {{{
 @echo off
 UT3 make -useunpublished
