@@ -1,18 +1,18 @@
 #summary One-sentence summary of this page.
 
-where package to be complie for .uc:
+= where package to be complie for .uc: =
 
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Src\
 
-where the execute .u:
+= where the execute .u: =
 
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Script
 
-where are the work files start:
+= where are the work files start: =
 
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC
 
-clean_u.bat
+= clean_u.bat =
 {{{
 @echo off
 del *.u
@@ -20,7 +20,7 @@ del *.u
 
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Config
 
-UTEditor.ini
+= UTEditor.ini =
 {{{
 ...
 [ModPackages]
@@ -32,7 +32,7 @@ ModPackages=nameofpackage
 
 dir = C:\Program Files\Unreal Tournament 3\Binaries
 
-make.bat
+= make.bat =
 {{{
 @echo off
 UT3 make -useunpublished
