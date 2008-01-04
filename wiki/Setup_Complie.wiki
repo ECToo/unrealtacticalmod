@@ -14,6 +14,7 @@ del *.u
 }}}
 
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Config
+
 UTEditor.ini
 {{{
 ...
@@ -25,6 +26,7 @@ ModPackages=nameofpackage
 }}}
 
 dir = C:\Program Files\Unreal Tournament 3\Binaries
+
 make.bat
 {{{
 @echo off
