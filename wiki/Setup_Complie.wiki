@@ -1,9 +1,11 @@
 #summary One-sentence summary of this page.
 
 where package to be complie for .uc:
+
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Src\
 
 where the execute .u:
+
 dir = ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Script
 
 where are the work files start:
