@@ -42,4 +42,4 @@ UT3 make -useunpublished
 
 = if your making a Mutator add on =
 go to "My Documents\My Games\Unreal Tournament 3\UTGame\Config"
-your ini in "packagename".ini
+your ini *.in -> "packagename".ini
