@@ -1,0 +1,3 @@
+#summary Oney way to bind key I think.
+
+setbind h Say Hi
