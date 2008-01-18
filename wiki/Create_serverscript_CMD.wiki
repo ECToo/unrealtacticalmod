@@ -23,15 +23,12 @@ To use, open a console (F10 or TAB) while in-game and use the following commands
 }}}
 
 Quick Easy Setup From Scripts:
-
+{{{
 http://www.kitah.org/ut3/ut3clgen.php
-
 http://www.m3nt0r.de/ut3/startupgen.html
-
 http://darkweb.nl/tools/ut3cmd/
-
 http://commandgen.mfdclan.com/
-
+}}}
 
 
 
