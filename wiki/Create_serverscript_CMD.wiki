@@ -1,7 +1,9 @@
 #summary One-sentence summary of this page.
 
 Is there a way to control my dedicated server when I am connected to it as a player?
-- Yes. In order to do this you must have specified an Admin password in the command line that loads the dedicated server. To use, open a console (F10 or TAB) while in-game and use the following commands:
+- Yes. In order to do this you must have specified an Admin password in the command line that loads the dedicated server. 
+{{{
+To use, open a console (F10 or TAB) while in-game and use the following commands:
 
 * AdminLogin <password> - logs you in as an admin
 * AdminLogout <password> - logs you out of admin mode
@@ -18,6 +20,7 @@ Is there a way to control my dedicated server when I am connected to it as a pla
 * AdminForceTextUnMute <playername> - allows a player to resume sending text to others
 * AdminPublishMapList - overrides the server's map list for the current game type with the one on the client that used the command
 * Admin DemoRec <name> - begin recording server-side demo of current map (demos are stored in \UTGame\Demos\)
+}}}
 
 http://utforums.epicgames.com/showthread.php?t=578745
 
