@@ -2,6 +2,7 @@
 
 Is there a way to control my dedicated server when I am connected to it as a player?
 - Yes. In order to do this you must have specified an Admin password in the command line that loads the dedicated server. To use, open a console (F10 or TAB) while in-game and use the following commands:
+
 * AdminLogin <password> - logs you in as an admin
 * AdminLogout <password> - logs you out of admin mode
 * AdminRestartMap - restarts the current map
@@ -19,3 +20,5 @@ Is there a way to control my dedicated server when I am connected to it as a pla
 * Admin DemoRec <name> - begin recording server-side demo of current map (demos are stored in \UTGame\Demos\)
 
 http://utforums.epicgames.com/showthread.php?t=578745
+
+http://utforums.epicgames.com/showthread.php?t=586810 This is from FAQS
