@@ -30,7 +30,7 @@ http://darkweb.nl/tools/ut3cmd/
 http://commandgen.mfdclan.com/
 }}}
 
-
+http://udn.epicgames.com/Three/UT3Servers.html
 
 
 http://utforums.epicgames.com/showthread.php?t=578745
