@@ -3,7 +3,9 @@
 Blender Tutorials And Videos:
 
 http://www.gryllus.net/Blender/3D.html
-
+http://blendernewbies.blogspot.com/
+http://www.blendernation.com/
+http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro
 
 
 Unreal:
