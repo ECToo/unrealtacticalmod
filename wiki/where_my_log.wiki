@@ -1,0 +1,9 @@
+#summary Where can I see my. log.
+
+You need to make a bat file to run the game and using the "-log" with the commands.
+
+{{{
+ut3 <NameMap>?game=<Package>.<gametype> -log -useunpublished
+}}}
+
+
