@@ -1,13 +1,9 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
-
-Add your content here.
 
 
-= Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+=Error Help=
+Q:If it say fail to create physics asset 'name of skeletal Mesh _physics' from skeletal Mesh 'current skeletal Mesh'
+
+A: Set to 'Minimum Bone Size=0' to fix the error.
