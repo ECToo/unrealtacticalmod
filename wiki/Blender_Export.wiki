@@ -1,3 +1,8 @@
 #summary One-sentence summary of this page.
 
+There are two method for export to unreal.
+One is .psk file that can be crash your unreal editor if not select or build correctly from people who create the script for it.
+
+Two is .dae file that can work good.
+
 http://doom3world.org/phpbb2/viewtopic.php?t=1755
