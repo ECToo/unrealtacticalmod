@@ -3,6 +3,11 @@
 = Required =
 You need to install Python to run the script.
 
+= Pros =
+
+= Cons =
+parent Bones are not detect in 1.4.0.
+
 
 == Site Link == 
 http://colladacontest.com/faq/
