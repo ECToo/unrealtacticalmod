@@ -2,7 +2,7 @@
  * Copyright 1998-2007 Epic Games, Inc. All Rights Reserved.
  */
 
-class UTVehicle_Spaceship_Content extends UTVehicle_Spaceship;
+class UTVF_SpaceShip_C extends UTV_SpaceShip;
 
 var color EffectColor[2];
 
@@ -42,12 +42,16 @@ defaultproperties
 
 	Begin Object Name=SVehicleMesh
                 SkeletalMesh=SkeletalMesh'customspaceship.Anims.spaceship_B02'
+                //SkeletalMesh=SkeletalMesh'VH_Raptor.Mesh.SK_VH_Raptor'
 		AnimTreeTemplate=AnimTree'customspaceship.anims.spaceship_B02_animtree'
 		PhysicsAsset=PhysicsAsset'customspaceship.anims.spaceship_B02_Physics'
+		//PhysicsAsset=PhysicsAsset'VH_Raptor.Anims.SK_VH_Raptor_Physics'
 		MorphSets[0]=MorphTargetSet'customspaceship.anims.spaceship_B01_NewMorphTargetSet'
 	End Object
 
-	DrawScale=1.3
+        DrawScale=4
+	//DrawScale=1.3
+
 
 	Seats(0)={(	GunClass=class'UTVWeap_RaptorGun',
 				GunSocket=(Gun_Socket_01,Gun_Socket_02),
