@@ -3,7 +3,7 @@
 There are two method for export to unreal.
 =EXPORT=
 ==.PSK==
-One is .psk file that can be crash your unreal editor if not select or build correctly from people who create the script for it.
+One is .psk file that can be crash your unreal editor if not select or build correctly from people who create the script for it. This one have bone error unless you have to code this your slef to fix the bone axes in the game will be diffcult.
 
 ==.DAE==
 Two is .dae file that can work good. This can only export one bone only that I found out just the version I test was 1.4.0. The vehicle works whem I code it because it was the defualt name.
