@@ -8,7 +8,7 @@ What you do before your export. The rotate axis for z to -90 in the tranform pro
 = Pros =
 
 = Cons =
-parent Bones are not detect in 1.4.0.
+Parent Bones are not detect in 1.4.0. It only export one bone. Just need to look around adding more bones some how when exported.
 
 
 == Site Link == 
