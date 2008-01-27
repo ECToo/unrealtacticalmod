@@ -6,4 +6,16 @@
 [Work_Area where are the files going to start from]
 
 == Vehicle Build ==
-[UC_Vehicle_builds Air Vehicle Lession One]
+[UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
+
+[]-Blender Modeling Idea Work Out first.
+
+[]-working with UV textures from blender
+
+[]-Working with animation from blender.
+
+[]-Exporting to files to unreal format.
+
+[]-Working with textures with gimp.
+
+[]-
