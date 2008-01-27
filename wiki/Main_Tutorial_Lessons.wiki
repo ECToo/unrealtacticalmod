@@ -19,3 +19,6 @@
 []-Working with textures with gimp.
 
 []-
+
+=Simple Tips=
+ * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
