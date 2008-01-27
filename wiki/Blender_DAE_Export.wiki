@@ -2,3 +2,8 @@
 
 = Required =
 You need to install Python to run the script.
+
+
+== Site Link == 
+http://colladacontest.com/faq/
+http://collada.org/mediawiki/index.php/Portal:Conditioners_directory
