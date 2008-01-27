@@ -3,7 +3,7 @@
 = Required =
 You need to install Python to run the script.
 
-What you do before your export. The rtotae axis need to be change to the main root.
+What you do before your export. The rotate axis for z to -90 in the tranform properties need to face the front of your vehicle.
 
 = Pros =
 
