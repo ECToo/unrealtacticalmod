@@ -1,3 +1,3 @@
-#summary One-sentence summary of this page.
+#summary This is just Static Mesh Format.
 
 http://www.katsbits.com/htm/tools_utilities.htm#ase
