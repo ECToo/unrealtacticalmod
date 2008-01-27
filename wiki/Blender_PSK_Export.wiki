@@ -1,13 +1,10 @@
 #summary One-sentence summary of this page.
 
 = Introduction =
+There are pros and cons in the psk file for export the blender to unreal.
 
-Add your content here.
+== Pros ==
+The Export works.
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+== Cons ==
+The bone is not fixes to the joint axis.
