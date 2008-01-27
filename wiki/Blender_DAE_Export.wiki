@@ -1,4 +1,4 @@
-#summary pros and cons for exporting to unreal.
+#summary pros and cons for exporting to unreal.Animation
 
 = Required =
 You need to install Python to run the script.
