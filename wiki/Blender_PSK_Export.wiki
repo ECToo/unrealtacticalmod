@@ -11,3 +11,8 @@ The bone is not fixes to the joint axis.
 
 = Links: =
 http://www.p-fat.net/
+
+
+= Other =
+
+http://www.blender.org/forum/viewtopic.php?t=4448&highlight=psk
