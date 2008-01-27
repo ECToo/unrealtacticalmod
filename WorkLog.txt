@@ -1,0 +1,3 @@
+fixed rotation of the face direction
+work on the flying vehicle:
+-summon mymod.utv_spaceship_c
