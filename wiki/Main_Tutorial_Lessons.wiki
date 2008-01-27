@@ -2,6 +2,8 @@
 
 = Introduction =
 
+= Setup Area =
+[Work_Area where are the files going to start from]
 
 == Vehicle Build ==
 [UC_Vehicle_builds Air Vehicle Lession One]
