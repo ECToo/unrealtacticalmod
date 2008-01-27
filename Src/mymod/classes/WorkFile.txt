@@ -1,0 +1,8 @@
+This work:
+-UTVF_SpaceShip_C.uc
+
+Does not work:
+-UTVehicle_SpaceShip_Content.uc
+
+
+This Work Crashes:
