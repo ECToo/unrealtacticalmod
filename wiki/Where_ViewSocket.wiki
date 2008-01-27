@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary It in the unreal editor under skeletion mesh.
 {{{
 Go to you current unreal animset editor that is you skeletion mesh vehicle and double click it. Go to mesh > scocket manager.
 Go to new new socket and select a bone to attach to the new socket.
