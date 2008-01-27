@@ -12,6 +12,7 @@ You can addd more mesh stand alone objects and select them in the unreal chose w
 Parent Bones are not detect in 1.4.0. It only export one bone. Just need to look around adding more bones some how when exported.
 
 
+Just wait until the bones are update.
 == Site Link == 
 http://colladacontest.com/faq/
 
