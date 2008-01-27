@@ -1,7 +1,7 @@
 /**
  * Copyright 1998-2007 Epic Games, Inc. All Rights Reserved.
  */
-class UTVehicle_SpaceShip extends UTAirVehicle;
+class UTV_SpaceShip extends UTAirVehicle;
 	//native(Vehicle);
 
 /** bForwardMode==true if vehicle is thrusting forward.  Used by wing controls. */
@@ -24,8 +24,7 @@ simulated function PostInitAnimTree(SkeletalMeshComponent SkelComp)
 
 	if(SkelComp == Mesh)
 	{
-                    LandingGearControl = SkelControlSingleBone( mesh.FindSkelControl('Fuselage') );
-		//LandingGearControl = SkelControlSingleBone( mesh.FindSkelControl('LandingGear') );
+		LandingGearControl = SkelControlSingleBone( mesh.FindSkelControl('LandingGear') );
 	}
 }
 
