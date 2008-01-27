@@ -11,4 +11,3 @@ The bone is not fixes to the joint axis.
 
 = Links: =
 http://www.p-fat.net/
-http://www.neewo.de/ToolsDemos.html#3
