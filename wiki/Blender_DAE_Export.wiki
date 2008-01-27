@@ -1,1 +1,4 @@
 #summary pros and cons for exporting to unreal.
+
+= Required =
+You need to install Python to run the script.
