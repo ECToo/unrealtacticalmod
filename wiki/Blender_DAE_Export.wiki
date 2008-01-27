@@ -3,6 +3,8 @@
 = Required =
 You need to install Python to run the script.
 
+What you do before your export. The rtotae axis need to be change to the main root.
+
 = Pros =
 
 = Cons =
