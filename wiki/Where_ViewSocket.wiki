@@ -9,4 +9,5 @@ x=0;
 this will update real timer where are the sockets are going.
 Note: -Log can help find good error
 Note: this is from raptor mod working on project trouble to build my own vehicle
+Note: also you move the socket in your view port will update real time.
 }}}
