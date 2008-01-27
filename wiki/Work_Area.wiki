@@ -1,0 +1,8 @@
+#summary One-sentence summary of this page.
+
+= Your Work Area =
+
+Your work area will in:
+ * ~\My Documents\My Games\Unreal Tournament 3\UTGame\Src\
+ * ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\
+ * ~\My Documents\My Games\Unreal Tournament 3\UTGame\Unpublished\CookedPC\Script\
