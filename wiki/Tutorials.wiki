@@ -12,6 +12,8 @@ http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro
 
 http://blenderartists.org/cms/index.php
 
+http://vegastrike.sourceforge.net/wiki/HowTo:Weld
+
 
 =Unreal:=
 
