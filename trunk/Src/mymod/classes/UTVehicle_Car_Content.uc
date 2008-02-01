@@ -1,5 +1,6 @@
 /**
  * Copyright 1998-2007 Epic Games, Inc. All Rights Reserved.
+ THiS FILE DOES NOT WORK
  */
 
 class UTVehicle_Car_Content extends UTVehicle_Car;
