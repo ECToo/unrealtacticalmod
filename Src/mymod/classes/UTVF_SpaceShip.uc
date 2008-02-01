@@ -7,8 +7,7 @@ defaultproperties
 {
 //This show your ship in the unreal editer
 	Begin Object Name=SVehicleMesh
-	        //BoneName="none"
-		SkeletalMesh=SkeletalMesh'customspaceship.anims.spaceship_B02'
+		SkeletalMesh=SkeletalMesh'shipdae.Anims.spaceship_B03_dae_m'
 	End Object
 
 	Components.Remove(Sprite)
