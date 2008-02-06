@@ -122,10 +122,9 @@ def draw():
 		print "Draw GUI"
 	
 def event(evt, val):
-	global EVENT_EXIT,QKEY
-	if (evt == QKEY and not val):
-		print "Hello EXIT"
-		Exit()
+	if evt == Blender.Draw.ESCKEY:
+		Blender.Draw.Exit()
+		return
 
 def bevent(evt):
 	global EVENT_NOEVENT,EVENT_DRAW,EVENT_EXIT
@@ -140,5 +139,5 @@ def bevent(evt):
 		otherfunction()
 	#if evt == EVENT_EXIT:
 	
-
+#MAIN FOR GUI EVENT
 Register(draw, event, bevent)				
