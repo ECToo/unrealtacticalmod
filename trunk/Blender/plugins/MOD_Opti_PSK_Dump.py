@@ -835,24 +835,24 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		psk_file.AddBone(pb)
 		pbb = make_namedbonebinary(blender_bone.name, 0, final_parent_id,quat,tail, 0)
 		psa_file.StoreBone(pbb)
-	else:
-		print "Not Main Parent"
-		pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
-		#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-		psk_file.AddBone(pb)
+	#else:
+	#	print "Not Main Parent"
+	#	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
+	#	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
+	#	psk_file.AddBone(pb)
 
-		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
-		#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-		psa_file.StoreBone(pbb)
+	#	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
+	#	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
+	#	psa_file.StoreBone(pbb)
 
 	
-	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
+	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
 	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-	#psk_file.AddBone(pb)
+	psk_file.AddBone(pb)
 
-	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
+	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
 	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-	#psa_file.StoreBone(pbb)
+	psa_file.StoreBone(pbb)
 
 
 	nbone = nbone + 1
