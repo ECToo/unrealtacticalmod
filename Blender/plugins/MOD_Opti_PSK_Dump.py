@@ -23,7 +23,8 @@ __bpydoc__ = """\
 
 - v0.0.3
 - Working on this version for main bone fixed and the update for Blender 2.45. Update By: Darknet
--Note different UTXXXX game little different but with the same format build.
+- Note different UTXXXX game little different but with the same format build.
+- Work on parent and child id number and number of bone are counted.
 
 
 """ 
