@@ -1,12 +1,12 @@
 #!BPY
 """ 
 Name: 'Unreal Skeletal Mesh/Animation PSK/PSA MOD' 
-Blender: 240 
+Blender: 245
 Group: 'Export' 
 Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa)' 
 """ 
 __author__ = "Optimus_P-Fat/Active_Trash" 
-__version__ = "0.0.2" 
+__version__ = "0.0.3 BETA" 
 __bpydoc__ = """\ 
 
 -- Unreal Skeletal Mesh and Animation Export (.psk  and .psa) export script v0.0.1 --<br> 
@@ -20,6 +20,10 @@ __bpydoc__ = """\
 
 - v0.0.2
 - This version adds support for more than one material index!
+
+- v0.0.3
+- Working on this version for main bone fixed and the update for Blender 2.45. Update By: Darknet
+-Note different UTXXXX game little different but with the same format build.
 
 
 """ 
@@ -521,11 +525,13 @@ class PSAFile:
 # helpers to create bone structs
 def make_vbone(name, parent_index, child_count, orientation_quat, position_vect):
 	bone = VBone()
+	print "----VBONE----"
 	bone.Name = name
 	print bone.Name, "----NAME----"
 	bone.ParentIndex = parent_index
 	print bone.ParentIndex, "----PARENT----"
 	bone.NumChildren = child_count
+	print bone.ParentIndex, "----CHILD----"
 	bone.BonePos.Orientation = orientation_quat
 	bone.BonePos.Position.X = position_vect.x
 	bone.BonePos.Position.Y = position_vect.y
@@ -540,8 +546,9 @@ def make_vbone(name, parent_index, child_count, orientation_quat, position_vect)
 
 def make_namedbonebinary(name, parent_index, child_count, orientation_quat, position_vect, is_real):
 	bone = FNamedBoneBinary()
+	#print "----namedbonebinary---"
 	bone.Name = name
-	print bone.Name
+	#print bone.Name
 	bone.ParentIndex = parent_index
 	bone.NumChildren = child_count
 	bone.BonePos.Orientation = orientation_quat
@@ -775,7 +782,9 @@ def make_fquat(bquat):
 
 
 # TODO: remove this 1am hack
-nbone = 1
+#This fixed id parent number index list the default I think it is zero for main bone that is parent of the child
+#nbone = 1 #default
+nbone = 0
 	
 def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat):
 	global nbone 	# look it's evil!
@@ -787,6 +796,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		child_count = len(blender_bone.children)
 	else:
 		child_count = 0
+	print "[CHILD COUNT]:", child_count
 	
 	if (parent_mat):
 		head = blender_bone.head['BONESPACE'] * parent_mat
@@ -799,7 +809,6 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
 		
 	bone_vect = tail-head
-	
 	#LOUD
 	#print "Head: ", head
 	#print "Tail: ", tail
@@ -812,12 +821,11 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	#this is only needed for root bones, since UT assumes a connected skeleton, and from here
 	#down the chain we just use "tail" as an endpoint
 	#if(head.length > 0.001 and is_root_bone == 1):
-	print  parent_id , "<-parent id] ",final_parent_id, "<-final id]"
+	print "[parent id]:", parent_id , " [final id]:",final_parent_id, 
 	
-	if(0):	
+	if(0):#Not sure this is even use 	
 		pb = make_vbone("dummy_" + blender_bone.name, parent_id, 1, FQuat(), head)
 		psk_file.AddBone(pb)
-		
 		pbb = make_namedbonebinary("dummy_" + blender_bone.name, parent_id, 1, FQuat(), head, 0)
 		psa_file.StoreBone(pbb)
 		
@@ -825,38 +833,34 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		nbone = nbone + 1
 		tail = tail-head
 		print "CREATE DUMMY"
-		
-		
 	my_id = nbone
+	print "MY ID:",my_id
 	
-	if parent_id == 0:
-		print "Main parent"
-		pb = make_vbone(blender_bone.name, 0, final_parent_id, quat, tail)
+	#Create Defualt Root Bone Still need work on it 
+	if my_id == 0:
+		print "Main parent", final_parent_id
+		#pb = make_vbone(blender_bone.name, 0, final_parent_id, quat, tail)
+		pb = make_vbone(blender_bone.name, 0, child_count, quat, tail)
 		psk_file.AddBone(pb)
-		pbb = make_namedbonebinary(blender_bone.name, 0, final_parent_id,quat,tail, 0)
+		#pbb = make_namedbonebinary(blender_bone.name, 0, final_parent_id,quat,tail, 0)
+		pbb = make_namedbonebinary(blender_bone.name, 0, child_count,quat,tail, 0)
 		psa_file.StoreBone(pbb)
-	#else:
-	#	print "Not Main Parent"
-	#	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
-	#	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-	#	psk_file.AddBone(pb)
-
-	#	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
-	#	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-	#	psa_file.StoreBone(pbb)
-
+	else:
+		pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
+		#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
+		psk_file.AddBone(pb)
+		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
+		#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
+		psa_file.StoreBone(pbb)
 	
-	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
+	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
 	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-	psk_file.AddBone(pb)
-
-	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
+	#psk_file.AddBone(pb)
+	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
 	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-	psa_file.StoreBone(pbb)
-
+	#psa_file.StoreBone(pbb)
 
 	nbone = nbone + 1
-	
 	
 	#RG - dump influences for this bone - use the data we collected in the mesh dump phase
 	# to map our bones to vertex groups
@@ -885,7 +889,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 			parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, None)
 	
 
-	
+
 def make_armature_bone(blender_object, psk_file, psa_file):
 	# this makes a dummy bone to offset the armature origin for each armature
 
@@ -932,7 +936,8 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		child_count += len(bones)
 		print "CHILD COUNT:", child_count, "COUNTER"
 	#=======================================================================================================
-	#here the problem for the errorCreate with out any fix root
+	#Root Error For Bone
+	#There are two conflict with the bones are create one is there is a error for missing mesh, two there are one bone add
 	#make root bone
 	#=======================================================================================================
 	#pb = make_vbone("Main-V", 0, child_count, FQuat(), Blender.Mathutils.Vector(0,0,0))
@@ -955,7 +960,7 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		print "---BONE LIST---"
 		for current_bone in bones:
 			#print len(bones)
-			print current_bone.name , "<-BONE NAME"
+			#print current_bone.name , "<-BONE NAME"
 			print "FUNCTION FOR PASRSE_BONE"
 			parse_bone(current_bone, psk_file, psa_file, 0, 1, current_obj.mat)
 		print "END BONE LIST"	
