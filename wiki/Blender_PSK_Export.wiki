@@ -13,7 +13,7 @@ The Export works. The vehicle work for a bit. Tested for vehicle.
 The bone weight is working for one bone that is the main root bone.  I have not yet fixed just need more research of the code. Need to fixed the weight bones.
 
 == Old Version ==
-Opti_PSK_Dump.py
+Opti_PSK_Dump.py http://www.p-fat.net/ -This is from the script that I use. Use what you like for this script. Just read me detail in this part.
 
 = Links: =
 http://www.p-fat.net/
