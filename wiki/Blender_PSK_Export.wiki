@@ -2,12 +2,18 @@
 
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
+Here my update of the psk that I been working on a bit.
+http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/plugins/MOD_Opti_PSK_Dump.py
+MOD_Opti_PSK_Dump.py < This is my update
 
 == Pros ==
-The Export works.
+The Export works. The vehicle work for a bit. Tested for vehicle.
 
 == Cons ==
-The bone is not fixes to the joint axis.
+The bone weight is working for one bone that is the main root bone.  I have not yet fixed just need more research of the code. Need to fixed the weight bones.
+
+== Old Version ==
+Opti_PSK_Dump.py
 
 = Links: =
 http://www.p-fat.net/
