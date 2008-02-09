@@ -1,5 +1,5 @@
 #summary Animation Export.
-= Use At Your Own Risk = 
+
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
 Here my update of the psk that I been working on a bit.
