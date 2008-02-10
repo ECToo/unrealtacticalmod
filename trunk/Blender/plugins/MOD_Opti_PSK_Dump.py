@@ -24,8 +24,7 @@ __bpydoc__ = """\
 - v0.0.3
 - Working on this version for main bone fixed and the update for Blender 2.45. Update By: Darknet
 - Note different UTXXXX game little different but with the same format build.
-- Work on parent and child id number and number of bone are counted.
-
+- Work on parent and child id number and number of bone are counted. There was a miss count for the bone that was sure it that part kept giving error
 
 """ 
 # DANGER! This code is complete garbage!  Do not read!
@@ -791,13 +790,20 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	global nbone 	# look it's evil!
 	
 	#print ' --- Dumping Bone --- '
-	print 'blender bone name: ' + blender_bone.name
-
-	if blender_bone.hasChildren():
-		child_count = len(blender_bone.children)
-	else:
-		child_count = 0
-	print "[CHILD COUNT]:", child_count
+	#print 'blender bone name: ' + blender_bone.name
+	#print "BONE CHILD:",len(blender_bone.children), "LENGTH"
+	#print dir(blender_bone)
+	#print "PARENT NUMBER HELLO:", dir(blender_bone)#, len(blender_bone.parent)
+	print "PARENT NUMBER HELLO:", blender_bone.length
+	#if blender_bone.hasChildren():
+	#	child_count = len(blender_bone.children)
+	#else:
+	#	child_count = 0
+	#print "[CHILD COUNT]:", child_count
+	
+	
+	#Note the is the parent this how many childs does it have for the bones
+	child_count = len(blender_bone.children)
 	
 	if (parent_mat):
 		head = blender_bone.head['BONESPACE'] * parent_mat
@@ -822,7 +828,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	#this is only needed for root bones, since UT assumes a connected skeleton, and from here
 	#down the chain we just use "tail" as an endpoint
 	#if(head.length > 0.001 and is_root_bone == 1):
-	print "[parent id]:", parent_id , " [final id]:",final_parent_id, 
+	print "[parent id]:", parent_id , " [child_count]:",child_count, 
 	
 	if(0):#Not sure this is even use 	
 		pb = make_vbone("dummy_" + blender_bone.name, parent_id, 1, FQuat(), head)
@@ -853,14 +859,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
 		#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
 		psa_file.StoreBone(pbb)
-	
-	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
-	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-	#psk_file.AddBone(pb)
-	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
-	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-	#psa_file.StoreBone(pbb)
-
+		
 	nbone = nbone + 1
 	
 	#RG - dump influences for this bone - use the data we collected in the mesh dump phase
@@ -870,7 +869,6 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		for vertex_data in vertex_list:
 			point_index = vertex_data[0]
 			vertex_weight = vertex_data[1]
-			
 			influence = VRawBoneInfluence()
 			#print influence
 			influence.Weight = vertex_weight
@@ -879,9 +877,8 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 			#print influence.BoneIndex
 			influence.PointIndex = point_index
 			#print influence.PointIndex
-			
+			#print "Weight", vertex_weight, "",my_id,point_index
 			#print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (blender_bone.name, point_index, vertex_weight)
-			
 			psk_file.AddInfluence(influence)
 		
 	#recursively dump child bones
@@ -920,33 +917,24 @@ def make_armature_bone(blender_object, psk_file, psa_file):
 	nbone = nbone + 1
 	return my_id
 	
-	
+"""
+This scetion deal with the armature know as bones.
+No more than one main armature or bone to be the main parent else it might crash your unreal engine.
+"""	
 def parse_armature(blender_armature, psk_file, psa_file):
-	
 	print "----- parsing armature -----"
 	#print 'blender_armature length: %i' % (len(blender_armature))
-	
 	#magic 0 sized root bone for UT - this is where all armature dummy bones will attach
 	#dont increment nbone here because we initialize it to 1 (hackity hackity hack)
-
 	#count top level bones first. screw efficiency again - ohnoz it will take dayz to runz0r!
+	
 	child_count = 0
 	for current_obj in blender_armature: 
 		current_armature = current_obj.getData()
 		bones = [x for x in current_armature.bones.values() if not x.hasParent()]
 		child_count += len(bones)
 		print "CHILD COUNT:", child_count, "COUNTER"
-	#=======================================================================================================
-	#Root Error For Bone
-	#There are two conflict with the bones are create one is there is a error for missing mesh, two there are one bone add
-	#make root bone
-	#=======================================================================================================
-	#pb = make_vbone("Main-V", 0, child_count, FQuat(), Blender.Mathutils.Vector(0,0,0))
-	#print child_count, "Hello child"
-	#psk_file.AddBone(pb)
-	#pbb = make_namedbonebinary("Main-B", 0, child_count, FQuat(), Blender.Mathutils.Vector(0,0,0), 0)
-	#psa_file.StoreBone(pbb)
-	
+
 	for current_obj in blender_armature: #looking for how many armatures it should be one build 
 		print 'current armature name: ' + current_obj.name
 		#print current_obj, "Hello-BONES"
@@ -1225,8 +1213,6 @@ def fs_callback(filename):
   	
   	##########################
   	# FILE WRITE
-  	
-  	
 	#RG - dump psk file
 	psk.PrintOut()
 	file = open(psk_filename, "wb") 
