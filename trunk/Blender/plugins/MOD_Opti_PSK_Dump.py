@@ -525,13 +525,13 @@ class PSAFile:
 # helpers to create bone structs
 def make_vbone(name, parent_index, child_count, orientation_quat, position_vect):
 	bone = VBone()
-	print "----VBONE----"
+	#print "----VBONE----"
 	bone.Name = name
-	print bone.Name, "----NAME----"
+	#print bone.Name, "----NAME----"
 	bone.ParentIndex = parent_index
-	print bone.ParentIndex, "----PARENT----"
+	#print bone.ParentIndex, "----PARENT----"
 	bone.NumChildren = child_count
-	print bone.ParentIndex, "----CHILD----"
+	#print bone.NumChildren, "----CHILD----"
 	bone.BonePos.Orientation = orientation_quat
 	bone.BonePos.Position.X = position_vect.x
 	bone.BonePos.Position.Y = position_vect.y
@@ -785,7 +785,8 @@ def make_fquat(bquat):
 #This fixed id parent number index list the default I think it is zero for main bone that is parent of the child
 #nbone = 1 #default
 nbone = 0
-	
+# first pass to the main root first then start the coutner to one later.	
+#parse_bone(current_bone, psk_file, psa_file, 0, 1, current_obj.mat) this is from the begin code execute look like first code enter
 def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat):
 	global nbone 	# look it's evil!
 	
@@ -847,16 +848,16 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	if my_id == 0:
 		print "Main parent", final_parent_id
 		#pb = make_vbone(blender_bone.name, 0, final_parent_id, quat, tail)
-		pb = make_vbone(blender_bone.name, 0, child_count, quat, tail)
+		pb = make_vbone(blender_bone.name, 0, child_count, quat, head)
 		psk_file.AddBone(pb)
 		#pbb = make_namedbonebinary(blender_bone.name, 0, final_parent_id,quat,tail, 0)
-		pbb = make_namedbonebinary(blender_bone.name, 0, child_count,quat,tail, 0)
+		pbb = make_namedbonebinary(blender_bone.name, 0, child_count,quat,head, 0)
 		psa_file.StoreBone(pbb)
 	else:
-		pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
+		pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
 		#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
 		psk_file.AddBone(pb)
-		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
+		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
 		#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
 		psa_file.StoreBone(pbb)
 		
@@ -866,26 +867,26 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	# to map our bones to vertex groups
 	if blender_bone.name in psk_file.VertexGroups:
 		vertex_list = psk_file.VertexGroups[blender_bone.name]
-		for vertex_data in vertex_list:
-			point_index = vertex_data[0]
-			vertex_weight = vertex_data[1]
-			influence = VRawBoneInfluence()
-			#print influence
-			influence.Weight = vertex_weight
-			#print influence.Weight
-			influence.BoneIndex = my_id
-			#print influence.BoneIndex
-			influence.PointIndex = point_index
-			#print influence.PointIndex
-			#print "Weight", vertex_weight, "",my_id,point_index
-			#print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (blender_bone.name, point_index, vertex_weight)
-			psk_file.AddInfluence(influence)
+		if len(vertex_list):#Check if there any array incase it add on by chance 
+			print "There is weight in the array"
+			for vertex_data in vertex_list:
+				#print "WEIGHT AND VERTEX"
+				point_index = vertex_data[0]
+				vertex_weight = vertex_data[1]
+				influence = VRawBoneInfluence()
+				influence.Weight = vertex_weight
+				influence.PointIndex = point_index
+				influence.BoneIndex = parent_id
+				#print influence.PointIndex
+				#print "Weight", vertex_weight, ":",my_id,point_index,"PARENT ID:",parent_id
+				print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (blender_bone.name, point_index, vertex_weight)
+				psk_file.AddInfluence(influence)
+				#print len(vertex_list)
 		
 	#recursively dump child bones
 	if blender_bone.hasChildren():
 		for current_child_bone in blender_bone.children:
 			parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, None)
-	
 
 
 def make_armature_bone(blender_object, psk_file, psa_file):
@@ -951,6 +952,7 @@ def parse_armature(blender_armature, psk_file, psa_file):
 			#print len(bones)
 			#print current_bone.name , "<-BONE NAME"
 			print "FUNCTION FOR PASRSE_BONE"
+			#first the code is  pass into the main root.
 			parse_bone(current_bone, psk_file, psa_file, 0, 1, current_obj.mat)
 		print "END BONE LIST"	
 
