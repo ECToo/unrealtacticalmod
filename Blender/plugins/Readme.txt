@@ -14,3 +14,6 @@ Opti_PSK_Dump.py
 -This has not built a weight yet in main root bone.
 -animation not fixed for the new version for 2.45
 -Extra bone add to the main root.
+
+MOD_Opti_PSK_Dump_ID_ISSUES.py
+-This one how have bone and weight is ID_ISSUES.
