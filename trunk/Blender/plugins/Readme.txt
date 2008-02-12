@@ -17,3 +17,6 @@ Opti_PSK_Dump.py
 
 MOD_Opti_PSK_Dump_ID_ISSUES.py
 -This one how have bone and weight is ID_ISSUES.
+
+MOD2_Opti_PSK_Dump.py
+-This some how it is fix for the bone to work just not sure about the bone and the weight have been tested yet. This is for fixing the vehicle iusses.
