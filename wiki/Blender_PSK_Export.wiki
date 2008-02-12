@@ -18,6 +18,10 @@ Opti_PSK_Dump.py (www.p-fat.net) -This is from the script that I use. Use what y
 = Links: =
 http://www.p-fat.net/
 
+FROM :Opti_PSK_Dump.py:Action
+PSA
+http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
+
 
 = Other =
 
