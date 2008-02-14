@@ -932,7 +932,7 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		bones = [x for x in current_armature.bones.values() if not x.hasParent()]
 		
 		for current_bone in bones:
-			parse_bone(current_bone, psk_file, psa_file, 0, 1, current_obj.mat)
+			parse_bone(current_bone, psk_file, psa_file, 0, 0, current_obj.mat)
 			
 
 # get blender objects by type		
