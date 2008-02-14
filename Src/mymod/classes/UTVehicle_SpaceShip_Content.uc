@@ -41,10 +41,17 @@ defaultproperties
 	End Object
 
 	Begin Object Name=SVehicleMesh
+	/*
                 SkeletalMesh=SkeletalMesh'customspaceship.Anims.spaceship_B02'
 		AnimTreeTemplate=AnimTree'customspaceship.anims.spaceship_B02_animtree'
 		PhysicsAsset=PhysicsAsset'customspaceship.anims.spaceship_B02_Physics'
 		MorphSets[0]=MorphTargetSet'customspaceship.anims.spaceship_B01_NewMorphTargetSet'
+        */
+		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
+		PhysicsAsset=PhysicsAsset'customvehicle.Mesh.car_Physics'
+		AnimTreeTemplate=AnimTree'customvehicle.Mesh.car_animtree'
+		AnimSets(0)=AnimSet'customvehicle.Mesh.car_AnimSet'
+		MorphSets[0]=MorphTargetSet'customvehicle.Mesh.Car_NewMorphTargetSet'
 	End Object
 
 	DrawScale=1.3

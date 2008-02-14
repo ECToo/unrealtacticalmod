@@ -47,11 +47,11 @@ defaultproperties
 	End Object
 
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'vehicle_demo.Anims.vehicle_demo_psk'
-		PhysicsAsset=PhysicsAsset'vehicle_demo.Anims.vehicle_demo_psk_Physics'
-		AnimTreeTemplate=AnimTree'vehicle_demo.Anims.vehicle_demo_psk_animtree'
-		AnimSets(0)=AnimSet'vehicle_demo.Anims.vehicle_demo_psk_animset'
-		MorphSets[0]=MorphTargetSet'vehicle_demo.Anims.vehicle_demo_psk_NewMorphTargetSet'
+		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
+		PhysicsAsset=PhysicsAsset'customvehicle.Mesh.car_Physics'
+		AnimTreeTemplate=AnimTree'customvehicle.Mesh.car_animtree'
+		AnimSets(0)=AnimSet'customvehicle.Mesh.car_AnimSet'
+		MorphSets[0]=MorphTargetSet'customvehicle.Mesh.Car_NewMorphTargetSet'
 		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled4=TRUE)
 	End Object
 

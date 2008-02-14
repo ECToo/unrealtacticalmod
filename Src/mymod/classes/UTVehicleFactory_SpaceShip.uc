@@ -6,7 +6,8 @@ class UTVehicleFactory_SpaceShip extends UTVehicleFactory;
 defaultproperties
 {
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'customspaceship.Anims.spaceship_B02'
+		//SkeletalMesh=SkeletalMesh'customspaceship.Anims.spaceship_B02'
+		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
 	End Object
 
 	Components.Remove(Sprite)
