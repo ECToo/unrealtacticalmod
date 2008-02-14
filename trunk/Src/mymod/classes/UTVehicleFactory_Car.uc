@@ -6,7 +6,7 @@ class UTVehicleFactory_Car extends UTVehicleFactory;
 defaultproperties
 {
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'vehicle_demo.Anims.vehicle_demo_psk'
+		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
 		Translation=(X=40.0,Y=0.0,Z=-50.0)
 	End Object
 

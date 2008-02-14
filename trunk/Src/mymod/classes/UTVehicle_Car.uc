@@ -111,7 +111,7 @@ defaultproperties
 		BoneName="B_R_Tire"
 		BoneOffset=(X=0.0,Y=42.0,Z=0.0)
 		SkelControlName="Rt_Rear_Control"
-		LatSlipFactor=2.0
+		LatSlipFactor=1.0
 	End Object
 	Wheels(0)=RRWheel
 
@@ -119,7 +119,7 @@ defaultproperties
 		BoneName="B_L_Tire"
 		BoneOffset=(X=0.0,Y=-42.0,Z=0.0)
 		SkelControlName="Lt_Rear_Control"
-		LatSlipFactor=2.0
+		LatSlipFactor=1.0
 	End Object
 	Wheels(1)=LRWheel
 
@@ -128,8 +128,8 @@ defaultproperties
 		BoneOffset=(X=0.0,Y=42.0,Z=0.0)
 		SteerFactor=1.0
 		SkelControlName="RT_Front_Control"
-		LongSlipFactor=2.0
-		LatSlipFactor=2.0
+		LongSlipFactor=1.0
+		LatSlipFactor=1.0
 		HandbrakeLongSlipFactor=0.8
 		HandbrakeLatSlipFactor=0.8
 	End Object
@@ -140,8 +140,8 @@ defaultproperties
 		BoneOffset=(X=0.0,Y=-42.0,Z=0.0)
 		SteerFactor=1.0
 		SkelControlName="Lt_Front_Control"
-		LongSlipFactor=2.0
-		LatSlipFactor=2.0
+		LongSlipFactor=1.0
+		LatSlipFactor=1.0
 		HandbrakeLongSlipFactor=0.8
 		HandbrakeLatSlipFactor=0.8
 	End Object
