@@ -108,40 +108,40 @@ defaultproperties
 	Components.Add(SimObject)
 
 	Begin Object Class=UTVehicleHellbenderWheel Name=RRWheel
-		BoneName="B_R_Tire"
+		BoneName="Rt_Rear_Tire"
 		BoneOffset=(X=0.0,Y=42.0,Z=0.0)
 		SkelControlName="Rt_Rear_Control"
-		LatSlipFactor=1.0
+		LatSlipFactor=2.0
 	End Object
 	Wheels(0)=RRWheel
 
 	Begin Object Class=UTVehicleHellbenderWheel Name=LRWheel
-		BoneName="B_L_Tire"
+		BoneName="Lt_Rear_Tire"
 		BoneOffset=(X=0.0,Y=-42.0,Z=0.0)
 		SkelControlName="Lt_Rear_Control"
-		LatSlipFactor=1.0
+		LatSlipFactor=2.0
 	End Object
 	Wheels(1)=LRWheel
 
 	Begin Object Class=UTVehicleHellbenderWheel Name=RFWheel
-		BoneName="F_R_Tire"
+		BoneName="Rt_Front_Tire"
 		BoneOffset=(X=0.0,Y=42.0,Z=0.0)
 		SteerFactor=1.0
 		SkelControlName="RT_Front_Control"
-		LongSlipFactor=1.0
-		LatSlipFactor=1.0
+		LongSlipFactor=2.0
+		LatSlipFactor=2.0
 		HandbrakeLongSlipFactor=0.8
 		HandbrakeLatSlipFactor=0.8
 	End Object
 	Wheels(2)=RFWheel
 
 	Begin Object Class=UTVehicleHellbenderWheel Name=LFWheel
-		BoneName="F_L_Tire"
+		BoneName="Lt_Front_Tire"
 		BoneOffset=(X=0.0,Y=-42.0,Z=0.0)
 		SteerFactor=1.0
 		SkelControlName="Lt_Front_Control"
-		LongSlipFactor=1.0
-		LatSlipFactor=1.0
+		LongSlipFactor=2.0
+		LatSlipFactor=2.0
 		HandbrakeLongSlipFactor=0.8
 		HandbrakeLatSlipFactor=0.8
 	End Object

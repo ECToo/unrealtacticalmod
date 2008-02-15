@@ -47,15 +47,16 @@ defaultproperties
 	End Object
 
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
-		PhysicsAsset=PhysicsAsset'customvehicle.Mesh.car_Physics'
-		AnimTreeTemplate=AnimTree'customvehicle.Mesh.car_animtree'
-		AnimSets(0)=AnimSet'customvehicle.Mesh.car_AnimSet'
-		MorphSets[0]=MorphTargetSet'customvehicle.Mesh.Car_NewMorphTargetSet'
+		SkeletalMesh=SkeletalMesh'customvehicle.Anims.vehicle_test'
+		PhysicsAsset=PhysicsAsset'customvehicle.Anims.vehicle_test_Physics'
+		AnimTreeTemplate=AnimTree'customvehicle.Anims.vehicle_test_animtree'
+		AnimSets(0)=AnimSet'customvehicle.Anims.vehicle_test_NewAnimSet'
+		MorphSets[0]=MorphTargetSet'customvehicle.Anims.vehicle_test_NewMorphTargetSet'
 		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled4=TRUE)
 	End Object
 
-	DrawScale=16
+	//DrawScale=16
+	DrawScale=1.2
 
 	FlagOffset=(X=9.0,Y=-44,Z=80)
 

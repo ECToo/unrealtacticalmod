@@ -1,13 +1,6 @@
 README Opti_PSK_Dump
 There should be one mesh and one armature object else will cause an error.
-You need to triangle when your done.
-
-MOD_Opti_PSK_Dump.py
--This has been update and found some error from number of parent and ID list that was found during the test.
--I notice there was bone weight work for vehicle test but there are another problem with the bone weight 
-didn't work for the rest of the other bones just the main body work only. Not sure it was build correctly 
-for bones weights.
-
+You need to convert to triangles (Ctrl + t) when your done.
 
 Opti_PSK_Dump.py
 -This work all the wired frame work but the vehicle base does not work.
@@ -15,8 +8,18 @@ Opti_PSK_Dump.py
 -animation not fixed for the new version for 2.45
 -Extra bone add to the main root.
 
-MOD_Opti_PSK_Dump_ID_ISSUES.py
--This one how have bone and weight is ID_ISSUES.
+Opti_PSK_Dump_UT3.py
+- This will work on UT3 and it is a stable version that work with vehicle for testing. 
+- Main Bone fix no dummy needed to be there. Some part of the area may not work when main bone did not detect.
+- Fix the bone offset position as head bone that connect to it.
+- There are two points which is the head and tail.
+- Note I add on to the notes a bit and comments out the other ones that are not need in here.
+- Did not work with psk export yet.
+- Edit by: Darknet
 
-MOD2_Opti_PSK_Dump.py
--This some how it is fix for the bone to work just not sure about the bone and the weight have been tested yet. This is for fixing the vehicle iusses.
+Trouble shooting:
+point count : must equal  to inlfuence count else it will crash.
+inlfuence count : must equal  to point count else it will crash.
+
+I see my object flashing how I fix this?
+Update your animtree,animset,etc if you reimport your mesh again to fix some error. Check your log.

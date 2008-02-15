@@ -6,7 +6,7 @@ class UTVehicleFactory_Car extends UTVehicleFactory;
 defaultproperties
 {
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'customvehicle.Mesh.car'
+		SkeletalMesh=SkeletalMesh'customvehicle.Anims.vehicle_test'
 		Translation=(X=40.0,Y=0.0,Z=-50.0)
 	End Object
 
@@ -19,6 +19,6 @@ defaultproperties
 	End Object
 
 	VehicleClassPath="mymod.UTVehicle_Car_Content"
-	//DrawScale=1.2
-	DrawScale=16
+	DrawScale=1.2
+	//DrawScale=16
 }
