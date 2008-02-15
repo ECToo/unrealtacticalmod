@@ -18,7 +18,7 @@ Opti_PSK_Dump_UT3.py
 - Edit by: Darknet
 
 Trouble shooting:
-point count : must equal  to inlfuence count else it will crash.
+point count : must equal to inlfuence count else it will crash.
 inlfuence count : must equal  to point count else it will crash.
 
 I see my object flashing how I fix this?
