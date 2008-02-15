@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Link Tutorials.
 
 =Blender Tutorials And Videos:=
 
