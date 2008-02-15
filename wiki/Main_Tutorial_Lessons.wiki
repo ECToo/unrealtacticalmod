@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary This is the main Lesson that will be link to the pages.
 
 = Introduction =
 
