@@ -1,6 +1,6 @@
 #!BPY
 """ 
-Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) MOD2' 
+Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa)' 
 Blender: 240 
 Group: 'Export' 
 Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa)' 
@@ -27,7 +27,7 @@ __bpydoc__ = """\
 - Fix the bone offset position as head bone that connect to it.
 - There are two points which is the head and tail.
 - Note I add on to the notes a bit and comments out the other ones that are not need in here.
-- Did not work with psk export yet.
+- Did not work with psa export yet.
 - Edit by: Darknet
 
 """ 
