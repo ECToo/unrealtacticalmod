@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Pages Links.
 
 Is there a way to control my dedicated server when I am connected to it as a player?
 - Yes. In order to do this you must have specified an Admin password in the command line that loads the dedicated server. 
