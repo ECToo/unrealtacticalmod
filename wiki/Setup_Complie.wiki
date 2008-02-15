@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary localtion setup and simple build.
 
 = where package to be complie for .uc: =
 
