@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Pages Links.
 
 links:
 http://udn.epicgames.com/Three/UIEditorUserGuide.html
