@@ -1,6 +1,6 @@
 #!BPY
 """ 
-Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod' 
+Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod02' 
 Blender: 240 
 Group: 'Export' 
 Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa)' 
