@@ -4,7 +4,7 @@
 This section will give you the basic information about make game mod still working some area for a bit to update this section of the wiki page.
 
 = Setup Area =
-[Work_Area where are the files going to start from]
+[Unreal_Setup_Complie]
 
 == PSK Export ==
 [Blender_Export_PSK]
