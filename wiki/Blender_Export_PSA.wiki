@@ -16,6 +16,9 @@ Beware You can not delete your action if you made a mistake that I don’t not k
 Here what you need to learn how to use action editor in blender to export psa.
 http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
 
+Here the file from svn:
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
+
 = SVN: =
 Here the src in svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/MOD2_Opti_PSK_Dump_UT3.py
