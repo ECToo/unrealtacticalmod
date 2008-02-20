@@ -1,6 +1,6 @@
 #summary This is action animation frame.AnimSet.
 
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Screen_Shots/psa_test.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/psa_test.jpg
 
 = Information: =
 In the blender area where you work. This the basic knowledge that you need to be in pose mode. To make the animation you need the following panel to make the animation to work in unreal.
