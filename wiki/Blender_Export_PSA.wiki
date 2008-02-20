@@ -1,6 +1,6 @@
 #summary This is action animation psa.
 
-= Information =
+= Information: =
 In the blender area where you work. This the basic knowledge that you need to be in pose mode. To make the animation you need the following panel to make the animation to work in unreal.
 
  * Ipo Cruve Editor
@@ -10,6 +10,6 @@ In the blender area where you work. This the basic knowledge that you need to be
 If you want to make a new action use “Action Editor” panel. Near the “AC” where the up and down icon click “ADD  NEW”. Once you create a another action there a number plus one added with their name. Saying that you made a new action that has a copy of the new action just delete your bone pose and start from one. Just double check your other action name.
 
 Beware You can not delete your action if you made a mistake that I don’t not know how to remove the new action.
-= SVN =
+= SVN: =
 Here the src in svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/MOD2_Opti_PSK_Dump_UT3.py
