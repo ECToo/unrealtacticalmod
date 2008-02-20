@@ -1,4 +1,4 @@
-#summary This is action animation psa.
+#summary This is action animation frame.AnimSet.
 
 = Information: =
 In the blender area where you work. This the basic knowledge that you need to be in pose mode. To make the animation you need the following panel to make the animation to work in unreal.
