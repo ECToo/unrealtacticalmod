@@ -3,7 +3,8 @@
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
 Here my update of the psk that I been working on a bit.
-http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/plugins/MOD_Opti_PSK_Dump.py
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/MOD2_Opti_PSK_Dump_UT3.py
+
 MOD_Opti_PSK_Dump.py < This is my update
 
 == Pros ==
