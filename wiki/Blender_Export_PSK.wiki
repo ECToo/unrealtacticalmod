@@ -20,9 +20,6 @@ http://www.p-fat.net/
 
 FROM :Opti_PSK_Dump.py:Action
 PSA
-http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
-
-
+ * http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
 = Other =
-
-http://www.blender.org/forum/viewtopic.php?t=4448&highlight=psk
+ * http://www.blender.org/forum/viewtopic.php?t=4448&highlight=psk
