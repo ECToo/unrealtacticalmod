@@ -5,6 +5,20 @@
 = Setup Area =
 [Work_Area where are the files going to start from]
 
+== PSK Export ==
+[Blender_Export_PSK]
+Here example file:
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
+Those are test in unreal.
+To test it out use the hellbender vehicle.
+
+== PSA Export ==
+Read more in this section of the wiki link to the page about export it.
+[Blender_Export_PSA]
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
+Those are test in unreal.
+
+
 == Vehicle Build ==
 [UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
 
