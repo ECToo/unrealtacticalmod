@@ -1,39 +1,58 @@
-README Opti_PSK_Dump
-There should be one mesh and one armature object else will cause an error.
+#==============================================================================
+# README FIRST FOR YOUR FILES MIGHT NOT WORK OR IT CRASH ON YOU IN UNREAL AND THE GAME.
+#==============================================================================
+
+There should be one mesh and one armature object else will cause an error. This select the first object two objects.
+The mesh and the armature mush be place in order else it will not work.
+Mesh should be select first and then the armature. Then (Ctrl + p) to parent the objects.
+Armature > Create From Closest Bones
+
 All weights must be use up for the bones else it will crash on you.
 You need to convert to triangles (Ctrl + t -should be in vertex view) when your done.
 
-Opti_PSK_Dump.py
--This work all the wired frame work but the vehicle base does not work.
--This has not built a weight yet in main root bone.
--animation not fixed for the new version for 2.45
--Extra bone add to the main root.
+- To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
 
-Opti_PSK_Dump_UT3.py
+#==============================================================================
+# Opti_PSK_Dump_UT3.py
+#==============================================================================
+- I double check my work that took long to fix any prolblem that many come.
 - This will work on UT3 and it is a stable version that work with vehicle for testing. 
 - Main Bone fix no dummy needed to be there. Some part of the area may not work when main bone did not detect.
 - Fix the bone offset position as head bone that connect to it.
 - There are two points which is the head and tail.
 - Note I add on to the notes a bit and comments out the other ones that are not need in here.
 - Did not work with psk export yet.
-- Edit by: Darknet
-
-Trouble shooting:
-point count : must equal to inlfuence count else it will crash.
-inlfuence count : must equal  to point count else it will crash.
-
-I see my object flashing how I fix this?
-Update your animtree,animset,etc if you reimport your mesh again to fix some error doesn't update your 
-other mesh some time. Check your log when your ingame test.
 
 
+- v0.0.3
 - Main Bone fix no dummy needed to be there. Some part of the area may not work when main bone did not detect.
 - Fix the bone offset position as head bone that connect to it.
 - There are two points which is the head and tail are little different other software programs.
 - Note I add on to the notes a bit and comments out the other ones that are not need in here.
 - Did not work with psa export yet.
+
+- v0.0.4
+- This is an update to fix the bone pose iusses position in psa that is off set to the tail and not to the head. That is now fixed to the head.
+- To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
 - Edit by: Darknet
 
+#==============================================================================
+# Trouble shooting:
+#==============================================================================
+point count : must equal to inlfuence count else it will crash.
+inlfuence count : must equal  to point count else it will crash.
+
+I see my object flashing how I fix this?
+Update your animtree,animset,etc if you reimport your mesh again to fix some error doesn't update your other mesh some time. Check your log when your ingame test.
+
+
+#==============================================================================
+# Opti_PSK_Dump.py
+#==============================================================================
+-This work all the wired frame work but the vehicle base does not work.
+-This has not built a weight yet in main root bone.
+-animation not fixed for the new version for 2.45
+-Extra bone add to the main root.
 
 main source code for exporter psk/psa:
 http://www.p-fat.net/
@@ -49,8 +68,9 @@ Caveats:
     * There may be some other stuff we forgot to account for, dont complain if it doesn't work!
     * Modify and add features to this script as you will, if you can make it better, or add features we've left out, by all means do so, just please, email me a copy!
 
-
-Copy Rights:
+#==============================================================================
+# Copy Rights:
+#==============================================================================
 Links:http://udn.epicgames.com/Two/BinaryFormatSpecifications.html
 
 Animation file data structures 

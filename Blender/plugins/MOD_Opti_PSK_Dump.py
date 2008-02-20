@@ -745,11 +745,13 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	
 	#print ' --- Dumping Bone --- '
 	print 'blender bone name: ' + blender_bone.name
-
+	'''
 	if blender_bone.hasChildren():
 		child_count = len(blender_bone.children)
 	else:
 		child_count = 0
+	'''
+	child_count = len(blender_bone.children)
 	'''
 	if (parent_mat):
 		head = blender_bone.head['BONESPACE'] * parent_mat
@@ -791,27 +793,14 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		tail = tail-head
 		
 	my_id = nbone
-	'''
-	if nbone==0:
-		pb = make_vbone(blender_bone.name, 0, child_count, FQuat(), Blender.Mathutils.Vector(0,0,0))
-		psk_file.AddBone(pb)
-		pbb = make_namedbonebinary(blender_bone.name, 0, child_count, FQuat(), Blender.Mathutils.Vector(0,0,0), 0)
-		psa_file.StoreBone(pbb)
-	else:
-		pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, tail)
-		#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
-		psk_file.AddBone(pb)
-		pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, tail, 1)
-		#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
-		psa_file.StoreBone(pbb)
-	'''
+
 	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
 	#pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat, head)
 	psk_file.AddBone(pb)
 	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
 	#pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat, head, 1)
 	psa_file.StoreBone(pbb)
-
+	#print "final_parent_id",final_parent_id,"child_count",child_count,"nbone:",nbone,"my_id:",my_id
 	nbone = nbone + 1
 	
 	#RG - dump influences for this bone - use the data we collected in the mesh dump phase
@@ -827,7 +816,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 			influence.BoneIndex = my_id
 			influence.PointIndex = point_index
 			
-			print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (my_id, point_index, vertex_weight)
+			#print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (my_id, point_index, vertex_weight)
 			
 			psk_file.AddInfluence(influence)
 	
@@ -1075,6 +1064,8 @@ def parse_animation(blender_scene, psa_file):
 
 def fs_callback(filename):
 	t = sys.time() 
+	#import time
+	#import datetime
 	print "======EXPORTING TO UNREAL SKELETAL MESH FORMATS========\r\n"
 	
 	psk = PSKFile()
@@ -1161,6 +1152,12 @@ def fs_callback(filename):
 	else:
 		print 'No Animations to Export'
 	print 'My Export PSK/PSA Script finished in %.2f seconds' % (sys.time()-t) 
+	#t = datetime.datetime.now()
+	#print "Epoch Seconds:", time.mktime(t.timetuple())
+	#EpochSeconds = time.mktime(t.timetuple())
+	#print datetime.datetime.fromtimestamp(EpochSeconds)
+	#now = datetime.datetime.fromtimestamp(datetime.datetime.now())
+	#print now.ctime()
 
 if __name__ == '__main__': 
 	Window.FileSelector(fs_callback, 'Export PSK/PSA File', sys.makename(ext='.psk'))
