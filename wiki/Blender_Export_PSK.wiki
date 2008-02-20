@@ -1,4 +1,4 @@
-#summary Animation Export.
+#summary Skeletal Mesh Export. Characters/Vehicles
 
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
