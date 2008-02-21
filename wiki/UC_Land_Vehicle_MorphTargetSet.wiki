@@ -5,18 +5,19 @@ This part where your vehicle is damage. This is a simple import your mesh in the
 
 
 = Details =
-{{{
+
 For any software that you exporting to is to make damage vehicle. Make each part damage like your doors,  fenders, wings,etc to make look it really damges vehicle.
 
 Create your MorphTargetSet that is current object your making. Name your package careful of the UT3 Default build to make your self better builder of your mod.
 
 You have to export your mesh in psk format keep your vehicle the same as possiable to keep your files from getting big. Build your vehicle into pices of the places are damage.
 While your in your MorphTargetSet go to:
+
 File > Import MorphTarget > YourPSK.File
+
 You be ask to neame your damage part of your to keep the UT3 format clean.
 
 If you are getting error like the object stay the same update your weights that depend if you using the same model. Well Doing a quick test it works.
 
 
 All thought it just notes that I notice.
-}}}
