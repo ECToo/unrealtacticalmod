@@ -16,6 +16,9 @@ Beware You can not delete your action if you made a mistake that I don’t not k
 Here what you need to learn how to use action editor in blender to export psa.
 http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
 
+Here a video link for basic setup animatoin:
+http://video.google.ca/videoplay?docid=3795156702262154408
+
 Here the file from svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 
