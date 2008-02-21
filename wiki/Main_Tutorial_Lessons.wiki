@@ -37,7 +37,7 @@ Those are tested in unreal.
 
 []-Working with textures with gimp.
 
-[UC_Land_Vehicle_SkeletalMesh]- Importing SkeletalMesh
+[UC_Land_Vehicle_SkeletalMesh]- Importing Skeletal Mesh
 
 [UC_Land_Vehicle_AnimSet]-Creating animation.
 
