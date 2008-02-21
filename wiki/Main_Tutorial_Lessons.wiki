@@ -37,7 +37,11 @@ Those are tested in unreal.
 
 []-Working with textures with gimp.
 
-[]-
+[UC_Land_Vehicle_AnimSet]-Creating animation.
+
+[UC_Land_Vehicle_AnimTree]-This Control your vehicle does.
+
+
 
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
