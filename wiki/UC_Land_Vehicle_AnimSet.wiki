@@ -1,5 +1,5 @@
 #summary Basic AnimationSet Where all the action sequence.
-
+[Main_Tutorial_Lessons]
 = Introduction =
 There are not a lot of the information yet. To make the animation work you need to add the bones in animset in the proporeties under UseTranslationBoneNames then add bones to update the animation.
 
