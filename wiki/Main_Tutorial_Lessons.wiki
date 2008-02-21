@@ -6,7 +6,6 @@ This section will give you the basic information about make game mod still worki
 Here a demo of my vehicle just it testing for fun.
 http://www.youtube.com/v/3N9-PCsaYtg&rel=1
 
-http://video.google.ca/videoplay?docid=3795156702262154408
 = Setup Area =
 [Unreal_Setup_Complie]
 
