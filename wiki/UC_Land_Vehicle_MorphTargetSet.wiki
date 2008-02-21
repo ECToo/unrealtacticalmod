@@ -14,7 +14,7 @@ Create your MorphTargetSet that is current object your making. Name your package
 
 You have to export your mesh in psk format keep your vehicle the same as possible to keep your files from getting big. Build your vehicle into pieces of the places are damage.
 While your in your MorphTargetSet go to:
-== Importing Your Psk Mesh in MorphTargetSet ==
+=== Importing Your Psk Mesh in MorphTargetSet ===
 File > Import MorphTarget > YourPSK.File
 
 You be ask to name your damage part of your to keep the UT3 format clean.
