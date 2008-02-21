@@ -1,7 +1,7 @@
 #summary One-sentence summary of this page.
 
 = Introduction =
-In unreal editor where you import your mesh into the level editor. You need to add the socket for view port, grap hook and other thing relation to make the vehicle work.
+In unreal editor where you import your mesh into the level editor. You need to add the socket for view port, grip hook and other thing relation to make the vehicle work that depend if you want to add them in the socket manger.
 
 
 = Details =
