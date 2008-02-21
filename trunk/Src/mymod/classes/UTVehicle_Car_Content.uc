@@ -55,8 +55,9 @@ defaultproperties
 		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled4=TRUE)
 	End Object
 
-	//DrawScale=16
-	DrawScale=1.2
+        //DrawScale=1.2
+	DrawScale=4
+
 
 	FlagOffset=(X=9.0,Y=-44,Z=80)
 

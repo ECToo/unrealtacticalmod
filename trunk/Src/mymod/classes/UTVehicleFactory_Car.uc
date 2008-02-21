@@ -19,6 +19,6 @@ defaultproperties
 	End Object
 
 	VehicleClassPath="mymod.UTVehicle_Car_Content"
-	DrawScale=1.2
-	//DrawScale=16
+	//DrawScale=1.2
+        DrawScale=4
 }
