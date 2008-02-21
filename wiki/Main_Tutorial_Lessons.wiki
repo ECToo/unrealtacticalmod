@@ -37,6 +37,8 @@ Those are tested in unreal.
 
 []-Working with textures with gimp.
 
+[UC_Land_Vehicle_SkeletalMesh]- Importing SkeletalMesh
+
 [UC_Land_Vehicle_AnimSet]-Creating animation.
 
 [UC_Land_Vehicle_AnimTree]-This Control your vehicle does.
