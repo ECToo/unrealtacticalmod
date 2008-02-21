@@ -1,7 +1,5 @@
 #summary This is the main Lesson that will be link to the pages.
 
-http://video.google.com/googleplayer.swf?docId=-5295783370109329036&hl=en-CA
-
 = Introduction =
 This section will give you the basic information about make game mod still working some area for a bit to update this section of the wiki page.
 Here a demo of my vehicle just it testing for fun.
