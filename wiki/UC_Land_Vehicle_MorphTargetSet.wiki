@@ -5,6 +5,7 @@ This part where your vehicle is damage. This is a simple import your mesh in the
 
 
 = Details =
+{{{
 For any software that you exporting to is to make damage vehicle. Make each part damage like your doors,  fenders, wings,etc to make look it really damges vehicle.
 
 Create your MorphTargetSet that is current object your making. Name your package careful of the UT3 Default build to make your self better builder of your mod.
@@ -18,3 +19,4 @@ If you are getting error like the object stay the same update your weights that 
 
 
 All thought it just notes that I notice.
+}}}
