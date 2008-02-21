@@ -1,0 +1,8 @@
+#summary Basic Setup for AnimTree.
+
+
+= Information =
+To get your vehicle working you need wheel control and suspence wheel. Those are need to update each wheel. wheel out them the wheel would not move or act funny.
+
+= Details =
+
