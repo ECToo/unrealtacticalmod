@@ -1,12 +1,12 @@
 #!BPY
 """ 
-Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod' 
+Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod06' 
 Blender: 240 
 Group: 'Export' 
 Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa)' 
 """ 
 __author__ = "Optimus_P-Fat/Active_Trash" 
-__version__ = "0.0.5" 
+__version__ = "0.0.4" 
 __bpydoc__ = """\ 
 
 -- Unreal Skeletal Mesh and Animation Export (.psk  and .psa) export script v0.0.1 --<br> 
@@ -33,10 +33,6 @@ __bpydoc__ = """\
 - v0.0.4
 - This is an update to fix the bone pose iusses position in psa that is off set to the tail and not to the head. That is now fixed to the head.
 - To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
-- Edit by: Darknet
-
-- v0.0.5
-- Fixed bone offset from head bone that was position off a bit. Part of it need the tail to fixed the rotation.
 - Edit by: Darknet
 
 """ 
@@ -767,9 +763,9 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		tail = blender_bone.tail['BONESPACE']
 		quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
 	'''
-	head = blender_bone.head['ARMATURESPACE']
-	tail = blender_bone.tail['ARMATURESPACE']
-	quat = make_fquat(blender_bone.matrix['ARMATURESPACE'].toQuat())
+	head = blender_bone.head['BONESPACE']
+	tail = blender_bone.tail['BONESPACE']
+	quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
 		
 	bone_vect = tail-head
 	
@@ -1005,9 +1001,9 @@ def parse_animation(blender_scene, psa_file):
 					#LOUD
 					#print "-------------------", pose_bone.name
 					
-					head = blender_bone.head['ARMATURESPACE']
-					tail = blender_bone.tail['ARMATURESPACE']
-					quat = blender_bone.matrix['ARMATURESPACE'].toQuat()
+					head = blender_bone.head['BONESPACE']
+					tail = blender_bone.tail['BONESPACE']
+					quat = blender_bone.matrix['BONESPACE'].toQuat()
 					
 					#print "Head: ", head
 					#print "Tail: ", tail
@@ -1020,9 +1016,8 @@ def parse_animation(blender_scene, psa_file):
 					quat = grassman(quat, pose_bone.quat)
 					
 					#WOW
-					tail2 = tail
-					tail = (pose_bone.quat * (tail)) + tail + pose_bone.loc
-					head = (pose_bone.quat * (tail2-head)) + head + pose_bone.loc
+					tail = (pose_bone.quat * (head)) + head + pose_bone.loc
+					
 					# no parent?  apply armature transform
 					if not blender_bone.hasParent():
 						parent_mat = obj.mat
@@ -1036,9 +1031,9 @@ def parse_animation(blender_scene, psa_file):
 					#print "L0c: ", pose_bone.loc
 					
 					vkey = VQuatAnimKey()
-					vkey.Position.X = head.x
-					vkey.Position.Y = head.y
-					vkey.Position.Z = head.z
+					vkey.Position.X = tail.x
+					vkey.Position.Y = tail.y
+					vkey.Position.Z = tail.z
 					
 					#vkey.Position.X = 0.0
 					#vkey.Position.Y = 1.0
