@@ -37,11 +37,13 @@ Those are tested in unreal.
 
 []-working with UV textures from blender
 
+[]-Working with textures with Blender.
+
+[]-Working with textures with Gimp.
+
 []-Working with animation from blender.
 
 []-Exporting to files to unreal format.
-
-[]-Working with textures with gimp.
 
 [UC_Land_Vehicle_SkeletalMesh]- Importing Skeletal Mesh
 
