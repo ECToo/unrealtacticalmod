@@ -9,6 +9,9 @@ Export Script for blender Information:
 Here a demo of my vehicle just it testing for fun.
 http://www.youtube.com/v/3N9-PCsaYtg&rel=1
 
+Quick setup for psa/psk video for animatoin test in unreal and blender.
+http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
+
 = Setup Area =
 [Unreal_Setup_Complie]
 
