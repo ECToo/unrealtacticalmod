@@ -3,3 +3,5 @@
 = Information =
 I currently try to work as I make vehicles, weapons and other mods to make good mod games.
 
+== Erorr ==
+I know there are some error like offset bone are not fix yet and working out the main bone that crash when I try to work on it. It takes a long hours to under the code bit by bit until I can find a stable code output that will not crash me or other who want to use free blender.
