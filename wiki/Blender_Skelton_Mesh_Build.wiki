@@ -20,3 +20,7 @@ http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_parent03.
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_parent04.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_parent05.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_parent06.jpg
+
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint01.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint02.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint03.jpg
