@@ -1,7 +1,11 @@
-#summary Listing.
+#summary Current Version 0.0.4
 
 = Information =
 I currently try to work as I make vehicles, weapons and other mods to make good mod games.
+
+
+= Working Area =
+Animation work need to fixed the off set.
 
 Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
