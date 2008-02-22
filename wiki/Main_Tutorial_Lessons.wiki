@@ -1,7 +1,7 @@
 #summary This is the main Lesson that will be link to the pages.
 
 = Introduction =
-This section will give you the basic information about make game mod still working some area for a bit to update this section of the wiki page. There are exmaple files in the svn that you can use to test out your current blender files if your files are workking right.
+This section will give you the basic information about make game mod still working some area for a bit to update this section of the wiki page. There are exmaple files in the svn that you can use to test out your current blender files if your files are workking right. Each part of this section is where I am currently workking on. Update the page take time to complete.
 
 Here a demo of my vehicle just it testing for fun.
 http://www.youtube.com/v/3N9-PCsaYtg&rel=1
@@ -22,7 +22,7 @@ To test it out use the hellbender vehicle class.
 == PSA Export ==
 Read more in this section of the wiki link to the page about export it.
 
-[Blender_Export_PSA]
+[Blender_Export_PSA]-Animation tell you about more in here.
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 Those are tested in unreal.
