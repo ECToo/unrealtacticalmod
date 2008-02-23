@@ -1,0 +1,6 @@
+#summary Basc weapon modeling.
+
+= Introduction =
+
+
+= Details =
