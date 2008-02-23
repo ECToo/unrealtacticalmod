@@ -17,3 +17,5 @@ http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_action13.
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_action14.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_action15.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_action16.jpg
+
+Don't forget to triangle the mesh. 
