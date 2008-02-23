@@ -64,7 +64,7 @@ I think I should create a demo weapon once I finish the animation error for the 
 
 [Blender_Weapon_Model]-
 
-[Blender_Weapon_Model_1P]-Error found need to fix bone some how.
+[Blender_Weapon_Model_1P]-Error found need to fix bone some how. Resaon the bone not going to same spot it center.
 
 [Blender_Weapon_Model_3P]- There is a file have not yet testing in the game yet. I Final got the bone rotation fixed.
 
