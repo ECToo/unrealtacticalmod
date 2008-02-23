@@ -66,7 +66,7 @@ I think I should create a demo weapon once I finish the animation error for the 
 
 [Blender_Weapon_Model_1P]-
 
-[Blender_Weapon_Model_3P]-
+[Blender_Weapon_Model_3P]- There is a file have not yet testing in the game yet. I Final got the bone rotation fixed.
 
 [Blender_Weapon_Action_Editor]-Create a two set of animation.
 
