@@ -1,6 +1,7 @@
 #summary Basc weapon modeling.
 
-= Introduction =
+= Modeling =
+There are two modeling that has to support two different animation from firsth person view and the third person view. They have be the same animation.
 
-
-= Details =
+[Blender_Weapon_Model_1P]
+[Blender_Weapon_Model_3P]
