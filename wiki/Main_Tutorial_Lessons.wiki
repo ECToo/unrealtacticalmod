@@ -61,7 +61,7 @@ Those are tested in unreal.
 [UC_Land_Vehicle_PhysicalMaterial]-
 
 == Weapon Build  ==
-I think I should create a demo weapon once I finish the animation error for the off set a bit.
+I think I should create a demo weapon once I finish the animation error for the off set a bit. Those are not yet writen,just setting up the basic for now.
 
 [Blender_Weapon_Model]-
 
