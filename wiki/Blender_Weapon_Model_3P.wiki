@@ -1,4 +1,8 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
-Modeling there will be two bone in this part. All the animation will be create.
+= Work Log =
+I final got the bone rotation that took about 2 hour or so to figure are working little different from the software I use. The rotation change quickly if the bone rotate at 90 degree and the x, y, and z change quick that didn't notice so I check the setting to draw the axis.
+
+Here the demo that build up just for few for 3RD Person. Going to use the shook rifle.
+
+SVN:http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_3P.blend
