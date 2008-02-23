@@ -1,0 +1,23 @@
+#summary One-sentence summary of this page.
+
+= Action Editor Name =
+
+The name of the weapon will have to right name when input.
+
+WeaponEquip
+weaponequipempty
+WeaponEquiplFancy
+WeaponFire
+weaponfire_side
+weaponfireburst
+weaponfireburst_side
+WeaponIdle
+weaponidle_side
+WeaponIdleB
+WeaponIdleB_Side
+WeaponPutDown
+weaponputdown_side
+weapontranition_fromside
+weapontranition_toside
+
+Will start simple animation just a couple before doing all the action before getting error in game.
