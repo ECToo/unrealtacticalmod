@@ -6,3 +6,5 @@ I final got the bone rotation that took about 2 hour or so to figure are working
 Here the demo that build up just for few for 3RD Person. Going to use the shook rifle.
 
 SVN:http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_3P.blend
+
+Be sure you update your file by saving every time you export it that it seem it did not update the bone position and rotation. Or it just me doing this long hours of testing all of this.
