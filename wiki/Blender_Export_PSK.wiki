@@ -8,10 +8,10 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/M
 MOD_Opti_PSK_Dump.py < This is my update
 
 == Pros ==
-The Export works. The vehicle work for a bit. Tested for vehicle.
+The Export works. The vehicle work for a bit. Tested for vehicle. Main bone are fixed.
 
 == Cons ==
-The bone weight is working for one bone that is the main root bone.  I have not yet fixed just need more research of the code. Need to fixed the weight bones.
+Parent index need to be fixed. There are two method to add the bone but it does work other ones doesn't work.
 
 == Old Version ==
 Opti_PSK_Dump.py (www.p-fat.net) -This is from the script that I use. Use what you like for this script. Just read me detail in this part. Use at your own risk
