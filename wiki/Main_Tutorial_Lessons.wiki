@@ -18,9 +18,7 @@ http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
 == PSK Export ==
 [Blender_Export_PSK]
 
-Here example file:
-
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
+Here example file:http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
 
 Those are tested in unreal.
 To test it out use the hellbender vehicle class.
