@@ -3,17 +3,13 @@
 = Information =
 I currently try to work as I make vehicles, weapons and other mods to make good game.
 
-
 = Working Area =
  * Animation work needs to fix the off set.
-
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
 == Errors ==
-Main bones are issues to assign and fix the position when off grid to make weapon for first person view.
+ * Main bones are issues to assign and fix the position when off grid to make weapon for first person view.
+ * Bone position found error not off blender offset of the main. It only center the origin point need to be fix it.
 
-Bone position found error not off blender offset of the main. It only center the origin point need to be fix it.
-
-I know there are some error like offset bone are not fix yet and working out the main bone that crash when I try to work on it. It takes long hours to understand the code bit by bit until I can find a stable code output that will not crash me or other who wants to use free blender.
-
-Just the main bone is difficult to fix a bit and trying to learn how are the export work in order of the bone and the parent index bone for unreal.
+ * I know there are some error like offset bone are not fix yet and working out the main bone that crash when I try to work on it. It takes long hours to understand the code bit by bit until I can find a stable code output that will not crash me or other who wants to use free blender.
+ * Just the main bone is difficult to fix a bit and trying to learn how are the export work in order of the bone and the parent index bone for unreal.
