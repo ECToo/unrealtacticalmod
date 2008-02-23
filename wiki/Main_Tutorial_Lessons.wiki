@@ -64,9 +64,12 @@ Those are tested in unreal.
 I think I should create a demo weapon once I finish the animation error for the off set a bit.
 
 [Blender_Weapon_Model]-
+
 [Blender_Weapon_Model_1P]-
+
 [Blender_Weapon_Model_3P]-
-[Blender_Weapon_Action_Editor]-
+
+[Blender_Weapon_Action_Editor]-Create a two set of animation.
 
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
