@@ -1,3 +1,4 @@
 #summary This is for action export to unreal psa.
 
 
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_armature_connect_bone01.jpg
