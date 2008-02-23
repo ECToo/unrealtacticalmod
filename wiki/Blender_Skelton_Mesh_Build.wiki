@@ -24,3 +24,7 @@ http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_parent06.
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint01.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint02.jpg
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_weight_paint03.jpg
+
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_armature_connect_bone01.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_armature_connect_bone02.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_armature_connect_bone03.jpg
