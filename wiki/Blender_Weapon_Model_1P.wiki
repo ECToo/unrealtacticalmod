@@ -1,4 +1,5 @@
 #summary +2 Bone and More Action Animation Set with bone movements.
+#labels Blender,Weapon
 
 = Introduction =
 This where all your animation is render for action weapon is doing.
