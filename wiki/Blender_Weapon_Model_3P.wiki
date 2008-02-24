@@ -1,5 +1,12 @@
 #summary 2 bone and More Animation.
 
+This where all your animation is render for action weapon is doing.
+
+= Setup =
+When working with your mesh be sure you check your mesh face direction. Do not apply your parent armature else it will get mess up. Then apply your parent to the armature. This will be the hard part. It will a lot of trouble shooting for a bit. But you got an quick way to know if your rotation is facing the right way by looking into the svn section that is link to this page. I was able to get the root rotation a bit.
+
+Once you got the rotation working be sure you save first and test out your export to make sure the unreal fixed to the that rotation. Then you can start out the animation set.
+
 = Work Log =
 I final got the bone rotation that took about 2 hour or so to figure are working little different from the software I use. The rotation change quickly if the bone rotate at 90 degree and the x, y, and z change quick that didn't notice so I check the setting to draw the axis.
 
