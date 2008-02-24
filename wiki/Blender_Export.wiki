@@ -1,11 +1,21 @@
-#summary PSK/PSA/DAE.
+#summary Export PSK/PSA/DAE/ASE
+#labels Blender,Export,PSK,PSA,ASE,DAE
 
-There are two method for export to unreal.
+There are four method for export to unreal.
 =EXPORT=
-==.PSK==
+==.PSK :==
 One is .psk file that can be crash your unreal editor if not select or build correctly from people who create the script for it. This one have bone error unless you have to code this your slef to fix the bone axes in the game will be diffcult.
 
-==.DAE==
-Two is .dae file that can work good. This can only export one bone only that I found out just the version I test was 1.4.0. The vehicle works whem I code it because it was the defualt name.
+==.ASE : STATIC MESH==
+This where you can create staic mesh and your collision using a prefix "UCX_" with the same object name. Just copy it but it has to be simple collsion.
+
+==.PSA : Animation Set(unreal)/Action Editor(Blender)==
+This is where you animation work to play a simple animoation like walking.
+
+==.DAE :==
+Two is .dae file that can work good. This can only export one bone only that I found out just the version I test was 1.4.0. The vehicle works whem I code it because it was the default name. There is no animatino support.
 
 http://doom3world.org/phpbb2/viewtopic.php?t=1755
+
+
+==.DAE :==
