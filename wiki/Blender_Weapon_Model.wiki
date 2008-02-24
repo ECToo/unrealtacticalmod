@@ -12,8 +12,10 @@ MuzzleFlashSocketB
 MuzzleFlashSocketC
 }}}
 It depend on which weapon to mod off from and to make your weapon fire from that bone or socket.
- 
+
 There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation.
 
   [Blender_Weapon_Model_1P]
   [Blender_Weapon_Model_3P]
+
+There are files in the svn are update for quick demo build and src code to test out the weapon test but there is no animation setup yet.
