@@ -21,7 +21,7 @@ simulated function SpawnBeam(vector Start, vector End, bool bFirstPerson)
 	    	return;
 		}
 		// guess using current viewrotation;
-		End = Start + vector(Instigator.Controller.Rotation) * class'UTWeap_ShockRifle'.default.WeaponRange;
+		End = Start + vector(Instigator.Controller.Rotation) * class'UTWeap_Gun'.default.WeaponRange;
 		HitActor = Instigator.Trace(HitLocation, HitNormal, End, Start, TRUE, vect(0,0,0),, TRACEFLAG_Bullet);
 		if ( HitActor != None )
 		{
@@ -125,6 +125,6 @@ defaultproperties
 	MuzzleFlashDuration=0.33;
 	MuzzleFlashLightClass=class'UTGame.UTShockMuzzleFlashLight'
 	BeamTemplate=particlesystem'WP_ShockRifle.Particles.P_WP_ShockRifle_Beam'
-	WeaponClass=class'UTWeap_ShockRifle'
+	WeaponClass=class'UTWeap_Gun'
 	ImpactLightClass=class'UTShockImpactLight'
 }
