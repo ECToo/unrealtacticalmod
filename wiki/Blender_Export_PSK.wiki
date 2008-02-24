@@ -1,4 +1,5 @@
 #summary Skeletal Mesh Export. Vehicles/Weapon/Characters(Not Known)
+#labels Blender,Export,PSK
 
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
