@@ -73,7 +73,7 @@ This section will be update day to day stuff and some time not.
 
 == Weapon Build  ==
 
-[Blender_Weapon_Model]-
+[Blender_Weapon_Model]-Read before you do you animatin set.
 
 [Blender_Weapon_Model_1P]-Error found need to fix bone some how. Resaon the bone not going to same spot it center.
 
