@@ -15,4 +15,4 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
  * Just the main bone is difficult to fix a bit and trying to learn how are the export work in order of the bone and the parent index bone for unreal.
 
 == Major Animation Error Found ==
-There an error in the Action Editor and Armature Bone. The Armature and the Bone Pose Action that there is a bug between two of them. Both of them have two different bone roation. This might be easy to fix but plese not I am doing my best to fix this.
+There an error in the Action Editor and Armature Bone. The Armature and the Bone Pose Action that there is a bug between two of them. Both of them have two different bone roation. This might be easy to fix. I am doing my best to fix this problem. This the old srcipt and the new script that I notice the offset rotation need work a little bit.
