@@ -1,4 +1,5 @@
 #summary Building Model.
+#labels Blender,Land,Vehicle,Model
 
 = Plan Before you model =
 There are couple thing you need to know:
