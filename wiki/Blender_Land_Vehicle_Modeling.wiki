@@ -9,4 +9,10 @@ There are couple thing you need to know:
  * Texture etc.
  * Texture Damage
 
-I think that all the basic and planing ahead is a good idea what you doing step by step. It will save time and work.
+I think that all the basic and planing ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game. The svn has the dirction for the vehicle to face.
+
+=SVN:=
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
+
+= Video Demo: =
+http://www.youtube.com/watch?v=-QtpNjMMssY
