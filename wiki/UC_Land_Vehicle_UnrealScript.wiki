@@ -1,4 +1,5 @@
 #summary Three basic File. No weapon yet.
+#labels Land,Vehicle,UnrealScript
 
 = Unreal Script: =
 This mod from hellbender.
