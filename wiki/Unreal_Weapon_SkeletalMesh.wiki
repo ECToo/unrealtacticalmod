@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+#labels Unreal,Weapon,SkeletalMesh
+
+= Importing Your Weapon =
+Once you import your weapon create your socket for weapon fire. That is in the file menu. Soocket Manager.
+
+
+Socket manager in unreal to make your weapon fire.
+{{{
+MuzzleFlashSocket
+MF
+}}}
