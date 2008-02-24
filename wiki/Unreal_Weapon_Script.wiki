@@ -1,3 +1,16 @@
-#summary One-sentence summary of this page.
+#summary Three Basic Code.
+
+= Unreal Script Coding =
+We Will be dealing with 1P and 3P view and the AnimSet. To see if the weapon is working correctly.
+
+SVN:
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTWeap_Gun.uc
+
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTAttachment_Gun.uc
+
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTAmmo_Gun.uc
+
 
 givewewapon class.nameofclass
+
+Note: Need to find weapon name.
