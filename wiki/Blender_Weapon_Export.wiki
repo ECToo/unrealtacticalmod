@@ -1,7 +1,7 @@
 #summary Read This Before You Export And Get An Error.
+#labels Blender,Weapon,Export
 
 = Check Your Work =
 You have to save your work every time to fix your bone rotation because it does not update your rotation when exports it. For I test out and it was getting the same rotation when it was not update, so save your blender file to get your bone update to unreal. I don't knows why that happens. If you rotate your bone be sure it the axis does not change else it change the axis when reach at a 90 degree that it will switch the two axis. Use the Draw axis when you’re in bone selected.
 
 Check your your files that matches from the svn. IF the file matches the rotation. It will work.
-
