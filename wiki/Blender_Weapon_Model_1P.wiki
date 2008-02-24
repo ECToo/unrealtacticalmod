@@ -1,6 +1,7 @@
-#summary One-sentence summary of this page.
+#summary +2 Bone and Simple Action Animation.
 
 = Introduction =
+This where all your animation is render for action weapon is doing.
 
 Here is the file for blender for First Person Veiw:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P.blend
