@@ -1,4 +1,5 @@
 #summary Link Tutorials.
+#labels Blender,Videos,Links
 
 =Blender Tutorials And Videos:=
 
