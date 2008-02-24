@@ -45,7 +45,7 @@ This section will be update day to day stuff and some time not.
 == Vehicle Build ==
 [UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
 
-[]-Blender Modeling Idea Work Out first.
+[Blender_Land_Vehicle_Modeling]-Blender Modeling Idea Work Out first.
 
 []-working with UV textures from blender
 
