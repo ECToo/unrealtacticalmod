@@ -1,7 +1,7 @@
 #summary Three Basic Code.
 
 = Unreal Script Coding =
-We Will be dealing with 1P and 3P view and the AnimSet. To see if the weapon is working correctly.
+We Will be dealing with 1P and 3P view and the AnimSet. To see if the weapon is working correctly. This way you can test out if your weapon work in the game from blender export.
 
 SVN:
 
