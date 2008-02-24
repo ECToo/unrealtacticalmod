@@ -15,7 +15,7 @@ Export Script for blender Information:
 [Blender_Export_PS_A_K_Version]
 
 Here a demo of my vehicle just it testing for fun.
-[http://www.youtube.com/v/3N9-PCsaYtg&rel=1]
+[http://www.youtube.com/watch?v=3N9-PCsaYtg]
 
 Quick setup for psa/psk video for animatoin test in unreal and blender.
 http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
