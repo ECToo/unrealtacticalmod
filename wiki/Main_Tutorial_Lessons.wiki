@@ -78,6 +78,9 @@ I think I should create a demo weapon once I finish the animation error for the 
 
 [Blender_Weapon_Action_Editor]-Create a two set of animation.
 
+
+[Unreal_Weapon_Script]- Unreal Script. Three simple File.
+
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
  * http://wiki.beyondunreal.com/wiki/New_UnrealScript_In_UT3
