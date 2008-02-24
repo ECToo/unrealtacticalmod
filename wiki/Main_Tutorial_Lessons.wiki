@@ -3,7 +3,8 @@
 = Introduction =
 This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
 
-Blender bone are build little differently there are two joint in one bone. The two joint are call the head and the tail. This can cause problem for little bit for the export script. I am working hard to fix this problem while learning how to make unreal game for fun.
+= Blender Armature =
+Blender bone are build little differently there are two joint in one bone. The two joint are call the head and the tail. This can cause problem for little bit for the export script. I am working hard to fix this problem while learning how to make unreal game for fun. Please note the bone rotation is bit different I think you need to use the transform and the two joint. 
 
 Export Script for blender Information:
 [Blender_Export_PS_A_K_Version]
