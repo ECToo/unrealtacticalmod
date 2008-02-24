@@ -1,4 +1,5 @@
 #summary Basc weapon modeling.
+#labels Blender,Weapon,Model
 
 = Plan Before Modeling =
 Plan out your weapon design and layout what it does. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
