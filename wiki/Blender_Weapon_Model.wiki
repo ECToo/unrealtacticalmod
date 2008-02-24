@@ -1,7 +1,7 @@
 #summary Basc weapon modeling.
 
-= Modeling =
-Plan your weapon layout and moving part to make it realist. Each part must have some kind of bone to make it work to create your weapon actions.
+= Plan Before Modeling =
+Plan out your weapon design and layout what it does. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
 
 When you are building the bone there is an socket manager in unreal to make your weapon fire.
 {{{
@@ -13,7 +13,7 @@ MuzzleFlashSocketC
 }}}
 It depend on which weapon to mod off from and to make your weapon fire from that bone or socket.
 
-There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation.
+There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation. But the bone are different.
 
   [Blender_Weapon_Model_1P]
   [Blender_Weapon_Model_3P]
