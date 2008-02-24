@@ -40,6 +40,8 @@ Read more in this section of the wiki link to the page about export it.
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 Those are tested in unreal.
 
+This section will be update day to day stuff and some time not.
+
 == Vehicle Build ==
 [UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
 
@@ -70,7 +72,6 @@ Those are tested in unreal.
 [UC_Land_Vehicle_UnrealScript]- Three Files. No weapon yet.
 
 == Weapon Build  ==
-I think I should create a demo weapon once I finish the animation error for the off set a bit. Those are not yet writen,just setting up the basic for now.
 
 [Blender_Weapon_Model]-
 
