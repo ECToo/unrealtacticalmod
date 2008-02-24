@@ -1,4 +1,5 @@
 #summary pros and cons for exporting to unreal.Animation
+#labels Blender,Export,DAE
 
 = Required =
 You need to install Python to run the script.
