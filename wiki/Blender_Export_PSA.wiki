@@ -1,4 +1,5 @@
 #summary This is action animation frame.AnimSet.
+#labels Blender,Export,PSA
 
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/psa_test.jpg
 
