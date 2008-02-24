@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Building Model.
 
 = Plan Before you model =
 There are couple thing you need to know:
