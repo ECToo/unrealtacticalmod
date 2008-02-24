@@ -67,6 +67,8 @@ Those are tested in unreal.
 
 [UC_Land_Vehicle_PhysicalMaterial]-
 
+[UC_Land_Vehicle_UnrealScript]- Three Files. No weapon yet.
+
 == Weapon Build  ==
 I think I should create a demo weapon once I finish the animation error for the off set a bit. Those are not yet writen,just setting up the basic for now.
 
