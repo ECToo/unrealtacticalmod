@@ -1,5 +1,5 @@
 #summary One-sentence summary of this page.
-#labels Blender,Weapon,ActionEditor
+#labels Blender,Weapon,Action_Editor
 
 = Action Editor Name =
 
