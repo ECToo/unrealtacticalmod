@@ -1,4 +1,5 @@
 #summary Basic Setup for AnimTree.
+#labels Land,Vehicle,AnimTree
 
 [Main_Tutorial_Lessons]
 = Information =
