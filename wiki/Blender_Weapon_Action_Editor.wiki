@@ -5,20 +5,11 @@
 
 The name of the weapon will have to right name when input.
 {{{
+WeaponAltFire
 WeaponEquip
-weaponequipempty
-WeaponEquiplFancy
 WeaponFire
-weaponfire_side
-weaponfireburst
-weaponfireburst_side
+WeaponFireInstiGib
 WeaponIdle
-weaponidle_side
-WeaponIdleB
-WeaponIdleB_Side
 WeaponPutDown
-weaponputdown_side
-weapontranition_fromside
-weapontranition_toside
 }}}
 Will start simple animation just a couple before doing all the action before getting error in game.
