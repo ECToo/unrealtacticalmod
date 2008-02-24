@@ -1,4 +1,4 @@
-#summary +2 Bone and Simple Action Animation.
+#summary +2 Bone and More Action Animation Set with bone movements.
 
 = Introduction =
 This where all your animation is render for action weapon is doing.
