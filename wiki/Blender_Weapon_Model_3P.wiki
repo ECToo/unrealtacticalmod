@@ -1,4 +1,4 @@
-#summary 2 bone and More Animation.
+#summary 2 bone And Simple Animation.
 
 This where all your animation is render for action weapon is doing.
 
