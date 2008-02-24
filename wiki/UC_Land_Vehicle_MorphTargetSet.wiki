@@ -1,4 +1,5 @@
 #summary Basic Damage Parts Vehicle.
+#labels Land,Vehicle,MorphTargetSet
 [Main_Tutorial_Lessons]
 = Introduction =
 This part where your vehicle is damage. This is a simple import your mesh in the MorphTargetSet.
