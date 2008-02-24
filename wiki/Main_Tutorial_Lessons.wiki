@@ -13,7 +13,7 @@ Blender have many range that support building model from using your old file to 
 Export Script for blender Information:
 [Blender_Export_PS_A_K_Version]
 
-Here a demo of my vehicle amd weapon just it testing for fun.
+Here a demo of my vehicle amd weapon just it testing for fun. Relation to svn blender file.
  * [http://www.youtube.com/watch?v=3N9-PCsaYtg] -Raptor Mod (Out Datea bit)(vehicle)
  * [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
