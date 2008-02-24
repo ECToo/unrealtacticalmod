@@ -1,4 +1,5 @@
 #summary Current Version 0.0.5
+#labels Blender,Export,PSK,PSA,Version
 
 = Information =
 I currently try to work as I make vehicles, weapons and other mods to make good game.
