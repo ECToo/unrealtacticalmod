@@ -328,7 +328,8 @@ defaultproperties
 	Begin Object Name=FirstPersonMesh
                                          //1 Person
 		SkeletalMesh=SkeletalMesh'customweapon.demo_weapon_1P'
-		AnimSets(0)=AnimSet'customweapon.demo_weapon_NewAnimSet'
+		//AnimSets(0)=AnimSet'WP_ShockRifle.Anim.K_WP_ShockRifle_1P_Base'
+		AnimSets(0)=AnimSet'customweapon.demo_weapon_NewAnimSet' //Need to work on the animation later.
 		Animations=MeshSequenceA
 		Rotation=(Yaw=-16384)
 		FOV=60.0
