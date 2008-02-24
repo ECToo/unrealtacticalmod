@@ -1,4 +1,5 @@
 #summary One-sentence summary of this page.
+#labels Land,Vehicle,SkeletalMesh
 [Main_Tutorial_Lessons]
 = Introduction =
 In unreal editor where you import your mesh into the level editor. You need to add the socket for view port, grip hook and other thing relation to make the vehicle work that depend if you want to add them in the socket manger.
