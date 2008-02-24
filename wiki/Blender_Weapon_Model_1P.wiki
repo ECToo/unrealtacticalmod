@@ -3,5 +3,10 @@
 = Introduction =
 This where all your animation is render for action weapon is doing.
 
+= Setup =
+When working with your mesh be sure you check your mesh face direction. Do not apply your parent armature else it will get mess up. Then apply your parent to the armature. This will be the hard part. It will a lot of trouble shooting for a bit. But you got an quick way to know if your rotation is facing the right way by looking into the svn section that is link to this page. I was able to get the root rotation a bit.
+
+Once you got the rotation working be sure you save first and test out your export to make sure the unreal fixed to the that rotation. Then you can start out the animation set.
+
 Here is the file for blender for First Person Veiw:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P.blend
