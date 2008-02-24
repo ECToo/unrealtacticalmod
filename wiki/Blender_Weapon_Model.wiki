@@ -15,7 +15,11 @@ It depend on which weapon to mod off from and to make your weapon fire from that
 
 There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation. But the bone are different.
 
-  [Blender_Weapon_Model_1P]
-  [Blender_Weapon_Model_3P]
+= Blender Modeling =
+
+Make one model but in parts for making both 1P and 3P veiw. One for animation and other is for non moving parts animation but it will still have actions.
+
+ * [Blender_Weapon_Model_1P]
+ * [Blender_Weapon_Model_3P]
 
 There are files in the svn are update for quick demo build and src code to test out the weapon test but there is no animation setup yet.
