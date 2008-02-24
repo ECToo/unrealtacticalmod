@@ -3,6 +3,8 @@
 = Plan Before Modeling =
 Plan out your weapon design and layout what it does. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
 
+We be using shook rifle. That the most simple one.
+
 When you are building the bone there is an socket manager in unreal to make your weapon fire.
 {{{
 MuzzleFlashSocket
@@ -17,9 +19,12 @@ There are two modeling that has to support two different animation in first pers
 
 = Blender Modeling =
 
-Make one model but in parts for making both 1P and 3P veiw. One for animation and other is for non moving parts animation but it will still have actions.
+Make one model but in parts for making both 1P and 3P veiw. One for animation and other is for non moving parts animation but it will still have actions. Be Sure your face your model in the direction of the game default so look in the svn file to make sure it facing that way.
 
  * [Blender_Weapon_Model_1P]
  * [Blender_Weapon_Model_3P]
 
 There are files in the svn are update for quick demo build and src code to test out the weapon test but there is no animation setup yet.
+
+Here a quick demo for the weapon that I just made:
+ * http://unrealtacticalmod.googlecode.com/files/2322008_1639_11.rar
