@@ -7,15 +7,16 @@ This section will give you the basic information about making game mod still wor
 = Blender Armature =
 Blender bone are build little differently there are two joint in one bone. The two joint are call the head and the tail. This can cause problem for little bit for the export script. I am working hard to fix this problem while learning how to make unreal game for fun. Please note the bone rotation is bit different I think you need to use the transform and the two joint. 
 
-
 = Blender Range =
 Blender have many range that support building model from using your old file to the new file with out changing any thing. Meaning that you can create many models in each file and joining them in the new file like a moive set. There is a video information about from their website.
 
 Export Script for blender Information:
 [Blender_Export_PS_A_K_Version]
 
-Here a demo of my vehicle just it testing for fun.
-[http://www.youtube.com/watch?v=3N9-PCsaYtg]
+Here a demo of my vehicle amd weapon just it testing for fun.
+ * [http://www.youtube.com/watch?v=3N9-PCsaYtg] -Raptor Mod (Out Datea bit)(vehicle)
+ * [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
+ * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
 
 Quick setup for psa/psk video for animatoin test in unreal and blender.
 http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
