@@ -1,4 +1,5 @@
 #summary 2 bone And Simple Animation.
+#labels Blender,Weapon
 
 This where all your animation is render for action weapon is doing.
 
