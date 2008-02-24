@@ -1,4 +1,5 @@
 #summary localtion setup and simple build.
+#labels Setup
 
 = where package to be complie for .uc: =
 
