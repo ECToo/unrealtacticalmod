@@ -29,5 +29,5 @@ There are files in the svn are update for quick demo build and src code to test 
 Here a quick demo for the weapon that I just made:
  * http://unrealtacticalmod.googlecode.com/files/2322008_1639_11.rar
 
-=Video Demo =
+=Video Demo: =
 http://www.youtube.com/watch?v=E7ZrVDUFtrI
