@@ -1,4 +1,5 @@
 #summary Static Mesh Format.
+#labels Blender,Export,ASE
 
 =Information:=
 When your exporting to unreal. Make sure you Duplicate your object that is simple collsion.  Make that object same as your current object with the prefix "UCX_" before the object name. Example default name object is "cube" for the first object and the second name is "UCX_cube". It there is too much compelex build a simple collision else it will tell you that there is a  problems.
