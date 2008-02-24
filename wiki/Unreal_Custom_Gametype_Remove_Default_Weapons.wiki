@@ -1,4 +1,5 @@
 #summary How to remove weapon default for making custom game.
+#labels Custom_Game,Unreal_Script
 
 = Remove Game Weapon Default =
 {{{
