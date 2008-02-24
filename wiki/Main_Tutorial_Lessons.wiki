@@ -79,6 +79,8 @@ This section will be update day to day stuff and some time not.
 
 [Blender_Weapon_Model_3P]- There is a file have not yet testing in the game yet. I Final got the bone rotation fixed.
 
+[Blender_Weapon_Export]-Read Before it save you time.
+
 [Blender_Weapon_Action_Editor]-Create a two set of animation.
 
 [Unreal_Weapon_Script]- Unreal Script. Three simple File.
