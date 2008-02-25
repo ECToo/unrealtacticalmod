@@ -81,7 +81,15 @@ This section will be update day to day stuff and some time not.
 
 [Blender_Weapon_Export]-Read Before it save you time.
 
+[Unreal_Weapon_SkeletalMesh]-Socket Manager.
+
+[Unreal_Weapon_AnimSet]-Animation Set.
+
 [Unreal_Weapon_Script]- Unreal Script. Three simple File.
+
+
+
+
 
 == Character Build  ==
 This may take even longer dealing with size and rotation. So leave as is. I am not good at rotation to the bone.
