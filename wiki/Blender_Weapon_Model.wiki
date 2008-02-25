@@ -2,21 +2,13 @@
 #labels Blender,Weapon,Model
 
 = Plan Before Modeling =
-Plan out your weapon design and layout what it does. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
+Design your weapon and the basic layout in parts. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
 
-We be using shook rifle. That the most simple one.
+We will be using shook rifle. That the most simple one.
 
-When you are building the bone there is an socket manager in unreal to make your weapon fire.
-{{{
-MuzzleFlashSocket
-MuzzleFlashSocket02
-MuzzleFlashSocketA
-MuzzleFlashSocketB
-MuzzleFlashSocketC
-}}}
-It depend on which weapon to mod off from and to make your weapon fire from that bone or socket.
+When your building your Armature bones be sure you have one armature in your blender file. And fixed to your rotation by their default weapon.
 
-There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation. But the bone are different.
+There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation. But the bones are different from the 1P and 3P.
 
 = Blender Modeling =
 
