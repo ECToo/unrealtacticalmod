@@ -10,3 +10,5 @@ Socket manager in unreal to make your weapon fire.
 MuzzleFlashSocket
 MF
 }}}
+
+It depend on which weapon to mod off from and to make your weapon fire from that bone or socket.
