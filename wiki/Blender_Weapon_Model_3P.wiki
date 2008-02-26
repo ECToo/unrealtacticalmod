@@ -1,7 +1,18 @@
 #summary 2 bone And Simple Animation.
 #labels Blender,Weapon
+[Blender_Weapon_Model_1P Prev]
+= Third Person Weapon: =
+This is for third person where you see player holding weapon that you will be position your weapon with two bones for holding your weapon with two hands or one hands.
 
-This where all your animation is render for action weapon is doing.
+
+= Blender Root Bone: =
+Since We have two bones all we need what are their names? Basic the bone name for the root is "b_gun_root" that for your holding your weapon and your second bone will be "b_gun_lefthand". Sound simple and easy.
+
+= Blender Armature: =
+For this 
+
+
+=Blender Action Editor (Animation Set for Unreal Editor):=
 
 = Setup =
 When working with your mesh be sure you check your mesh face direction. Do not apply your parent armature else it will get mess up. Then apply your parent to the armature. This will be the hard part. It will a lot of trouble shooting for a bit. But you got an quick way to know if your rotation is facing the right way by looking into the svn section that is link to this page. I was able to get the root rotation a bit.
