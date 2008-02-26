@@ -1,12 +1,16 @@
 #summary One-sentence summary of this page.
 #labels Unreal,Weapon,SkeletalMesh
-
+[Blender_Weapon_Export Prev] [Unreal_Weapon_AnimSet Next]
 = Importing Your Weapon =
-Check your weapon psk file if the unreal editor crash on you. 
+Check your weapon psk file if the unreal editor crash on you. There are other errors you might find.
 
 There are some reasons:
- * Missing weight vertex
+ * Missing weight vertex (weights should be more then or equal point vertex)
  * Misplace Armature
+ * Missing Meshes (merge them Into one mesh)
+ * Bone are center to the one point (your armature setup could setup by not spacing to add bone)
+ * Missing bones (You have more than one armatures)
+
 
 = Checking Your Direction Weapon =
 If you check your weapon that is face the right way go to WP_Shockrilfe > Mesh. If your weapon is face that way you got it right.
@@ -21,4 +25,6 @@ In the Socket Manager in this 1 Person View you need to add
 
 = First Person View (3P):=
 In the Socket Manager in this 3 Person View you need to add 
+
+[Blender_Weapon_Export Prev] [Unreal_Weapon_AnimSet Next]
  * MuzzleFlashSocket
