@@ -9,21 +9,13 @@ This is for third person where you see player holding weapon that you will be po
 Since We have two bones all we need what are their names? Basic the bone name for the root is "b_gun_root" that for your holding your weapon and your second bone will be "b_gun_lefthand". Sound simple and easy.
 
 = Blender Armature: =
-For this 
-
+For this you have to go in top view. All bone must be the same position just don't rotation them.
 
 =Blender Action Editor (Animation Set for Unreal Editor):=
-
-= Setup =
-When working with your mesh be sure you check your mesh face direction. Do not apply your parent armature else it will get mess up. Then apply your parent to the armature. This will be the hard part. It will a lot of trouble shooting for a bit. But you got an quick way to know if your rotation is facing the right way by looking into the svn section that is link to this page. I was able to get the root rotation a bit.
-
-Once you got the rotation working be sure you save first and test out your export to make sure the unreal fixed to the that rotation. Then you can start out the animation set.
-
-= Work Log =
-I final got the bone rotation that took about 2 hour or so to figure are working little different from the software I use. The rotation change quickly if the bone rotate at 90 degree and the x, y, and z change quick that didn't notice so I check the setting to draw the axis.
+Sicne We Are doing a simple shockrifle there will be no animation in this part for third person.
 
 Here the demo that build up just for few for 3RD Person. Going to use the shook rifle.
 
 SVN:http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_3P.blend
 
-Be sure you update your file by saving every time you export it that it seem it did not update the bone position and rotation. Or it just me doing this long hours of testing all of this.
+[Blender_Weapon_Model_1P Prev]
