@@ -72,13 +72,15 @@ This section will be update day to day stuff and some time not.
 == Weapon Build  ==
 Animation Test Done workable weapon.
 
+This weapon will be base of Shockrifle.
+
 [Blender_Weapon_Model]-Read before you do your (Action Editor(Blender) to AnimSet(Unreal)).
 
 [Blender_Weapon_Model_1P]-Error found need to fix bone some how. Resaon the bone not going to same spot it center.
 
 [Blender_Weapon_Model_3P]- There is a file have not yet testing in the game yet. I Final got the bone rotation fixed.
 
-[Blender_Weapon_Action_Editor]-Create a two set of animation.
+[Blender_Weapon_Action_Editor]-Create a one set of animation.
 
 [Blender_Weapon_Export]-Read Before it save you time.
 
