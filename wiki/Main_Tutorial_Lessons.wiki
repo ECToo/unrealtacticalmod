@@ -47,31 +47,31 @@ This section will be update day to day stuff and some time not.
 
 [UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
 
-[Blender_Land_Vehicle_Modeling]-Blender Modeling Idea Work Out first.
+[Blender_Land_Vehicle_Modeling] - Blender Modeling Idea Work Out first.
 
-[]-working with UV textures from blender
+[] - working with UV textures from blender
 
-[]-Working with textures with Blender.
+[] - Working with textures with Blender.
 
-[]-Working with textures with Gimp.
+[] - Working with textures with Gimp.
 
-[]-Working with animation from blender.
+[] - Working with animation from blender.
 
-[]-Exporting to files to unreal format.
+[] - Exporting to files to unreal format.
 
-[UC_Land_Vehicle_SkeletalMesh]- Importing Skeletal Mesh
+[UC_Land_Vehicle_SkeletalMesh] - Importing Skeletal Mesh
 
-[UC_Land_Vehicle_AnimSet]-Creating animation.
+[UC_Land_Vehicle_AnimSet] - Creating animation.
 
-[UC_Land_Vehicle_AnimTree]-This Control your vehicle does.And other things.
+[UC_Land_Vehicle_AnimTree] - This Control your vehicle does.And other things.
 
 [UC_Land_Vehicle_PhysicsAsset]
 
-[UC_Land_Vehicle_MorphTargetSet]-This is where the vehicle are damage.
+[UC_Land_Vehicle_MorphTargetSet] - This is where the vehicle are damage.
 
 [UC_Land_Vehicle_PhysicalMaterial]-
 
-[UC_Land_Vehicle_UnrealScript]- Three Files. No weapon yet.
+[UC_Land_Vehicle_UnrealScript] - Three Files. No weapon yet.
 
 == Weapon Build  ==
 This weapon will be base of Shockrifle. Animation Test Done workable weapon.
@@ -80,19 +80,19 @@ This weapon will be base of Shockrifle. Animation Test Done workable weapon.
  * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)
 [Blender_Weapon_Model]-Read before you do your (Action Editor(Blender) to AnimSet(Unreal)).
 
-[Blender_Weapon_Model_1P]- Working on the first person weapon with action.
+[Blender_Weapon_Model_1P] - Working on the first person weapon with action.
 
-[Blender_Weapon_Action_Editor]-Create a one set of animation.
+[Blender_Weapon_Action_Editor] - Create a one set of animation.
 
-[Blender_Weapon_Model_3P]- Simple third person view holding the mod weapon.
+[Blender_Weapon_Model_3P] - Simple third person view holding the mod weapon.
 
-[Blender_Weapon_Export]-Read Before it save you time.
+[Blender_Weapon_Export] - Read Before it save you time.
 
-[Unreal_Weapon_SkeletalMesh]-Socket Manager.
+[Unreal_Weapon_SkeletalMesh] - Socket Manager And Importing.
 
-[Unreal_Weapon_AnimSet]-Animation Set.
+[Unreal_Weapon_AnimSet] - Animation Set.
 
-[Unreal_Weapon_Script]- Unreal Script. Three simple File.
+[Unreal_Weapon_Script] - Unreal Script. Three simple File.
 
 
 == Character Build  ==
