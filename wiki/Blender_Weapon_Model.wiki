@@ -1,19 +1,19 @@
-#summary Basc weapon modeling.
+#summary Basic weapon modeling.
 #labels Blender,Weapon,Model
 
-= Plan Before Modeling =
-When your are designing your weapon you need know before you model your weapon. There are two weapon design one is first person(1P) view where all the moveable parts where lot of bones are moving. For the third person(3P) view there are no moving part just the simple animation for weapon fire and other weapon state.
+= Plan before Modeling =
+When you’re designing your weapon you need know before you model your weapon. There are two weapon design one is first person (1P) view where the entire moveable parts where lot of bones are moving. For the third person (3P) view there are no moving parts just the simple animation for weapon fire and other weapon state.
 
-We will be using shook rifle. That the most simple one to mod off from just for firing.
+We will be using shook rifle. The simplest one to mod off form shockrilfe weapon firing.
 
-When you are building your mesh you have to merge your mesh into one object. So the export will read one object. Your mesh must face south from your top view the tip of your weapon fire must face south. So when your exporting your weapon, it should face in the same direction of the shock rifle don't worry about the bone rotation. It seem to work when I test it out.
+When you are building your mesh you have to merge your mesh into one object. So the export will read one object. Your mesh must face south from your top view the tip of your weapon fire must face south. So when your exporting your weapon, it should face in the same direction of the shock rifle don't worry about the bone rotation. It seems to work when I test it out.
 
-Just read this information about the armature so don't add your armature yet that will be in add in 1P(1st Person View) and 3P(3rd Person View). When you are building your Armature bones be sure you have one armature in your blender file. The armature should be the top of the list and within the armature there should be object mesh in there.
+Just read this information about the armature so don't add your armature yet that will be in add in 1P (1st Person View) and 3P (3rd Person View). When you are building your Armature bones are sure you have one armature in your blender file. The armature should be the top of the list and within the armature there should be object mesh in there.
 
-There are two modeling that has to support two different animation in First Person View and the Third Person View. They will have animation, but the bones are different from the 1P and 3P.
+There are two modeling that has to support two different animations in First Person View and the Third Person View. They will have animation, but the bones are different from the 1P and 3P.
 
 = Blender Modeling =
-For now make your 3D model into parts for First Person Veiw. Remeber you have to do your textures when your creating two set of file for your first person and your third person view. The Third Person view will not have some moving parts with animatin or without animatoin depend if you want animation in the third person view. Since We will be moding off from shockrilfe there is no animatin for third person view.
+For now make your 3D model into parts for First Person View. Remember you have to do your textures when you’re creating two set of file for your first person and your third person view. The Third Person view will not have some moving parts with animation or without animation depend if you want animation in the third person view. Since we will be moding off from shockrilfe there is no animation for third person view.
 
  * [Blender_Weapon_Model_1P]
  * [Blender_Weapon_Model_3P]
