@@ -2,6 +2,12 @@
 #labels Blender,Weapon,Action_Editor,Animatoin_Set
 [Blender_Weapon_Model_1P Prev] [Blender_Weapon_Model_3P Next]
 
+
+= Armature Bone Vs. Bone Pose =
+This information is about the rotation can effect the animation and your two files. They have both different rotation build in them. Here an image they are not link to the rotation because they have different mode. Pose Mode and Edit Mode. Why this is different because they have for one action pose not armature bone relation. Well I have to look into it for a bit.
+
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/armature_pose_bone.jpg
+
 = Blender Action Editor =
 This is where all your weapon animation is render in Action Editor(Blender) to Animatin Set(Unreal Edditor). Please not not Bake your Action in  Action Editor that it is already in there when your exporting to blender script format default. You will have the same copy of your action.
 
