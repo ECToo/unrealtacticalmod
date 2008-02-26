@@ -70,7 +70,7 @@ This section will be update day to day stuff and some time not.
 [UC_Land_Vehicle_UnrealScript]- Three Files. No weapon yet.
 
 == Weapon Build  ==
-NEED TO REWORK MY ANIMATION A BIT SO IT UNDER CONSTRUCTION.
+Animation Test Done workable weapon.
 
 [Blender_Weapon_Model]-Read before you do your (Action Editor(Blender) to AnimSet(Unreal)).
 
