@@ -1,5 +1,6 @@
-#summary One-sentence summary of this page.
+#summary Adding Socket Manager MuzzleFlashSocket.
 #labels Unreal,Weapon,SkeletalMesh
+
 [Blender_Weapon_Export Prev] [Unreal_Weapon_AnimSet Next]
 = Importing Your Weapon =
 Check your weapon psk file if the unreal editor crash on you. There are other errors you might find.
@@ -10,7 +11,6 @@ There are some reasons:
  * Missing Meshes (merge them Into one mesh)
  * Bone are center to the one point (your armature setup could setup by not spacing to add bone)
  * Missing bones (You have more than one armatures)
-
 
 = Checking Your Direction Weapon =
 If you check your weapon that is face the right way go to WP_Shockrilfe > Mesh. If your weapon is face that way you got it right.
