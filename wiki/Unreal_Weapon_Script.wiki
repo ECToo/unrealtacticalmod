@@ -4,7 +4,43 @@
 = Unreal Script Coding =
 We Will be dealing with 1P and 3P view and the AnimSet. To see if the weapon is working correctly. This way you can test out if your weapon work in the game from blender export.
 
-SVN:
+
+=Unreal Script:=
+
+UTAmmo_Gun.uc
+{{{
+	TargetWeapon=class'UTWeap_Gun'
+}}}
+
+UTAttachment_Gun.uc
+{{{
+	Begin Object Name=SkeletalMeshComponent0
+	                                        //3rd Person
+		SkeletalMesh=SkeletalMesh'customweapon.Mesh.demo_weapon_3P'
+	End Object
+}}}
+
+UTWeap_Gun.uc
+{{{
+	// Weapon SkeletalMesh
+	Begin Object Name=FirstPersonMesh
+                                         //1 Person
+		SkeletalMesh=SkeletalMesh'customweapon.Mesh.demo_weapon_1P'
+		//AnimSets(0)=AnimSet'WP_ShockRifle.Anim.K_WP_ShockRifle_1P_Base'
+		AnimSets(0)=AnimSet'customweapon.Anims.demo_weapon_1P_animset' //Need to work on the animation later.
+		Animations=MeshSequenceA
+		Rotation=(Yaw=-16384)
+		FOV=60.0
+	End Object
+
+	AttachmentClass=class'mymod.UTAttachment_Gun'
+
+	Begin Object Name=PickupMesh
+		SkeletalMesh=SkeletalMesh'customweapon.Mesh.demo_weapon_3P'
+	End Object
+}}}
+
+=SVN:=
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTWeap_Gun.uc
 
