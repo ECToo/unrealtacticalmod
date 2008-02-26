@@ -1,13 +1,44 @@
 #summary +2 Bone and More Action Animation Set with bone movements.
-#labels Blender,Weapon
+#labels Blender,Weapon,1P
 [Blender_Weapon_Model Prev]
-= Introduction =
-This where all your animation is render for action weapon is doing.
 
-= Setup =
-When working with your mesh be sure you check your mesh face direction. Do not apply your parent armature else it will get mess up. Then apply your parent to the armature. This will be the hard part. It will a lot of trouble shooting for a bit. But you got an quick way to know if your rotation is facing the right way by looking into the svn section that is link to this page. I was able to get the root rotation a bit.
+= Check Your Work =
+If your reading this section you should have save your file inlcude with your texture and name it as weaponname with the prefix "_1P". weaponname_1P. This will let you know that the file must final stage. If you made a mistake and all your animation you work hard into the first person. Then DO NOT DELETE YOUR FILE you can make a new one and append the armature that you can open another file within another file.
 
-Once you got the rotation working be sure you save first and test out your export to make sure the unreal fixed to the that rotation. Then you can start out the animation set.
+= First Person Weapon =
+This your First Person Weapon while your holding your weapon. Doing different action to it when playing the animatoin.
 
+= Bone Name For Root =
+Since we are going to mod off from the shockfile the main default for it is "xr". All Bones must face in one direction in top view mode by pressing "NUMPAD 7". Do not rotation them.
+
+= Armature =
+Make sure you have one Armature then the next one should be a bone by default your in the main Armature to branch off the that Armature bones. Add you bones where your animation is need. There are two method to add your bone but one of the doesn't work. The method that doesn't work while your in Armature(Edit Mode) wirh using your (ctrl + right click mouse) that will center all your bones to zero.
+
+= Weight Paint =
+Paint your Weight or assign your weight that both case work. There are simple iusses that if you miss your vertex by a few vertex it will crash your unreal editor.
+
+= Blender Action Editor =
+This is where all your weapon animation is render in Action Editor(Blender) to Animatin Set(Unreal Edditor). Please not not Bake your Action in  Action Editor that it is already in there when your exporting to blender script format default. You will have the same copy of your action.
+
+EAXMPLE:
+
+{{{
+Blender:
+Action Editor:
+Action
+Action.BAKED
+I do not know how to delete your action yet if you made your mistake.
+
+Unreal Editor:
+AnimSet:
+Action[]
+Action.BAKED[]
+You can delete your action in unreal under animset.
+You can reset them but it will delete all your animation.
+}}}
+ 
 Here is the file for blender for First Person Veiw:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P.blend
+
+Here is the file for blender for First Person View With Animation:
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
