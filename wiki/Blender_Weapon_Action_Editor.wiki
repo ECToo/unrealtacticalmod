@@ -1,8 +1,28 @@
 #summary Action Editor For Animatoin Set.
 #labels Blender,Weapon,Action_Editor,Animatoin_Set
-[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Export Next]
-= Action Editor Name =
+[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Model_3P Next]
 
+= Blender Action Editor =
+This is where all your weapon animation is render in Action Editor(Blender) to Animatin Set(Unreal Edditor). Please not not Bake your Action in  Action Editor that it is already in there when your exporting to blender script format default. You will have the same copy of your action.
+
+EAXMPLE:
+
+{{{
+Blender:
+Action Editor:
+Action
+Action.BAKED
+I do not know how to delete your action yet if you made your mistake.
+
+Unreal Editor:
+AnimSet:
+Action[]
+Action.BAKED[]
+You can delete your action in unreal under animset.
+You can reset them but it will delete all your animation.
+}}}
+
+= Action Editor Name =
 The name of the weapon will have to right name when input.
 {{{
 WeaponAltFire
@@ -18,4 +38,4 @@ Will start simple animation just a couple before doing all the action before get
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
 
-[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Export Next]
+[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Model_3P Next]
