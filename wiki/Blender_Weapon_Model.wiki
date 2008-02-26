@@ -2,17 +2,18 @@
 #labels Blender,Weapon,Model
 
 = Plan Before Modeling =
-Design you weapon.
+When your are designing your weapon you need know before you model your weapon. There are two weapon design one is first person(1P) view where all the moveable parts where lot of bones are moving. For the third person(3P) view there are no moving part just the simple animation for weapon fire and other weapon state.
 
-We will be using shook rifle. That the most simple one.
+We will be using shook rifle. That the most simple one to mod off from just for firing.
 
-When your building your Armature bones be sure you have one armature in your blender file. And fixed to your rotation by their default weapon.
+When you are building your mesh you have to merge your mesh into one object. So the export will read one object. Your mesh must face south from your top view the tip of your weapon fire must face south. So when your exporting your weapon, it should face in the same direction of the shock rifle don't worry about the bone rotation. It seem to work when I test it out.
 
-There are two modeling that has to support two different animation in first person view and the third person view. They have be the same animation. But the bones are different from the 1P and 3P.
+Just read this information about the armature so don't add your armature yet that will be in add in 1P(1st Person View) and 3P(3rd Person View). When you are building your Armature bones be sure you have one armature in your blender file. The armature should be the top of the list and within the armature there should be object mesh in there.
+
+There are two modeling that has to support two different animation in First Person View and the Third Person View. They will have animation, but the bones are different from the 1P and 3P.
 
 = Blender Modeling =
-
-Make one model but in parts for making both 1P and 3P veiw. One for animation and other is for non moving parts animation but it will still have actions. Be Sure your face your model in the direction of the game default so look in the svn file to make sure it facing that way.
+For now make your 3D model into parts for First Person Veiw. Remeber you have to do your textures when your creating two set of file for your first person and your third person view. The Third Person view will not have some moving parts with animatin or without animatoin depend if you want animation in the third person view. Since We will be moding off from shockrilfe there is no animatin for third person view.
 
  * [Blender_Weapon_Model_1P]
  * [Blender_Weapon_Model_3P]
@@ -23,4 +24,8 @@ Here a quick demo for the weapon that I just made:
  * http://unrealtacticalmod.googlecode.com/files/2322008_1639_11.rar
 
 =Video Demo: =
+This is with out the animation:
 http://www.youtube.com/watch?v=E7ZrVDUFtrI
+
+This is with animation:
+http://www.youtube.com/watch?v=R9GPHxqZbGE
