@@ -13,8 +13,13 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
 Animation Rotation Need Work on!
 
 || Armature Bone || Pose Bone || Export Script || Version ||
-|| Bone=(0,0,0)  || Bone=(0,0,0)|| Bone=(0,0,0) PSA,PSK || 0.0.6 ||
-|| Bone=(90,0,0) || Bone=(0,0,0) || Bone=(0,0,0) PSA, Bone=(90,0,0)PSK || 0.0.X ||
+|| Bone=(0,0,0)  || Bone=(0,0,0)||  || 0.0.6 ||
+||   || || Bone=(0,0,0) PSA || 0.0.6 ||
+||   || || Bone=(0,0,0) PSK || 0.0.6 ||
+|| Bone=(90,0,0) || Bone=(0,0,0) || || 0.0.6 ||
+||   || || Bone=(0,0,0) PSA || 0.0.6 ||
+||   || || Bone=(90,0,0) PSK || 0.0.6 ||
+
 
 
 
