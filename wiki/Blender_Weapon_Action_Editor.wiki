@@ -17,4 +17,5 @@ Will start simple animation just a couple before doing all the action before get
 = SVN: =
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
+
 [Blender_Weapon_Model_3P Prev] [Blender_Weapon_Export Next]
