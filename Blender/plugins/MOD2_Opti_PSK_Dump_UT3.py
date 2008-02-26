@@ -6,7 +6,7 @@ Group: 'Export'
 Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa)' 
 """ 
 __author__ = "Optimus_P-Fat/Active_Trash" 
-__version__ = "0.0.5" 
+__version__ = "0.0.6" 
 __bpydoc__ = """\ 
 
 -- Unreal Skeletal Mesh and Animation Export (.psk  and .psa) export script v0.0.1 --<br> 
@@ -37,6 +37,12 @@ __bpydoc__ = """\
 
 - v0.0.5
 - Fixed bone offset from head bone that was position off a bit. Part of it need the tail to fixed the rotation.
+- Edit by: Darknet
+
+- v0.0.6
+- There was error in make_fquat that the rotation went on the -x,-y-x change to x,y,x with out going to the other way.
+- There was a problem with the animaotin set with blender action editor.
+- Trouble shooting while weapon test animation was found.
 - Edit by: Darknet
 
 """ 
@@ -735,9 +741,9 @@ def make_fquat(bquat):
 	quat = FQuat()
 	
 	#flip handedness for UT = set x,y,z to negative (rotate in other direction)
-	quat.X = -bquat.x
-	quat.Y = -bquat.y
-	quat.Z = -bquat.z
+	quat.X = bquat.x
+	quat.Y = bquat.y
+	quat.Z = bquat.z
 
 	quat.W = bquat.w
 	return quat
@@ -1022,7 +1028,7 @@ def parse_animation(blender_scene, psa_file):
 					#WOW
 					tail2 = tail
 					tail = (pose_bone.quat * (tail)) + tail + pose_bone.loc
-					head = (pose_bone.quat * (tail2-head)) + head + pose_bone.loc
+					head = (pose_bone.quat * (head)) + head + pose_bone.loc
 					# no parent?  apply armature transform
 					if not blender_bone.hasParent():
 						parent_mat = obj.mat
