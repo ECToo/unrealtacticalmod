@@ -43,5 +43,7 @@ Will start simple animation just a couple before doing all the action before get
 = SVN: =
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
+= How To Delete Your Actions =
+http://blenderartists.org/forum/showpost.php?p=647216&postcount=1
 
 [Blender_Weapon_Model_1P Prev] [Blender_Weapon_Model_3P Next]
