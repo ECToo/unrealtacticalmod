@@ -25,6 +25,6 @@ In the Socket Manager in this 1 Person View you need to add
 
 = First Person View (3P):=
 In the Socket Manager in this 3 Person View you need to add 
+ * MuzzleFlashSocket
 
 [Blender_Weapon_Export Prev] [Unreal_Weapon_AnimSet Next]
- * MuzzleFlashSocket
