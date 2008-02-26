@@ -2,7 +2,7 @@
 #labels Blender,Weapon,Model
 
 = Plan Before Modeling =
-Design your weapon and the basic layout in parts. Design each animation for what ever it an modling part or not. Each part must have some kind of bone to make it work to create your weapon actions.
+Design you weapon.
 
 We will be using shook rifle. That the most simple one.
 
