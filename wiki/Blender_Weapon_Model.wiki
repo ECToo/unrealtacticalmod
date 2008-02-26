@@ -1,6 +1,6 @@
 #summary Basic weapon modeling.
 #labels Blender,Weapon,Model
-
+[Main_Tutorial_Lessons HOME] [Blender_Weapon_Model_1P Next]
 = Plan before Modeling =
 When you’re designing your weapon you need know before you model your weapon. There are two weapon design one is first person (1P) view where the entire moveable parts where lot of bones are moving. For the third person (3P) view there are no moving parts just the simple animation for weapon fire and other weapon state.
 
@@ -29,3 +29,5 @@ http://www.youtube.com/watch?v=E7ZrVDUFtrI
 
 This is with animation:
 http://www.youtube.com/watch?v=R9GPHxqZbGE
+
+[Main_Tutorial_Lessons HOME] [Blender_Weapon_Model_1P Next]
