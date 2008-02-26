@@ -81,9 +81,9 @@ This weapon will be base of Shockrifle. Animation Test Done workable weapon.
 
 [Blender_Weapon_Model_1P]- Working on the first person weapon with action.
 
-[Blender_Weapon_Model_3P]- Simple third person view holding the mod weapon.
-
 [Blender_Weapon_Action_Editor]-Create a one set of animation.
+
+[Blender_Weapon_Model_3P]- Simple third person view holding the mod weapon.
 
 [Blender_Weapon_Export]-Read Before it save you time.
 
