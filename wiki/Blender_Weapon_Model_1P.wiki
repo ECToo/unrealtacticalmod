@@ -1,6 +1,6 @@
 #summary +2 Bone and More Action Animation Set with bone movements.
 #labels Blender,Weapon,1P
-[Blender_Weapon_Model Prev] [Blender_Weapon_Model_1P Next]
+[Blender_Weapon_Model Prev] [Blender_Weapon_Action_Editor Next]
 
 = Check Your Work =
 If your reading this section you should have save your file inlcude with your texture and name it as weaponname with the prefix "_1P". weaponname_1P. This will let you know that the file must final stage. If you made a mistake and all your animation you work hard into the first person. Then DO NOT DELETE YOUR FILE you can make a new one and append the armature that you can open another file within another file.
@@ -43,4 +43,4 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weap
 Here is the file for blender for First Person View With Animation:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
 
-[Blender_Weapon_Model Prev] [Blender_Weapon_Model_1P Next]
+[Blender_Weapon_Model Prev] [Blender_Weapon_Action_Editor Next]
