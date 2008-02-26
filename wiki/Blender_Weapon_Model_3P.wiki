@@ -1,6 +1,6 @@
 #summary 2 bone And Simple Animation.
 #labels Blender,Weapon
-[Blender_Weapon_Model_1P Prev]
+[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Action_Editor Next]
 = Third Person Weapon: =
 This is for third person where you see player holding weapon that you will be position your weapon with two bones for holding your weapon with two hands or one hands.
 
@@ -18,4 +18,4 @@ Here the demo that build up just for few for 3RD Person. Going to use the shook 
 
 SVN:http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_3P.blend
 
-[Blender_Weapon_Model_1P Prev]
+[Blender_Weapon_Model_1P Prev] [Blender_Weapon_Action_Editor Next]
