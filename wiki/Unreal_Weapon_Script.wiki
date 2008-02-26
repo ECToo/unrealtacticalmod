@@ -7,6 +7,8 @@ We Will be dealing with 1P and 3P view and the AnimSet. To see if the weapon is 
 
 =Unreal Script:=
 
+Gun = ShockRilfe
+
 UTAmmo_Gun.uc
 {{{
 	TargetWeapon=class'UTWeap_Gun'
