@@ -22,3 +22,6 @@ Hmm my site was over load from using svn X.x might not work.
 Don't forget to triangle the mesh. 
 
 Here the file from the image was taken. It in svn under blender: demo_build.blend
+
+= How To Delete Your Actions =
+http://blenderartists.org/forum/showpost.php?p=647216&postcount=1
