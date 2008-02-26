@@ -12,7 +12,7 @@ Since We have two bones all we need what are their names? Basic the bone name fo
 For this you have to go in top view. All bone must be the same position just don't rotation them.
 
 =Blender Action Editor (Animation Set for Unreal Editor):=
-Sicne We Are doing a simple shockrifle there will be no animation in this part for third person.
+Since We Are doing a simple shockrifle there will be no animation in this part for third person view.
 
 Here the demo that build up just for few for 3RD Person. Going to use the shook rifle.
 
