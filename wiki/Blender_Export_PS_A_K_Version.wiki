@@ -10,19 +10,7 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
  * Armature bone and Pose bone need to be solve that has it own independent rotation.
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
-Animation Rotation Need Work on!
 
-|| Armature Bone(PSK) || Pose Bone(PSA) || Export Script || Version ||
-|| Bone=(0,0,0)  || Bone=(0,0,0)||  || 0.0.6 ||
-||   || || Bone=(0,0,0) PSA ||  ||
-||   || || Bone=(0,0,0) PSK ||  ||
-|| Bone=(90,0,0) || Bone=(0,0,0) || || 0.0.6 ||
-||   || || Bone=(0,0,0) PSA ||  ||
-||   || || Bone=(90,0,0) PSK ||  ||
-|| Bone=(90,0,0) ||Bone=(90,0,0)+ Bone=(0,0,0) || || 0.0.x (WIP) ||
-||   || || Bone=(90,0,0) PSA ||  ||
-||   || || Bone=(90,0,0) PSK ||  ||
-Note that pose bone have one frame to test out the different when testing rotation.
 
 
 
@@ -38,6 +26,18 @@ Note that pose bone have one frame to test out the different when testing rotati
  * Animation Fix Rotation it was on the make_fquat() function rotate in other direction
  * Bone position set type is now this one ARMATURESPACE not BONESPACE It might change later.
  * Animation work needs to fix the off set in unreal.
+ * Animation Rotation Need Work on! No Error Detect so far.
+|| Armature Bone(PSK) || Pose Bone(PSA) || Export Script || Version ||
+|| Bone=(0,0,0)  || Bone=(0,0,0)||  || 0.0.6 ||
+||   || || Bone=(0,0,0) PSA ||  ||
+||   || || Bone=(0,0,0) PSK ||  ||
+|| Bone=(90,0,0) || Bone=(0,0,0) || || 0.0.6 ||
+||   || || Bone=(0,0,0) PSA ||  ||
+||   || || Bone=(90,0,0) PSK ||  ||
+|| Bone=(90,0,0) ||Bone=(90,0,0)+ Bone=(0,0,0) || || 0.0.x (WIP) ||
+||   || || Bone=(90,0,0) PSA ||  ||
+||   || || Bone=(90,0,0) PSK ||  ||
+Note that pose bone have one frame to test out the different when testing rotation.
 
 = Solve =
  * Seem the animation weapon seem so what work and playable in the game. Just the rotation is bit off for some reason still looking into that later.
