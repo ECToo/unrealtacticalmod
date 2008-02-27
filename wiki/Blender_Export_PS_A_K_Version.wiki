@@ -7,7 +7,6 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
 = Working Area =
  * Animation work needs to fix the off set.
  * Animation bones is build little differently and refine for new blender moder learn it.
- * Armature bone and Pose bone need to be solve that has it own independent rotation.
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
 == Errors ==
@@ -23,6 +22,7 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
 
 
 = Solve =
+ * Armature bone and Pose bone need to be solve that has it own independent rotation.
  * Seem the animation weapon seem so what work and playable in the game. Just the rotation is bit off for some reason still looking into that later.
  * Main bones are issues to assign and fix the position when off grid to make weapon for first person view.
  * Bone position found error not off blender offset of the main. It only center the origin point need to be fix it.
