@@ -27,14 +27,4 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
  * Main bones are issues to assign and fix the position when off grid to make weapon for first person view.
  * Bone position found error not off blender offset of the main. It only center the origin point need to be fix it.
  * Animation Rotation Need Work on! No Error Detect so far.
-|| Armature Bone(PSK) || Pose Bone(PSA) || Export Script || Version ||
-|| Bone=(0,0,0)  || Bone=(0,0,0)||  || 0.0.6 ||
-||   || || Bone=(0,0,0) PSA ||  ||
-||   || || Bone=(0,0,0) PSK ||  ||
-|| Bone=(90,0,0) || Bone=(0,0,0) || || 0.0.6 ||
-||   || || Bone=(0,0,0) PSA ||  ||
-||   || || Bone=(90,0,0) PSK ||  ||
-|| Bone=(90,0,0) ||Bone=(90,0,0)+ Bone=(0,0,0) || || 0.0.x (WIP) ||
-||   || || Bone=(90,0,0) PSA ||  ||
-||   || || Bone=(90,0,0) PSK ||  ||
-Note that pose bone have one frame to test out the different when testing rotation.
+ * Note that pose bone have one frame to test out the different when testing rotation.
