@@ -2,7 +2,7 @@
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
-I currently try to work as I make vehicles, weapons and other mods to make good game.
+I currently try to work as I make vehicles, weapons and other mods to make good game. Plase not this information not be right learning takes time to fully uderstand what I doing.
 
 = Main Bone Issues Need to be Fix First =
 Resaon the animation is not work well they off set bone are mess up just some of the area are working. Looking at the old file seem to work. This will be the top on the list to fix some area. Until the main are fix the animation will work in all the area. Finding a way to make the main bone to be stable when exported.
