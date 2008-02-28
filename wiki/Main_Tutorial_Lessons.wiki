@@ -80,7 +80,7 @@ This weapon will be base of Shockrifle. Animation Test Done workable weapon.
  * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)
 [Blender_Weapon_Model]-Read before you do your (Action Editor(Blender) to AnimSet(Unreal)).
 
-Video Lesson: 
+Video Lesson Model_1P: 
 http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
 [Blender_Weapon_Model_1P] - Working on the first person weapon with action.
@@ -91,7 +91,7 @@ http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
 [Blender_Weapon_Export] - Read Before it save you time.
 
-Video Lesson: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/;9717557;/fileinfo.html
+Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/;9717557;/fileinfo.html
 
 [Unreal_Weapon_SkeletalMesh] - Socket Manager And Importing.
 
