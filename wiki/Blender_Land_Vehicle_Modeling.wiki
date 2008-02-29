@@ -37,7 +37,7 @@ If your know this skip part if not read on.
 
 Why do we have a Tire and Suspension together there? To have wheel and Suspension there is to support wheel rotation and update the going up and down movement.
 
-= Parent to an object =
+= Parent The Mesh And The Armature =
 Once you have done adding the bone in the armature of the wheel and placement. Your mesh should be finish and the direction of the vehicle in unreal. 
 
 Go to object mode. Select your mesh first and armature second by holding down shift key and right clicking mouse and selecting your armature. Then press "ctrl + p" > select Armature > Create Close Bone.
