@@ -1,0 +1,4 @@
+#summary README FIRST FOR Vehicle Design.
+#labels Blender,Vehicle,Design
+
+= Plan Adhead First =
