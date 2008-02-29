@@ -12,6 +12,13 @@ There are couple thing you need to know:
 
 I think that all the basic and planing ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game. The svn has the dirction for the vehicle to face.
 
+= Building Your Model =
+First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since We are making a simple object. 
+
+= Create Simple Mesh =
+
+Create a simple rectangle with four wheels. Don't make the too big the offset might effect the change in differemt size a bit.
+
 =SVN:=
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
 
