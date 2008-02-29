@@ -2,6 +2,7 @@
 #labels Blender,Land,Vehicle,Model
 
 = Plan Before you model =
+We will be modeling off hellbender.
 There are couple thing you need to know:
  * Animation set
  * Model Damages
@@ -16,8 +17,10 @@ I think that all the basic and planing ahead is a good idea what you doing step 
 First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since We are making a simple object. 
 
 = Create Simple Mesh =
+Create a simple rectangle with four wheels. Don't make the too big the offset might effect the change in differemt size a bit. Plesae note if your in object mode while doing that and you don't see vertx points like dots then go into edit mode. Once your done with your mesh go in to top view mode of blender. The Your model should be faceing east that is your front and default vehicle facing. When your in side view the car should be up right.
 
-Create a simple rectangle with four wheels. Don't make the too big the offset might effect the change in differemt size a bit.
+= Armature Setup =
+Ok then next part. We will add Armature that is the main bone code that many bones.
 
 =SVN:=
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
