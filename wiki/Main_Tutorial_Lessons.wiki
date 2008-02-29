@@ -47,8 +47,7 @@ This section will be update day to day stuff and some time not.
 
 [Blender_Vehicle_Design] -READ ME FOR VEHICLE DESIGN AND HOW THINGS ARE SETUP.
 
-[UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
-
+=== Land Vehicle: ===
 [Blender_Land_Vehicle_Modeling] - Blender Modeling Idea Work Out first.
 
 [] - working with UV textures from blender
@@ -74,6 +73,10 @@ This section will be update day to day stuff and some time not.
 [UC_Land_Vehicle_PhysicalMaterial]-
 
 [UC_Land_Vehicle_UnrealScript] - Three Files. No weapon yet.
+
+=== Air Vehicle: ===
+
+[UC_Vehicle_builds Air Vehicle Lession One]
 
 == Weapon Build  ==
 This weapon will be base of Shockrifle. Animation Test Done workable weapon.
