@@ -16,3 +16,5 @@ Socket Manager:
  * Link02
  * Link03
  * Link04
+
+While in socket manager you can move the socket around while select your current socket. Using the mouse and hold down one of these x,y, and z handlers.
