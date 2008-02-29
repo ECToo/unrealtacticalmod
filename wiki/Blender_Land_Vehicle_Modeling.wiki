@@ -33,6 +33,12 @@ Add bone the following armature with respect of the wheel placement.
  * Lt_Rear_Suspension
  * Lt_Rear_Tire
 
+Once you have done adding the bone. Press A Key to select all the bones in Edit Mode. look at the bottom of your panel where is say Armature Bones. Some of the bones will not show up. Just Link all the tires to the Base do not connect them. 
+
+Lt_Front_Suspension > Child of "Base" It will link them. 
+
+You will see a dash line link to the parent and connected. We will just only link to the main root. Once you done all the 8 link to the main bone.
+
 If your know this skip part if not read on.
 
 Why do we have a Tire and Suspension together there? To have wheel and Suspension there is to support wheel rotation and update the going up and down movement.
