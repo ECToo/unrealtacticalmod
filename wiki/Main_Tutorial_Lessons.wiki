@@ -43,6 +43,8 @@ Those are tested in unreal.
 This section will be update day to day stuff and some time not.
 
 == Vehicle Build ==
+Vehicle Pages is being update bit by bit.
+
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
 
 [Blender_Vehicle_Design] -READ ME FOR VEHICLE DESIGN AND HOW THINGS ARE SETUP.
