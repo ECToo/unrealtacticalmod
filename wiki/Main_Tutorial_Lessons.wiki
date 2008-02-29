@@ -45,6 +45,8 @@ This section will be update day to day stuff and some time not.
 == Vehicle Build ==
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
 
+[Blender_Vehicle_Design] -READ ME FOR VEHICLE DESIGN AND HOW THINGS ARE SETUP.
+
 [UC_Vehicle_builds Air Vehicle Lession One] - Think before you skip to the end and error show up fast.
 
 [Blender_Land_Vehicle_Modeling] - Blender Modeling Idea Work Out first.
