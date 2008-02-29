@@ -23,3 +23,36 @@ Add SkelControl Chain > Add the follow bones listed:
  * Lt_Rear_Suspension
  * Lt_Rear_Tire
 
+= Wheel Control =
+Right Next Beside your AnimaTree we will add some function to the car to make wheel spin, turn and have some suspension.
+
+Right Click and go down and look for SkelControlWheel and SkelControlLookAt. Add them in the area.
+
+In SkelControlWheel proporties Change:
+ * WheelRollAxis to AXIS_Y
+ * WheelSteerAxis to AXIS_Z
+
+ControlName:
+ControlName -> Lt_Front_Control (This will be in unreal script to look for the Bone and control from there)
+
+Once you made some changes for the CheelControl. 
+
+Select your SkelControlWheel then "CTRL + W" to make 3 more copy of the WheelControl.
+ * ControlName -> RT_Front_Control
+ * ControlName -> Lt_Rear_Control
+ * ControlName -> Rt_Rear_Control
+Once your name them. Connect the wheel to the Tire. Drage the Input to the Respect Tire name.
+
+= SkelControlLookAt For Suspension =
+Next part change some proporties.
+
+TargetLocationSpace -> BCS_OtherBoneSpace
+ * LookAtAxis -> AXIS_Z
+ * UpAxis -> AXIS_Z
+Same thing here for the naming it:
+ * TargetSpaceBoneName -> Lt_Front_ShockAim
+ * TargetSpaceBoneName -> Rt_Front_ShockAim
+ * TargetSpaceBoneName -> Lt_Rear_ShockAim
+ * TargetSpaceBoneName -> Rt_Rear_ShockAim
+
+Those are the wheel function that make the wheel move and adjust to the Suspension. If you want to learn how I did this look into the Hellbeander AnimTree.
