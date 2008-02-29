@@ -30,7 +30,12 @@ All Texture material must have the same original mesh with out damage to the veh
 To keep the file small for mod download. File must be export into psk format with the same texture material ratio of the original mesh in unreal that it will be sharing the same textures. For the damage texture that will be coded in unreal script. The model must have damage with some prefix damage model name.
 
 = Textures =
-This is the last part that I kind left out. I have not yet learn more about the blender or unreal stuff.
+This is the last part that I kind left out. I have not yet learn more about the blender or unreal stuff. I am not good at textures. For unreal there are layer of texture to make look real. You kind of look for it.
 
-Blender What I know about. List For Blender that has built:
+Blender What I know about. List For Blender that has:
+ * Normal Mapping
+ * UV
+ * UV Paint
  * 
+
+I am not sure that it all almost same materil build in ureal and blender.
