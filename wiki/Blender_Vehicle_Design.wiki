@@ -8,28 +8,29 @@ If you are read this. You made a wise chose. You have to draw out your plan on p
 
 = Plan Before You Model =
 The basic building block and layout knowing how each area effect can effect your model in game play. There are couple thing you need to know:
-    * Action Editor(Blender) To Animation set(Unreal) as AnimSet
-    * Model Damages (Where are the Damages Common in the game)
-    * Textures ()
-      * Texture Damages ()
-      * Texture Realist.
-      * Normal Mapping
-      * Lightning
-      * Texture etc.
-
-Well those are the basic but there more of them dealing with textures, modeling and animation.
+ * Art and Theme
+ * Model
+ * Model Damage
+ * Model Animation
+ * Model Textures
+ * Unreal Script
 
 = Art Concept =
-   This where all ideas and creative goes into a game mod. Layout and design is a key part to make good style of the art work. To kept the model staying in the same area is the key good modeling. Going out art can break or make good work out it as long people agree with your chat. Building different theme of the game layout and how it work can make the game work in many different ways. In some ways make it bad.
+   This is where all ideas and creative goes into a vehicle mod. Layout and design is a key part to make good style of the art work. To keep the model with in the same style in the same area is the key good modeling. Going out side of the art style could break or make good work out it as long people agree with your forums, etc. Building different theme of the game layout and how it work can make the game work in many different ways. In some ways make it bad.
 
 = Modeling with Theme style =
    Creating the theme with the game flow to match part of the game concept. Modeling can be a challenge if goes out of the theme style and does not fit the game well. The color texture got to match the theme too that could effect your game play and design.
 
 = Before You Model In Blender =
-Think about how object are build and render. Build your Main Vehicle into parts for movable parts. If you need to add bones in those movable parts.
+Think about how your mesh are build and render. When your are building your mesh vehicle.  Build your mesh vehicle into part like wheels, door, hood, fender, bumper, wings, and etc. Those are some moving parts and some not moving. For those reason is that making into part  are for vehicle damage parts. Like fender gets twisted, hood bend, door get smashed. You can add more textures.
 
 = Damage Model =
 All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices's change little differently parts where are damage. The bones are to be kept the same. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
 
 To keep the file small for mod download. File must be export into psk format with the same texture material ratio of the original mesh in unreal that it will be sharing the same textures. For the damage texture that will be coded in unreal script. The model must have damage with some prefix damage model name.
 
+= Textures =
+This is the last part that I kind left out. I have not yet learn more about the blender or unreal stuff.
+
+Blender What I know about. List For Blender that has built:
+ * 
