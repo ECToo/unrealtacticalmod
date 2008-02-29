@@ -2,3 +2,12 @@
 #labels Blender,Vehicle,Design
 
 = Plan Adhead First =
+If you are read this. You made a wise chose. You have to draw out your plan on paper. I will try to keep what I am saying with the blender and unreal and new people who want to use blender. Blender export still on going.
+
+= Plan Before You Model =
+There are couple thing you need to know:
+    * Action Editor(Blender) To Animation set(Unreal) as AnimSet
+    * Model Damages (Where are the Damages Common in the game)
+    * Textures ()
+      * Texture Damages ()
+      * Texture etc.
