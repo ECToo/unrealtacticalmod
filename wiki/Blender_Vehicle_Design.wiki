@@ -20,9 +20,10 @@ There are couple thing you need to know:
 Well those are the basic but there more of them dealing with textures, modeling and animation.
 
 = Art Concept =
+   This where all ideas and creative goes into a game mod. Layout and design is a key part to make good style of the art work. Building different theme of the game layout and how it work can make the game work in many different ways. In some ways make it bad.
 
-= Model Theme =
-   Create a theme with the game flow to match part of the game design. To how model are build and the feeling how the it reaction to the in game play. If you are part of team project get some input is most important part or on forums. The color got to match the theme too that could effect your game play.
+= Modeling with Theme style =
+   Creating the theme with the game flow to match part of the game concept. Modeling can be a challenge if goes out of the theme style and does not fit the game well. The color texure got to match the theme too that could effect your game play and design.
 
-=  =
-
+= Before You Model In Blender =
+Think about how object are build and render. Build your Main Vehicle into parts for Vehicle Damages.
