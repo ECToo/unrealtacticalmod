@@ -3,6 +3,23 @@
 
 [Main_Tutorial_Lessons]
 = Information =
-To get your vehicle working you need wheel control and suspence wheel. Those are need to update each wheel. wheel out them the wheel would not move or act funny.
+To get your vehicle working you need wheel control and suspence wheel. Those are need to update each wheel. wheel without them the wheel would not move or act funny way that I test it out.
 
-= Details =
+= Assign SekMesh =
+If you import your vehicle follow this step. Create your animtree with the default name of the prefix name for clean build. Once you create your animtree open it. Then select your mesh that you import for your vehicle. Select your AnimTree and go into AnimTree proporties.   Assign the mesh in PreviewSekMesh.
+
+= Assign AnimTree Bone =
+Next part assigning your bones. You will only see Animation and Morph that where we add out bones. 
+
+Right click on the AnimTree.
+
+Add SkelControl Chain > Add the follow bones listed:
+ * Lt_Front_Suspension
+ * Lt_Front_Tire
+ * Rt_Front_Suspension
+ * Rt_Front_Tire
+ * Rt_Rear_Suspension
+ * Rt_Rear_Tire
+ * Lt_Rear_Suspension
+ * Lt_Rear_Tire
+
