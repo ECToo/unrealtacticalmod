@@ -11,18 +11,18 @@ There are couple thing you need to know:
  * Texture etc.
  * Texture Damage
 
-I think that all the basic and planing ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game. The svn has the dirction for the vehicle to face.
+I think that all the basic and planning ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game. The svn has the direction for the vehicle to face.
 
 = Building Your Model =
-First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since We are making a simple object. 
+First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since we are making a simple object. 
 
 = Create Simple Mesh =
-Create a simple rectangle with four wheels. Don't make the too big the offset might effect the change in differemt size a bit. Plesae note if your in object mode while doing that and you don't see vertx points like dots then go into edit mode. Once your done with your mesh go in to top view mode of blender. The Your model should be faceing east that is your front and default vehicle facing. When your in side view the car should be up right.
+Create a simple rectangle with four wheels. Don't make the wheel too big the offset might effect the change in different size a bit. But you need to change your unreal wheel size to make it work. Please note if you’re in object mode while doing that and you don't see vertex points like dots then go into edit mode. Once your done with your mesh go in to top view mode of blender. The model should be facing east that is your front and default vehicle facing. When you’re in side view the car should be up right.
 
 = Armature Setup =
-Ok then next part. Go in top view mode and do not rotate the bone. That the all the wheel and the main bone rotation will be use. We will add Armature that support bone bone data that many bones. We will name the relation to the bone default for hellbender. We will add Tires and Suspensions for the them and the main bone name is "Base".
+Ok then next part. Go in top view mode and do not rotate the bone. That the all the wheel and the main bone rotation will be use. We will add Armature that support bone data that many bones. We will name the relation to the bone default for hellbender. We wiWill add Tires and Suspensions for them and the main bone name is “Base”.
 
-Add bone the following armature with repect of the wheel placment.
+Add bone the following armature with respect of the wheel placement.
  * Base (Main Root)
  * Lt_Front_Suspension
  * Lt_Front_Tire
@@ -38,29 +38,26 @@ If your know this skip part if not read on.
 Why do we have a Tire and Suspension together there? To have wheel and Suspension there is to support wheel rotation and update the going up and down movement.
 
 = Parent to an object =
-Once you have done adding the bone in the armature of the wheel and placement. Your mesh should be finish and the the direction of the vehicle in unreal. 
+Once you have done adding the bone in the armature of the wheel and placement. Your mesh should be finish and the direction of the vehicle in unreal. 
 
-Go to object mode. Select your mesh first and armature second by holding down shift key and right clicking your armature. Then press "ctrl + p" > select Armature > Create Close Bone.
+Go to object mode. Select your mesh first and armature second by holding down shift key and right clicking mouse and selecting your armature. Then press "ctrl + p" > select Armature > Create Close Bone.
 
 = Weight Paint =
 There are two method of doing the weight paint.
 
 == Method One:  ==
-Select your mesh. Once your parent the two objets them togehter. Go to Vertx mode. Go the bottom left corner. you will see Vertex Groups. Those are your bones that was parent to your armature was assign to it.
+This is fast way to make your vehicle export quickly a bit. Select your mesh. Once your parent the two objects them together. Go to Vertex mode. Go the bottom left corner. You will see Vertex Groups. Those are your bones that were parent to your armature was assign to it.
 
-Ok then next part will be little trick on my word a bit. Select your front right tire of your mesh in vertex mode. If you can select them all. 
+Ok then next part will be little tricking on my word a bit. Select your front right tire of your mesh in vertex mode. If you can select them all. 
 
-Go to select menu > Link Vertices (This will selec your vertices as long they are not connect to other part your mesh)(Quick Way -> Ctrl + L)
+Go to select menu > Link Vertices (This will select your vertices as long they are not connect to other part your mesh) (Quick Way -> Ctrl + L)
 
-Once your select your wheel. Go to the corner of vertex group and select your current Tire  . Then Assign it by pressing the assign button below it with the "Rt_Front_Tire". Reapeat all the Tires. The Last part is the main body and you know what to do with it. Assign the base to the last remain vertices. Plase keep it mind if miss by couple vertices your unreal will give you error.
+Once your select your wheel. Go to the corner of vertex group and select your current Tire. Then Assign it by pressing the assign button below it with the "Rt_Front_Tire". Repeat all the Tires. The Last part is the main body and you know what to do with it. Assign the base to the last remain vertices. Please keep it mind if miss by couple vertices your unreal will give you error.
 
 == Method Two:  ==
-This quite slow. You can do it but it would be easy to chose the first one. This one is for character model. But either way it work for you. You can use your Weight Paint while you select your mesh that it will show up. From Object, Vertex, UV mode. You can paint the bones. 
+This quite slow. You can do it but it would be easy to choose the first one. This one is for character model. But either way it works for you. You can use your Weight Paint while you select your mesh that it will show up. From Object, Vertex, UV mode. You can paint the bones. 
 
-
-
-
-=SVN:=
+=SVN: =
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
 
 = Video Demo: =
