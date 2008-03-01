@@ -1,11 +1,10 @@
 #summary Basic Damage Parts Vehicle.
 #labels Land,Vehicle,MorphTargetSet
 [Main_Tutorial_Lessons]
+
+[UC_Land_Vehicle_PhysicalMaterial] [UC_Land_Vehicle_UnrealScript]
 = Introduction =
 This part where your vehicle is damage. This is a simple import your mesh in the MorphTargetSet.
-
-
-= Details =
 
 == Software Exporting ==
 For any software that you exporting to is that you have to make the file psk. The model vehicle damage should have some deform for where area might be damage. Make each part damage like your doors, fenders, wings, etc to make look it really damages vehicles. Export each of the file name and keep the bones ratio to the same when the vehicle is moving it should act as the same one but in damage form.
@@ -24,3 +23,5 @@ If you are getting error like the object stay the same update your weights that 
 
 
 All thought it just notes that I notice.
+
+[UC_Land_Vehicle_PhysicalMaterial] [UC_Land_Vehicle_UnrealScript]
