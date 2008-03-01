@@ -86,7 +86,7 @@ Vehicle Pages is partly been update.
 == Weapon Build  ==
 This weapon will be base of Shockrifle. Animation Test Done workable weapon.
 
-Error Found on my part. But the curent versin works. I didn't double check the my work the different between the animation and the mesh. That was during my test. For export scripts run tests. It may take some time how are the rotation and location work in unreal for animation debug area.
+Error Found on my part. But the curent versin works. I didn't double check the my work the different between the animation and the mesh. That was during my test. For export scripts run tests. It may take some time how are the rotation and location work in unreal for animation debug area. Once I test out for 1P View I will release it.
 
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
  * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)
