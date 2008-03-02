@@ -2,7 +2,7 @@
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
-I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing. This page update quickly.
+I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
 
 = Working Area =
  * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
