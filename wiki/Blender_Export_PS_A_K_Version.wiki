@@ -4,14 +4,6 @@
 = Information =
 I currently try to work as I make vehicles, weapons and other mods to make good game. Plase not this information not be right learning takes time to fully uderstand what I doing.
 
-= Bone Position And Rotation =
-The Bone need to fix to the bone rotation and position error need work a bit. The aniamtin is little mess up a bit dealing with dummy bone from the old file to main bone to relation. Not a fake bone that has not weight and real bone.
-
-Armature = Dummy bone (roation and position)(Those don't have bone and weight built in them for vehicle test)
-
-MainBone = Mainbone (roation and position)(Those have bone and have to tranlate for tranform)
-
-
 = Working Area =
  * Animation work needs to fix the off set.
  * Animation bones is build little differently and refine for new blender moder learn it.
@@ -36,6 +28,6 @@ MainBone = Mainbone (roation and position)(Those have bone and have to tranlate 
  * Bone position found error not off blender offset of the main. It only center the origin point need to be fix it.
  * Animation Rotation Need Work on! No Error Detect so far.
  * Note that pose bone have one frame to test out the different when testing rotation.
+ * Main Bone Issues Need to be Fix First
 
-= Main Bone Issues Need to be Fix First =
 Resaon the animation is not work well they off set bone are mess up just some of the area are working. Looking at the old file seem to work. This will be the top on the list to fix some area. Until the main are fix the animation will work in all the area. Finding a way to make the main bone to be stable when exported.
