@@ -2,11 +2,11 @@
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
-I currently try to work as I make vehicles, weapons and other mods to make good game. Plase not this information not be right learning takes time to fully uderstand what I doing.
+I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing. This page update quickly.
 
 = Working Area =
- * Animation work needs to fix the off set.
- * Animation bones is build little differently and refine for new blender moder learn it.
+ * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
+ * Character builds working in progress. Researching them and will take time to finish.
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
 == Errors ==
@@ -29,5 +29,3 @@ I currently try to work as I make vehicles, weapons and other mods to make good 
  * Animation Rotation Need Work on! No Error Detect so far.
  * Note that pose bone have one frame to test out the different when testing rotation.
  * Main Bone Issues Need to be Fix First
-
-Resaon the animation is not work well they off set bone are mess up just some of the area are working. Looking at the old file seem to work. This will be the top on the list to fix some area. Until the main are fix the animation will work in all the area. Finding a way to make the main bone to be stable when exported.
