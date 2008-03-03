@@ -5,7 +5,7 @@
 I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
 
 = Working Area =
- * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skelton Mesh. One for male, female, and the last one.
+ * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skelton Mesh. One for male, female, and the krall.
 
  * Working with inheriting the bone from parent to child. For rotation and position. Brach is need to some understanding of it.
  * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
