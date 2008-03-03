@@ -5,6 +5,7 @@
 I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
 
 = Working Area =
+ * Working with inheriting the bone from parent to child. For rotation and position. Brach is need to some understanding of it.
  * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
  * Character builds working in progress. Researching them and will take time to finish.
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
