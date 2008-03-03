@@ -13,7 +13,7 @@ You need to convert to triangles (Ctrl + t -should be in vertex view) when your 
 - To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
 
 #==============================================================================
-# Opti_PSK_Dump_UT3.py
+# MOD_Opti_PSK_Dump.py
 #==============================================================================
 - I double check my work that took long to fix any problem that many come.
 - This will work on UT3 and it is a stable version that works with vehicle for testing. 
@@ -22,7 +22,6 @@ You need to convert to triangles (Ctrl + t -should be in vertex view) when your 
 - There are two points which is the head and tail.
 - Note I add on to the notes a bit and comments out the other ones that are not need in here.
 - Did not work with psk export yet.
-
 
 - v0.0.3
 - Main Bone fixes no dummy needed to be there. Some part of the area may not work when main bone did not detect.
@@ -34,6 +33,26 @@ You need to convert to triangles (Ctrl + t -should be in vertex view) when your 
 - v0.0.4
 - This is an update to fix the bone pose issues position in psa that is off set to the tail and not to the head. That is now fixed to the head.
 - To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
+- Edit by: Darknet
+
+- v0.0.5
+- Fixed bone offset from head bone that was position off a bit. Part of it need the tail to fixed the rotation.
+- Edit by: Darknet
+
+- v0.0.6
+- There was error in make_fquat that the rotation went on the -x,-y-x change to x,y,x with out going to the other way.
+- There was a problem with the animaotin set with blender action editor.
+- Trouble shooting while weapon test animation was found.
+- Edit by: Darknet
+
+- v0.0.61 Beta
+- This is a test I revert back to the tail part still need to work on the head. Clean build a bit.
+- Animation Work here. The rotation are little tricky to deal with.
+- Edit by: Darknet
+
+- v0.0.7
+- This update fixes the bone position that was offset by head and tail.
+- This will inherit the bone parent to the child to translate the position.
 - Edit by: Darknet
 
 #==============================================================================
