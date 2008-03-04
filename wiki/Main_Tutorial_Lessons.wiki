@@ -5,7 +5,11 @@
 This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
 
 = Blender Armature =
-Blender bone are build little differently there are two joint in one bone. The two joint are call the head and the tail. This can cause problem for little bit for the export script. I will try to fix it.
+Blender takes time to translate the head and the tail to work together in their position , rotation, and transform for animation and skeleton.
+
+To Test out the bone position it in the svn:
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/3cube.blend
+This will test out thet bone position and rotation still work when the version needs to be update. I know there some error that I don't see. When I am testing it out. Long testing and crashes to get the export working.
 
 Export Script for blender Information:
 [Blender_Export_PS_A_K_Version]
