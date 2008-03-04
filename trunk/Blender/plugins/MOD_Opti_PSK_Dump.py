@@ -1,9 +1,9 @@
 #!BPY
 """ 
-Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod' 
+Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa)' 
 Blender: 240 
 Group: 'Export' 
-Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod Beta' 
+Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod' 
 """ 
 __author__ = "Optimus_P-Fat/Active_Trash" 
 __version__ = "0.0.7" 
@@ -441,12 +441,6 @@ class PSKFile:
 		print 'bone count: %i' % len(self.Bones.Data)
 		print 'inlfuence count: %i' % len(self.Influences.Data)
 		print '-------------------------'
-		
-		
-	
-	
-	
-	
 # PSA FILE NOTES FROM UDN:
 #
 #	The raw key array holds all the keys for all the bones in all the specified sequences, 
