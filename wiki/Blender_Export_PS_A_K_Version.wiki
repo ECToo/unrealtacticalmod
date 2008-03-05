@@ -7,6 +7,8 @@ I am currently making vehicles, weapons and other mods to make good game. Please
 =Blender Export Version 0.0.8:=
 This code will inherit the parent bone to the child to remove length of the bone to use the head and tail. This new version will fix bone position off set for layer of bones parenting off as tree branches. It is little stable and working.Animatino will be build in when farther test is being work with later on.
 
+Still need to fix the bone different in distance between head and tail iusses.
+
 
 = Working Area =
  * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skeleton Mesh. One for male, female, and the krall.
