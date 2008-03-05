@@ -123,6 +123,8 @@ I was able to create a character but it unfinish work. This just a demo working 
 
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_character_testv8.jpg
 
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_character_testv8_01.jpg
+This another update to fix bone position a bit.
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
  * http://wiki.beyondunreal.com/wiki/New_UnrealScript_In_UT3
