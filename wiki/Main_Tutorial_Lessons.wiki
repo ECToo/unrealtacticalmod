@@ -119,6 +119,9 @@ Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/
 == Character Build  ==
 This may take even longer dealing with size and rotation. So leave as is. I am not good at rotation to the bone.
 
+I was able to create a character but it unfinish work. This just a demo working on the new version of the export. But I not sure about the export size of the character.
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_character_testv8.jpg
+
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
  * http://wiki.beyondunreal.com/wiki/New_UnrealScript_In_UT3
