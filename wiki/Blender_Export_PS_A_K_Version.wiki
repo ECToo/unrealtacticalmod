@@ -1,11 +1,13 @@
-#summary Current Version 0.0.7
+#summary Current Version 0.0.8
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
 I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
-
-=Blender Export Version 0.0.8:=
 Bone position will be fix some how and working out the script error before I can begin animatoin set.
+
+=Blender Export Version 0.0.9:=
+Need to fix bone position is little off set from bone tail to head differents.
+
 
 
 = Working Area =
