@@ -6,9 +6,11 @@ I am currently making vehicles, weapons and other mods to make good game. Please
 Bone position will be fix some how and working out the script error before I can begin animatoin set.
 
 =Blender Export Version 0.0.9:=
-Need to fix bone position is little off set from bone tail to head differents.
+== Bones ==
+Need to fix bone position is little off set from bone tail to head differents. Bone position is not fix to bone rotation. The offset still need work a bit more.
 
-
+===Animation:==
+The animation will be build later to fix the main bone iusses. There still some little animation work a little bit not yet fix.
 
 = Working Area =
  * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skeleton Mesh. One for male, female, and the krall.
