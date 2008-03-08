@@ -1,13 +1,13 @@
-#summary Current Version 0.0.8
+#summary Current Version 0.0.9
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
 I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
 Bone position will be fix some how and working out the script error before I can begin animatoin set.
 
-=Blender Export Version 0.0.9:=
+=Blender Export Version 0.0.10:=
 == Bones ==
-Need to fix bone position is little off set from bone tail to head differents. Bone position is not fix to bone rotation. The offset still need work a bit more.
+Need to fix bone position is little off set from bone tail to head differents. The offset still need work a bit more.
 
 ===Animation:==
 The animation will be build later to fix the main bone iusses. There still some little animation work a little bit not yet fix.
@@ -26,6 +26,7 @@ The animation will be build later to fix the main bone iusses. There still some 
  * Animation work needs to fix the off set in unreal.
 
 === Solve ===
+ * Bone position is not fix to bone rotation.
  * Main Bone Fixed
  * Working with inheriting the bone from parent to child. For rotation and position. Branch is need to some understanding of it.
  * Armature bone and Pose bone need to be solve that has it own independent rotation.
