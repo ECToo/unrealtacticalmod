@@ -741,9 +741,6 @@ def parse_meshes(blender_meshes, psk_file):
 		if discarded_face_count > 0: 
 			print "INFO: Discarded %i non-planar faces." % (discarded_face_count)
 		
-		
-				
-		
 		#RG - walk through the vertex groups and find the indexes into the PSK points array 
 		#for them, then store that index and the weight as a tuple in a new list of 
 		#verts for the group that we can look up later by bone name, since Blender matches
@@ -805,9 +802,7 @@ def make_fquat_animset(bquat):
 	
 	quat.W = bquat.w
 	return quat
-#=====================================================================
-#code taken from cal3d export END
-#=====================================================================
+
 # TODO: remove this 1am hack
 nbone = 0
 def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat,parent_root):
