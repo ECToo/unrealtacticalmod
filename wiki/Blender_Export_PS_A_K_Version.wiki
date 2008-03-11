@@ -21,7 +21,31 @@ For unreal it use the BONESPACE that is the distance between the parent to child
 
  * Bone.head['ARMATURESPACE']
  * Bone.tail['BONESPACE']
- * Bone.matrix['BONESPACE'] - This one deal with the rotation. It does effect the rotation.
+ * Bone.matrix['BONESPACE'] - This one deal with the rotation. It does effect the rotation and the bone position.
+
+{{{
+
+arm_root = (Armature)- DATA BLOCK
+
+bone_root = (arm_root)
+
+bone_root -Main Parent
+-bone00 -Parent
+--bone03 - Parent Child
+-bone01
+--bone04
+-bone02
+}}}
+
+{{{
+ set_head.x =(parent_tail[0] - parent_head[0]) + child_head.x
+ set_head.y =(parent_tail[1] - parent_head[1]) + child_head.y
+ set_head.z =(parent_tail[2] - parent_head[2]) + child_head.z
+ math_head = set_head
+}}}
+
+
+This part I am working on.
 
 
 ===Animation:==
