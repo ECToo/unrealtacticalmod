@@ -1,0 +1,32 @@
+		a_parent_head = child_parent.head['ARMATURESPACE']
+		a_parent_tail = child_parent.tail['ARMATURESPACE']
+		b_parent_head = child_parent.head['BONESPACE']
+		b_parent_tail = child_parent.tail['BONESPACE']
+		#child Parent
+		a_child_head = blender_bone.head['ARMATURESPACE']
+		a_child_tail = blender_bone.tail['ARMATURESPACE'] 
+		b_child_head = blender_bone.head['BONESPACE']
+		b_child_tail = blender_bone.tail['BONESPACE']
+		
+		#tmp_head = (a_child_head - a_parent_tail) + b_child_tail
+		""" 
+		(-5,3,0)
+		"""
+		#HEIGHT
+		#bheight = (a_child_tail - a_child_head) 
+		#WIDTH
+		#bwidth = (a_child_head - a_parent_tail) - b_parent_tail
+		#tmp_head  = bheight + bwidth
+		
+		"""
+		Right way but the rotation effect bone position
+		tmp_head  = b_child_head
+		tmp_head = tmp_head + (a_parent_tail - a_parent_head)
+		"""
+		'''
+		#This a correct version
+		tmp_head =(a_child_head - a_parent_head) - b_child_head
+		print "DIFFERENT: ",tmp_head
+		tmp_head = tmp_head + b_child_head 
+		print "DIFFERENT: ",tmp_head
+		'''
