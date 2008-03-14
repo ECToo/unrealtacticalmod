@@ -20,4 +20,17 @@ blender_bone.tail['BONESPACE']
 blender_bone.matrix['BONESPACE']
 blender_bone.roll['BONESPACE']
 
+#=== Root ID
+	if not blender_bone.hasParent():
+		parent_root = blender_bone
+	#print "---------------PARENT ROOT BONE: ",parent_root
+	#print "BONESPACE:Matrix:]",blender_bone.matrix['ARMATURESPACE'].toQuat()
+	
+	if blender_bone.hasChildren():
+		child_count = len(blender_bone.children)
+	else:
+		child_count = 0
+	#parent
+	child_parent = blender_bone.parent
+
 }}}
