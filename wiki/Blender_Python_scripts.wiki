@@ -1,0 +1,23 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+This just blender and python working with code bits of pieces.
+
+Note they shorten code build. Working with new version of the blender 2.45.
+
+= Bone And Armature =
+{{{
+#For Object Armature
+parent_mat.rotationPart()
+parent_mat
+
+#For bone
+blender_bone.head['ARMATURESPACE']
+blender_bone.tail['ARMATURESPACE'] 
+blender_bone.matrix['ARMATURESPACE']
+blender_bone.head['BONESPACE']
+blender_bone.tail['BONESPACE']
+blender_bone.matrix['BONESPACE']
+blender_bone.roll['BONESPACE']
+
+}}}
