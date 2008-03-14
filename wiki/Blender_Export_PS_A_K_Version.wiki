@@ -44,6 +44,29 @@ bone_root -Main Parent
  math_head = set_head
 }}}
 
+{{{
+a_parent_head = child_parent.head['ARMATURESPACE']
+a_parent_tail = child_parent.tail['ARMATURESPACE']
+b_parent_head = child_parent.head['BONESPACE']
+b_parent_tail = child_parent.tail['BONESPACE']
+#child Parent
+a_child_head = blender_bone.head['ARMATURESPACE']
+a_child_tail = blender_bone.tail['ARMATURESPACE'] 
+b_child_head = blender_bone.head['BONESPACE']
+b_child_tail = blender_bone.tail['BONESPACE']
+		
+quat_root = blender_bone.matrix['BONESPACE']
+quat = make_fquat(quat_root.toQuat())
+tmp_head = blender_bone.head['BONESPACE']
+print "HEAD:",tmp_head
+#Armature Position for head
+head_offset = (a_child_head - a_parent_head)
+#Subtract Different between off set bone and head offset
+head_offset = tmp_head - (a_child_head - a_parent_head)
+set_position = tmp_head - head_offset
+
+#same rotation will work but one change in rotation the head position is off.
+}}}
 
 This part I am working on.
 
