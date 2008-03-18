@@ -1,0 +1,138 @@
+nbone = 0
+def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat,parent_root):
+	global nbone 	# look it's evil!
+	
+	print '-------------------- Dumping Bone ---------------------- '
+	print 'Bone Name:] ' + blender_bone.name
+
+	print "BONESPACE:HEAD:] ",blender_bone.head['BONESPACE']
+	print "BONESPACE:TAIL:] ",blender_bone.tail['BONESPACE']
+	print "BONESPACE ===== DIFFERENTS: ",blender_bone.tail['BONESPACE']-blender_bone.head['BONESPACE']
+	print "ARMATURESPACE:HEAD:] ",blender_bone.head['ARMATURESPACE']
+	print "ARMATURESPACE:TAIL:] ",blender_bone.tail['ARMATURESPACE']
+	print "ARMATURESPACE =====DIFFERENTS: ",blender_bone.tail['ARMATURESPACE']-blender_bone.head['ARMATURESPACE']
+	#=== Root ID
+	if not blender_bone.hasParent():
+		parent_root = blender_bone
+	#print "---------------PARENT ROOT BONE: ",parent_root
+	#print "BONESPACE:Matrix:]",blender_bone.matrix['ARMATURESPACE'].toQuat()
+	
+	if blender_bone.hasChildren():
+		child_count = len(blender_bone.children)
+	else:
+		child_count = 0
+	#parent
+	child_parent = blender_bone.parent
+	
+	if child_parent != None:
+		a_parent_head = child_parent.head['ARMATURESPACE']
+		a_parent_tail = child_parent.tail['ARMATURESPACE']
+		b_parent_head = child_parent.head['BONESPACE']
+		b_parent_tail = child_parent.tail['BONESPACE']
+		#child Parent
+		a_child_head = blender_bone.head['ARMATURESPACE']
+		a_child_tail = blender_bone.tail['ARMATURESPACE'] 
+		b_child_head = blender_bone.head['BONESPACE']
+		b_child_tail = blender_bone.tail['BONESPACE']
+		
+		if parent_root.name == child_parent.name:
+			#This one deal rotation for bone for the whole bone that will inherit off from parent to child.
+			quat_root = blender_bone.matrix['BONESPACE'] * parent_mat.rotationPart() #* child_parent.matrix['BONESPACE'] #* parent_mat.rotationPart()
+			quat = make_fquat(quat_root.toQuat())
+		else:
+			quat_root = blender_bone.matrix['BONESPACE']* parent_root.matrix['BONESPACE']
+			quat = make_fquat(quat_root.toQuat())
+		
+		#quat_root = blender_bone.matrix['BONESPACE']
+		#quat = make_fquat(quat_root.toQuat())
+		'''
+		tmp_head = blender_bone.head['BONESPACE']
+		print "HEAD:",tmp_head
+		#Armature Position for head
+		head_offset = (a_child_head - a_parent_head)
+		#Subtract Different between off set bone and head offset
+		head_offset = tmp_head - (a_child_head - a_parent_head)
+		set_position = tmp_head - head_offset
+		'''
+		a_head = [0,0,0]
+		a_tail = [0,0,0]
+		
+		a_head[0] = a_child_head.x
+		a_head[1] = a_child_head.y
+		a_head[2] = a_child_head.z
+		a_tail[0] = a_parent_head.x
+		a_tail[1] = a_parent_head.y
+		a_tail[2] = a_parent_head.z
+		#print "blender_bone.roll:",blender_bone.roll['BONESPACE']
+		#print dir(blender_bone.roll['BONESPACE'])
+		#print "quat:",dir(quat)
+		#print"matrix2quaternion", matrix2quaternion(blender_bone2matrix(a_head, a_tail, blender_bone.roll['BONESPACE']))
+		#quat_matrix2 = matrix2quaternion(blender_bone2matrix(a_head,a_tail, blender_bone.roll['BONESPACE']))
+		if parent_root.name == child_parent.name:
+			set_position = (quat_root*(b_child_tail - b_child_head ))+ b_child_head#+ b_child_head #a_child_head - a_parent_head
+		else:
+			set_position = (quat_root*(a_child_head - a_parent_head))
+			#set_position = b_child_tail
+		#quat.x = quat_matrix2[0]
+		#quat.y = quat_matrix2[1]
+		#quat.z = quat_matrix2[2]
+		#quat.w = quat_matrix2[3]
+		#quat = blender_bone.matrix['BONESPACE'] * blender_bone2matrix(a_head,a_tail, blender_bone.roll['BONESPACE'])
+		#quat = make_fquat(quat)
+	else:
+		# ROOT BONE
+		set_position = blender_bone.head['BONESPACE']
+		rot_mat = blender_bone.matrix['BONESPACE']
+		quat = make_fquat(rot_mat.toQuat())
+		
+	print "[[======= FINAL POSITION:",set_position
+	final_parent_id = parent_id
+	
+	#RG/RE -
+	#if we are not seperated by a small distance, create a dummy bone for the displacement
+	#this is only needed for root bones, since UT assumes a connected skeleton, and from here
+	#down the chain we just use "tail" as an endpoint
+	#if(head.length > 0.001 and is_root_bone == 1):
+	if(0):	
+		pb = make_vbone("dummy_" + blender_bone.name, parent_id, 1, FQuat(), tail)
+		psk_file.AddBone(pb)
+		pbb = make_namedbonebinary("dummy_" + blender_bone.name, parent_id, 1, FQuat(), tail, 0)
+		psa_file.StoreBone(pbb)
+		final_parent_id = nbone
+		nbone = nbone + 1
+		#tail = tail-head
+		
+	my_id = nbone
+	
+	pb = make_vbone(blender_bone.name, final_parent_id, child_count,quat,set_position)
+	psk_file.AddBone(pb)
+	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count,quat,set_position, 1)
+	psa_file.StoreBone(pbb)
+
+	nbone = nbone + 1
+	
+	#RG - dump influences for this bone - use the data we collected in the mesh dump phase
+	# to map our bones to vertex groups
+	if blender_bone.name in psk_file.VertexGroups:
+		vertex_list = psk_file.VertexGroups[blender_bone.name]
+		for vertex_data in vertex_list:
+			point_index = vertex_data[0]
+			vertex_weight = vertex_data[1]
+			
+			influence = VRawBoneInfluence()
+			influence.Weight = vertex_weight
+			influence.BoneIndex = my_id
+			influence.PointIndex = point_index
+			
+			#print 'Adding Bone Influence for [%s] = Point Index=%i, Weight=%f' % (blender_bone.name, point_index, vertex_weight)
+			
+			psk_file.AddInfluence(influence)
+	
+	#blender_bone.matrix['BONESPACE']
+	#recursively dump child bones
+	mainparent = parent_mat
+	if blender_bone.hasChildren():
+		for current_child_bone in blender_bone.children:
+			parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, mainparent,parent_root)
+			#parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, parent_mat)
+	
