@@ -6,16 +6,8 @@ I am currently making vehicles, weapons and other mods to make good game. Please
 Bone position will be fix some how and working out the script error before I can begin animatoin set.
 
 =Blender Export Version 0.0.10:=
-== Update Bone postion and rotation ==
-   This is an update bones are working with fix offset that took while to understand the code. From the old to the new blender files are export from different format. It did took a while to get it right and to understand the code works from outdate files. I have not yet fully test it out yet.
-
-== Bones ==
-Need to fix bone position is little off set from bone tail to head differents. The offset still need work a bit more. This is bit harder to deal with for bone position dealing with math and angle and inherit parent of the child to get it right position of the bone. I been looking around the fourm there are few support code just take time to test it out.
-
-For unreal it use the BONESPACE that is the distance between the parent to child not to root to bone. But I need the rotation that will not effect the rotation of the bone position. There some conflict between rotation and the bone position.
-
-This part I am working on.
-
+== UPDATE ARMATURE ==
+   This took a while to understand the code in python and blender. Plus I had to deal with the old and the new version to understand how the code works from the revisit version of the blender. The bone position are working a bit still need to run more test to make sure it working the right way. Once I am able to determine the is working property. It will be release later.
 
 ===Animation:==
 The animation will be build later to fix the main bone iusses. There still some little animation work a little bit not yet fix.
