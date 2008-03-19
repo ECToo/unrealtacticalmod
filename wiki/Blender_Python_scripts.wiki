@@ -33,4 +33,11 @@ blender_bone.roll['BONESPACE']
 	#parent
 	child_parent = blender_bone.parent
 
+#Work Area For Bone Fix and Rotation:
+		quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
+		parent_head = child_parent.head['BONESPACE']* quat_parent
+		parent_tail = child_parent.tail['BONESPACE']* quat_parent
+		set_position = parent_tail + blender_bone.head['BONESPACE']
+		set_position = set_position - parent_head
+		print quat_parent
 }}}
