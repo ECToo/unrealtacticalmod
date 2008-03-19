@@ -93,7 +93,16 @@ Caveats:
     * There may be some other stuff we forgot to account for, don’t complain if it doesn't work!
     * Modify and add features to this script as you will, if you can make it better, or add features we've left out, by all means do so, just please, email me a copy!
 
+#==============================================================================
+# export_cal3d.py
+#==============================================================================
+-Help with the amature offset for bone.
+-learning from the old and the new version of the script base off it.
 
+Links:
+-http://home.gna.org/oomadness/en/soya3d/index.html
+-https://gna.org/projects/cal3d/
+-http://sourceforge.net/projects/cal3d/
 
 #==============================================================================
 # Credits:
