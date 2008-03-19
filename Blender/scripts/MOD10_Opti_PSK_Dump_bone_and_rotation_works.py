@@ -58,6 +58,9 @@ __bpydoc__ = """\
 - Bone position little bit stable when character is test for bone position. 
 - Bone off set need work.
 
+- v0.0.10
+- This fix the bone position and the rotation dealing with the offset.
+
 """ 
 # DANGER! This code is complete garbage!  Do not read!
 # TODO: Throw some liscence junk in here: (maybe some GPL?)
