@@ -33,28 +33,33 @@ You need to convert to triangles (Ctrl + t -should be in vertex view) when your 
 - v0.0.4
 - This is an update to fix the bone pose issues position in psa that is off set to the tail and not to the head. That is now fixed to the head.
 - To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
-- Edit by: Darknet
 
 - v0.0.5
 - Fixed bone offset from head bone that was position off a bit. Part of it need the tail to fixed the rotation.
-- Edit by: Darknet
 
 - v0.0.6
 - There was error in make_fquat that the rotation went on the -x,-y-x change to x,y,x with out going to the other way.
 - There was a problem with the animaotin set with blender action editor.
 - Trouble shooting while weapon test animation was found.
-- Edit by: Darknet
 
 - v0.0.61 Beta
 - This is a test I revert back to the tail part still need to work on the head. Clean build a bit.
 - Animation Work here. The rotation are little tricky to deal with.
-- Edit by: Darknet
 
 - v0.0.7
 - This update fixes the bone position that was offset by head and tail.
 - This will inherit the bone parent to the child to translate the position.
-- Edit by: Darknet
 
+- v0.0.8
+- The bone position is party working. Just keep the bone length the same.
+- This will inherit the bone parent to the child to translate the position.
+
+- v0.0.9
+- Bone position little bit stable when character is test for bone position. 
+- Bone off set need work.
+
+- v0.0.10
+- This fix the bone position and the rotation dealing with the offset.
 #==============================================================================
 # Trouble shooting:
 #==============================================================================
@@ -63,8 +68,9 @@ Influence count: must equal to point count else it will crash.
 
 I see my object flashing how I fix this?
 Update your animtree, animset, etc if you reimport your mesh again to fix some error doesn't update your other mesh some time. Check your log when you’re in game test.
-
-
+#==============================================================================
+# Credits Pythons scripts:
+#==============================================================================
 #==============================================================================
 # Opti_PSK_Dump.py
 #==============================================================================
@@ -86,6 +92,21 @@ Caveats:
     * Multiple Materials aren't supported yet (but should be easy to add when I get around to it)
     * There may be some other stuff we forgot to account for, don’t complain if it doesn't work!
     * Modify and add features to this script as you will, if you can make it better, or add features we've left out, by all means do so, just please, email me a copy!
+
+
+
+#==============================================================================
+# Credits:
+#==============================================================================
+UT3 Forums:
+http://utforums.epicgames.com/forumdisplay.php?f=20
+
+Blender
+http://www.blender.org
+
+
+Blender Artist Forums:
+http://blenderartists.org/forum
 
 #==============================================================================
 # Copy Rights:
