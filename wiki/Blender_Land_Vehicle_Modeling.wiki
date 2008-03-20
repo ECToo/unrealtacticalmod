@@ -13,7 +13,7 @@ There are couple thing you need to know:
  * Texture etc.
  * Texture Damage
 
-I think that all the basic and planning ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game. The svn has the direction for the vehicle to face.
+I think that all the basic and planning ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game in blender in top view facing left. The svn has the direction for the vehicle to face.
 
 = Building Your Model =
 First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since we are making a simple object.
