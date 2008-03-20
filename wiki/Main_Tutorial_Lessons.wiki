@@ -88,8 +88,6 @@ Vehicle Pages is partly been update.
 == Weapon Build  ==
 This weapon will be base of Shockrifle. Animation Test Done workable weapon.
 
-Error Found on my part. But the curent versin works. I didn't double check the my work the different between the animation and the mesh. That was during my test. For export scripts run tests. It may take some time how are the rotation and location work in unreal for animation debug area. Once I test out for 1P View I will release it.
-
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
  * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)
 [Blender_Weapon_Model]-Read before you do your (Action Editor(Blender) to AnimSet(Unreal)).
@@ -97,11 +95,11 @@ Error Found on my part. But the curent versin works. I didn't double check the m
 Video Lesson Model_1P: 
 http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
-[Blender_Weapon_Model_1P] - Working on the first person weapon with action.
+[Blender_Weapon_Model_1P] - Working on the First Person (1P)View Weapon with action.
 
 [Blender_Weapon_Action_Editor] - Create a one set of animation.
 
-[Blender_Weapon_Model_3P] - Simple third person view holding the mod weapon.
+[Blender_Weapon_Model_3P] - Simple Third Person (3P) View holding the mod weapon.
 
 [Blender_Weapon_Export] - Read Before it save you time.
 
@@ -112,7 +110,6 @@ Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/
 [Unreal_Weapon_AnimSet] - Animation Set.
 
 [Unreal_Weapon_Script] - Unreal Script. Three simple File.
-
 
 == Character Build  ==
 This may take even longer dealing with size and rotation. So leave as is. I am not good at rotation to the bone.
