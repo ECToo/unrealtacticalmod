@@ -1,12 +1,12 @@
 #!BPY
 """ 
 Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod' 
-Blender: 240 
+Blender: 245
 Group: 'Export' 
-Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod09' 
+Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod010' 
 """ 
 __author__ = "Optimus_P-Fat/Active_Trash" 
-__version__ = "0.0.9" 
+__version__ = "0.0.10" 
 __bpydoc__ = """\ 
 
 -- Unreal Skeletal Mesh and Animation Export (.psk  and .psa) export script v0.0.1 --<br> 
@@ -30,45 +30,33 @@ __bpydoc__ = """\
 - Note I add on to the notes a bit and comments out the other ones that are not need in here.
 - Did not work with psa export yet.
 
-- v0.0.4
-- This is an update to fix the bone pose iusses position in psa that is off set to the tail and not to the head. That is now fixed to the head.
-- To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
+- v0.0.4 - v0.0.49
+- Just bone issues position, rotation, and offset for psk. Not work on the animation yet.
 
-- v0.0.5
-- Fixed bone offset from head bone that was position off a bit. Part of it need the tail to fixed the rotation.
-
-- v0.0.6
-- There was error in make_fquat that the rotation went on the -x,-y-x change to x,y,x with out going to the other way.
-- There was a problem with the animaotin set with blender action editor.
-- Trouble shooting while weapon test animation was found.
-
-- v0.0.61 Beta
-- This is a test I revert back to the tail part still need to work on the head. Clean build a bit.
-- Animation Work here. The rotation are little tricky to deal with.
-
-- v0.0.7
-- This update fixes the bone position that was offset by head and tail.
-- This will inherit the bone parent to the child to translate the position.
-
-- v0.0.8
-- The bone position is party working. Just keep the bone length the same.
-- This will inherit the bone parent to the child to translate the position.
-
-- v0.0.9
-- Bone position little be more stable when character is test for bone position.
+- v0.0.10
+- The armature bone position, rotation, and the offset of the bone is fix. It was to deal with skeleton mesh export for psk.
+- Animation is fix for position, offset, rotation bone. 
+- ]
 
 """ 
 # DANGER! This code is complete garbage!  Do not read!
 # TODO: Throw some liscence junk in here: (maybe some GPL?)
 # Liscence Junk: Use this script for whatever you feel like! 
 
+import math
+import Blender
+import BPyMesh
+import BPySys
+import BPyArmature
+import BPyObject
+import bpy
 import Blender, time, os, math, sys as osSys, operator
 from Blender import sys, Window, Draw, Scene, Mesh, Material, Texture, Image, Mathutils, Armature
 
 
 from cStringIO import StringIO
 from struct import pack, calcsize
-
+Matrix = Blender.Mathutils.Matrix
 
 # REFERENCE MATERIAL JUST IN CASE:
 # 
@@ -111,8 +99,6 @@ class ObjMap:
 		getval = operator.itemgetter(0)
 		getkey = operator.itemgetter(1)
 		return map(getval, sorted(self.dict.items(), key=getkey))
-
-
 
 ########################################################################
 # RG - UNREAL DATA STRUCTS - CONVERTED FROM C STRUCTS GIVEN ON UDN SITE 
@@ -739,9 +725,6 @@ def parse_meshes(blender_meshes, psk_file):
 		if discarded_face_count > 0: 
 			print "INFO: Discarded %i non-planar faces." % (discarded_face_count)
 		
-		
-				
-		
 		#RG - walk through the vertex groups and find the indexes into the PSK points array 
 		#for them, then store that index and the weight as a tuple in a new list of 
 		#verts for the group that we can look up later by bone name, since Blender matches
@@ -789,59 +772,67 @@ def make_fquat(bquat):
 	quat.W = bquat.w
 	return quat
 	
-def make_fquat_animset(bquat):
+def make_fquat_default(bquat):
 	quat = FQuat()
 	
-	#flip handedness for UT = set x,y,z to negative (rotate in other direction)
-	#quat.X = bquat.x
-	#quat.Y = -bquat.y
-	#quat.Z = bquat.z
-	
-	quat.X = -bquat.x
-	quat.Y = -bquat.y
-	quat.Z = -bquat.z
+	quat.X = bquat.x
+	quat.Y = bquat.y
+	quat.Z = bquat.z
 	
 	quat.W = bquat.w
 	return quat
-	
+# =================================================================================================
 # TODO: remove this 1am hack
 nbone = 0
-def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat):
+def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat,parent_root):
 	global nbone 	# look it's evil!
-	
-	#print ' --- Dumping Bone --- '
-	print 'blender bone name: ' + blender_bone.name
 
+	print '-------------------- Dumping Bone ---------------------- '
+	print blender_bone.parent
+	#If bone does not have parent that mean it the main bone
+	if not blender_bone.hasParent():
+		parent_root = blender_bone
+	#print "---------------PARENT ROOT BONE: ",parent_root
+	
 	if blender_bone.hasChildren():
 		child_count = len(blender_bone.children)
 	else:
 		child_count = 0
-		
+	#parent
 	child_parent = blender_bone.parent
 	
-	if  nbone == 0:#object root of armature
-		print "PARENT"
-		head = blender_bone.head['BONESPACE']#  * parent_mat
-		#tail = blender_bone.tail['BONESPACE'] - (blender_bone.tail['BONESPACE']-blender_bone.head['BONESPACE'])
-		#tail = blender_bone.head['BONESPACE']
-		quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
-	elif (nbone > 0)and(parent_id == 0) :#child inherit position  root bone.
-		print "Child Parent"#,dir(parent_mat)		
-		head = (blender_bone.head['BONESPACE']+(child_parent.tail['BONESPACE']-child_parent.head['BONESPACE']))* parent_mat
-		#head = (blender_bone.head['BONESPACE']+(child_parent.tail['BONESPACE']-child_parent.head['BONESPACE']))* parent_mat
-		#head = (blender_bone.head['BONESPACE'])* parent_mat
-		rot_mat = blender_bone.matrix['BONESPACE'] * parent_mat.rotationPart()
-		quat = make_fquat(rot_mat.toQuat())
-	else:
-		print "Other Parent"
-		head =blender_bone.head['BONESPACE'] + ((child_parent.tail['BONESPACE']-child_parent.head['BONESPACE'])) # 2
+	if child_parent != None:
+		if parent_root.name == child_parent.name:
+			#This one deal rotation for bone for the whole bone that will inherit off from parent to child.
+			quat_root = blender_bone.matrix['BONESPACE']* parent_mat.rotationPart()
+			quat = make_fquat(quat_root.toQuat())
+		else:
+			quat_root = blender_bone.matrix['BONESPACE']
+			quat = make_fquat(quat_root.toQuat())
 		
-		#head =blender_bone.head['BONESPACE']
-		quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
-
-	
+		quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
+		parent_head = child_parent.head['BONESPACE']* quat_parent
+		parent_tail = child_parent.tail['BONESPACE']* quat_parent
+		
+		set_position = (parent_tail - parent_head) + blender_bone.head['BONESPACE']
+	else:
+		# ROOT BONE
+		#This for root 
+		set_position = blender_bone.head['BONESPACE']
+		rot_mat = blender_bone.matrix['BONESPACE']#* parent_mat.rotationPart() 
+		quat = make_fquat_default(rot_mat.toQuat())
+		
+	#print "[[======= FINAL POSITION:",set_position
 	final_parent_id = parent_id
-	
+	'''
+	if child_parent != None:
+		quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
+		parent_head = child_parent.head['BONESPACE']* quat_parent
+		parent_tail = child_parent.tail['BONESPACE']* quat_parent
+		set_position = parent_tail + blender_bone.head['BONESPACE']
+		set_position = set_position - parent_head
+		print quat_parent
+	'''
 	#RG/RE -
 	#if we are not seperated by a small distance, create a dummy bone for the displacement
 	#this is only needed for root bones, since UT assumes a connected skeleton, and from here
@@ -858,16 +849,11 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 		
 	my_id = nbone
 	
-	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat,head)
+	pb = make_vbone(blender_bone.name, final_parent_id, child_count,quat,set_position)
 	psk_file.AddBone(pb)
-	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat,head, 1)
+	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count,quat,set_position, 1)
 	psa_file.StoreBone(pbb)
-	'''
-	pb = make_vbone(blender_bone.name, final_parent_id, child_count, quat,tail)
-	psk_file.AddBone(pb)
-	pbb = make_namedbonebinary(blender_bone.name, final_parent_id, child_count, quat,tail, 1)
-	psa_file.StoreBone(pbb)
-	'''
+
 	nbone = nbone + 1
 	
 	#RG - dump influences for this bone - use the data we collected in the mesh dump phase
@@ -892,7 +878,7 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	mainparent = parent_mat
 	if blender_bone.hasChildren():
 		for current_child_bone in blender_bone.children:
-			parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, mainparent)
+			parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, mainparent,parent_root)
 			#parse_bone(current_child_bone, psk_file, psa_file, my_id, 0, parent_mat)
 	
 def parse_armature(blender_armature, psk_file, psa_file):
@@ -919,7 +905,7 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		bones = [x for x in current_armature.bones.values() if not x.hasParent()]
 		
 		for current_bone in bones:
-			parse_bone(current_bone, psk_file, psa_file, 0, 0, current_obj.mat)
+			parse_bone(current_bone, psk_file, psa_file, 0, 0, current_obj.mat,None)
 			
 
 # get blender objects by type		
@@ -996,7 +982,7 @@ def parse_animation(blender_scene, psa_file):
 			bones_lookup =  {}
 			for bone in current_armature.bones.values():
 				bones_lookup[bone.name] = bone
-			
+					
 			frame_count = len(scene_frames)
 			#print "Frame Count: %i" % frame_count
 
@@ -1005,13 +991,7 @@ def parse_animation(blender_scene, psa_file):
 			#these must be ordered in the order the bones will show up in the PSA file!
 			ordered_bones = {}
 			ordered_bones = sorted([(psa_file.UseBone(x.name), x) for x in pose_data.bones.values()], key=operator.itemgetter(0))
-			print "=Order Bones:="
 			
-			
-			for bone_data in ordered_bones:
-				bone_index = bone_data[0]
-				pose_bone = bone_data[1]
-				#print "pose_bone:",pose_bone.name
 			
 			#############################
 			# ORDERED FRAME, BONE
@@ -1032,19 +1012,8 @@ def parse_animation(blender_scene, psa_file):
 					
 				Blender.Set('curframe', frame)
 				
-				for bone_data in ordered_bones:
-					bone_index = bone_data[0]
-					pose_bone = bone_data[1]
-					blender_bone = bones_lookup[pose_bone.name]
-					if not blender_bone.hasParent():
-						MainBone_root = blender_bone.name
-				
-				#print "MAIN BONE:",MainBone_root
-				
 				cur_frame_index = cur_frame_index + 1
 				for bone_data in ordered_bones:
-				
-					#print "MAIN BONE:>",MainBone_root
 					bone_index = bone_data[0]
 					pose_bone = bone_data[1]
 					blender_bone = bones_lookup[pose_bone.name]
@@ -1054,88 +1023,56 @@ def parse_animation(blender_scene, psa_file):
 					#LOUD
 					#print "-------------------", pose_bone.name
 					
-					head = blender_bone.head['BONESPACE'] 
+					head = blender_bone.head['BONESPACE']
 					tail = blender_bone.tail['BONESPACE']
 					quat = blender_bone.matrix['BONESPACE'].toQuat()
-					#head2 = blender_bone.head['BONESPACE']
 					
-					#quat = make_fquat(blender_bone.matrix['BONESPACE'].toQuat())
-					#quat = grassman(quat, pose_bone.quat)
 					quat = grassman(quat, pose_bone.quat)
 					
 					#WOW
-					head = (pose_bone.quat*(tail-head))+(head)+ pose_bone.loc
+					if blender_bone.hasParent():
+						#print "parent:",blender_bone.name
+						child_parent = blender_bone.parent
+						quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
+						parent_head = child_parent.head['BONESPACE']* quat_parent
+						parent_tail = child_parent.tail['BONESPACE']* quat_parent
+						set_position = parent_tail + blender_bone.head['BONESPACE']
+						head = set_position - parent_head
 					
-					#head = (pose_bone.quat*(tail-head))+(head) + pose_bone.loc
-					#head = head + pose_bone.loc
-					#head = tail + pose_bone.loc
-					
-					#print dir(pose_bone)
-					#tail = (pose_bone.quat * (tail-head)) + head + pose_bone.loc
+					#This include the translate parent
+					head = head + pose_bone.loc
 					
 					# no parent?  apply armature transform
-					#work this area where all bone are rotation
-					#print ">",pose_bone.name
-					'''
 					if not blender_bone.hasParent():
-						#print "MAIN PARENT:",pose_bone.name
-						#parent_mat = obj.mat
-						#head = head * parent_mat
-						#tail = tail * parent_mat
-						#quat = grassman(parent_mat.toQuat(), quat)
-					else:
-						#print "Child Name:",pose_bone.name," Parent Name:",pose_bone.parent.name
-						child_parent_name = pose_bone.parent.name
-						
-						child_parent = bones_lookup[child_parent_name]
-						#print "CHECK PARENT ROOT:",child_parent.name
-						if child_parent.name == MainBone_root:
-							#print "SUB ROOT:",blender_bone.name,"THIS PARENT ROOT TO:",child_parent.name
-							parent_mat = obj.mat
-							head = head * parent_mat
-							tail = tail * parent_mat
-							quat = grassman(parent_mat.toQuat(), quat)
-						#MainBone_root
-					'''
-					if pose_bone.parent != None:
-						child_parent_name = pose_bone.parent.name
-						child_parent = bones_lookup[child_parent_name]
-						if child_parent.name == MainBone_root:
-							#print "SUB ROOT PARENT:",pose_bone.name
-							#print "SUB ROOT:",blender_bone.name,"THIS PARENT ROOT TO:",child_parent.name
-							parent_mat = obj.mat
-							head = head * parent_mat
-							tail = tail * parent_mat
-							quat = grassman(parent_mat.toQuat(), quat)					
-						
-						#head = (child_parent.matrix['BONESPACE'].toQuat() * (child_parent.tail['BONESPACE']-child_parent.head['BONESPACE'])) + head
-						#tail = tail * parent_mat
-						#quat_parent = child_parent.matrix['BONESPACE'].toQuat()
-						#quat = grassman(quat_parent, quat)
-						
-						#head = blender_bone.head['BONESPACE'] + ((parent_mat.tail['BONESPACE']-parent_mat.head['BONESPACE']))
-						
-					#print "Head: ", head
-					#print "Tail: ", tail
-					#print "Quat: ", quat
-					#print "L0c: ", pose_bone.loc
+						#print "hasParent:",blender_bone.name
+						parent_mat = obj.mat
+						head = head * parent_mat
+						tail = tail * parent_mat
+						quat = grassman(parent_mat.toQuat(), quat)
 					
 					vkey = VQuatAnimKey()
 					vkey.Position.X = head.x
 					vkey.Position.Y = head.y
 					vkey.Position.Z = head.z
 					
-					vkey.Orientation = make_fquat(quat)
+					#This reverse it direction of the quat from root main and parent
+					if not blender_bone.hasParent():
+						#vkey.Orientation = make_fquat(quat)
+						vkey.Orientation = make_fquat_default(quat)
+					else:
+						#vkey.Orientation = make_fquat_animset(quat)
+						vkey.Orientation = make_fquat(quat)
+					
 					#vkey.Orientation = make_fquat(quat)
 					#time frm now till next frame = diff / framesPerSec
-					
 					if next_frame >= 0:
 						diff = next_frame - frame
 					else:
 						diff = 1.0
-						
+					
 					#print "Diff = ", diff
 					vkey.Time = float(diff)/float(blender_context.framesPerSec())
+					
 					psa_file.AddRawKey(vkey)
 					
 			#done looping frames
@@ -1146,8 +1083,6 @@ def parse_animation(blender_scene, psa_file):
 		anim.TotalBones = len(unique_bone_indexes)
 		anim.TrackTime = float(frame_count) / anim.AnimRate
 		psa_file.AddAnimation(anim)
-
-	
 
 def fs_callback(filename):
 	t = sys.time() 
