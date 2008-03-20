@@ -35,14 +35,13 @@ Here another one but in the s.v.n with image and text showing you it.
  * [Blender_Export_PSK]
 
 Here an example file: http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
-Those are tested in unreal.
 
 To test it out use the hellbender vehicle class.
  * [Blender_Export_PSA]
 
 Here an example file: 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
-Those are tested in unreal.
+
 
 == Vehicle Build ==
 Vehicle Pages is partly been update.
