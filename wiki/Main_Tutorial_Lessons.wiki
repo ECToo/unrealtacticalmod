@@ -8,11 +8,12 @@ This section will be update day to day stuff and some time not.
 This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
 
 == Blender Armature ==
-Blender takes time to translate the head and the tail to work together in their position , rotation, and transform for animation and skeleton. This script is an on from people who work on it. So I am taking my time to learn what part need to work one at the time.
+   Armature is an object in blender terms. Once you add a armature while your in object mode. It will create your bones that will go into edit mode where your can create bones. Do not add more than one armature it will conlfict with the export. Armature is part of an datablock as the same in mesh.
 
-==To Test out the Bone Position check the svn:==
+==Test Bone Position check the svn:==
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/3cube.blend
+
 This will test out thet bone position and rotation still work when the version needs to be update. I know there some error that I don't see. When I am testing it out. Long testing and crashes to get the export working.
 
 == Downloads ==
@@ -123,12 +124,6 @@ Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/
 
 == Character Build  ==
 This may take even longer dealing with size and rotation. So leave as is. I am not good at rotation to the bone.
-
-I was able to create a character but it unfinish work. This just a demo working on the new version of the export. But I not sure about the export size of the character.
-
-http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_character_testv9.jpg
-
-This is another update for bone position and rotation fix. I am not sure it fully tested. I only able to test out for character bones build for rotation and position. This is version is is for 0.0.9. That is little stable for the bones.
 
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
