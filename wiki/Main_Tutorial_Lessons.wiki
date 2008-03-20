@@ -5,10 +5,10 @@
 This section will be update day to day stuff and some time not.
 
 = Introduction =
-This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
+It will be hard to tell you if you don't read or do lesson about Blender. Please do not rust when your learning blender. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
 
-= Blender =
-Note. It will be hard to tell you if you don't read or do lesson about Blender. You have get Blender 2.45 the current version of Blender.
+= Blender Version =
+You have get Blender 2.45 the current version of Blender.
 
 Here Blender Video:
 http://www.blender.org/education-help/video-tutorials/
