@@ -2,15 +2,30 @@
 # README FIRST FOR YOUR FILES MIGHT NOT WORK OR IT CRASH ON YOU IN UNREAL AND THE GAME.
 #==============================================================================
 
-There should be one mesh and one armature object else will cause an error. This select the first object two objects.
-The mesh and the armature mush are place in order else it will not work.
-Mesh should be select first and then the armature. Then (Ctrl + p) to parent the objects.
-Armature > Create From Closest Bones
+#==============================================================================
+# Building Skeleton Mesh:
+#==============================================================================
+-Required One Mesh
+-Required One Armature
+--Required One main bone to branch off from.
 
-All weights must be use up for the bones else it will crash on you.
-You need to convert to triangles (Ctrl + t -should be in vertex view) when your done.
+There should be one mesh and one armature object else will cause an error. There is no selecting option yet scripted.
 
-- To make it work for psa you must add the bones in the Unreal Editor from AnimSet under UseTranslationBoneNames.
+The mesh should be place first and the armature must second to parent the object. 
+
+Then (Ctrl + p) to parent the objects. Armature > Create From Closest Bones
+
+All vertex points weights must be use up for the bones that is assign to else it will crash on you. Meaning all your vertex point use for the bone is assign to.
+
+You need to convert to triangles (Ctrl + t) -should be in vertex view “Edit Mode“) when your done.
+
+- To make it work for psa you must add the bones in the Unreal Editor from AnimSet under 
+
+#==============================================================================
+# Building Animation Set:
+#==============================================================================
+-Do not bake them that it will export your animation set from your Action Editor.
+-UseTranslationBoneNames. Add bones from Animset.
 
 #==============================================================================
 # MOD_Opti_PSK_Dump.py
