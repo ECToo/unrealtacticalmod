@@ -59,7 +59,9 @@ You need to convert to triangles (Ctrl + t -should be in vertex view) when your 
 - Bone off set need work.
 
 - v0.0.10
-- This fix the bone position and the rotation dealing with the offset.
+- The armature bone position, rotation, and the offset of the bone is fix. It was to deal with skeleton mesh export for psk.
+- Animation is fix for position, offset, rotation bone. Animation export is working for psa.
+
 #==============================================================================
 # Trouble shooting:
 #==============================================================================
