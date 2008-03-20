@@ -1,4 +1,4 @@
-#summary Current Version 0.0.9
+#summary Current Version 0.0.10
 #labels Blender,Export,PSK,PSA,Version
 
 = Information =
@@ -6,16 +6,11 @@ I am currently making vehicles, weapons and other mods to make good game. Please
 Bone position will be fix some how and working out the script error before I can begin animatoin set.
 
 =Blender Export Version 0.0.10:=
-== UPDATE ARMATURE ==
-   This took a while to understand the code in python and blender. Plus I had to deal with the old and the new version to understand how the code works from the revisit version of the blender. The bone position are working a bit still need to run more test to make sure it working the right way. Once I am able to determine the is working property. It will be release later.
-
-===Animation:==
-The animation will be build later to fix the main bone iusses. There still some little animation work a little bit not yet fix.
+== UPDATE BONE FOR PSA/PSK ==
+   The bone position, rotation, and offset are working for psk and psa.
 
 = Working Area =
  * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skeleton Mesh. One for male, female, and the krall.
-
- * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
  * Every time I solve the code bug another one pop up so fixing take time to make it stable for a bit.
 
 === Errors ===
@@ -26,6 +21,7 @@ The animation will be build later to fix the main bone iusses. There still some 
  * Animation work needs to fix the off set in unreal.
 
 === Solve ===
+ * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
  * Bone position is not fix to bone rotation.
  * Main Bone Fixed
  * Working with inheriting the bone from parent to child. For rotation and position. Branch is need to some understanding of it.
