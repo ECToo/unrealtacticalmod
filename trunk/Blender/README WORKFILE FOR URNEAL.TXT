@@ -13,7 +13,7 @@ Look into the characters, vehicles, and weapons for bone rotation are different 
 # Working Animation For Unreal Bone default:
 #======================================================================
 -pod_cude_test.blend
--arm_anim.blend
+-anim_hand_claw.blend
 -demo_weapon_1P.blend
 -demo_weapon_1P_animset.blend
 -demo_weapon_3P.blend
