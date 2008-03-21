@@ -6,6 +6,9 @@ It will be hard to tell you if you don't read or do lesson about Blender. Please
 
 There are example files in the svn that you can use to test out your current blender files if your files are working right.
 
+Those who are new at blender you can look into this link:
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro
+
 Blender Features:
  * Build In Game Engine
  * 3D Modeling
