@@ -61,7 +61,7 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision
 === Land Vehicle: ===
 [Blender_Land_Vehicle_Modeling] - Blender Modeling Idea Work Out first.
 
-[] - working with UV textures from blender
+[Blender_Land_Vehicle_UV] - working with UV textures from blender
 
 [] - Working with textures with Blender.
 
