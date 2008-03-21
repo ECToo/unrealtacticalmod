@@ -8,6 +8,7 @@ There are example files in the svn that you can use to test out your current ble
 
 Those who are new at blender you can look into this link:
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro
+ * -Look up Armature those are for bone if you want animatoin.
 
 Blender Features:
  * Build In Game Engine
