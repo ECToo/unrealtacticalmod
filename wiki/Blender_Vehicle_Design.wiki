@@ -6,9 +6,6 @@
 = Plan ahead First =
 If you are read this. You made a wise chose. You have to draw out your plan on paper that comes in right type of game play and style of game. I will try to keep what I am saying with the blender and unreal and new people who want to use blender. Blender export still on going.
 
-= Blender Info. =
-Blender is data block build type.
-
 = Plan Before You Model =
 The basic building block and layout knowing how each area effect can effect your model in game play. There are couple thing you need to know:
  * Art and Theme
@@ -16,6 +13,8 @@ The basic building block and layout knowing how each area effect can effect your
  * Model Damage
  * Model Animation
  * Model Textures
+ * Model Size
+ * Bone Position And Rotation For Unreal Defualt
  * Unreal Script
 
 = Art Concept =
