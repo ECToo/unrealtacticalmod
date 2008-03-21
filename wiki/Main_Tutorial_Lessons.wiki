@@ -2,7 +2,16 @@
 #labels Tutorial-Implementation,Vehicle,Weapon,Blender
 
 = Introduction =
-It will be hard to tell you if you don't read or do lesson about Blender. Please do not rush when your learning blender. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. There are example files in the svn that you can use to test out your current blender files if your files are working right. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page take time to complete.
+It will be hard to tell you if you don't read or do lesson about Blender. Please do not rush when your learning blender. It is base on blender term language for blender interface. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page will take time to complete.
+
+There are example files in the svn that you can use to test out your current blender files if your files are working right.
+
+Blender Features:
+ * Build In Game Engine
+ * 3D Modeling
+ * UV Painting
+ * Python Scripts
+ * Check out the site of blender for more information. (www.blender.org)
 
 = Blender Version =
 You have get Blender 2.45 the current version of Blender.
