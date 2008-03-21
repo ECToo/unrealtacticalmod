@@ -48,6 +48,10 @@ To test it out use the hellbender vehicle class.
 Here an example file: 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 
+ * [Blender_Export_ASE   ]
+
+Here an example file: 
+http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision_box_ASE.blend
 
 == Vehicle Build ==
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
