@@ -10,4 +10,4 @@ Select the "UV Face Select" option. Select all your faces of the object while th
 Next part is the uv layout. While the mouse currently over the 3D view port of the model. Press the "u" key that the UV. Select any one formats. Last bottom one is the good chose for  quick even space of the uv layout.
 
 Link:
-http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/UV_Map_Basics -UV
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/UV_Map_Basics -UV
