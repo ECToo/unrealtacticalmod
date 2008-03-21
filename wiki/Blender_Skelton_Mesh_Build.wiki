@@ -7,7 +7,7 @@ Hmm my site was over loaded sorry need work out other way of showing this. This 
 
 	
 
-[URL=http://img151.imageshack.us/my.php?image=blendermakecube159b70d4zh5.jpg][IMG]http://img151.imageshack.us/img151/8669/blendermakecube159b70d4zh5.th.jpg[/IMG][/URL]
+http://img151.imageshack.us/my.php?image=blendermakecube159b70d4zh5.jpg
 ~/svn/trunk/Screen_Shots/blender_make_cube.jpg
 
 ~/svn/trunk/Screen_Shots/blender_addarmature.jpg
