@@ -37,7 +37,7 @@ Here another one but in the s.v.n with image and text showing you it.
 = Setup Area =
 [Unreal_Setup_Complie]
 
-== Blender Export ==
+== Blender Export: ==
  * [Blender_Export_PSK] -Skeleton Mesh
 
 Here an example file: http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
@@ -53,7 +53,7 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.
 Here an example file: 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision_box_ASE.blend
 
-== Vehicle Build ==
+== Vehicle Build: ==
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
 
 [Blender_Vehicle_Design] -READ ME FOR VEHICLE DESIGN AND HOW THINGS ARE SETUP.
