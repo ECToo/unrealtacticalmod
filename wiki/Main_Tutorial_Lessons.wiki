@@ -50,8 +50,6 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.
 
 
 == Vehicle Build ==
-Vehicle Pages is partly been update.
-
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
 
 [Blender_Vehicle_Design] -READ ME FOR VEHICLE DESIGN AND HOW THINGS ARE SETUP.
