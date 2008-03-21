@@ -6,7 +6,7 @@
 Hmm my site was over loaded sorry need work out other way of showing this. This a quick image still work little if you don't get there a video lession from blender site before you can understand it.
 
 	
-~/svn/trunk/Screen_Shots/blender_make_cube.jpg
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/blender_make_cube.jpg
 
 ~/svn/trunk/Screen_Shots/blender_addarmature.jpg
 ~/svn/trunk/Screen_Shots/blender_addarmature2.jpg
