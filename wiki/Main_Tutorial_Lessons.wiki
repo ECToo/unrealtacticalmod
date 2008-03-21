@@ -38,17 +38,17 @@ Here another one but in the s.v.n with image and text showing you it.
 [Unreal_Setup_Complie]
 
 == Blender Export ==
- * [Blender_Export_PSK]
+ * [Blender_Export_PSK] -Skeleton Mesh
 
 Here an example file: http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
 
 To test it out use the hellbender vehicle class.
- * [Blender_Export_PSA]
+ * [Blender_Export_PSA] -AnimSet(Unreal) > Action Editor(Blender)
 
 Here an example file: 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 
- * [Blender_Export_ASE]
+ * [Blender_Export_ASE] -Static Mesh
 
 Here an example file: 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision_box_ASE.blend
