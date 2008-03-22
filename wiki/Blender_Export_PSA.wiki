@@ -27,7 +27,8 @@ Here a video link for basic setup animatoin:
  * http://video.google.ca/videoplay?docid=3795156702262154408
  
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/intro#Adding_Action_Strips
-
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/index
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/intro
 Here the file from svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
 
