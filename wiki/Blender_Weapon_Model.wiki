@@ -16,20 +16,15 @@ There are two modeling that has to support two different animations in First Per
 = Blender Modeling =
 For now make your 3D model into parts for First Person View. Remember you have to do your textures when you’re creating two set of file for your first person and your third person view. The Third Person view will not have some moving parts with animation or without animation depend if you want animation in the third person view. Since we will be modeling off from shockrilfe there is no animation for third person view.
 
+= Weapon Modeling Sample =
+This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend 
+
+= Next Step Creating Player View =
+
  * [Blender_Weapon_Model_1P]
  * [Blender_Weapon_Model_3P]
 
-There are files in the svn are update for quick demo build and src code to test out the weapon test but there is no animation setup yet.
-
-Here a quick demo for the weapon that I just made:
- * http://unrealtacticalmod.googlecode.com/files/2322008_1639_11.rar
-
-=Video Demo: =
-This is with out the animation:
-http://www.youtube.com/watch?v=E7ZrVDUFtrI
-
-This is with animation:
-http://www.youtube.com/watch?v=R9GPHxqZbGE
+There are files in the svn are update for quick demo build and src code to test out the weapon test.
 
 = SVN: =
 
@@ -40,5 +35,12 @@ This weapon is in First Person (1P) Model with Armature Bone: http://unrealtacti
 This weapon is for First Person (1P) View With Animation: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P_animset.blend
 
 This weapon is in Third Person (3P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_3P.blend 
+
+=Video Demo: =
+This is with out the animation:
+http://www.youtube.com/watch?v=E7ZrVDUFtrI
+
+This is with animation:
+http://www.youtube.com/watch?v=R9GPHxqZbGE
 
 [Main_Tutorial_Lessons HOME] [Blender_Weapon_Model_1P Next]
