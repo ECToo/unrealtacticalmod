@@ -3,16 +3,14 @@
 
 = Introduction =
 There are pros and cons in the psk file for export the blender to unreal.
-Here my update of the psk that I been working on a bit.
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/MOD2_Opti_PSK_Dump_UT3.py
 
-MOD_Opti_PSK_Dump.py < This is my update
+To get the blender export for psk. It in the download section of this website. The current update is stable and working.
 
 == Pros ==
-The Export works. The vehicle work for a bit. Tested for vehicle. Main bone are fixed.
+The Export works. There no error yet.
 
 == Cons ==
-Parent index need to be fixed. There are two method to add the bone but it does work other ones doesn't work.
+There are two method to add the bone but it does work other ones doesn't work.
 
 == Old Version ==
 Opti_PSK_Dump.py (www.p-fat.net) -This is from the script that I use. Use what you like for this script. Just read me detail in this part. Use at your own risk
