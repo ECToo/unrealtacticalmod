@@ -31,4 +31,14 @@ http://www.youtube.com/watch?v=E7ZrVDUFtrI
 This is with animation:
 http://www.youtube.com/watch?v=R9GPHxqZbGE
 
+= SVN: =
+
+This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend
+
+This weapon is in First Person (1P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P.blend
+
+This weapon is for First Person (1P) View With Animation: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P_animset.blend
+
+This weapon is in Third Person (3P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_3P.blend 
+
 [Main_Tutorial_Lessons HOME] [Blender_Weapon_Model_1P Next]
