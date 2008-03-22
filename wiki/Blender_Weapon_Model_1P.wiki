@@ -17,8 +17,10 @@ Make sure you have one Armature then the next one should be a bone by default yo
 There are two method to adding your bones but one of the doesn't work. The method that doesn't work while your in Armature(Edit Mode) with using your (ctrl + right click mouse) that will center all your bones to zero. 
 
 = Weight Paint =
-Paint your Weight or assign your weight that both case work. There are simple iusses that if you miss your vertex by a few vertex it will crash your unreal editor.
+Paint your mesh to add weight to the bone or assign your vertex point to add bone weight that both case work. There are iusses with the vertex weight that if you miss your vertex points by a few vertexs it will crash your unreal editor.
 
+Link about here:
+http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/Mesh/vg
 
 This is just a weapon with out 1P and 3P.
 http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend
