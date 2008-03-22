@@ -1,18 +1,19 @@
-#summary This is action animation frame.AnimSet.
+#summary This is action animation frame. AnimSet.
 #labels Blender,Export,PSA
 
-http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/psa_test.jpg
+Got to have blender knowledge.
 
-= Information: =
-In the blender area where you work. This the basic knowledge that you need to be in pose mode. To make the animation you need the following panel to make the animation to work in unreal.
+= Unreal Bone =
+Unreal bone are format differently. All rotation must face all the same direction to make the animation work. The mesh object got to match direction as well. It is shown in unreal editor from vehicles, weapons, and characters builds bones.
 
- * Ipo Cruve Editor
- * Action Editor
- * NLA Editor
+= Information About Action Editor: =
+In the blender area where you work. This the basic knowledge that you need to be in pose mode to use the action editor. You have to select your armature object to get pose mode. To make the animation you need the following panel to make the animation to work in unreal.
+
+ * Ipo Cruve Editor (give you the range of the rotation and bone position)
+ * Action Editor (This give you mark frame where bone are use)()
+ * NLA Editor ()
 
 If you want to make a new action use “Action Editor” panel. Near the “AC” where the up and down icon click “ADD  NEW”. Once you create a another action there a number plus one added with their name. Saying that you made a new action that has a copy of the new action just delete your bone pose and start from one. Just double check your other action name.
-
-Beware You can not delete your action if you made a mistake that I don’t not know how to remove the new action.
 
 Here are the two images from blender to unreal.
 
@@ -20,9 +21,12 @@ http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/animation_test_bl
 
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/animation_test_unreal.jpg
 
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/psa_test.jpg
 = Links: = 
 Here a video link for basic setup animatoin:
-http://video.google.ca/videoplay?docid=3795156702262154408
+ * http://video.google.ca/videoplay?docid=3795156702262154408
+ 
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/intro#Adding_Action_Strips
 
 Here the file from svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
