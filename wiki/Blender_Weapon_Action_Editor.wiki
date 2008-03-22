@@ -4,12 +4,10 @@
 
 
 = Armature Bone Vs. Bone Pose =
-This information is about the rotation can effect the animation and your two files. They have both different rotation build in them. Here an image they are not link to the rotation because they have different mode. Pose Mode and Edit Mode. Why this is different because they have for one action pose not armature bone relation. Well I have to look into it for a bit.
-
-http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/armature_pose_bone.jpg
+There the current export will tranlate the bone rotation to rotation for animation.
 
 = Blender Action Editor =
-This is where all your weapon animation is render in Action Editor(Blender) to Animatin Set(Unreal Edditor). Please not not Bake your Action in  Action Editor that it is already in there when your exporting to blender script format default. You will have the same copy of your action.
+This is where all your weapon animation is render in Action Editor(Blender) to Animatin Set(Unreal Edditor). Please not not Bake your Action in Action Editor that it is already in there when your exporting to blender script format default. You will have the same copy of your action.
 
 EAXMPLE:
 
@@ -43,7 +41,18 @@ Will start simple animation just a couple before doing all the action before get
 = SVN: =
 This weapon is in First Person (1P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P.blend
 
+This weapon is for First Person (1P) View With Animation: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P_animset.blend
+
 = How To Delete Your Actions =
 http://blenderartists.org/forum/showpost.php?p=647216&postcount=1
+
+= Action Editor =
+ *  http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/Armature/pose
+ * http://wiki.blender.org/index.php/Manual/The_Action_Editor
+ * http://blenderartists.org/forum/showthread.php?t=73723
+ * http://www.blender.org/development/release-logs/blender-240/action-and-nla-editor/
+ *  http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/index
+ * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/intro
+ * http://www.telusplanet.net/public/kugyelka/blender/tutorials/stride/stride.html
 
 [Blender_Weapon_Model_1P Prev] [Blender_Weapon_Model_3P Next]
