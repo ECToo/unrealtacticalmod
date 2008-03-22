@@ -97,7 +97,7 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision
 [UC_Vehicle_builds Air Vehicle Lession One]
 
 == Weapon Build  ==
-This weapon will be base of Shockrifle. This section will be rebuild for the new plugin that has be update a bit.
+This weapon will be base of Shockrifle. The rotation of the weapon is effect by unreal script that is code in.
 
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod No Animation (weapon)
  * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)
