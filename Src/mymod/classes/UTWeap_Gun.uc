@@ -331,14 +331,16 @@ defaultproperties
 		//AnimSets(0)=AnimSet'WP_ShockRifle.Anim.K_WP_ShockRifle_1P_Base'
 		AnimSets(0)=AnimSet'customweapon.Anims.demo_weapon_1P_animset' //Need to work on the animation later.
 		Animations=MeshSequenceA
-		Rotation=(Yaw=-16384)
+		Rotation=(Yaw=-16384)  //Weapon Rotation Direction
 		FOV=60.0
+		Scale=3.0 //weapon Draw scale
 	End Object
 
 	AttachmentClass=class'mymod.UTAttachment_Gun'
 
-	Begin Object Name=PickupMesh
+	Begin Object Name=PickupMesh // When player die when drop weapon or picking up an weapon
 		SkeletalMesh=SkeletalMesh'customweapon.Mesh.demo_weapon_3P'
+		Scale=3.0  //weapon Draw scale
 	End Object
 
 	InstantHitMomentum(0)=+60000.0

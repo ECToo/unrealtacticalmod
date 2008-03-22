@@ -112,6 +112,7 @@ defaultproperties
 	Begin Object Name=SkeletalMeshComponent0
 	                                        //3rd Person
 		SkeletalMesh=SkeletalMesh'customweapon.Mesh.demo_weapon_3P'
+		Scale=3.0
 	End Object
 
 	DefaultImpactEffect=(ParticleTemplate=ParticleSystem'WP_ShockRifle.Particles.P_WP_ShockRifle_Beam_Impact',Sound=SoundCue'A_Weapon_ShockRifle.Cue.A_Weapon_SR_AltFireImpactCue')

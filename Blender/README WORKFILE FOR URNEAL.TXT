@@ -17,4 +17,4 @@ Look into the characters, vehicles, and weapons for bone rotation are different 
 -demo_weapon_1P.blend
 -demo_weapon_1P_animset.blend
 -demo_weapon_3P.blend
--
+-custom_weapon_gun -folder
