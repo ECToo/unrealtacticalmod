@@ -3,6 +3,9 @@
 
 Got to have blender knowledge.
 
+= Information =
+To get the blender export for psa. It in the download section of this website. The current update is stable and working.
+
 = Unreal Bone =
 Unreal bone are format differently. All rotation must face all the same direction to make the animation work. The mesh object got to match direction as well. It is shown in unreal editor from vehicles, weapons, and characters builds bones.
 
@@ -14,6 +17,8 @@ In the blender area where you work. This the basic knowledge that you need to be
  * NLA Editor ()
 
 If you want to make a new action use “Action Editor” panel. Near the “AC” where the up and down icon click “ADD  NEW”. Once you create a another action there a number plus one added with their name. Saying that you made a new action that has a copy of the new action just delete your bone pose and start from one. Just double check your other action name.
+
+There are links about the Action Editor. There is a video lesson in one of page links about video this page.
 
 Here are the two images from blender to unreal.
 
@@ -31,7 +36,3 @@ Here a video link for basic setup animatoin:
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/NLA/intro
 Here the file from svn:
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
-
-= SVN: =
-Here the src in svn:
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/plugins/MOD2_Opti_PSK_Dump_UT3.py
