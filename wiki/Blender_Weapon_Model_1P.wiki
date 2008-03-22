@@ -3,7 +3,7 @@
 [Blender_Weapon_Model Prev] [Blender_Weapon_Action_Editor Next]
 
 = Check Your Work =
-If your reading this section you should have save your file inlcude with your texture and name it as weaponname with the prefix "_1P". weaponname_1P. This will let you know that the file must final stage. If you made a mistake and all your animation you work hard into the first person. Then DO NOT DELETE YOUR FILE you can make a new one and append the armature that you can open another file within another file.
+If your reading this section you should have save your file inlcude with your texture and name it as weaponname with the prefix "_1P". weaponname_1P. This will let you know that the file must be in the final stage. If you made a mistake and all your animation you work hard work into the first person. Then DO NOT DELETE YOUR FILE you can make a new one and append the armature that you can open another file within another file.
 
 = First Person Weapon =
 This your First Person Weapon while your holding your weapon. Doing different action to it when playing the animatoin.
@@ -11,8 +11,10 @@ This your First Person Weapon while your holding your weapon. Doing different ac
 = Bone Name For Root =
 Since we are going to mod off from the shockfile the main default for it is "xr". All Bones must face in one direction in top view mode by pressing "NUMPAD 7". Do not rotation them.
 
-= Armature =
-Make sure you have one Armature then the next one should be a bone by default your in the main Armature to branch off the that Armature bones. Add you bones where your animation is need. There are two method to add your bone but one of the doesn't work. The method that doesn't work while your in Armature(Edit Mode) wirh using your (ctrl + right click mouse) that will center all your bones to zero.
+= Armature Bones =
+Make sure you have one Armature then the next one should be a bone by default your in the main Armature to branch off the that Armature bones. Add your bones where your animation is need. Link the bones, but not to connect them. Bone are build little differently for unreal.
+
+There are two method to adding your bones but one of the doesn't work. The method that doesn't work while your in Armature(Edit Mode) with using your (ctrl + right click mouse) that will center all your bones to zero. 
 
 = Weight Paint =
 Paint your Weight or assign your weight that both case work. There are simple iusses that if you miss your vertex by a few vertex it will crash your unreal editor.
