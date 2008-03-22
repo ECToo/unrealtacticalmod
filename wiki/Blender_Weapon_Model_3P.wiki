@@ -1,4 +1,4 @@
-#summary 2 bone And Simple Animation.
+#summary 2 bones.
 #labels Blender,Weapon
 [Blender_Weapon_Model_1P Prev] [Blender_Weapon_Export Next]
 = Third Person Weapon: =
