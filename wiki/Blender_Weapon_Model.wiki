@@ -19,7 +19,7 @@ For now make your 3D model into parts for First Person View. Remember you have t
 = Weapon Modeling Sample =
 This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend 
 
-= Next Step Creating Player View =
+= Next Step Creating 1st and 3rd Player View =
 
  * [Blender_Weapon_Model_1P]
  * [Blender_Weapon_Model_3P]
