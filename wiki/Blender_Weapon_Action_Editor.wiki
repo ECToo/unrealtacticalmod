@@ -41,8 +41,8 @@ WeaponPutDown
 Will start simple animation just a couple before doing all the action before getting error in game.
 
 = SVN: =
+This weapon is in First Person (1P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P.blend
 
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/demo_weapon_1P_animset.blend
 = How To Delete Your Actions =
 http://blenderartists.org/forum/showpost.php?p=647216&postcount=1
 
