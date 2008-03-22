@@ -3,11 +3,6 @@
 
 = Information =
 I am currently making vehicles, weapons and other mods to make good game. Please not read this information not be right learning takes time to fully understand what I doing.
-Bone position will be fix some how and working out the script error before I can begin animatoin set.
-
-=Blender Export Version 0.0.10:=
-== UPDATE BONE FOR PSA/PSK ==
-   The bone position, rotation, and offset are working for psk and psa.
 
 = Working Area =
  * Character builds working in progress. Researching them and will take time to finish. Bone Rotation and location will take some time to finish for couple of skeleton Mesh. One for male, female, and the krall.
@@ -21,6 +16,7 @@ Bone position will be fix some how and working out the script error before I can
  * Animation work needs to fix the off set in unreal.
 
 === Solve ===
+ * Bone position will be fix some how and working out the script error before I can begin animatoin set.
  * Animation needs work. Last thing on the list. I am trying to deal with the correct way. Rotation and position and transform. And working with simple code need some understanding.
  * Bone position is not fix to bone rotation.
  * Main Bone Fixed
@@ -32,3 +28,6 @@ Bone position will be fix some how and working out the script error before I can
  * Animation Rotation Need Work on! No Error Detect so far.
  * Note that pose bone have one frame to test out the different when testing rotation.
  * Main Bone Issues Need to be Fix First
+
+=Blender Export Version 0.0.11:=
+ * Convert triangle (Right now you have to convert manually.)
