@@ -47,7 +47,7 @@ This weapon is for First Person (1P) View With Animation: http://unrealtacticalm
 http://blenderartists.org/forum/showpost.php?p=647216&postcount=1
 
 = Action Editor =
-Refer to Note below. They are out date. Build evey key frame. Just the basic setup.
+Refer to Note below. They are out date. Build every key frame. Just the basic setup.
  *  http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/Armature/pose
  * http://wiki.blender.org/index.php/Manual/The_Action_Editor
  * http://blenderartists.org/forum/showthread.php?t=73723
