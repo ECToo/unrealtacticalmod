@@ -23,13 +23,13 @@ Paint your Weight or assign your weight that both case work. There are simple iu
 This is just a weapon with out 1P and 3P.
 http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend
 
-This weapon is in 1P Model with Armature Bone:
+This weapon is in First Person (1P) Model with Armature Bone:
 http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P.blend
 
-This weapon is for First Person View With Animation:
+This weapon is for First Person (1P) View With Animation:
 http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_1P_animset.blend
 
-This weapon is in 3P Model with Armature Bone:
+This weapon is in Third Person (3P) Model with Armature Bone:
 http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_3P.blend
 
 [Blender_Weapon_Model Prev] [Blender_Weapon_Action_Editor Next]
