@@ -27,6 +27,7 @@ This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.co
 There are files in the svn are update for quick demo build and src code to test out the weapon test.
 
 = SVN: =
+http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/
 
 This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend
 
