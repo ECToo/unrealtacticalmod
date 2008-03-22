@@ -14,6 +14,7 @@ For this you have to go in top view. All bone must be the same position just don
 Since We Are doing a simple shockrifle there will be no animation in this part for third person view.
 
 Here the demo that build up just for few for 3RD Person. Going to use the shook rifle.
+=SVN=
 This weapon is in Third Person (3P) Model with Armature Bone: http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun_3P.blend
 
 [Blender_Weapon_Model_1P Prev] [Blender_Weapon_Export Next]
