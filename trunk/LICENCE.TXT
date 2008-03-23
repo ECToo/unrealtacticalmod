@@ -8,9 +8,10 @@ http://www.unrealtournament3.com/
 http://www.blender.org/
 
 
-blender:
+Blender:
 -Free to use
+-Update the current Blender to support the Blender Export Plugin for PSA/PSK.
 
 
-unrealtournament3:(Copy Rights)
+Unreal Tournament 3:(Copy Rights)
 -You have to buy the game to start making mod game for fun.
