@@ -36,6 +36,9 @@ __bpydoc__ = """\
 - v0.0.10
 - The armature bone position, rotation, and the offset of the bone is fix. It was to deal with skeleton mesh export for psk.
 - Animation is fix for position, offset, rotation bone. 
+
+- v0.0.11
+- It will convert your mesh into trianglue when exporting to psk file.
 - ]
 
 """ 
@@ -568,7 +571,7 @@ def triangulateNMesh(nm):
                 # Copy some generic properties
                 newFace.mode = face.mode
                 if face.image != None:
-                        newFace.image = face.image
+                    newFace.image = face.image
                 newFace.flag = face.flag
                 newFace.mat = face.mat
                 newFace.smooth = face.smooth
@@ -576,8 +579,7 @@ def triangulateNMesh(nm):
         # 2 List comprehensions are a lot faster then 1 for loop.
         tris = [f for f in nm.faces if len(f) == 3]
         quads = [f for f in nm.faces if len(f) == 4]
-        
-        
+
         if quads: # Mesh may have no quads.
                 has_uv = quads[0].uv 
                 has_vcol = quads[0].col
@@ -601,12 +603,12 @@ def triangulateNMesh(nm):
                                 
                                 nm.addEdge(quadFace.v[tri1], quadFace.v[tri3]) # Add an edge where the 2 tris are devided.
                                 tris.append(newFace)
-                nm.faces = tris
-		return nm
+	nm.faces = tris # This will return the mesh into triangle
+	return nm
 # Actual object parsing functions
 def parse_meshes(blender_meshes, psk_file):
 	import Blender
-	nme = Blender.NMesh.GetRaw()
+	#nme = Blender.NMesh.GetRaw()
 	print "----- parsing meshes -----"
 	#print 'blender_meshes length: %i' % (len(blender_meshes))
 	
@@ -614,34 +616,10 @@ def parse_meshes(blender_meshes, psk_file):
 	for current_obj in blender_meshes: 
 	
 		current_mesh = current_obj.getData()
-		#me = current_mesh
-		#print triangulateNMesh(me)
-		current_mesh = triangulateNMesh(current_mesh)
-		
-		#for f in me.faces:
-		#	nme.faces.append(triangulateNMesh(f))
 
-		#current_mesh = triangulateNMesh(current_mesh)
+		current_mesh = triangulateNMesh(current_mesh) #Conver mesh
 		
-		#print 'current mesh name: ' + current_mesh.name
-		#raw_mesh = Mesh.Get(current_mesh.name)
-		
-		# Get the world transform for the object
 		object_mat = current_obj.mat 
-		#print "MAT:",object_mat
-		
-		# add material 0
-		#m = VMaterial()
-		#m.MaterialName = "MatNode"
-		#psk_file.AddMaterial(m)
-		
-		#m = VMaterial()
-		#m.MaterialName = "MathNode.001"
-		#psk_file.AddMaterial(m)
-		
-		#print 'faces: %i' % (len(current_mesh.faces))
-		#print 'verts: %i' % (len(current_mesh.verts))
-		#print 'has face UV: %i' % (current_mesh.hasFaceUV())
 	
 		points = ObjMap()
 		wedges = ObjMap()
