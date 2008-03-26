@@ -2,6 +2,18 @@
 # README FIRST FOR YOUR FILES MIGHT NOT WORK OR IT CRASH ON YOU IN UNREAL AND THE GAME.
 #==============================================================================
 
+-Required Blender 2.45
+
+#==============================================================================
+# Features:
+#==============================================================================
+-When export:
+ -It will convert your mesh into Triangular Mesh
+ -How much time the script has been execute
+ -Tell you about the basic mesh and bone information.
+ -It will pop up when finish export.
+ -It will show actions output when animation is dectected.
+
 #==============================================================================
 # Building Skeleton Mesh:
 #==============================================================================
@@ -27,8 +39,31 @@ You need to convert to triangles (Ctrl + t) -should be in vertex view “Edit Mode
 -Do not bake them that it will export your animation set from your Action Editor.
 -UseTranslationBoneNames. Add bones from Animset.
 
+-Action Editor:(blender)
+Action:WeaponFire
+Action:WeaponAltFire
+
+-Animtoin set:(Unreal)
+WeaponFire[]
+WeaponAltFire[]
+
 #==============================================================================
-# MOD_Opti_PSK_Dump.py
+# Material
+#==============================================================================
+-If you want more then one material. Select your mesh and go into Edit mode and select in face mode not vertex mode.
+Select your face to assign the material. Look under vertex groups there a "<0 Mat 0 >". That your material. under the name call "Mat". To assign the material, go where mat and go down and press "Assign" with the big button showing. Hover over the "Assign" button that say "In EditMode, assigns the active index to seleced faces".
+
+-Material (1 Material)
+ -Texture
+  -Image File
+-Material (2 Material)
+ -Texture
+  -Image File
+
+Links:
+http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Quickie_Material
+#==============================================================================
+# MOD_Opti_PSK_Dump.py Changes Logs
 #==============================================================================
 - I double check my work that took long to fix any problem that many come.
 - This will work on UT3 and it is a stable version that works with vehicle for testing. 
@@ -76,6 +111,9 @@ You need to convert to triangles (Ctrl + t) -should be in vertex view “Edit Mode
 - v0.0.10
 - The armature bone position, rotation, and the offset of the bone is fix. It was to deal with skeleton mesh export for psk.
 - Animation is fix for position, offset, rotation bone. Animation export is working for psa.
+
+- v0.0.11
+- It will convert your mesh into triangular when exporting to psk file.
 
 #==============================================================================
 # Trouble shooting:
@@ -129,7 +167,7 @@ http://utforums.epicgames.com/forumdisplay.php?f=20
 
 Blender
 http://www.blender.org
-
+http://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/Cookbook#Triangulate_NMesh
 
 Blender Artist Forums:
 http://blenderartists.org/forum
