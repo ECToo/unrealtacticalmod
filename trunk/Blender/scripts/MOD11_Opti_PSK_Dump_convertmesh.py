@@ -22,45 +22,28 @@ __bpydoc__ = """\
 - This version adds support for more than one material index!
 
 [ - Edit by: Darknet
-- v0.0.3
+- v0.0.3 - v0.0.9
 - This will work on UT3 and it is a stable version that work with vehicle for testing. 
 - Main Bone fix no dummy needed to be there. Some part of the area may not work when main bone did not detect.
-- Fix the bone offset position as head bone that connect to it.
-- There are two points which is the head and tail.
-- Note I add on to the notes a bit and comments out the other ones that are not need in here.
-- Did not work with psa export yet.
-
-- v0.0.4 - v0.0.9
 - Just bone issues position, rotation, and offset for psk. Not work on the animation yet.
+- Did not work with psa export yet.
 
 - v0.0.10
 - The armature bone position, rotation, and the offset of the bone is fix. It was to deal with skeleton mesh export for psk.
 - Animation is fix for position, offset, rotation bone. 
 
 - v0.0.11
-- It will convert your mesh into trianglue when exporting to psk file.
+- It will convert your mesh into triangular when exporting to psk file.
 - ]
-
 """ 
 # DANGER! This code is complete garbage!  Do not read!
 # TODO: Throw some liscence junk in here: (maybe some GPL?)
 # Liscence Junk: Use this script for whatever you feel like! 
-
-import math
-import Blender
-import BPyMesh
-import BPySys
-import BPyArmature
-import BPyObject
-import bpy
 import Blender, time, os, math, sys as osSys, operator
 from Blender import sys, Window, Draw, Scene, Mesh, Material, Texture, Image, Mathutils, Armature
 
-
 from cStringIO import StringIO
 from struct import pack, calcsize
-Matrix = Blender.Mathutils.Matrix
-
 # REFERENCE MATERIAL JUST IN CASE:
 # 
 # U = x / sqrt(x^2 + y^2 + z^2)
@@ -168,7 +151,6 @@ class VJointPos:
 		self.XSize = 0.0
 		self.YSize = 0.0
 		self.ZSize = 0.0
-		
 		
 	def dump(self):
 		data = self.Orientation.dump() + self.Position.dump() + pack('4f', self.Length, self.XSize, self.YSize, self.ZSize)
@@ -313,7 +295,6 @@ class VTriangle:
 		self.AuxMatIndex = 0 # BYTE
 		self.SmoothingGroups = 0 # DWORD
 		
-		
 	def dump(self):
 		data = pack('HHHBBL', self.WedgeIndex0, self.WedgeIndex1, self.WedgeIndex2, self.MatIndex, self.AuxMatIndex, self.SmoothingGroups)
 		return data
@@ -346,7 +327,6 @@ class PSKFile:
 		self.Bones = FileSection("REFSKELT", SIZE_VBONE)		#VBone
 		self.Influences = FileSection("RAWWEIGHTS", SIZE_VRAWBONEINFLUENCE)	#VRawBoneInfluence
 		
-		
 		#RG - this mapping is not dumped, but is used internally to store the new point indices 
 		# for vertex groups calculated during the mesh dump, so they can be used again
 		# to dump bone influences during the armature dump
@@ -361,7 +341,6 @@ class PSKFile:
 		# { 'MyVertexGroup' : [ (0, 1.0), (5, 1.0), (3, 0.5) ] , 'OtherGroup' : [(2, 1.0)] }
 		
 		self.VertexGroups = {} 
-		
 		
 	def AddPoint(self, p):
 		#print 'AddPoint'
@@ -432,7 +411,6 @@ class PSKFile:
 #	the animation sequence (from the PSA) will assume its reference pose stance ( as defined in 
 #	the offsets & rotations that are in the VBones making up the reference skeleton from the PSK)
 
-	
 class PSAFile:
 	def __init__(self):
 		self.GeneralHeader = VChunkHeader("ANIMHEAD", 0)
@@ -472,7 +450,6 @@ class PSAFile:
 		if bone_index >= 0 and len(self.Bones.Data) > bone_index:
 			return self.Bones.Data[bone_index]
 	
-	
 	def IsEmpty(self):
 		return (len(self.Bones.Data) == 0 or len(self.Animations.Data) == 0)
 	
@@ -490,7 +467,6 @@ class PSAFile:
 			
 			return bone_data[0]
 			
-	
 	def GetBoneByName(self, bone_name):
 		if bone_name in self.BoneLookup:
 			bone_data = self.BoneLookup[bone_name]
@@ -513,7 +489,6 @@ class PSAFile:
 		print 'rawkey count: %i' % len(self.RawKeys.Data)
 		print '-------------------------'
 		
-	
 ####################################	
 # helpers to create bone structs
 def make_vbone(name, parent_index, child_count, orientation_quat, position_vect):
@@ -554,7 +529,7 @@ def is_1d_face(blender_face):
 	(blender_face.v[2].co == blender_face.v[0].co))
 
 ##################################################
-
+# http://en.wikibooks.org/wiki/Blender_3D:_Blending_Into_Python/Cookbook#Triangulate_NMesh
 def triangulateNMesh(nm):
 	import Blender
         '''
@@ -584,7 +559,7 @@ def triangulateNMesh(nm):
                 has_uv = quads[0].uv 
                 has_vcol = quads[0].col
                 for quadFace in quads:
-                        print "4"
+                        #print "4"
                         # Triangulate along the shortest edge
                         if (quadFace.v[0].co - quadFace.v[2].co).length < (quadFace.v[1].co - quadFace.v[3].co).length:
                                 # Method 1
@@ -603,7 +578,7 @@ def triangulateNMesh(nm):
                                 
                                 nm.addEdge(quadFace.v[tri1], quadFace.v[tri3]) # Add an edge where the 2 tris are devided.
                                 tris.append(newFace)
-	nm.faces = tris # This will return the mesh into triangle
+	nm.faces = tris # This will return the mesh into triangle with uv
 	return nm
 # Actual object parsing functions
 def parse_meshes(blender_meshes, psk_file):
@@ -612,13 +587,11 @@ def parse_meshes(blender_meshes, psk_file):
 	print "----- parsing meshes -----"
 	#print 'blender_meshes length: %i' % (len(blender_meshes))
 	
-	
 	for current_obj in blender_meshes: 
-	
 		current_mesh = current_obj.getData()
-
+		print "Triangulate NMesh..."
 		current_mesh = triangulateNMesh(current_mesh) #Conver mesh
-		
+		print "Triangulate NMesh Done!"
 		object_mat = current_obj.mat 
 	
 		points = ObjMap()
@@ -626,7 +599,7 @@ def parse_meshes(blender_meshes, psk_file):
 			
 		discarded_face_count = 0
 		
-		#print ' -- Dumping Mesh Faces -- '
+		print ' -- Dumping Mesh Faces -- '
 		for current_face in current_mesh.faces:
 			#print ' -- Dumping UVs -- '
 			#print current_face.uv
@@ -651,8 +624,8 @@ def parse_meshes(blender_meshes, psk_file):
 				
 				#get or create the current material
 				m = psk_file.GetMatByIndex(current_face.mat)
-				print current_face.mat
-				print 'material: %i' % (current_face.mat)
+				#print current_face.mat
+				#print 'material: %i' % (current_face.mat)
 				
 				for i in range(3):
 					vert = current_face.v[i]
@@ -747,7 +720,6 @@ def parse_meshes(blender_meshes, psk_file):
 		for wedge in wedges.items():
 			psk_file.AddWedge(wedge)
 	
-	
 		#RG - if we happend upon any non-planar faces above that we've discarded, 
 		#	just let the user know we discarded them here in case they want 
 		#	to investigate
@@ -814,8 +786,9 @@ nbone = 0
 def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent_mat,parent_root):
 	global nbone 	# look it's evil!
 
-	print '-------------------- Dumping Bone ---------------------- '
-	print blender_bone.parent
+	#print '-------------------- Dumping Bone ---------------------- '
+	print "Blender Bone:",blender_bone.name
+	#print blender_bone.parent
 	#If bone does not have parent that mean it the main bone
 	if not blender_bone.hasParent():
 		parent_root = blender_bone
@@ -924,10 +897,10 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		child_count += len(bones)
 
 	for current_obj in blender_armature: 
-		print 'current armature name: ' + current_obj.name
+		print 'Current Armature Name: ' + current_obj.name
 		current_armature = current_obj.getData()
 		#armature_id = make_armature_bone(current_obj, psk_file, psa_file)
-				
+		
 		#we dont want children here - only the top level bones of the armature itself
 		#we will recursively dump the child bones as we dump these bones
 		bones = [x for x in current_armature.bones.values() if not x.hasParent()]
@@ -935,7 +908,6 @@ def parse_armature(blender_armature, psk_file, psa_file):
 		for current_bone in bones:
 			parse_bone(current_bone, psk_file, psa_file, 0, 0, current_obj.mat,None)
 			
-
 # get blender objects by type		
 def get_blender_objects(objects, type):
 	return [x for x in objects if x.getType() == type]
@@ -995,9 +967,9 @@ def parse_animation(blender_scene, psa_file):
 		anim.AnimRate = anim_rate
 		anim.FirstRawFrame = cur_frame_index
 		count_previous_keys = len(psa_file.RawKeys.Data)
-		 		
+		
 		#print "------------ Action: %s, frame keys:" % (action_name) , action_keys
-		print "----- Action: %s" % action_name;
+		print "-- Action: %s" % action_name;
 		
 		unique_bone_indexes = {}
 		
@@ -1019,7 +991,6 @@ def parse_animation(blender_scene, psa_file):
 			#these must be ordered in the order the bones will show up in the PSA file!
 			ordered_bones = {}
 			ordered_bones = sorted([(psa_file.UseBone(x.name), x) for x in pose_data.bones.values()], key=operator.itemgetter(0))
-			
 			
 			#############################
 			# ORDERED FRAME, BONE
@@ -1054,9 +1025,18 @@ def parse_animation(blender_scene, psa_file):
 					head = blender_bone.head['BONESPACE']
 					tail = blender_bone.tail['BONESPACE']
 					quat = blender_bone.matrix['BONESPACE'].toQuat()
+					#pose_bone.quat
+					#print dir(pose_bone)
+					#print dir(pose_bone.poseMatrix)
+					#print "QUAT"
+					#print pose_bone.quat
+					#print pose_bone.poseMatrix.toQuat()
+					#pose_bone.poseMatrix.toQuat()
 					
 					quat = grassman(quat, pose_bone.quat)
-					
+					#quat = grassman(quat, pose_bone.poseMatrix.toQuat())
+					#quat = grassman(quat, pose_bone.localMatrix.toQuat())
+					#quat = pose_bone.quat
 					#WOW
 					if blender_bone.hasParent():
 						#print "parent:",blender_bone.name
@@ -1085,10 +1065,8 @@ def parse_animation(blender_scene, psa_file):
 					
 					#This reverse it direction of the quat from root main and parent
 					if not blender_bone.hasParent():
-						#vkey.Orientation = make_fquat(quat)
 						vkey.Orientation = make_fquat_default(quat)
 					else:
-						#vkey.Orientation = make_fquat_animset(quat)
 						vkey.Orientation = make_fquat(quat)
 					
 					#vkey.Orientation = make_fquat(quat)
@@ -1143,7 +1121,6 @@ def fs_callback(filename):
 	blender_meshes = get_blender_objects(objects, 'Mesh')
 	blender_armature = get_blender_objects(objects, 'Armature')
 	
-	
 	try:
 	
 		#######################
@@ -1156,8 +1133,6 @@ def fs_callback(filename):
 		Blender.Set('curframe', cur_frame) #set frame back to original frame
 		print "Exception during Mesh Parse"
 		raise
-	
-	
 	
 	try:
 	
@@ -1183,16 +1158,13 @@ def fs_callback(filename):
 		print "Exception during Animation Parse"
 		raise
 
-	
 	# reset current frame
 	
 	Blender.Set('curframe', cur_frame) #set frame back to original frame
 	
-  	
   	##########################
   	# FILE WRITE
-  	
-  	
+	
 	#RG - dump psk file
 	psk.PrintOut()
 	file = open(psk_filename, "wb") 
