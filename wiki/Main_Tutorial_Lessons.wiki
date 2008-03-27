@@ -21,6 +21,8 @@ Blender Features:
 You have get Blender 2.45 the current version of Blender.
 
 = Blender Bone Format =
+http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/bone_right_wrong_way.jpg
+
 To make unreal bones work in blender you need to look in the svn files that are working. All bone must face the same direction to make the animation work. The bone must be link and not connect to each other. The bone is part of the rotation to export to quat(bone rotation).
 
 Here Blender Video:
