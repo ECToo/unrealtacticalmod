@@ -71,4 +71,7 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_t
 = Video Demo: =
 http://www.youtube.com/watch?v=-QtpNjMMssY
 
+Link:
+http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/Mesh/vg
+
 [Main_Tutorial_Lessons] [UC_Land_Vehicle_SkeletalMesh]
