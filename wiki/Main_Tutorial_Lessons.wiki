@@ -26,10 +26,13 @@ http://www.blender.org/education-help/video-tutorials/
 = Blender Bone Format =
 http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/bone_right_wrong_way.jpg
 
-To make unreal bones work in blender you need to look in the svn files that matches this image on the left that follow the format. All bone must face the same direction to make the animation work. The bone must be link and not connect to each other. The bone is part of the rotation to export to quat(bone rotation).
+To make unreal bones work in blender you need to look in the svn files that matches this image on the left that follow the format. All bone must face the same direction to make the animation work. The bone must be link(child of parent) and not connect to each other. The bone is part of the rotation to export to quat(bone rotation).
 
 ==Export Script for blender Information:==
 [Blender_Export_PS_A_K_Version]
+
+== Blender to Unreal Unit Size ==
+(Blender) 1:1 (Unreal)
 
 == Videos And Demos ==
 Here a demo of my vehicle amd weapon just it testing for fun. Relation to svn blender file.
