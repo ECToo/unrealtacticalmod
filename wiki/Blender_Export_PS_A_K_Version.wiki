@@ -1,4 +1,4 @@
-#summary Current Version 0.0.11(errors/solve/update)
+#summary Current Version 0.0.12(errors/solve/update)
 #labels Blender,Export,PSK,PSA,Version
 
 = Information: =
