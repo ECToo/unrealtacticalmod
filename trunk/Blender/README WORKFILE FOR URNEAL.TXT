@@ -20,4 +20,4 @@ Look into the characters, vehicles, and weapons for bone rotation are different 
 -custom_weapon_gun -folder
 
 # Animations:
--anim_body_test.blend -Character Demo
+-anim_body_test.blend -Character Demo Test Only For Animation
