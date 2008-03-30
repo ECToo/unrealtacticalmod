@@ -115,6 +115,9 @@ http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Quickie_Material
 - v0.0.11
 - It will convert your mesh into triangular when exporting to psk file.
 
+- v0.0.12
+- Error in the rotation and position offset from mesh and armature object is fixed.
+
 #==============================================================================
 # Trouble shooting:
 #==============================================================================
