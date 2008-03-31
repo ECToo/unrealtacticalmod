@@ -1,4 +1,0 @@
-Plseas not I am not sure about the coding for blender but I try to get it simple  built for it.
-Please there a lot test during the testing which codes are working. 
-Not a lot of support in the animation script for the actions.
-You can only work ipo curve editor that seem to work. There is option that you can create a each actions.
