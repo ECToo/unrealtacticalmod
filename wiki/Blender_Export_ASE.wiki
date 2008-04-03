@@ -14,6 +14,9 @@ Scene
  * Cube
  * UCX_Cube
 
+Trouble shooting:
+If you can’t get your collision working try to scale your mesh to one to one unit. If you create a small that it seem it does not detect your collision very well when the object little.
+
 =Pros=
 1:1 Ratio to blender to unreal scale. For Vehicle varery in "rawscale=1.3".
  
