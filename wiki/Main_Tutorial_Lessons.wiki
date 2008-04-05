@@ -5,6 +5,7 @@
 It will be hard to tell you if you don't read or do lesson about Blender. Please do not rush when your learning blender. It is base on blender term language for blender interface. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page will take time to complete.
 
 There are example files in the svn that you can use to test out your current blender files if your files are working right.
+http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/
 
 Those who are new at blender you can look into this link:
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro
@@ -23,10 +24,9 @@ You have get Blender 2.45 the current version of Blender.
 
 Here Blender Video:
 http://www.blender.org/education-help/video-tutorials/
-= Blender Bone Format =
-http://unrealtacticalmod.googlecode.com/svn/trunk/Screen_Shots/bone_right_wrong_way.jpg
 
-To make unreal bones work in blender you need to look in the svn files that matches this image on the left that follow the format. All bone must face the same direction to make the animation work. The bone must be link(child of parent) and not connect to each other. The bone is part of the rotation to export to quat(bone rotation).
+= Blender Bone Format =
+To make unreal bones work in blender you need to look in the svn files that follow the format. It depend what type bone builds to export to unreal. To make the animation work. Just use unreal format bones to make it clean and free of bugs.
 
 ==Export Script for blender Information:==
 [Blender_Export_PS_A_K_Version]
