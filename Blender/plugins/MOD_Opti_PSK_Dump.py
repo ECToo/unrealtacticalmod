@@ -3,10 +3,10 @@
 Name: 'Unreal Skeletal Mesh/Animation (.psk and .psa) Mod' 
 Blender: 245
 Group: 'Export' 
-Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod12' 
+Tooltip: 'Unreal Skeletal Mesh and Animation Export (*.psk, *.psa) Mod13' 
 """ 
 __author__ = "Darknet/Optimus_P-Fat/Active_Trash" 
-__version__ = "0.0.12" 
+__version__ = "0.0.13" 
 __bpydoc__ = """\ 
 
 -- Unreal Skeletal Mesh and Animation Export (.psk  and .psa) export script v0.0.1 --<br> 
@@ -22,7 +22,7 @@ __bpydoc__ = """\
 - This version adds support for more than one material index!
 
 [ - Edit by: Darknet
-- v0.0.3 - v0.0.11
+- v0.0.3 - v0.0.12
 - This will work on UT3 and it is a stable version that work with vehicle for testing. 
 - Main Bone fix no dummy needed to be there.
 - Just bone issues position, rotation, and offset for psk.
@@ -31,9 +31,15 @@ __bpydoc__ = """\
 - It will convert your mesh into triangular when exporting to psk file.
 - Did not work with psa export yet.
 
-- v0.0.12
-- Error in armature of the current rotation object is fixed.
+- v0.0.13
+- The animatoin will support different bone rotations when export the animation.
 - ]
+
+Credit to:
+- export_cal3d.py (Position of the Bones Format)
+- blender2md5.py (Animation Translation Format)
+
+-Give Credit who work on this script.
 """ 
 # DANGER! This code is complete garbage!  Do not read!
 # TODO: Throw some liscence junk in here: (maybe some GPL?)
@@ -802,15 +808,14 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	child_parent = blender_bone.parent
 	
 	if child_parent != None:
-		'''
-		if parent_root.name == child_parent.name:
-			#This one deal rotation for bone for the whole bone that will inherit off from parent to child.
-			quat_root = blender_bone.matrix['BONESPACE']#* parent_mat.rotationPart()
-			quat = make_fquat(quat_root.toQuat())
-		else:
-			quat_root = blender_bone.matrix['BONESPACE']
-			quat = make_fquat(quat_root.toQuat())
-		'''	
+		#if parent_root.name == child_parent.name:
+		#	#This one deal rotation for bone for the whole bone that will inherit off from parent to child.
+		#	quat_root = blender_bone.matrix['BONESPACE']#* parent_mat.rotationPart()
+		#	quat = make_fquat(quat_root.toQuat())
+		#else:
+		#	quat_root = blender_bone.matrix['BONESPACE']
+		#	quat = make_fquat(quat_root.toQuat())
+		
 		quat_root = blender_bone.matrix['BONESPACE']
 		quat = make_fquat(quat_root.toQuat())
 		
@@ -822,21 +827,13 @@ def parse_bone(blender_bone, psk_file, psa_file, parent_id, is_root_bone, parent
 	else:
 		# ROOT BONE
 		#This for root 
-		set_position = blender_bone.head['BONESPACE']* parent_mat
-		rot_mat = blender_bone.matrix['BONESPACE']* parent_mat.rotationPart() 
+		set_position = blender_bone.head['BONESPACE']* parent_mat #ARMATURE OBJECT Locction
+		rot_mat = blender_bone.matrix['BONESPACE']* parent_mat.rotationPart() #ARMATURE OBJECT Rotation
 		quat = make_fquat_default(rot_mat.toQuat())
 		
 	#print "[[======= FINAL POSITION:",set_position
 	final_parent_id = parent_id
-	'''
-	if child_parent != None:
-		quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
-		parent_head = child_parent.head['BONESPACE']* quat_parent
-		parent_tail = child_parent.tail['BONESPACE']* quat_parent
-		set_position = parent_tail + blender_bone.head['BONESPACE']
-		set_position = set_position - parent_head
-		print quat_parent
-	'''
+	
 	#RG/RE -
 	#if we are not seperated by a small distance, create a dummy bone for the displacement
 	#this is only needed for root bones, since UT assumes a connected skeleton, and from here
@@ -938,7 +935,7 @@ def grassman(a, b):
 		a.w*b.x + a.x*b.w + a.y*b.z - a.z*b.y,
 		a.w*b.y - a.x*b.z + a.y*b.w + a.z*b.x,
 		a.w*b.z + a.x*b.y - a.y*b.x + a.z*b.w)
-
+		
 def parse_animation(blender_scene, psa_file):
 	print "----- parsing animation -----"
 	blender_context = blender_scene.getRenderingContext()
@@ -962,7 +959,7 @@ def parse_animation(blender_scene, psa_file):
 		#scene_frames = action_keyframes
 		
 		frame_count = len(scene_frames)
-				
+		
 		anim = AnimInfoBinary()
 		anim.Name = action_name
 		anim.Group = "" #wtf is group?
@@ -985,10 +982,10 @@ def parse_animation(blender_scene, psa_file):
 			bones_lookup =  {}
 			for bone in current_armature.bones.values():
 				bones_lookup[bone.name] = bone
-					
+				
 			frame_count = len(scene_frames)
 			#print "Frame Count: %i" % frame_count
-
+			
 			pose_data = obj.getPose()
 			
 			#these must be ordered in the order the bones will show up in the PSA file!
@@ -1024,46 +1021,27 @@ def parse_animation(blender_scene, psa_file):
 					unique_bone_indexes[bone_index] = bone_index
 					#LOUD
 					#print "-------------------", pose_bone.name
+					head = pose_bone.head
+					posebonemat = Blender.Mathutils.Matrix(pose_bone.poseMatrix)
 					
-					head = blender_bone.head['BONESPACE']
-					tail = blender_bone.tail['BONESPACE']
-					quat = blender_bone.matrix['BONESPACE'].toQuat()
-					#pose_bone.quat
-					#print dir(pose_bone)
-					#print dir(pose_bone.poseMatrix)
-					#print "QUAT"
-					#print pose_bone.quat
-					#print pose_bone.poseMatrix.toQuat()
-					#pose_bone.poseMatrix.toQuat()
-					
-					quat = grassman(quat, pose_bone.quat)
-					#quat = grassman(quat, pose_bone.poseMatrix.toQuat())
-					#quat = grassman(quat, pose_bone.localMatrix.toQuat())
-					#quat = pose_bone.quat
-					#WOW
-					if blender_bone.hasParent():
-						#print "parent:",blender_bone.name
-						child_parent = blender_bone.parent
-						quat_parent = child_parent.matrix['BONESPACE'].toQuat().inverse()
-						parent_head = child_parent.head['BONESPACE']* quat_parent
-						parent_tail = child_parent.tail['BONESPACE']* quat_parent
-						#set_position = parent_tail + blender_bone.head['BONESPACE']
-						#head = set_position - parent_head
-						head = (parent_tail - parent_head) + blender_bone.head['BONESPACE']
-						#head = set_position - parent_head
+					parent_pose = pose_bone.parent
+					if parent_pose:
+						parentposemat = Blender.Mathutils.Matrix(parent_pose.poseMatrix)
+						posebonemat = posebonemat*parentposemat.invert()
 					else:
-						head = blender_bone.head['BONESPACE']
-					
-					#This include the translate parent
-					#bone move localtion
-					head = head + pose_bone.loc
+						posebonemat = posebonemat*obj.getMatrix('worldspace')
+						
+					head = posebonemat.translationPart()
+					quat = posebonemat.toQuat().normalize()
+					#rot = [rot.w,rot.x,rot.y,rot.z]
+					#quat = rot
 					
 					# no parent?  apply armature transform
 					if not blender_bone.hasParent():
 						#print "hasParent:",blender_bone.name
 						parent_mat = obj.mat
 						head = head * parent_mat
-						tail = tail * parent_mat
+						#tail = tail * parent_mat
 						quat = grassman(parent_mat.toQuat(), quat)
 					
 					vkey = VQuatAnimKey()
@@ -1155,7 +1133,6 @@ def fs_callback(filename):
 		print "Exception during Armature Parse"
 		raise
 
-	
 	try:
 		#######################
 		# STEP 3: ANIMATION DUMP
