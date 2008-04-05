@@ -1,4 +1,4 @@
-#summary Current Version 0.0.12(errors/solve/update)
+#summary Current Version 0.0.13(errors/solve/update)
 #labels Blender,Export,PSK,PSA,Version
 
 = Information: =
@@ -16,9 +16,9 @@ I am currently making vehicles, weapons and other mods to make good game.
 
 === Errors ===
  * Animation work needs to fix the off set in unreal.
- * Different bone rotation when armature is build with animation will not work. Same bone rotation when the armature is build will work for that type of bone rotation and the animation works.
-
+ 
 === Solve ===
+* Different bone rotation when armature is build with animation will not work. Same bone rotation when the armature is build will work for that type of bone rotation and the animation works.
  * There is error and for the bone offset when trying to make a custom skeleton mesh. That I am not too sure just did a quick test.
  * Bone position set type is now this one ARMATURESPACE not BONESPACE It might change later.
  * Animation Fix Rotation it was on the make_fquat() function rotate in other direction
@@ -36,6 +36,3 @@ I am currently making vehicles, weapons and other mods to make good game.
  * Animation Rotation Need Work on! No Error Detect so far.
  * Note that pose bone have one frame to test out the different when testing rotation.
  * Main Bone Issues Need to be Fix First
-
-== Version:0.0.11 ==
-There was an error in the mesh and the armature object offset. When custom character was build and test for animation.
