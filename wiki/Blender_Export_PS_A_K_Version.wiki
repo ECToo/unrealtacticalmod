@@ -5,7 +5,7 @@
 I am currently making vehicles, weapons and other mods to make good game.
 
 = Working Area =
- * Character builds is on hold for male, female, and the krall.
+ * Character builds is on hold for male, female, and the krall.(On Hold)
 
 = Features: =
  * This script can covert mesh into triangular mesh when exporting to unreal.
