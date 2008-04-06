@@ -25,8 +25,10 @@ You have get Blender 2.45 the current version of Blender.
 Here Blender Video:
 http://www.blender.org/education-help/video-tutorials/
 
-= Blender Bone Format =
-To make unreal bones work in blender you need to look in the svn files that follow the format. It depend what type bone builds to export to unreal. To make the animation work. Just use unreal format bones to make it clean and free of bugs.
+= Blender Bone Format For Unreal =
+To make unreal bones work in blender you need to look in the svn files that follow the format. Just use unreal format bones to make it clean and free of bugs. To get unreal format do not connect the bones. Parent them by linking the bone to the parent name.
+
+It depend what type bone builds to export to unreal. It is your chose to create your own bones or use unreal format bone. Test out a simple animation to make sure the animation is working correctly.
 
 ==Export Script for blender Information:==
 [Blender_Export_PS_A_K_Version]
