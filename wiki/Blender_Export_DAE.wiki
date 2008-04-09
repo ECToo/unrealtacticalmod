@@ -2,9 +2,7 @@
 #labels Blender,Export,DAE
 
 = Required =
-You need to install Python to run the script.
-
-What you do before your export. The rotate axis for z to -90 in the tranform properties need to face the front of your vehicle.
+You need to install Python to run the script. This required some files like xml format for exporting to dae.
 
 = Pros =
 You can addd more mesh stand alone objects and select them in the unreal chose which to import. If you merge all the object it when from blender it will show only one object.
