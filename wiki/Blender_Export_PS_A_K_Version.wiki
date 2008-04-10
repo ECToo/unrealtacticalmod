@@ -14,6 +14,10 @@ I am currently making vehicles, weapons and other mods to make good game.
  * When script is execute it will show how long the script was execute time.
  * More than one Materials are working.
 
+= Game Support: =
+ * UT3 -Working
+ * UT2004 -Not Working -Having problem reading the bone index unpack() that deal with the hash format.
+
 === Errors ===
  * Animation work needs to fix the off set in unreal.
  
