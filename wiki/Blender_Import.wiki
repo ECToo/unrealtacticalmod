@@ -1,14 +1,14 @@
 #summary Blender import psk/psa/dae/ase
 #labels Blender,Import,PSA,PSK,Unreal
 
-= IMPORT PSK =
+= IMPORT PSK: =
    I am currently working on the psk import script since the script is outdate and does not support skeleton bones yet. It will only support Mesh and UV for now.
 
-= IMPORT PSA =
+= IMPORT PSA: =
    This part is not yet work on yet.
 
-= IMPORT ASE =
+= IMPORT ASE: =
    This a workable plugin just search it.
 
-= IMPORT DAE =
-   I seen some error and conflict that some file works and some time not working.
+= IMPORT DAE: =
+   I seen some error and conflict that some file works and some time not working. It depend on the author format.
