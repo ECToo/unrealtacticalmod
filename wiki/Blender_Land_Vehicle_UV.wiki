@@ -1,7 +1,7 @@
 #summary Vehicle UV Texture.
 
 = Vehicle UV Texture =
-While you are selecting your current mesh to work on the uv texture layout.
+While you are selecting your current mesh object to work on the uv texture layout.
 
 Create a another panel for "UV/Image Editor".
 
