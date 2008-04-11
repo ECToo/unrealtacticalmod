@@ -1,76 +1,45 @@
-#summary Modeling For Blender.
+#summary READ ME FIRST FOR Vehicle Design.
 #labels Blender,Land,Vehicle,Model
 
-[Main_Tutorial_Lessons] [UC_Land_Vehicle_SkeletalMesh]
+= Work In Progress For This Section =
 
-= Plan Before you model =
-We will be modeling off hellbender.
-There are couple thing you need to know:
- * Animation set
- * Model Damages
- * Textures
- * Texture Damages
- * Texture etc.
+= Plan ahead First =
+If you are read this. You made a wise chose. You have to draw out your plan on paper that comes in right type of game play and style of game. I will try to keep what I am saying with the blender and unreal and new people who want to use blender. Blender export still on going.
 
-I think that all the basic and planning ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game in blender in top view facing left. The svn has the direction for the vehicle to face.
+= Plan Before You Model =
+The basic building block and layout knowing how each area effect can effect your model in game play. There are couple thing you need to know:
+ * Art and Theme
+ * Model
+ * Model Damage
+ * Model Animation
+ * Model Textures
+ * Model Size
+ * Bone Position And Rotation For Unreal Defualt
+ * Unreal Script
 
-= Building Your Model =
-First of all since the export can only export one mesh. There is no selection option your mesh. You can do that later once you add all the basic vehicle parts when your done merge them together one your finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since we are making we are doing a simple object mesh.
+= Art Concept =
+   This is where all ideas and creative goes into a vehicle mod. Layout and design is a key part to make good style of the art work. To keep the model with in the same style in the same area is the key good modeling. Going out side of the art style could break or make good work out it as long people agree with your forums, etc. Building different theme of the game layout and how it work can make the game work in many different ways. In some ways make it bad.
 
-= Create Simple Mesh =
-Create a simple rectangle with four wheels. Don't make the wheel too big the offset might effect the change in different size a bit. But you need to change your unreal wheel size to make it work. Please note if you’re in object mode while doing that and you don't see vertex points like dots then go into edit mode. Once your done with your mesh go in to top view mode of blender. The model should be facing east that is your front and default vehicle facing. When you’re in side view the car should be up right.
+= Modeling with Theme style =
+   Creating the theme with the game flow to match part of the game concept. Modeling can be a challenge if goes out of the theme style and does not fit the game well. The color texture got to match the theme too that could effect your game play and design.
 
-= Armature Setup =
-Ok then next part. Go in top view mode and do not rotate the bone. That the all the wheel and the main bone rotation will be use. We will add Armature that support bone data that many bones. We will name the relation to the bone default for hellbender. We will add Tires and Suspensions for them and the main bone name is “Base”.
+= Before You Model In Blender =
+   Think about how your mesh are build and render. When your are building your mesh vehicle.  Build your mesh vehicle into part like wheels, door, hood, fender, bumper, wings, and etc. Those are some moving parts and some not moving. For those reason is that making into part are for vehicle damage parts. Like fender gets twisted, hood bend, door get smashed. You can add more textures.
 
-Add bone the following armature with respect of the wheel placement.
- * Base (Main Root)
- * Lt_Front_Suspension
- * Lt_Front_Tire
- * Rt_Front_Suspension
- * Rt_Front_Tire
- * Rt_Rear_Suspension
- * Rt_Rear_Tire
- * Lt_Rear_Suspension
- * Lt_Rear_Tire
+= Damage Model =
+   All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices's change little differently parts where are damage. The bones are to be kept the same. You can add bones but not change the original bones. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
 
-Once you have done adding the bones. Press A Key to select all the bones in Edit Mode. look at the bottom of your panel where is say Armature Bones. Some of the bones will not show up only at five at the time. Just Link all the tires to the Base do not connect them.  Just parent the bone.
+  To keep the file small for mod download. File must be export into psk format with the same texture material ratio of the original mesh in unreal that it will be sharing the same textures. For the damage texture that will be coded in unreal script. The model must have damage with some prefix damage model name.
 
-Lt_Front_Suspension > Child of "Base" It will link them. 
+= Textures =
+  This is the last part that I kind left out. I have not yet learn more about the blender or unreal stuff. I am not good at textures. For unreal there are layer of texture to make look real. You kind of look for it.
 
-You will see a dash line link to the parent and connected. We will just only link to the main root. Once you done all the 8 link to the main bone.
+Blender What I know about. List For Blender that has:
+ * Normal Mapping
+ * UV
+ * UV Paint
 
-If your know this skip part if not read on.
+Read More here:
+http://www.blender.org/features-gallery/features/
 
-Why do we have a Tire and Suspension together there? To have wheel and Suspension there is to support wheel rotation and update the going up and down movement.
-
-= Parent The Mesh And The Armature =
-Once you have done adding the bone in the armature of the wheel and placement. Your mesh should be finish and the direction of the vehicle in unreal. 
-
-Go to object mode. Select your mesh first and armature second by holding down shift key and right clicking mouse and selecting your armature. Then press "ctrl + p" > select Armature > Create Close Bone.
-
-= Weight Paint =
-There are two method of doing the weight paint.
-
-== Method One:  ==
-This is fast way to make your vehicle export quickly a bit. Select your mesh. Once your parent the two objects them together. Go to Vertex mode. Go the bottom left corner. You will see Vertex Groups. Those are your bones that were parent to your armature was assign to it.
-
-Ok then next part will be little tricking on my word a bit. Select your front right tire of your mesh in vertex mode. If you can select them all. 
-
-Go to select menu > Link Vertices (This will select your vertices as long they are not connect to other part your mesh) (Quick Way -> Ctrl + L)
-
-Once your select your wheel. Go to the corner of vertex group and select your current Tire. Then Assign it by pressing the assign button below it with the "Rt_Front_Tire". Repeat all the Tires. The Last part is the main body and you know what to do with it. Assign the base to the last remain vertices. Please keep it mind if miss by couple vertices your unreal will give you error.
-
-== Method Two:  ==
-This quite slow. You can do it but it would be easy to choose the first one. This one is for character model. But either way it works for you. You can use your Weight Paint while you select your mesh that it will show up. From Object, Vertex, UV mode. You can paint the bones. 
-
-=SVN: =
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
-
-= Video Demo: =
-http://www.youtube.com/watch?v=-QtpNjMMssY
-
-Link:
-http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Advanced_Tutorials/Advanced_Animation/Guided_tour/Mesh/vg
-
-[Main_Tutorial_Lessons] [UC_Land_Vehicle_SkeletalMesh]
+I am not sure that it all almost same material build in unreal and blender.
