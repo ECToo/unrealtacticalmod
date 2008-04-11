@@ -1,0 +1,18 @@
+#summary Basic PhysicalMaterial.
+#labels Land,Vehicle,PhysicalMaterial
+
+[Main_Tutorial_Lessons]
+
+[UC_Land_Vehicle_PhysicsAsset] [UC_Land_Vehicle_MorphTargetSet]
+= Introduction =
+There are two PhysicalMaterial for each of them. That depend on the vehicle is build. One is for driving your vehicle and the other one is for your vehicle staying still or IDL state.
+
+= Create PhysicalMaterial =
+Create the physical material.
+
+add PhysicalMaterialProperty > UTPhysicalMaterialProporty
+Name it "Metal"
+
+This area effect your object movments.
+
+[UC_Land_Vehicle_PhysicsAsset] [UC_Land_Vehicle_MorphTargetSet]

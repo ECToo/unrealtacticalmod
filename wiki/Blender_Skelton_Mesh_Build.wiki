@@ -1,0 +1,31 @@
+#summary Basic Mesh Build.
+#labels Blender,Skelton_Mesh,Build
+
+= Information: =
+	Since the script is build on one mesh and one armature. If you have one or more armature it will only select the first armature. It will only select the first object of the object list array. There is an other export for unreal like the static mesh but we will only focuses on the Skelton mesh. For the export script will only select your first objects. If you have more then one object of mesh or armature the export will not work. It doesn’t have the option to select current objects to be export to unreal. With out selecting the object it will export the first select in the object array of the first mesh and armature. If you have more then one mesh merge them together else you will be missing one them or it will crash your unreal editor. This a quick image still work little if you don't get there a video lession from blender site before you can understand it. This is in order.
+
+http://img151.imageshack.us/img151/8669/blendermakecube159b70d4zh5.jpg
+
+~/svn/trunk/Screen_Shots/blender_make_cube.jpg
+
+~/svn/trunk/Screen_Shots/blender_addarmature.jpg
+~/svn/trunk/Screen_Shots/blender_addarmature2.jpg
+~/svn/trunk/Screen_Shots/blender_addarmature3.jpg
+~/svn/trunk/Screen_Shots/blender_addarmature4.jpg
+~/svn/trunk/Screen_Shots/blender_addarmature5.jpg
+~/svn/trunk/Screen_Shots/blender_addarmature6.jpg
+
+~/svn/trunk/Screen_Shots/blender_parent01.jpg
+~/svn/trunk/Screen_Shots/blender_parent02.jpg
+~/svn/trunk/Screen_Shots/blender_parent03.jpg
+~/svn/trunk/Screen_Shots/blender_parent04.jpg
+~/svn/trunk/Screen_Shots/blender_parent05.jpg
+~/svn/trunk/Screen_Shots/blender_parent06.jpg
+
+~/svn/trunk/Screen_Shots/blender_weight_paint01.jpg
+~/svn/trunk/Screen_Shots/blender_weight_paint02.jpg
+~/svn/trunk/Screen_Shots/blender_weight_paint03.jpg
+
+~/svn/trunk/Screen_Shots/blender_armature_connect_bone01.jpg
+~/svn/trunk/Screen_Shots/blender_armature_connect_bone02.jpg
+~/svn/trunk/Screen_Shots/blender_armature_connect_bone03.jpg

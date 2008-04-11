@@ -1,0 +1,64 @@
+#summary Basic Setup for AnimTree.
+#labels Land,Vehicle,AnimTree
+
+[Main_Tutorial_Lessons]
+
+[UC_Land_Vehicle_AnimSet] [UC_Land_Vehicle_PhysicsAsset]
+
+[Main_Tutorial_Lessons]
+= Information =
+To get your vehicle working you need wheel control and suspence wheel. Those are need to update each wheel. wheel without them the wheel would not move or act funny way that I test it out.
+
+= Assign SekMesh =
+If you import your vehicle follow this step. Create your animtree with the default name of the prefix name for clean build. Once you create your animtree open it. Then select your mesh that you import for your vehicle. Select your AnimTree and go into AnimTree proporties.   Assign the mesh in PreviewSekMesh.
+
+= Assign AnimTree Bone =
+Next part assigning your bones. You will only see Animation and Morph that where we add out bones. 
+
+Right click on the AnimTree.
+
+Add SkelControl Chain > Add the follow bones listed:
+ * Lt_Front_Suspension
+ * Lt_Front_Tire
+ * Rt_Front_Suspension
+ * Rt_Front_Tire
+ * Rt_Rear_Suspension
+ * Rt_Rear_Tire
+ * Lt_Rear_Suspension
+ * Lt_Rear_Tire
+
+= Wheel Control =
+Right Next Beside your AnimaTree we will add some function to the car to make wheel spin, turn and have some suspension.
+
+Right Click and go down and look for SkelControlWheel and SkelControlLookAt. Add them in the area.
+
+In SkelControlWheel proporties Change:
+ * WheelRollAxis to AXIS_Y
+ * WheelSteerAxis to AXIS_Z
+
+ControlName:
+ControlName -> Lt_Front_Control (This will be in unreal script to look for the Bone and control from there)
+
+Once you made some changes for the CheelControl. 
+
+Select your SkelControlWheel then "CTRL + W" to make 3 more copy of the WheelControl.
+ * ControlName -> RT_Front_Control
+ * ControlName -> Lt_Rear_Control
+ * ControlName -> Rt_Rear_Control
+Once your name them. Connect the wheel to the Tire. Drag the Input to the Respect Tire name to the AnimTree.
+
+= SkelControlLookAt For Suspension =
+Next part change some proporties.
+
+TargetLocationSpace -> BCS_OtherBoneSpace
+ * LookAtAxis -> AXIS_Z
+ * UpAxis -> AXIS_Z
+Same thing here for the naming it:
+ * TargetSpaceBoneName -> Lt_Front_ShockAim
+ * TargetSpaceBoneName -> Rt_Front_ShockAim
+ * TargetSpaceBoneName -> Lt_Rear_ShockAim
+ * TargetSpaceBoneName -> Rt_Rear_ShockAim
+
+Those are the wheel function that make the wheel move and adjust to the Suspension. If you want to learn how I did this look into the Hellbeander AnimTree.
+
+[UC_Land_Vehicle_AnimSet] [UC_Land_Vehicle_PhysicsAsset]
