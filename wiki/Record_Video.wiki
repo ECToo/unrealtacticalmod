@@ -1,0 +1,5 @@
+#summary Simple and free to record video.
+#labels Link
+
+= Links =
+http://camstudio.org/
