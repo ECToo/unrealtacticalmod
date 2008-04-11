@@ -10,5 +10,7 @@
 = IMPORT ASE: =
    This a workable plugin just search it.
 
+Links:http://www.katsbits.com/htm/tools_utilities.htm
+
 = IMPORT DAE: =
    I seen some error and conflict that some file works and some time not working. It depend on the author format.
