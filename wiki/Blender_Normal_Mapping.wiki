@@ -1,2 +1,0 @@
-#summary This is without using mesh for detail(not tested).
-http://www.blender.org/features-gallery/features/feature-videos/?video=displace_modifier

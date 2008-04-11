@@ -1,3 +1,0 @@
-#summary setbind <h> <Say Hi>.
-
-setbind h Say Hi
