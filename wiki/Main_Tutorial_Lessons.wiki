@@ -48,8 +48,6 @@ http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
 
 Here another one but in the s.v.n with image and text showing you it.
 [Blender_Skelton_Mesh_Build] [Blender_Action_Edtior]
-= Setup Area =
-[Unreal_Setup_Complie]
 
 == Blender Export: ==
  * [Blender_Export_PSK] -Skeleton Mesh
