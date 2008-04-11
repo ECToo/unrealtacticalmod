@@ -1,7 +1,0 @@
-#summary Page Links.
-#labels Unreal,Kismet
-
-= Introduction =
-
-Links:
-http://udn.epicgames.com/Three/KismetUserGuide.html
