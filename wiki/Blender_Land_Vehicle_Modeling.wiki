@@ -11,18 +11,17 @@ There are couple thing you need to know:
  * Textures
  * Texture Damages
  * Texture etc.
- * Texture Damage
 
 I think that all the basic and planning ahead is a good idea what you doing step by step. It will save time and work. Make your mesh face the direction of the unreal game in blender in top view facing left. The svn has the direction for the vehicle to face.
 
 = Building Your Model =
-First of all since the export can only export one mesh that first select your mesh you can do that later once you add all the basic vehicle parts when your done merge them together one your Finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since we are making a simple object.
+First of all since the export can only export one mesh. There is no selection option your mesh. You can do that later once you add all the basic vehicle parts when your done merge them together one your finish. Why am I say this because it hard to see your parts and edit them if goes in detail. Since we are making we are doing a simple object mesh.
 
 = Create Simple Mesh =
 Create a simple rectangle with four wheels. Don't make the wheel too big the offset might effect the change in different size a bit. But you need to change your unreal wheel size to make it work. Please note if you’re in object mode while doing that and you don't see vertex points like dots then go into edit mode. Once your done with your mesh go in to top view mode of blender. The model should be facing east that is your front and default vehicle facing. When you’re in side view the car should be up right.
 
 = Armature Setup =
-Ok then next part. Go in top view mode and do not rotate the bone. That the all the wheel and the main bone rotation will be use. We will add Armature that support bone data that many bones. We will name the relation to the bone default for hellbender. We wiWill add Tires and Suspensions for them and the main bone name is “Base”.
+Ok then next part. Go in top view mode and do not rotate the bone. That the all the wheel and the main bone rotation will be use. We will add Armature that support bone data that many bones. We will name the relation to the bone default for hellbender. We will add Tires and Suspensions for them and the main bone name is “Base”.
 
 Add bone the following armature with respect of the wheel placement.
  * Base (Main Root)
@@ -35,7 +34,7 @@ Add bone the following armature with respect of the wheel placement.
  * Lt_Rear_Suspension
  * Lt_Rear_Tire
 
-Once you have done adding the bone. Press A Key to select all the bones in Edit Mode. look at the bottom of your panel where is say Armature Bones. Some of the bones will not show up. Just Link all the tires to the Base do not connect them. 
+Once you have done adding the bones. Press A Key to select all the bones in Edit Mode. look at the bottom of your panel where is say Armature Bones. Some of the bones will not show up only at five at the time. Just Link all the tires to the Base do not connect them.  Just parent the bone.
 
 Lt_Front_Suspension > Child of "Base" It will link them. 
 
