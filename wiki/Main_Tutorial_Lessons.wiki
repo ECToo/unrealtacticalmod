@@ -77,8 +77,6 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision
 
 [] - Working with textures with Blender.
 
-[] - Working with textures with Gimp.
-
 [] - Working with animation from blender.
 
 [Blender_Land_Vehicle_Export] - Exporting to files to unreal format.
