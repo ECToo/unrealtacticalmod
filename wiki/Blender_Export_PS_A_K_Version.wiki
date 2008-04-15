@@ -6,6 +6,7 @@ I am currently making vehicles, weapons and other mods to make good game.
 
 = Working Area =
  * Character builds is on hold for male, female, and the krall.(On Hold)
+ * It seem the code error on the preview for bone=index error show up again.
 
 = Features: =
  * This script can covert mesh into triangular mesh when exporting to unreal.
