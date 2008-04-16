@@ -12,7 +12,7 @@
    One bone test.Get you kill when you enter the vehicle. Move speed 100000000.
 
 -Manta [Not Working]
-   One bone test. Crashes when vehicle was summon.
+   One bone test. Crashes when vehicle was summon. Bone!=Index Error.
 
 == Weapons ==
 -ShockRife[Working]
