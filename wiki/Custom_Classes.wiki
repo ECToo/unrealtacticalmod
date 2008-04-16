@@ -9,7 +9,7 @@
    Working just need to work on the size of the wheel.
 
 -Raptor [Not Working]
-   Get you kill when you enter the vehicle. Move speed 100000000.
+   One bone test.Get you kill when you enter the vehicle. Move speed 100000000.
 
 -Manta [Not Working]
    One bone test. Crashes when vehicle was summon.
