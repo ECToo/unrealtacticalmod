@@ -1,4 +1,19 @@
 #summary Working classes for blender Export.
 
-= Classes: =
+= Information: =
+   I am running quick test for different classes. To see if blender work when exporting to unreal.
 
+= Classes: =
+== Vehicles ==
+-Headbender [Working]
+   Working just need to work on the size of the wheel.
+
+-Raptor [Not Working]
+   Get you kill when you enter the vehicle. Move speed 100000000.
+
+-Manta [Not Working]
+   One bone test. Crashes when vehicle was summon.
+
+== Weapons ==
+-ShockRife[Working]
+   Working Animation. Working weapon fire and alt fire.
