@@ -15,7 +15,11 @@ Scene
  * UCX_Cube
 
 Trouble shooting:
-If you can’t get your collision working try to scale your mesh to one to one unit. If you create a small that it seem it does not detect your collision very well when the object little.
+If you can't get your collision working try to scale your mesh to one to one unit. If you create a small that it seem it does not detect your collision very well when the object little.
+
+If you can't the import your mesh when trying to import your mesh again close and reopen the unreal editor. It some time the file get corrupt. So delete your current mesh.ase file.
+
+Trying to get more than one materials. Assign new material for your face. Under the material create one texture. Under that texture import your image so it will create diffuse image and the link of the file.
 
 =Pros=
 1:1 Ratio to blender to unreal scale. For Vehicle varery in "rawscale=1.3".
