@@ -21,6 +21,7 @@ I am currently making vehicles, weapons and other mods to make good game.
 
 === Errors ===
  * Animation work needs to fix the off set in unreal.
+ * Some vehicle class may not work becuase of bone index error.
  
 === Solve ===
  * Different bone rotation when armature is build with animation will not work. Same bone rotation when the armature is build will work for that type of bone rotation and the animation works.
