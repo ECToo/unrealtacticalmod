@@ -7,6 +7,7 @@ I am currently making vehicles, weapons and other mods to make good game.
 = Working Area =
  * Character builds for male, female, and the krall.(On Hold)
  * It seem the code error on the preview for bone=index error show up again.(Not working for manta and raptor class)
+ * Error found some reason I tested out the bone index output and it given me zero for each bone is outputed.
 
 = Features: =
  * This script can covert mesh into triangular mesh when exporting to unreal.
