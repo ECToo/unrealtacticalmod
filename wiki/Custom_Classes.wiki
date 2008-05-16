@@ -8,8 +8,10 @@
 -Headbender [Working]
    Working just need to work on the size of the wheel.
 
--Raptor [Not Working]
-   One bone test.Get you kill when you enter the vehicle. Move speed 100000000.
+-Raptor [Working]
+   It is workig due to the size of the object. If you build the vehicle too samll it will be hard to be dectect in unreal once it convert to unreal format package.
+
+   If the object is too small like 3 units. It will not work correctly since the blender and unreal is the same ratio. One bone test. Get you kill when you enter the vehicle. Move speed 100000000.
 
 -Manta [Not Working]
    One bone test. Crashes when vehicle was summon. Bone!=Index Error.
