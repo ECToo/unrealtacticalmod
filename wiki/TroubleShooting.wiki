@@ -1,4 +1,18 @@
 #summary Trouble Shooting From Blender to Unreal.
 
- * If the units are too samll it wil not work for unreal while it import from blender.
- * If the object meshes is not work correctly it is do to the size in blender. Just resize them to be bigger to make unreal detect and it wil auto adjust.
+= Trouble Shooting =
+  Blender Export to Unreal is bit hard if the model is not working probity. If you new at blender modeling will take some time to get it right. The size effect the model a bit if the object is too small. Ratio is the same to unreal for the units. For example creating a box size 32x32x32 it will be the same in unreal once it import to unreal.
+
+== Basic Error ==
+
+ * If the units are too small it will not work for unreal while it import from blender.
+ * If the object meshes is not work correctly it is do to the size in blender. Just resize them to be bigger to make unreal detect and it will auto adjust.
+
+ * Q: I don't know the object mesh size.
+ * A: While in object mode press N key to display Transform Properties.
+
+ * Q: I create my collision and it not showing up in unreal how to fix it?
+ * A: Your object is too small to able to detect your collision. Scale your object a bit bigger.
+
+ * Q: How I am getting an error in Physics Asset?
+ * A: Your object is too small to detect your object. Scale your object a bit bigger.
