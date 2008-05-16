@@ -19,7 +19,7 @@ I am currently making vehicles, weapons and other mods to make good game.
 = Game Support: =
  * UTXXXX -Unknown
  * UT3 -Working
- * UT2004 -It does work but there an error in bone!=index.
+ * UT2004 -It does work but there an error in bone!=index. I have not yet fully tested out the vehicles class.
 
 === Errors ===
  * Manta vehicle class may not work becuase of bone index error. NOTE: I am not sure if it the binary format, the way the export scripted, and the unreal script.
