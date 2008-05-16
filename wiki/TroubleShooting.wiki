@@ -1,0 +1,4 @@
+#summary Trouble Shooting From Blender to Unreal.
+
+ * If the units are too samll it wil not work for unreal while it import from blender.
+ * If the object meshes is not work correctly it is do to the size in blender. Just resize them to be bigger to make unreal detect and it wil auto adjust.
