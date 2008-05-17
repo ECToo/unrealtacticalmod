@@ -16,3 +16,9 @@
 
  * Q: How I am getting an error in Physics Asset?
  * A: Your object is too small to detect your object. Scale your object a bit bigger.
+
+ * Q: How come I have an bone!=index error?
+ * A: The vehicle class has to be name correctly for the main bone to work. If it fail again add another bone that branch off the main bone for the class vehicle your modding off from.
+
+ * Q: Does size matter for the objects?
+ * A: Yes, it does matter for the size. It either you are dealing with the collision or physics to make the object usaable in the game. For example, if you create a 2 units for the vehicle it will not work. If you try to use the unreal script to size the object to make it sure it fits. Unreal will calculate what has import to it current mass and object.
