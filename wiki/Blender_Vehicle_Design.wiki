@@ -14,7 +14,7 @@ The basic building block and layout knowing how each area effect can effect your
  * Model Animation
  * Model Textures
  * Model Size
- * Bone Position And Rotation For Unreal Defualt
+ * Bone Position And Rotation For Unreal Default
  * Unreal Script
 
 = Art Concept =
@@ -26,8 +26,11 @@ The basic building block and layout knowing how each area effect can effect your
 = Before You Model In Blender =
    Think about how your mesh are build and render. When your are building your mesh vehicle.  Build your mesh vehicle into part like wheels, door, hood, fender, bumper, wings, and etc. Those are some moving parts and some not moving. For those reason is that making into part  are for vehicle damage parts. Like fender gets twisted, hood bend, door get smashed. You can add more textures.
 
+= Size Does Matter =
+   Why does size does matter? Unreal calculate the mass for the vehicle weights. It can effect the how object reaction in the game.
+
 = Damage Model =
-   All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices's change little differently parts where are damage. The bones are to be kept the same. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
+   All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices change little differently parts where are damage. The bones are to be kept the same. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
 
   To keep the file small for mod download. File must be export into psk format with the same texture material ratio of the original mesh in unreal that it will be sharing the same textures. For the damage texture that will be coded in unreal script. The model must have damage with some prefix damage model name.
 
