@@ -1,10 +1,10 @@
 #summary Video Lesson And Demos.
 
 Here a demo of my vehicle amd weapon just it testing for fun. Relation to svn blender file.
- * [http://www.youtube.com/watch?v=3N9-PCsaYtg] -Raptor Mod (Out Datea bit)(vehicle)
+ * [http://www.youtube.com/watch?v=3N9-PCsaYtg] -Raptor Mod (Out Date a bit)(vehicle)
  * [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
- * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)(UPDATE)
+ * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animation (weapon)(UPDATE)
 
 Quick setup for psa/psk video for animatoin test in unreal and blender.
 http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
