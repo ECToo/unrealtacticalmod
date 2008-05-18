@@ -36,18 +36,7 @@ It depend what type bone builds to export to unreal. It is your chose to create 
 == Blender to Unreal Unit Size ==
 (Blender) 1:1 (Unreal)
 
-== Videos And Demos ==
-Here a demo of my vehicle amd weapon just it testing for fun. Relation to svn blender file.
- * [http://www.youtube.com/watch?v=3N9-PCsaYtg] -Raptor Mod (Out Datea bit)(vehicle)
- * [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
- * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod (weapon)
- * [http://www.youtube.com/watch?v=R9GPHxqZbGE] -ShockRifle Mod With Animatoin (weapon)(UPDATE)
-
-Quick setup for psa/psk video for animatoin test in unreal and blender.
-http://video.google.ca/videoplay?docid=3795156702262154408&hl=en-CA
-
-Here another one but in the s.v.n with image and text showing you it.
-[Blender_Skelton_Mesh_Build] [Blender_Action_Edtior]
+[Video_Tutorial_Lesson Video Demos/Video Lessons]
 
 == Blender Export: ==
  * [Blender_Export_PSK] -Skeleton Mesh
@@ -103,6 +92,7 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision
 [UC_Vehicle_builds Air Vehicle Lession One]
 
 == Weapon Build  ==
+=== Shockrifle Mod ===
 This weapon will be base of Shockrifle. The rotation of the weapon is effect by unreal script that is code in.
 
  * [http://www.youtube.com/watch?v=E7ZrVDUFtrI] -ShockRifle Mod No Animation (weapon)
@@ -124,7 +114,7 @@ http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
 Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/;9717557;/fileinfo.html
 
-[Unreal_Weapon_SkeletalMesh] - Socket Manager And Importing.
+[Unreal_Weapon_SkeletalMesh] - Socket Manager And Importing Your Model.
 
 [Unreal_Weapon_AnimSet] - Animation Set.
 
