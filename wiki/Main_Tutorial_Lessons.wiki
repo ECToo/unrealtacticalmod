@@ -133,6 +133,8 @@ Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/
 == Character Build  ==
 (On Hold Can't find any format for the bones or how to create for blender.)
 
+=[TroubleShooting]=
+
 =Simple Tips=
  * http://wiki.blender.org/index.php/Manual/Undo_and_Redo
  * http://wiki.beyondunreal.com/wiki/New_UnrealScript_In_UT3
