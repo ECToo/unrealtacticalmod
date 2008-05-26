@@ -16,9 +16,9 @@ I am currently making vehicles, weapons and other mods to make good game.
  * More than one Materials are working. (Assign Materials in Blender)
 
 = Game Support: =
- * UTXXXX -Unknown
  * UT3 -Working
  * UT2004 -It does work but there an error in bone!=index. I have not yet fully tested out the vehicles class.
+ * UTXXXX -Unknown
 
 === Errors ===
  * Unreal Editor crash while importing your psk, check your bone weights(skin weight, paint weight) to be sure it use all your vertex point for that bone.
