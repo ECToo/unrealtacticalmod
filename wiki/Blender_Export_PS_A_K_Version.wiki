@@ -21,7 +21,7 @@ I am currently making vehicles, weapons and other mods to make good game.
  * UT2004 -It does work but there an error in bone!=index. I have not yet fully tested out the vehicles class.
 
 === Errors ===
- * None
+ * Unreal Editor crash while importing your psk, check your bone weights(skin weight, paint weight) to be sure it use all your vertex point for that bone.
  
 === Solve ===
  * Manta vehicle class may not work becuase of bone index error. NOTE: I am not sure if it the binary format, the way the export scripted, and the unreal script.
