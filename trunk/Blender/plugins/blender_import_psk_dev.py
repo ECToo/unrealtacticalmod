@@ -217,22 +217,47 @@ def pskimport(infile):
     print "Name:",name,"Parent Name:",IDname
     print "RAW POS: x:",armbone[8]," y:",(armbone[9])," z:",(armbone[10])
     
+    eb = Armature.Editbone()
+	#bone position is hard to guess right nows
+    mytext = '   spacious   '
+    mytext = mytext.lstrip()
+    mytext = mytext.rstrip(' ')
+    print mytext,"---"
     if name == IDname:
-       eb = Armature.Editbone()
-       eb.head = Vector(armbone[8],armbone[9],armbone[10])
-       eb.tail = Vector(armbone[8],armbone[9],armbone[10]+ 1)
-       armData.makeEditable()
-       armData.bones[name] = eb #Add Bone to Armature.
+       #eb.parent = 
+       eb.head = Vector(armbone[8],armbone[9],armbone[10]) #bone from file #no clue to fix this
+       eb.tail = Vector(armbone[8],armbone[9],armbone[10]+ 1) #no clue to fix this
+    else:
+       parentstring = IDname
+       parentstring = parentstring.lstrip()
+       parentstring = parentstring.rstrip()
+       print ":-",parentstring,"-:"
+       print '-:',len(IDname.rstrip(' ')),":-"
+       parent = armData.bones[parentstring]
+       print "Name: ",parent.name," pos:", parent.head
+       #print "---------------------------",parent.name
+	   
+       eb.parent = armData.bones[parent.name]
+       eb.head = Vector(armbone[8],armbone[9],armbone[10]) + parent.head #add new bone from armature data to parent off of the new localtion of the bone.
+       eb.tail = Vector(armbone[8],armbone[9],armbone[10]+ 1) + parent.head #add new bone from armature data to parent off of the new localtion of the bone.
+       
+	   
+    armData.makeEditable()   
+    armData.bones[name] = eb #Add Bone to Armature.
+	
   armObj.link(armData)
   armData.update()
   scn = Blender.Scene.getCurrent()
   scn.link(armObj)
   
-  arms_current = Armature.Get()
-  print "ARMATURE:----",arms_current
-  print "DIR---------",dir(arms_current)
+  #arms_current = Armature.Get()
+  #print "ARMATURE:----",arms_current
+  #print "DIR---------",dir(arms_current)
 
   #arm_set = Armature.New('Armature')
+
+  """
+  # Working bone build test to parent of the bones base on parent head in blender not in psk file.
   for arm in arms_current.values():
     print "NAME:",arm.name
     if arm.name == 'Armature':
@@ -269,19 +294,8 @@ def pskimport(infile):
        eb.tail = Vector(0,1,1) + parentbone.head
        arm.bones['myNewBone3'] = eb
        arm.update()  #save changes	   
- 
-    """
-    if name != IDname: #If Bone have parent create a link.
-       eb.parent = armData.bones[rstrip(armData.bones[IDname].name)]
-       eb.head = Vector(armbone[8],armbone[9],armbone[10])
-       eb.tail = Vector(armbone[8],armbone[9],armbone[10]+ 1)
-       print armData.bones[IDname].name
-    else:
-       eb.head = Vector(1,0,0)
-       eb.tail = Vector(0,0,1)
-    print "HEAD:",eb.head
-    print "RAW POS: x:",armbone[8]," y:",(armbone[9])," z:",(armbone[10])
-    """	
+  """
+
   """
   for armbone in bone:
     print "-----"
@@ -444,3 +458,4 @@ def getInputFilename(filename):
 
 #Blender.Window.FileSelector(getInputFilename, 'SELECT A PSK FILE')#disable for test
 getInputFilename('C:\\blenderfiles\\A.PSK')
+#getInputFilename('C:\\blenderfiles\\AA.PSK')
