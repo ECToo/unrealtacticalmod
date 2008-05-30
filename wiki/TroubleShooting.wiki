@@ -22,3 +22,12 @@
 
  * Q: Does size matter for the objects?
  * A: Yes, it does matter for the size. It either you are dealing with the collision or physics to make the object usaable in the game. For example, if you create a 2 units for the vehicle it will not work. If you try to use the unreal script to size the object to make it sure it fits. Unreal will calculate what has import to it current mass and object.
+
+ * Q:How come I got one extra material in .ASE file?
+ * A:If you have the prefix name of UCX_... is because it was not assign an material. By default it will create a material for that collision box.
+
+ * Q:What my limit on bone name?
+ * A: The limit is 30 character for the naming the name bones when exporting skeleton and animation bones. No spacing are allow in unreal. Example "------------------------------".
+
+ * Q:How come when I start up my unreal editor it restart on me?
+ * A:Update your graphic driver.
