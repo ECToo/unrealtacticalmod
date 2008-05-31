@@ -27,7 +27,7 @@ The basic building block and layout knowing how each area effect can effect your
    Think about how your mesh are build and render. When your are building your mesh vehicle.  Build your mesh vehicle into part like wheels, door, hood, fender, bumper, wings, and etc. Those are some moving parts and some not moving. For those reason is that making into part  are for vehicle damage parts. Like fender gets twisted, hood bend, door get smashed. You can add more textures.
 
 = Size Does Matter =
-   Why does size does matter? Unreal calculate the mass for the vehicle weights. It can effect the how object reaction in the game.
+   Why does size does matter? Unreal calculate the mass for the vehicle weights. It can effect the how object reaction in the game. More information about later on when we start modeling.
 
 = Damage Model =
    All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices change little differently parts where are damage. The bones are to be kept the same. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
