@@ -1,20 +1,25 @@
 #summary Vehicle Design.
-#labels Blender,Vehicle,Design
-
-= Work In Progress For This Section =
+#labels Blender, Vehicle, Design, Unreal
 
 = Plan ahead First =
-If you are read this. You made a wise chose. You have to draw out your plan on paper that comes in right type of game play and style of game. I will try to keep what I am saying with the blender and unreal and new people who want to use blender. Blender export still on going.
+If you are read this. You made a wise chose. 
+
+   Before you can start modeling your vehicle. You should have to know little bit about object Mesh and Armature bone and Action Editor(Animation Set for Unreal) for blender. Don’t use the modifier for Armature bone. I will explain later on in this part later on.
+
+   You have to plan out on paper. Either your write, draw, and scribble to get your vehicle design build correctly to make it work. The model should fit right type of game play and game style. Vehicle design might be the hard work. You have to deal with designing a vehicle and create a destroyable vehicle with two or more type of materials. 
+
+   Those who are new to blender and trying to export a working vehicle model. It involve in using the unreal editor and unreal script. To run a playable vehicle in the game.
 
 = Plan Before You Model =
 The basic building block and layout knowing how each area effect can effect your model in game play. There are couple thing you need to know:
  * Art and Theme
- * Model
+ * 3D Model
  * Model Damage
+ * Model Textures -(Red / Blue team color)
  * Model Animation
- * Model Textures
+ * Model Textures Damage
  * Model Size
- * Bone Position And Rotation For Unreal Defualt
+ * Bone Position And Rotation For Unreal Default
  * Unreal Script
 
 = Art Concept =

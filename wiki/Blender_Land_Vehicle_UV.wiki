@@ -5,9 +5,7 @@ While you are selecting your current mesh object to work on the uv texture layou
 
 Create a another panel for "UV/Image Editor".
 
-Select the "UV Face Select" option. Select all your faces of the object while the mouse is over the 3D view port to get all the faces by pressing "a" Key.
-
-Next part is the uv layout. While the mouse currently over the 3D view port of the model. Press the "u" key that the UV. Select any one formats. Last bottom one is the good chose for  quick even space of the uv layout.
+Select You mesh object in edit mode. Select all the vertex and press the "u" for uv layout. Use the unwarp(smart projections). Once your done that you can export the uv in the uv editor> UVs> Scripts > Save UV Face Layout.
 
 Link:
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/UV_Map_Basics -UV
