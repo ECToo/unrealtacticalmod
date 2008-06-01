@@ -1,0 +1,12 @@
+#summary Simple Vehicle Desgin Mod.
+
+-Working on this page a bit.
+
+= Introduction =
+   This the most simple vehicle design but it hand and looking around for errors. There are couple of stages to get to. We will be modding off from hellbender vehicle class to make it easy.
+
+List to do:
+ * Object Mesh
+ * UV
+ * Armature
+ * Paint Weights
