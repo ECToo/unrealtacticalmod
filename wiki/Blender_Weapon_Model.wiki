@@ -1,5 +1,5 @@
 #summary Basic weapon modeling.
-#labels Blender, Weapon, Model
+#labels Blender,Weapon,Model
 [Main_Tutorial_Lessons HOME] [Blender_Weapon_Model_1P Next]
 = Plan before Modeling =
 When you’re designing your weapon you need know before you model your weapon. There are two weapons design one is first person (1P) view where the entire moveable parts where lot of bones are moving. For the third person (3P) view there are no moving parts just the simple animation for weapon fire and other weapon state. Some time there is no animation or not at all in 3P unless showing something realist.  Some weapons are crop in first person view to reduce polygons that you don’t see the whole weapon.
@@ -15,6 +15,9 @@ There are two modeling that has to support two different animations in First Per
 
 = Blender Modeling =
 For now make your 3D model into parts for First Person View. Remember you have to do your textures when you’re creating two set of file for your first person and your third person view. The Third Person view will not have some moving parts with animation or without animation depend if you want animation in the third person view. Since we will be modeling off from shockrilfe there is no animation for third person view.
+
+= Blender Size for Unreal Model and Direction =
+   Since we don't know the size of the weapon to be in unreal. The easy way to get the size of the weapon is to load the unreal editor. Add the skeleton weapon to be mod off from weapon class were doing into the map. Add the simple bone to custom weapon in blender and adjust the size of the mesh blender to unreal while importing the test. Once you get some idea of how big is the weapon. The next part you might not know that where the weapon pointing direction to fire at. You do that when your building your first person and third person views.
 
 = Weapon Modeling Sample =
 This is just a weapon with out 1P and 3P. http://unrealtacticalmod.googlecode.com/svn/trunk/Blender/custom_weapon_gun/custom_weapon_gun.blend 
