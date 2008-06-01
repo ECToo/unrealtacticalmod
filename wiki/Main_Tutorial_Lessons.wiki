@@ -12,13 +12,6 @@ Those who are new at blender you can look into this link:
  * http://en.wikibooks.org/wiki/Blender_3D:_Noob_to_Pro/Beginner_Tutorials/Print_version
  * -Look up Armature those are for bone if you want animatoin.
 
-Blender Features:
- * Build In Game Engine
- * 3D Modeling
- * UV Painting
- * Python Scripts
- * Check out the site of blender for more information. (www.blender.org)
-
 = Blender Version =
 You have get Blender 2.45 the current or newer version of Blender.
 
@@ -39,20 +32,10 @@ It depend what type bone builds to export to unreal. It is your chose to create 
 [Video_Tutorial_Lesson Video Demos/Video Lessons]
 
 == Blender Export: ==
- * [Blender_Export_PSK] -Skeleton Mesh
-
-Here an example file: http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/vehicle_test.blend
-
-To test it out use the hellbender vehicle class.
- * [Blender_Export_PSA] -AnimSet(Unreal) = Action Editor(Blender)
-
-Here an example file: 
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/psa_test.blend
-
- * [Blender_Export_ASE] -Static Mesh
-
-Here an example file: 
-http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision_box_ASE.blend
+ * [Blender_Export_PSK] -Skeleton Mesh -(Download Tab)
+ * [Blender_Export_PSA] -AnimSet(Unreal) = Action Editor(Blender) -(Download Tab)
+ * [Blender_Export_ASE] -Static Mesh 
+ * [Blender_Export_DAE] -Static Mesh/Skeleton Mesh/Animation Set (OUT DATE VERSION 1.4.0)
 
 == Vehicle Build: ==
 [http://www.youtube.com/watch?v=-QtpNjMMssY] -Hellbender Mod (vehicle)
