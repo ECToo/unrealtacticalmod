@@ -1,4 +1,4 @@
-#summary READ ME FIRST FOR Vehicle Design.
+#summary Vehicle Design.
 #labels Blender,Land,Vehicle,Model
 
 = Work In Progress For This Section =
@@ -27,9 +27,9 @@ The basic building block and layout knowing how each area effect can effect your
    Think about how your mesh are build and render. When your are building your mesh vehicle.  Build your mesh vehicle into part like wheels, door, hood, fender, bumper, wings, and etc. Those are some moving parts and some not moving. For those reason is that making into part are for vehicle damage parts. Like fender gets twisted, hood bend, door get smashed. You can add more textures.
 
 = Adjusting Vehicle Size Class =
-Then how do I size my vehicle to fit the vehicle class then? Easy question, open up in the unreal editor. Add a vehicle class spawn that your modding off from and add a skeleton mesh with the same class beside spawn vehicle. Just a skeleton mesh that is not a class, just a body frame that we be using to adjust our skeleton mesh vehicle. You will notice some different in their size. It partly been written in unreal script to adjusting the size.
+   Then how do I size my vehicle to fit the vehicle class then? Easy question, open up in the unreal editor. Add a vehicle class spawn that your modding off from and add a skeleton mesh with the same class beside spawn vehicle. Just a skeleton mesh that is not a class, just a body frame that we be using to adjust our skeleton mesh vehicle. You will notice some different in their size. It partly been written in unreal script to adjusting the size.
 
-In this lesson add hellbender class spawn and add hellbender skeleton mesh right beside each other. The next easy part is adding your own custom vehicle that your current working on and add temperately bone to size your mesh. Don't size your armature bone, just your mesh size. Trying to guess the size of the skeleton mesh vehicle to base from hellbender skeleton mesh.
+   In this lesson add hellbender class spawn and add hellbender skeleton mesh right beside each other. The next easy part is adding your own custom vehicle that your current working on and add temperately bone to size your mesh. Don't size your armature bone, just your mesh size. Trying to guess the size of the skeleton mesh vehicle to base from hellbender skeleton mesh.
 
 = Damage Model =
    All Texture material must have the same original mesh with out damage to the vehicle. Because of the morph set when you are importing the same mesh with damage parts with same textures and the vertices's change little differently parts where are damage. The bones are to be kept the same. You can add bones but not change the original bones. If you made some changes in the bones it can effect the rest of your files. It will behave little differently when game is play. 
