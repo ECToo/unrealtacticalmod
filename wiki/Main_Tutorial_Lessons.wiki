@@ -87,10 +87,6 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Blender/collision
 
 [UC_Land_Vehicle_UnrealScript] - Three Files. No weapon yet.
 
-=== Air Vehicle: ===
-
-[UC_Vehicle_builds Air Vehicle Lession One]
-
 == Weapon Build  ==
 === Shockrifle Mod ===
 This weapon will be base of Shockrifle. The rotation of the weapon is effect by unreal script that is code in.
