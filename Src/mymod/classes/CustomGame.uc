@@ -18,7 +18,12 @@ function PostBeginPlay()
             }
         }
 }
-
 defaultproperties
 {
+                 MapPrefixes(0)="DM"
+                 MapPrefixes(1)="VDM"
+                 OnlineGameSettingsClass=class'mymod.UTGameSettingsVDM'
+                 //OnlineGameSettingsClass=class'UTGameSettingsCTF'
+                 Description="Free-for-all kill or be killed.  The player with the most frags wins."
+                 GameName="VehicleDeathMatch"
 }

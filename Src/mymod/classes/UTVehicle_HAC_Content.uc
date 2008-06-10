@@ -160,10 +160,11 @@ defaultproperties
 
 	VehicleEffects(5)=(EffectStartTag=BackTurretFire,EffectTemplate=ParticleSystem'VH_Hellbender.Effects.P_VH_Hellbender_SecondMuzzleFlash',EffectSocket=TurretFireSocket)
 
+        //Animation Set
 	VehicleAnims(0)=(AnimTag=EngineStart,AnimSeqs=(GetIn),AnimRate=1.0,bAnimLoopLastSeq=false,AnimPlayerName=AnimPlayer)
 	VehicleAnims(1)=(AnimTag=Idle,AnimSeqs=(Idle),AnimRate=1.0,bAnimLoopLastSeq=true,AnimPlayerName=AnimPlayer)
 	VehicleAnims(2)=(AnimTag=EngineStop,AnimSeqs=(GetOut),AnimRate=1.0,bAnimLoopLastSeq=false,AnimPlayerName=AnimPlayer)
-	VehicleAnims(3)=(AnimTag=Inactive,AnimSeqs=(InactiveIdle),AnimRate=1.0,bAnimLoopLastSeq=true,AnimPlayerName=AnimPlayer)
+        VehicleAnims(3)=(AnimTag=Inactive,AnimSeqs=(InactiveIdle),AnimRate=1.0,bAnimLoopLastSeq=true,AnimPlayerName=AnimPlayer)
 
 	DamageMorphTargets(0)=(InfluenceBone=FrontBumper,MorphNodeName=MorphNodeW_Front,Health=200,DamagePropNames=(Damage2))
 	DamageMorphTargets(1)=(InfluenceBone=Lt_Rear_Suspension,MorphNodeName=MorphNodeW_RearLt,Health=100,DamagePropNames=(Damage3))

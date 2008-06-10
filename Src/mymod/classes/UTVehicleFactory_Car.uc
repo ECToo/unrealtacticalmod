@@ -20,5 +20,5 @@ defaultproperties
 
 	VehicleClassPath="mymod.UTVehicle_Car_Content"
 	//DrawScale=1.2
-        DrawScale=4
+        DrawScale=6
 }
