@@ -7,7 +7,7 @@
    This the most simple vehicle design but it hand on and looking around for errors. There are couple of stages to get to. We will be modding off from hellbender vehicle class to make it easy.
 
 = Learn and Build =
-   Before you can start modeling your vehicle. You should have to know little bit about object Mesh and Armature bone and Action Editor(Animation Set for Unreal) for blender. Don’t use the modifier for Armature bone. I will explain later on in this part later on. To learn go search "blender noob to pro".
+   Before you can start modeling your vehicle. You should have to know little bit about object Mesh and Armature (bone and Action Editor(Animation Set for Unreal) for blender. Don't use the modifier for Armature bone. I will explain later on in this part later on. To learn go search "blender noob to pro".
    
 = Vehicle Mesh Design =
    For making a simple model mesh. When your adding a model into the scene it has to be mesh object. Add a cube by pressing space bar key -> Mesh -> Cube and then press tab key to go into edit mode. Then add four circles for the wheel. While your on top view select your cube mesh and not select your circle mesh. Make it rectangle on the x axis.
@@ -22,12 +22,12 @@ Armature>Create Bone From Heat.
    More detail will be explain about Armature bone later.
 
 = Skeleton Mesh Test Size =
-   Since we don’t know the size of the vehicle for hellbender. We will open unreal editor. This part create a simple map with four walls and one light. Then add a spawn class for hellbender. The next part is add a skeleton mesh from hellbender in the Generic browser. You will notice the different in their size. That is from unreal script draw scale for vehicle spawn. Once you setup that part up import your vehicle mesh and then adjusting your size to fit the scale from hellbender skeleton mesh and not from hellbender spawn vehicle class. Do not adjust your Armature bone scale. Adjust your mesh in edit mode. Once you get the right size of your vehicle for hellbender. If you get the got the right direction for facing your vehicle is a good chance to do that.
+   Since we don't know the size of the vehicle for hellbender. We will open unreal editor. This part create a simple map with four walls and one light. Then add a spawn class for hellbender. The next part is add a skeleton mesh from hellbender in the Generic browser. You will notice the different in their size. That is from unreal script draw scale for vehicle spawn. Once you setup that part up import your vehicle mesh and then adjusting your size to fit the scale from hellbender skeleton mesh and not from hellbender spawn vehicle class. Do not adjust your Armature bone scale. Adjust your mesh in edit mode. Once you get the right size of your vehicle for hellbender. If you get the got the right direction for facing your vehicle is a good chance to do that.
 
 = Creating Bones For Armature =
-   If you skip “Armature Bone And Parenting “ that where we will continue working on it. This part is important for making a vehicle bones to work. For those who are new at this read about or search about. 
+   If you skip 'Armature Bone And Parenting' that where we will continue working on it. This part is important for making a vehicle bones to work. For those who are new at this read about or search about. 
 
-   There are two of way to parenting the bones. One is linking the bone to the parent and second way is to connect the bone to the parent. Second method doesn’t fit the unreal bone format. The Reason there are two points one is the head and the tail of the bone position and rotation. The tail is part of the rotation and direction.
+   There are two of way to parenting the bones. One is linking the bone to the parent and second way is to connect the bone to the parent. Second method doesn't fit the unreal bone format. The Reason there are two points one is the head and the tail of the bone position and rotation. The tail is part of the rotation and direction.
    
    To Add a bone while you still selecting your Armature Object. Once your select your Armature object press tab key to go into edit mode. 
    
