@@ -47,7 +47,7 @@ defaultproperties
 	End Object
 
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'customvehicle.Anims.vehicle_test'
+		SkeletalMesh=SkeletalMesh'customvehicle.Anims.vehicle_test'          //WORK
 		PhysicsAsset=PhysicsAsset'customvehicle.Anims.vehicle_test_Physics'
 		AnimTreeTemplate=AnimTree'customvehicle.Anims.vehicle_test_animtree'
 		AnimSets(0)=AnimSet'customvehicle.Anims.vehicle_test_NewAnimSet'
@@ -56,7 +56,7 @@ defaultproperties
 	End Object
 
         //DrawScale=1.2
-	DrawScale=4
+	DrawScale=6
 
 
 	FlagOffset=(X=9.0,Y=-44,Z=80)
