@@ -34,3 +34,6 @@
 
  * Q:How come my bone are not showing up in the vertex group?
  * A:If you added in the bone after you parenting the bone to the mesh. You need to parent them again or update the bone.
+
+ * Q:How come my physics asset keep on flashing in the skeleton mesh physics?
+ * A:The cause of the error if you have one bone in the skeleton mesh it will keep on flashing. It need two or more bone to work or just update the mesh to detect new skeleton mesh.
