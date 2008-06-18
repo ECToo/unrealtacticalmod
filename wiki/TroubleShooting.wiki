@@ -37,3 +37,6 @@
 
  * Q:*How come my physics asset keep on flashing in the skeleton mesh physics?*
  * A:The cause of the error if you have one bone in the skeleton mesh it will keep on flashing. It need two or more bone to work or just update the mesh to detect new skeleton mesh.
+
+ * Q:*How come I can only see part of the mesh that is really big?*
+ * A: Go to the view porperties change the clip end to greater number. That would be your 3D View port.
