@@ -21,7 +21,7 @@
  * A: The vehicle class has to be name correctly for the main bone to work. If it fail again add another bone that branch off the main bone for the class vehicle your modding off from.
 
 Here another error I found.
-{{
+{{{
 	Begin Object class=UTVehicleScorpionWheel Name=LFWheel
 		BoneName="Lt_Front_Tire" //Your skeleton mesh bone name
 		BoneOffset=(X=0.0,Y=-30.0,Z=0.0)
@@ -33,7 +33,8 @@ Here another error I found.
 		SkelControlName="F_L_Tire_Ctrl" //Your Animtree controls
         WheelRadius=30
 	End Object
-}}
+//if you miss the name of the bone it will crash if you have other bone name
+}}}
 
  * Q: *Does size matter for the objects?*
  * A: Yes, it does matter for the size. It either you are dealing with the collision or physics to make the object usable in the game. For example, if you create a 2 units for the vehicle it will not work. If you try to use the unreal script to size the object to make it sure it fits. Unreal will calculate what has import to it current mass and object.
