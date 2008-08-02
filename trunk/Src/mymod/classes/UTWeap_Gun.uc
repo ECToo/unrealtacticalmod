@@ -323,6 +323,9 @@ defaultproperties
 	// Weapon SkeletalMesh
 	Begin Object class=AnimNodeSequence Name=MeshSequenceA
 	End Object
+	
+	ItemName="Gun"
+	PickupMessage="Pick up Gun"
 
 	// Weapon SkeletalMesh
 	Begin Object Name=FirstPersonMesh
