@@ -25,6 +25,8 @@ UTAttachment_Gun.uc
 
 UTWeap_Gun.uc
 {{{
+	ItemName="Gun" //added
+	PickupMessage="Pick up Gun" //added
 	// Weapon SkeletalMesh
 	Begin Object Name=FirstPersonMesh
                                          //1 Person
@@ -55,5 +57,3 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes
 
 
 givewewapon class.nameofclass
-
-Note: Need to find weapon name.
