@@ -47,6 +47,8 @@ UTWeap_Gun.uc
 	End Object
 }}}
 
+Once you done setting up the and compile and should have no errors.
+
 =SVN:=
 
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTWeap_Gun.uc
