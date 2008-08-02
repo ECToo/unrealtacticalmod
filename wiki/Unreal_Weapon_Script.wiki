@@ -56,4 +56,4 @@ http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes
 http://code.google.com/p/unrealtacticalmod/source/browse/trunk/Src/mymod/classes/UTAmmo_Gun.uc
 
 
-givewewapon class.nameofclass
+givewewapon class.UTWeap_Gun
