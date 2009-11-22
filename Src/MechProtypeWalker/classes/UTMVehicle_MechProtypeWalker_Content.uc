@@ -7,15 +7,39 @@ class UTMVehicle_MechProtypeWalker_Content extends UTMVehicle_MechProtypeWalker;
 var UTMMechWalkerBody BodyActor_Leg;
 var class<UTMMechWalkerBody> BodyType_Leg;
 
-var UTMMechWalkerBody_MechProtypeLeg BodyType_LegClass;
-var UTMMechWalkerBody_MechProtypeLeg BodyActor_LegClass;
-
-
 var SkeletalMeshComponent MeshMechTMP;
 
 var class <UTMMechPart> MechPart;
-//class<UTMechWalkerBody>
 var UTMMechPart MechPartActor;
+//Head
+var() protected const Name BodyAttachHeadSocketName;
+var class <UTMMechPart> MechPart_Head;
+var UTMMechPart MechPartActor_Head;
+//Back
+var() protected const Name BodyAttachBackSocketName;
+var class <UTMMechPart> MechPart_Back;
+var UTMMechPart MechPartActor_Back;
+//Leg
+var() protected const Name BodyAttachLegSocketName;
+var class <UTMMechPart> MechPart_Leg;
+var UTMMechPart MechPartActor_Leg;
+//Right Arm
+var() protected const Name BodyAttachRightArmSocketName;
+var class <UTMMechPart> MechPart_RightArm;
+var UTMMechPart MechPartActor_RightArm;
+//right weapon
+var() protected const Name BodyAttachRightHandSocketName;
+var class <UTMMechPart> MechPart_RightHand;
+var UTMMechPart MechPartActor_RightHand;
+//Left Arm
+var() protected const Name BodyAttachLeftArmSocketName;
+var class <UTMMechPart> MechPart_LeftArm;
+var UTMMechPart MechPartActor_LeftArm;
+//left weapon
+var() protected const Name BodyAttachLeftHandSocketName;
+var class <UTMMechPart> MechPart_LeftHand;
+var UTMMechPart MechPartActor_LeftHand;
+
 
 simulated function PostBeginPlay()
 {
@@ -32,9 +56,36 @@ simulated function PostBeginPlay()
 
 		//MechPartActor = Spawn(class'MechProtypeWalker.UTMMechPart_Leg', self,, Location);
 
-		MechPartActor = Spawn(MechPart, self,, Location);
+		//MechPartActor = Spawn(MechPart, self,, Location);
 		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'LeftHandSocket');
-		Mesh.AttachComponentToSocket(MechPartActor.Mesh,'RightHandSocket');
+		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'RightHandSocket');
+		
+                //head
+                MechPartActor_Head = Spawn(MechPart_Head, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
+
+                //leg
+                MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
+
+                //right arm
+                MechPartActor_RightArm = Spawn(MechPart_RightArm, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+
+                //right hand weapon
+                MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+
+                //left arm
+                MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftHandSocketName);//'RightHandSocket'
+
+                //left hand weapon
+                //MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+                //Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
+                
+                MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+                MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
 
 	}
 }
@@ -69,113 +120,31 @@ defaultproperties
          VehicleNameString="Mech Walker"
          
          MechPart=class'MechProtypeWalker.UTMMechPart_Leg'
+         //head
+         BodyAttachHeadSocketName=MechHeadSocket
+         MechPart_Head=class'MechProtypeWalker.UTMMechPart_Head'
+         //leg
+         BodyAttachLegSocketName=MechLegSocket
+         MechPart_Leg=class'MechProtypeWalker.UTMMechPart_Leg'
+         
+         //right arm
+         BodyAttachRightArmSocketName=RightHandSocket
+         MechPart_RightArm=class'MechProtypeWalker.UTMMechPart_RightArm'
 
-         Begin Object Class=SkeletalMeshComponent Name=MeshHead
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_head'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-	MeshMechHead=MeshHead
+         //right hand
+         BodyAttachRightHandSocketName=RightHandSocket
+         MechPart_RightHand=class'MechProtypeWalker.UTMMechPart_RightWeapon'
 
-	Begin Object Class=SkeletalMeshComponent Name=MeshRightWeapon
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-        MeshMechRightWeapon=MeshRightWeapon
-        
-        Begin Object Class=SkeletalMeshComponent Name=MeshLeftWeapon
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-        MeshMechLeftWeapon=MeshLeftWeapon
+         //left arm
+         BodyAttachLeftArmSocketName=LeftHandSocket
+         MechPart_LeftArm=class'MechProtypeWalker.UTMMechPart_LeftArm'
 
-         Begin Object Class=SkeletalMeshComponent Name=MeshLeg
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-	MeshMechLeg=MeshLeg
-	
-	
-	Begin Object Class=SkeletalMeshComponent Name=testmesh
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-	//MeshMechTMP=testmesh
-	
+         //left hand
+         BodyAttachLeftHandSocketName=LeftHandSocket
+         MechPart_LeftHand=class'MechProtypeWalker.UTMMechPart_LeftWeapon'
 
 
-         Begin Object Class=SkeletalMeshComponent Name=SAntennaMesh2
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.MechProtypeLeg'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		ShadowParent = SVehicleMesh
-		BlockRigidBody=false
-		LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		TickGroup=TG_PostASyncWork
-		bUseAsOccluder=FALSE
-		CullDistance=1300.0
-		CollideActors=false
-		bUpdateSkelWhenNotRendered=false
-		bIgnoreControllersWhenNotRendered=true
-		bAcceptsDecals=false
-	End Object
-	AntennaMesh2=SAntennaMesh2
-
-        Begin Object Class=SkeletalMeshComponent Name=SAntennaMesh
+	Begin Object Class=SkeletalMeshComponent Name=SAntennaMesh
 		SkeletalMesh=SkeletalMesh'VH_Goliath.Mesh.SK_VH_Goliath_Antenna'
 		AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
 		ShadowParent = SVehicleMesh
@@ -190,17 +159,12 @@ defaultproperties
 		bIgnoreControllersWhenNotRendered=true
 		bAcceptsDecals=false
 	End Object
-
         AntennaMesh=SAntennaMesh
 
 
         BodyType=class'UTMMechWalkerBody_MechProtypeLeg'
         //BodyType=class'UTMechWalkerBody_MechProtypeLeg'
-        
         BodyType_Leg=class'UTMMechWalkerBody_MechProtypeLeg'
-
-        BodyAttachSocketName=PowerBallSocket
-        
 
 	Begin Object Name=CollisionCylinder
 		CollisionHeight=100.0

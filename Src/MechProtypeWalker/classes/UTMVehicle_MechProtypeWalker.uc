@@ -70,15 +70,6 @@ native simulated final function PlayWarningSoundIfInCone(Pawn Target);
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
-	//AddBeamEmitter();
-
-	Mesh.AttachComponentToSocket(AntennaMesh,'AntennaSocket');
-	Mesh.AttachComponentToSocket(Mesh2.SkeletalMeshComponent,'AntennaSocket');
-	Mesh.AttachComponentToSocket(MeshMechHead,'MechHeadSocket');
-	Mesh.AttachComponentToSocket(MeshMechLeg,'MechLegSocket');
-	Mesh.AttachComponentToSocket(MeshMechRightWeapon,BodyAttachRightHandWeaponSocketName);
-	Mesh.AttachComponentToSocket(MeshMechLeftWeapon,'LeftHandSocket');
-	//Mesh.AttachComponentToSocket(AntennaMesh2,'AntennaSocket');
 	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
 }
 
@@ -216,7 +207,7 @@ function bool RecommendLongRangedAttack()
 defaultproperties
 {
 
-        BodyAttachRightHandWeaponSocketName=RightHandSocket
+        //BodyAttachRightHandWeaponSocketName=RightHandSocket
 
 	Begin Object Name=SVehicleMesh
 		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled1=TRUE)
