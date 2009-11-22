@@ -1,6 +1,8 @@
 /**
  *
- * Copyright 1998-2007 Epic Games, Inc. All Rights Reserved.
+ * Created by: Darknet
+ * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
+ * license:  -> Check readme.txt
  */
 
 class UTMechWalkerBody_MechProtypeLeg extends UTMechWalkerBody;

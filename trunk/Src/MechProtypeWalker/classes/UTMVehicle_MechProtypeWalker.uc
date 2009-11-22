@@ -1,7 +1,8 @@
 /**
  *
- * Created by Darknet
- *  Partly working code base
+ * Created by: Darknet
+ * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
+ * license:  -> Check readme.txt
  */
 
 class UTMVehicle_MechProtypeWalker extends UTMVehicle_MechWalker;
