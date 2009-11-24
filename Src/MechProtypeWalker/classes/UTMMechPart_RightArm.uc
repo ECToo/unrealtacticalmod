@@ -8,6 +8,11 @@
 class UTMMechPart_RightArm extends UTMMechPart;
 
 
+function playanimationtest(){
+         super.playanimationtest();
+}
+
+
 
 
 defaultproperties

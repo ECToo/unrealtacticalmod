@@ -106,6 +106,72 @@ function DriverLeft()
 }
 
 
+simulated function SetInputs(float InForward, float InStrafe, float InUp)
+{
+	super.SetInputs(InForward,InStrafe,InUp);
+	/*
+	if(bPressingAltFire)
+	{
+
+		Rise = 1.0f;
+
+	}
+	*/
+}
+simulated function bool OverrideBeginFire(byte FireModeNum)
+{
+	if (FireModeNum == 1)
+	{
+	`log('ALT FIRE MODE');
+	        /*
+		bPressingAltFire = true;
+		Rise=1.0f;
+		*/
+		return true;
+	}
+	
+	if (FireModeNum == 0)
+	{
+	`log('FIRE MODE');
+	        /*
+		bPressingAltFire = true;
+		Rise=1.0f;
+		*/
+		return true;
+	}
+
+	return false;
+}
+
+simulated function bool OverrideEndFire(byte FireModeNum)
+{
+	//local PlayerController PC;
+	if (FireModeNum == 1)
+	{
+	        /*
+		Rise=0.0f;
+		if(bSelfDestructReady)
+		{
+			DriverLeave(true);
+		}
+		else
+		{
+			PC=PlayerController(Seats[0].SeatPawn.Controller);
+			if(PC != none)
+			{
+				PC.ReceiveLocalizedMessage(class'UTVehicleMessage', 0);
+			}
+		}
+		*/
+		//bPressingAltFire = false;
+		return true;
+
+	}
+
+	return false;
+}
+
+
 simulated event Destroyed()
 {
 	Super.Destroyed();
@@ -115,6 +181,11 @@ simulated event Destroyed()
 	//	BeamLight.Destroy();
 	//}
 }
+
+
+
+
+
 
 defaultproperties
 {
