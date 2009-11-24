@@ -11,6 +11,37 @@ class UTMMechPart extends Actor
       
 var SkeletalMeshComponent Mesh;
 
+/**
+ * Plays a Vehicle Animation
+ */
+simulated function PlayVehicleAnimation(name EventTag)
+{/*
+	local int i;
+	local UTAnimNodeSequence Player;
+
+	if ( Mesh != none && mesh.Animations != none && VehicleAnims.Length > 0 )
+	{
+		for (i=0;i<VehicleAnims.Length;i++)
+		{
+			if (VehicleAnims[i].AnimTag == EventTag)
+			{
+				Player = UTAnimNodeSequence(Mesh.Animations.FindAnimNode(VehicleAnims[i].AnimPlayerName));
+				if ( Player != none )
+				{
+					Player.PlayAnimationSet( VehicleAnims[i].AnimSeqs,
+												VehicleAnims[i].AnimRate,
+												VehicleAnims[i].bAnimLoopLastSeq );
+				}
+			}
+		}
+	}
+  */
+}
+
+function playanimationtest(){
+
+}
+
 
 defaultproperties
 {
