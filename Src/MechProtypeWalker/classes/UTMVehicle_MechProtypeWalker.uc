@@ -7,35 +7,6 @@
 
 class UTMVehicle_MechProtypeWalker extends UTMVehicle_MechWalker;
 
-var repnotify byte TurretFlashCount;
-var repnotify rotator TurretWeaponRotation;
-var byte TurretFiringMode;
-
-var particleSystem BeamTemplate;
-
-/** Holds the Emitter for the Beam */
-var ParticleSystemComponent BeamEmitter[2];
-
-/** Where to attach the Beam */
-var name BeamSockets[2];
-
-/** The name of the EndPoint parameter */
-var name EndPointParamName;
-
-var protected AudioComponent BeamAmbientSound;
-var SoundCue BeamFireSound;
-
-var float WarningConeMaxRadius;
-var float LengthDarkWalkerWarningCone;
-var AudioComponent WarningConeSound;
-var name ConeParam;
-
-var ParticleSystemComponent EffectEmitter;
-
-var actor LastHitActor;
-
-var bool bIsBeamActive;
-
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;
 
@@ -50,23 +21,10 @@ var float CustomGravityScaling;
 /** @hack: replicated copy of bHoldingDuck for clients */
 var bool bIsDucking;
 
-
 var SkeletalMeshComponent AntennaMesh;
 var SkeletalMeshComponent AntennaMesh2;
 
 var UTMMechWalkerBody_MechProtypeLeg Mesh2;
-
-
-
-replication
-{
-	if (!bNetOwner)
-		bIsDucking;
-	if (!IsSeatControllerReplicationViewer(1) || bDemoRecording)
-		TurretFlashCount, TurretWeaponRotation;
-}
-
-native simulated final function PlayWarningSoundIfInCone(Pawn Target);
 
 simulated function PostBeginPlay()
 {
@@ -352,9 +310,9 @@ defaultproperties
 
 	RespawnTime=45.0
 
-	LengthDarkWalkerWarningCone=7500
+	//LengthDarkWalkerWarningCone=7500
 
-	HoverBoardAttachSockets=(HoverAttach00,HoverAttach01)
+	//HoverBoardAttachSockets=(HoverAttach00,HoverAttach01)
 
 	bHasCustomEntryRadius=true
 	CustomEntryRadius=300.0
