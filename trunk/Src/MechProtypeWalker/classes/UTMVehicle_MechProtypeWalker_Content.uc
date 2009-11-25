@@ -123,9 +123,25 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
+		MechPartActor_Leg.playanimationtest();
 	}
 	return false;
 }
+
+simulated function SwitchWeapon(byte NewGroup)
+{
+     `log('Swtich Weapon MODE');
+        /*
+	if ( (DeployedState == EDS_Deployed) || (DeployedState == EDS_Deploying) )
+	{
+		ServerChangeSeat(NewGroup-1);
+	}
+	*/
+}
+
+
+
+//PlayAnim('ArmRelease');
 
 /*
 simulated function SetInputs(float InForward, float InStrafe, float InUp)
@@ -195,7 +211,36 @@ simulated function bool OverrideEndFire(byte FireModeNum)
 
 	return false;
 }
-**/
+
+//
+//  Play an animation with an optional total time
+//
+simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
+{
+	local float AnimRate;
+	if (AnimPlay != none && AnimName != '')
+	{
+		AnimRate = 1.0f;
+		AnimPlay.SetAnim(AnimName);
+		if(AnimPlay.AnimSeq != none)
+		{
+			if (AnimDuration > 0.0f)
+			{
+				AnimRate = AnimPlay.AnimSeq.SequenceLength / AnimDuration;
+			}
+			AnimPlay.PlayAnim(false, AnimRate, 0.0);
+		}
+	}
+}
+
+simulated function StopAnim()
+{
+	if (AnimPlay != none)
+	{
+		AnimPlay.StopAnim();
+	}
+}
+*/
 
 
 simulated event Destroyed()
@@ -207,10 +252,6 @@ simulated event Destroyed()
 	//	BeamLight.Destroy();
 	//}
 }
-
-
-
-
 
 
 defaultproperties
