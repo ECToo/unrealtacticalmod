@@ -24,12 +24,121 @@ var bool bIsDucking;
 var SkeletalMeshComponent AntennaMesh;
 var SkeletalMeshComponent AntennaMesh2;
 
-var UTMMechWalkerBody_MechProtypeLeg Mesh2;
+//var UTMMechWalkerBody_MechProtypeLeg Mesh2;
+
+
+var class <UTMMechPart> MechPart;
+var UTMMechPart MechPartActor;
+//Head
+var() protected const Name BodyAttachHeadSocketName;
+var class <UTMMechPart> MechPart_Head;
+var UTMMechPart MechPartActor_Head;
+//Back
+var() protected const Name BodyAttachBackSocketName;
+var class <UTMMechPart> MechPart_Back;
+var UTMMechPart MechPartActor_Back;
+//Leg
+var() protected const Name BodyAttachLegSocketName;
+var class <UTMMechPart> MechPart_Leg;
+var UTMMechPart MechPartActor_Leg;
+//Right Arm
+var() protected const Name BodyAttachRightArmSocketName;
+var class <UTMMechPart> MechPart_RightArm;
+var UTMMechPart MechPartActor_RightArm;
+//right weapon
+var() protected const Name BodyAttachRightHandSocketName;
+var class <UTMMechPart> MechPart_RightHand;
+var UTMMechPart MechPartActor_RightHand;
+//Left Arm
+var() protected const Name BodyAttachLeftArmSocketName;
+var class <UTMMechPart> MechPart_LeftArm;
+var UTMMechPart MechPartActor_LeftArm;
+//left weapon
+var() protected const Name BodyAttachLeftHandSocketName;
+var class <UTMMechPart> MechPart_LeftHand;
+var UTMMechPart MechPartActor_LeftHand;
 
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
 	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
+	// no spider body on server
+	if ( WorldInfo.NetMode != NM_DedicatedServer )
+	{
+		//GetAxes(Rotation, X,Y,Z);
+		//`log('            x'@ X);
+
+
+		//MechPartActor = Spawn(class'MechProtypeWalker.UTMMechPart_Leg', self,, Location);
+
+		//MechPartActor = Spawn(MechPart, self,, Location);
+		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'LeftHandSocket');
+		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'RightHandSocket');
+		
+                //head
+                MechPartActor_Head = Spawn(MechPart_Head, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
+
+                //leg
+                MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
+
+                //right arm
+                MechPartActor_RightArm = Spawn(MechPart_RightArm, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+
+                //right hand weapon
+                MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+
+                //left arm
+                MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
+                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftHandSocketName);//'RightHandSocket'
+
+                //left hand weapon
+                //MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+                //Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
+                
+                MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+                MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
+
+	}
+}
+
+simulated function bool OverrideBeginFire(byte FireModeNum)
+{
+        super.OverrideBeginFire(FireModeNum);
+	if (FireModeNum == 1)
+	{
+	`log('ALT FIRE MODE');
+
+		//bPressingAltFire = true;
+		//Rise=1.0f;
+		//return true;
+	}
+
+	if (FireModeNum == 0)
+	{
+	`log('FIRE MODE');
+		//bPressingAltFire = true;
+		//Rise=1.0f;
+		//return true;
+		MechPartActor_Leg.playanimationtest();
+	}
+	return false;
+}
+
+
+simulated function SwitchWeapon(byte NewGroup)
+{
+      super.SwitchWeapon(NewGroup);
+     `log('Swtich Weapon MODE'); //when press on the number key from 0-9 not the num lock keys
+        /*
+	if ( (DeployedState == EDS_Deployed) || (DeployedState == EDS_Deploying) )
+	{
+		ServerChangeSeat(NewGroup-1);
+	}
+	*/
 }
 
 simulated event Destroyed()
