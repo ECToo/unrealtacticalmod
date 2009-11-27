@@ -4,39 +4,26 @@
  * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
  * license:  -> Check readme.txt
  */
+ 
+ /*
+  *
+  */
 
 class UTMVehicle_MechWalker extends UTVehicle
       abstract;
 
-
 var() RB_Handle BodyHandle;
-
-//var UTMMechWalkerBody BodyActor;
-//var class<UTMMechWalkerBody> BodyType;
-
-var UTMechWalkerBody BodyActor;
-var class<UTMechWalkerBody> BodyType;
 
 //socket for attaching parts
 var() protected const Name BodyAttachSocketName;
 
-//skeleton mesh
-//var SkeletalMeshComponent MeshMechHead;
-//var SkeletalMeshComponent MeshMechBody;
-//var SkeletalMeshComponent MeshMechLeg;
-//var SkeletalMeshComponent MeshMechBack; //jet pack or flying or heavy weapon
-
-//var SkeletalMeshComponent MeshMechRightArm;
-//var SkeletalMeshComponent MeshMechRightWeapon;
-//var SkeletalMeshComponent MeshMechLeftArm;
-//var SkeletalMeshComponent MeshMechLeftWeapon;
 
 var()	vector	BaseBodyOffset;
 
 
 simulated function PostBeginPlay()
 {
-	local vector X, Y, Z;
+	//local vector X, Y, Z;
 
 	Super.PostBeginPlay();
 
@@ -45,8 +32,8 @@ simulated function PostBeginPlay()
 	{
 		//GetAxes(Rotation, X,Y,Z);
 		//`log('            x'@ X);
-		BodyActor = Spawn(BodyType, self,, Location+BaseBodyOffset.X*X+BaseBodyOffset.Y*Y+BaseBodyOffset.Z*Z);
-		BodyActor.SetWalkerVehicle(self);
+		//BodyActor = Spawn(BodyType, self,, Location+BaseBodyOffset.X*X+BaseBodyOffset.Y*Y+BaseBodyOffset.Z*Z);
+		//BodyActor.SetWalkerVehicle(self);
 
 	}
 }

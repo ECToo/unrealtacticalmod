@@ -5,10 +5,65 @@
  * license: CC (Give Credit -> Check readme.txt)
  */
 
+/*
+ * Mech Actions
+-Walk
+-Run
+-Jump
+-Hover
+-Fly
+-Jet Pack
+
+ * Mech Part
+-Head
+-Back (jet pack / heavy weapon holder)
+-Right Arm
+-Right Shoulder (for add on weapon)
+-Right Hand
+-Left Arm
+-Left Shoulder (for add on weapon)
+-Left Hand
+-Leg
+
+ * Weapon -Range for animation action
+-Light Weapon
+-Meduim Weapon
+-Heavy Weapon
+-Sniper Weapon
+-Special Weapon
+
+ * Armor (Body Frame)
+-Light Armor
+-Meduim Armor
+-Heavy Armor
+
+ * Body Type
+-Human -can only carry two weapon
+-two walker -different parts
+-transform
+-Spider
+-crawler
+-Hover
+
+ *
+ */
+
 class UTMMechPart extends Actor
       placeable
       ;
       
+/** Animations */
+
+var name GetInAnim[2];
+var name GetOutAnim[2];
+var name IdleAnim[2];
+var name DeployAnim[2];
+
+var name FireAnim[6];//idle, fire, alt fire, equip, unequip, meduim fire, heavy fire, sniper fire,
+var name WalkActionAnim[8];
+
+
+
 struct native VehicleAnim
 {
 	/** Used to look up the animation */
@@ -35,6 +90,14 @@ var SkeletalMeshComponent Mesh;
 /** Helper to allow quick access to playing deploy animations */
 var AnimNodeSequence	AnimPlay;
 
+simulated function PostBeginPlay()
+{
+	Super.PostBeginPlay();
+
+	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
+	//PlayAnim( IdleAnim[0] );
+}
+
 simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
 {
 	local float AnimRate;
@@ -56,17 +119,11 @@ simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
 		}
 		*/
 	}
-	Mesh.PlayAnim(AnimName, 0.5f, false, true);
+	Mesh.PlayAnim(AnimName, 0.5f, false, true);//working code for animation
 
 }
 
-simulated function PostBeginPlay()
-{
-	Super.PostBeginPlay();
 
-	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
-	//PlayAnim( IdleAnim[0] );
-}
 /*
 simulated function PostBeginPlay()
 {
@@ -110,6 +167,18 @@ function playanimationtest(){
       //Mesh.Animations.AnimationSet('Walk',1.0f,false);
 
 }
+
+
+function mechtransform()
+{
+
+}
+
+function mechdepart()
+{
+
+}
+
 
 
 defaultproperties

@@ -4,93 +4,20 @@
  * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
  * license:  -> Check readme.txt
  */
+ 
+ /*
+  * This deal with pre build mech default
+ */
 
 class UTMVehicle_MechProtypeWalker_Content extends UTMVehicle_MechProtypeWalker;
 
-var UTMMechWalkerBody BodyActor_Leg;
-var class<UTMMechWalkerBody> BodyType_Leg;
-
 var SkeletalMeshComponent MeshMechTMP;
-
-var class <UTMMechPart> MechPart;
-var UTMMechPart MechPartActor;
-//Head
-var() protected const Name BodyAttachHeadSocketName;
-var class <UTMMechPart> MechPart_Head;
-var UTMMechPart MechPartActor_Head;
-//Back
-var() protected const Name BodyAttachBackSocketName;
-var class <UTMMechPart> MechPart_Back;
-var UTMMechPart MechPartActor_Back;
-//Leg
-var() protected const Name BodyAttachLegSocketName;
-var class <UTMMechPart> MechPart_Leg;
-var UTMMechPart MechPartActor_Leg;
-//Right Arm
-var() protected const Name BodyAttachRightArmSocketName;
-var class <UTMMechPart> MechPart_RightArm;
-var UTMMechPart MechPartActor_RightArm;
-//right weapon
-var() protected const Name BodyAttachRightHandSocketName;
-var class <UTMMechPart> MechPart_RightHand;
-var UTMMechPart MechPartActor_RightHand;
-//Left Arm
-var() protected const Name BodyAttachLeftArmSocketName;
-var class <UTMMechPart> MechPart_LeftArm;
-var UTMMechPart MechPartActor_LeftArm;
-//left weapon
-var() protected const Name BodyAttachLeftHandSocketName;
-var class <UTMMechPart> MechPart_LeftHand;
-var UTMMechPart MechPartActor_LeftHand;
-
 
 simulated function PostBeginPlay()
 {
 	//local vector X, Y, Z;
 
 	Super.PostBeginPlay();
-
-	// no spider body on server
-	if ( WorldInfo.NetMode != NM_DedicatedServer )
-	{
-		//GetAxes(Rotation, X,Y,Z);
-		//`log('            x'@ X);
-
-
-		//MechPartActor = Spawn(class'MechProtypeWalker.UTMMechPart_Leg', self,, Location);
-
-		//MechPartActor = Spawn(MechPart, self,, Location);
-		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'LeftHandSocket');
-		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'RightHandSocket');
-		
-                //head
-                MechPartActor_Head = Spawn(MechPart_Head, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
-
-                //leg
-                MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
-
-                //right arm
-                MechPartActor_RightArm = Spawn(MechPart_RightArm, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
-
-                //right hand weapon
-                MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
-
-                //left arm
-                MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftHandSocketName);//'RightHandSocket'
-
-                //left hand weapon
-                //MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
-                //Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
-                
-                MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
-                MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
-
-	}
 }
 
 replication
@@ -104,42 +31,6 @@ function DriverLeft()
 	Super.DriverLeft();
 
 }
-
-simulated function bool OverrideBeginFire(byte FireModeNum)
-{
-        super.OverrideBeginFire(FireModeNum);
-	if (FireModeNum == 1)
-	{
-	`log('ALT FIRE MODE');
-
-		//bPressingAltFire = true;
-		//Rise=1.0f;
-		//return true;
-	}
-
-	if (FireModeNum == 0)
-	{
-	`log('FIRE MODE');
-		//bPressingAltFire = true;
-		//Rise=1.0f;
-		//return true;
-		MechPartActor_Leg.playanimationtest();
-	}
-	return false;
-}
-
-simulated function SwitchWeapon(byte NewGroup)
-{
-     `log('Swtich Weapon MODE');
-        /*
-	if ( (DeployedState == EDS_Deployed) || (DeployedState == EDS_Deploying) )
-	{
-		ServerChangeSeat(NewGroup-1);
-	}
-	*/
-}
-
-
 
 //PlayAnim('ArmRelease');
 
@@ -246,11 +137,6 @@ simulated function StopAnim()
 simulated event Destroyed()
 {
 	Super.Destroyed();
-
-	//if (BeamLight != None)
-	//{
-	//	BeamLight.Destroy();
-	//}
 }
 
 
@@ -302,11 +188,6 @@ defaultproperties
 	End Object
         AntennaMesh=SAntennaMesh
 
-
-        BodyType=class'UTMMechWalkerBody_MechProtypeLeg'
-        //BodyType=class'UTMechWalkerBody_MechProtypeLeg'
-        BodyType_Leg=class'UTMMechWalkerBody_MechProtypeLeg'
-
 	Begin Object Name=CollisionCylinder
 		CollisionHeight=100.0
 		CollisionRadius=140.0
@@ -330,6 +211,11 @@ defaultproperties
 		//SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype'
 		//AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_at'
 		//PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechprotype_Physics'
+
+                //Export error need to fixed
+                //SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechdrone_body'
+                //PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechdrone_body_Physics'
+
 
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_body'
 		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
