@@ -105,7 +105,6 @@ simulated function PostBeginPlay()
                    }
                 }
 
-
                 //left arm
                 if(MechPart_LeftArm != None){
                 MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
@@ -118,8 +117,6 @@ simulated function PostBeginPlay()
                       MechPartActor_LeftHand.SetMechVehicle(self);
                    }
                 }
-
-
 
 	}
 }
@@ -161,6 +158,7 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
+		MechPartActor_LeftHand.weaponfire();
 	}
 
 	if (FireModeNum == 0)
@@ -170,7 +168,7 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		//Rise=1.0f;
 		//return true;
 		//////////////////////////////MechPartActor_Leg.playanimationtest();
-		
+
 		MechPartActor_RightHand.weaponfire();
 	}
 	return false;

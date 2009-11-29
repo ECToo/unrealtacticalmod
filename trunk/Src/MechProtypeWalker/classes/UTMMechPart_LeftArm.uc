@@ -14,7 +14,7 @@ defaultproperties
 {
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechleftarm'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
+		//AnimTreeTemplate=AnimTree''
 	End Object
 
 }
