@@ -32,8 +32,6 @@ function DriverLeft()
 
 }
 
-//PlayAnim('ArmRelease');
-
 /*
 simulated function SetInputs(float InForward, float InStrafe, float InUp)
 {

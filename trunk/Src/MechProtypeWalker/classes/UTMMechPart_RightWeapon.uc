@@ -7,13 +7,34 @@
 
 class UTMMechPart_RightWeapon extends UTMMechPart;
 
+var class<UTProjectile> WeaponProjectiles;
 
+function weaponfire()
+{
+      super.weaponfire();
+      `log('Right Weapon Fire');
+      fireweaponprojtile();
+}
 
+function fireweaponprojtile(){
+  //Spawn(class'UTProj_LinkPlasma', Self, , Location + Vect(8, 2, 0), Rotation, ,);//working code but not set movement
+  
+  local UTProjectile SpawnedProjectile;
+  SpawnedProjectile = Spawn(WeaponProjectiles);
+
+  if(SpawnedProjectile != none)
+  {
+     SpawnedProjectile.Init(Location);
+  }
+
+}
 
 defaultproperties
 {
+        WeaponProjectiles=class'UTProj_LinkPlasma'
+
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
+		//AnimTreeTemplate=AnimTree''
 	End Object
 }

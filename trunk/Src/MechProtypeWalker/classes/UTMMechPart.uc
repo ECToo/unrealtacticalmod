@@ -49,11 +49,17 @@
  */
 
 class UTMMechPart extends Actor
-      placeable
+      //placeable
       ;
-      
-/** Animations */
 
+/** Display name for this Mech Part. */
+var localized string FriendlyName;
+/** Description of this Mech Part. */
+var localized string Description;
+
+var UTMVehicle_MechProtypeWalker MechVehicle;
+
+/** Animations */
 var name GetInAnim[2];
 var name GetOutAnim[2];
 var name IdleAnim[2];
@@ -61,8 +67,6 @@ var name DeployAnim[2];
 
 var name FireAnim[6];//idle, fire, alt fire, equip, unequip, meduim fire, heavy fire, sniper fire,
 var name WalkActionAnim[8];
-
-
 
 struct native VehicleAnim
 {
@@ -97,6 +101,18 @@ simulated function PostBeginPlay()
 	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
 	//PlayAnim( IdleAnim[0] );
 }
+
+function weaponfire()
+{
+
+}
+
+
+function SetMechVehicle(UTMVehicle_MechProtypeWalker V)
+{
+	MechVehicle = V;
+}
+
 
 simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
 {
