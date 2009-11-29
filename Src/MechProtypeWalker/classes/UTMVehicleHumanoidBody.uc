@@ -10,7 +10,7 @@
  * Build Type: Two leg
  */
 
-class UTMVehicle_MechProtypeWalker extends UTMVehicle_MechWalker;
+class UTMVehicleHumanoidBody extends UTMVehicle_MechWalker;
 
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;

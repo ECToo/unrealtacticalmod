@@ -10,7 +10,8 @@
   */
 
 class UTMVehicle_MechWalker extends UTVehicle
-      abstract;
+      //abstract
+      ;
 
 var() RB_Handle BodyHandle;
 
