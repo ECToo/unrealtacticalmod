@@ -14,6 +14,7 @@ defaultproperties
 
         WeaponProjectiles=class'UTProj_StingerShard'
         SocketName=FlashPointSocket01
+        firerate=10
 
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'

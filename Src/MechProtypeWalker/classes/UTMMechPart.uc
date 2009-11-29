@@ -195,6 +195,10 @@ function mechdepart()
 
 }
 
+function BeginFire(){}
+
+function EndFire(){}
+
 
 
 defaultproperties
