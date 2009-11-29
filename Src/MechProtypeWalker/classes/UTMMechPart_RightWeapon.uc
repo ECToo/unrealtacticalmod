@@ -1,12 +1,11 @@
 /**
- *
  * Created by: Darknet
  * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
  * license:  -> Check readme.txt
  */
 
-class UTMMechPart_RightWeapon extends UTMMechPart;
-
+class UTMMechPart_RightWeapon extends UTMMechPartWeapon;
+/*
 var class<UTProjectile> WeaponProjectiles;
 
 function weaponfire()
@@ -18,9 +17,9 @@ function weaponfire()
 
 function fireweaponprojtile(){
   //Spawn(class'UTProj_LinkPlasma', Self, , Location + Vect(8, 2, 0), Rotation, ,);//working code but not set movement
-  
+
   local UTProjectile SpawnedProjectile;
-  SpawnedProjectile = Spawn(WeaponProjectiles);
+  SpawnedProjectile = Spawn(WeaponProjectiles,,,MechVehicle.Location,MechVehicle.Rotation);
 
   if(SpawnedProjectile != none)
   {
@@ -28,10 +27,12 @@ function fireweaponprojtile(){
   }
 
 }
+*/
 
 defaultproperties
 {
         WeaponProjectiles=class'UTProj_LinkPlasma'
+        SocketName=FlashPointSocket01
 
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
