@@ -16,10 +16,21 @@ var class<UTProjectile> WeaponProjectiles;
 var Name SocketName;
 var vector SocketLocation;
 var rotator SocketRotation;
+var bool bWeaponFire;
+var bool BAltWeaponFire;
+var int firerate;
+var int fireinterval;
 
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
+}
+
+simulated function Tick(float DeltaTime)
+{
+          super.Tick(DeltaTime);
+          fireweaponprojtile();
+
 }
 
 function weaponfire()
@@ -29,37 +40,40 @@ function weaponfire()
 	fireweaponprojtile();
 }
 
-function fireweaponprojtile(){
+simulated function fireweaponprojtile(){
 	//Spawn(class'UTProj_LinkPlasma', Self, , Location + Vect(8, 2, 0), Rotation, ,);//working code but not set movement
 
 	local UTProjectile SpawnedProjectile;
-	if (WeaponProjectiles != None){
-		//SpawnedProjectile = Spawn(WeaponProjectiles,,,MechVehicle.Location,MechVehicle.Rotation);
-		
-		GetBarrelLocationAndRotation(SocketName,SocketLocation,SocketRotation);
-		//SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,MechVehicle.Location,MechVehicle.Rotation);
-		SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,SocketLocation,SocketRotation);
-		if(SpawnedProjectile != none)
-		{
-			SpawnedProjectile.Init(Location);
-		}
+
+	if (bWeaponFire){
+           fireinterval++;
+              if (fireinterval > firerate){
+                 fireinterval = 0;
+	              if (WeaponProjectiles != None){
+		         //SpawnedProjectile = Spawn(WeaponProjectiles,,,MechVehicle.Location,MechVehicle.Rotation);
+		         Mesh.ForceSkelUpdate();
+		         GetBarrelLocationAndRotation(SocketName,SocketLocation,SocketRotation);
+		         //SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,MechVehicle.Location,MechVehicle.Rotation);
+		         SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,SocketLocation);
+		         if (SpawnedProjectile != none)
+		            {
+			    //SpawnedProjectile.Init(MechVehicle.Location+Location);
+			    SpawnedProjectile.Init(SocketLocation+Vector(MechVehicle.Rotation));
+		           }
+                        }
+             }
 	}
 }
 
-/*
-simulated event GetBarrelLocationAndRotation(int SeatIndex, out vector SocketLocation, optional out rotator SocketRotation)
-{
-	if (Seats[SeatIndex].GunSocket.Length>0)
-	{
-		Mesh.GetSocketWorldLocationAndRotation(Seats[SeatIndex].GunSocket[GetBarrelIndex(SeatIndex)], SocketLocation, SocketRotation);
-	}
-	else
-	{
-		SocketLocation = Location;
-		SocketRotation = Rotation;
-	}
+function BeginFire(){
+   super.BeginFire();
+   bWeaponFire = True;
 }
-*/
+
+function EndFire(){
+   super.EndFire();
+   bWeaponFire = False;
+}
 
 simulated event GetBarrelLocationAndRotation(Name TagSocketName, out vector TagSocketLocation, optional out rotator TagSocketRotation)
 {
@@ -77,8 +91,6 @@ simulated event GetBarrelLocationAndRotation(Name TagSocketName, out vector TagS
 	    //}
 	}
 }
-
-
 
 defaultproperties
 {

@@ -150,7 +150,7 @@ simulated function int PartialTurn(int original, int desired, float PctTurn)
 
 simulated function bool OverrideBeginFire(byte FireModeNum)
 {
-        super.OverrideBeginFire(FireModeNum);
+        //super.OverrideBeginFire(FireModeNum);
 	if (FireModeNum == 1)
 	{
 	`log('ALT FIRE MODE');
@@ -158,7 +158,8 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
-		MechPartActor_LeftHand.weaponfire();
+		//MechPartActor_LeftHand.weaponfire();
+		MechPartActor_LeftHand.BeginFire();
 	}
 
 	if (FireModeNum == 0)
@@ -169,7 +170,33 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		//return true;
 		//////////////////////////////MechPartActor_Leg.playanimationtest();
 
-		MechPartActor_RightHand.weaponfire();
+		//MechPartActor_RightHand.weaponfire();
+		MechPartActor_RightHand.BeginFire();
+	}
+	return false;
+}
+
+simulated function bool OverrideEndFire(byte FireModeNum){
+        //super.OverrideEndFire(FireModeNum);
+	if (FireModeNum == 1)
+	{
+	`log('ALT FIRE MODE');
+
+		//bPressingAltFire = true;
+		//Rise=1.0f;
+		//return true;
+		MechPartActor_LeftHand.EndFire();
+	}
+
+	if (FireModeNum == 0)
+	{
+	`log('FIRE MODE');
+		//bPressingAltFire = true;
+		//Rise=1.0f;
+		//return true;
+		//////////////////////////////MechPartActor_Leg.playanimationtest();
+
+		MechPartActor_RightHand.EndFire();
 	}
 	return false;
 }
@@ -177,7 +204,7 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 
 simulated function SwitchWeapon(byte NewGroup)
 {
-      super.SwitchWeapon(NewGroup);
+      //super.SwitchWeapon(NewGroup);
      `log('Swtich Weapon MODE'); //when press on the number key from 0-9 not the num lock keys
         /*
 	if ( (DeployedState == EDS_Deployed) || (DeployedState == EDS_Deploying) )
