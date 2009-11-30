@@ -10,7 +10,7 @@
  * Build Type: Two leg
  */
 
-class UTMVehicleHumanoidBody extends UTMVehicle_MechWalker;
+class UTMVMech_HumanoidBody extends UTMVMech_Walker;
 
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;
@@ -350,8 +350,6 @@ defaultproperties
 	*/
 
 	RespawnTime=45.0
-
-	//LengthDarkWalkerWarningCone=7500
 
 	//HoverBoardAttachSockets=(HoverAttach00,HoverAttach01)
 

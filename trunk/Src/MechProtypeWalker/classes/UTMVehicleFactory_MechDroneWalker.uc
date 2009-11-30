@@ -5,12 +5,12 @@
  * license:  -> Check readme.txt
  */
 
-class UTMVehicleFactory_MechProtypeWalker extends UTVehicleFactory;
+class UTMVehicleFactory_MechDroneWalker extends UTVehicleFactory;
 
 defaultproperties
 {
 	Begin Object Name=SVehicleMesh
-		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_body'
+		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechdrone_body'
 	End Object
 
 	Components.Remove(Sprite)
@@ -20,5 +20,5 @@ defaultproperties
 		CollisionRadius=+100.0
 	End Object
 
-	VehicleClassPath="MechProtypeWalker.UTMVMech_ProtypeWalker_Content"
+	VehicleClassPath="MechProtypeWalker.UTMVMech_DroneWalker_Content"
 }

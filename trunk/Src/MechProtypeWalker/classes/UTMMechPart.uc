@@ -57,7 +57,9 @@ var localized string FriendlyName;
 /** Description of this Mech Part. */
 var localized string Description;
 
-var UTMVehicle_MechProtypeWalker MechVehicle;
+//var UTPlayerController Instigator; 
+
+var UTMVMech_ProtypeWalker MechVehicle;
 
 /** Animations */
 var name GetInAnim[2];
@@ -107,10 +109,11 @@ function weaponfire()
 
 }
 
-
-function SetMechVehicle(UTMVehicle_MechProtypeWalker V)
+//This will deal vehicle parent // This add or remove damge to the parts that depend on how it coded.
+function SetMechVehicle(UTMVMech_ProtypeWalker V)
 {
 	MechVehicle = V;
+	Instigator = V.Instigator;
 }
 
 

@@ -10,7 +10,7 @@
  * Build Type: Two leg
  */
 
-class UTMVehicle_MechProtypeWalker extends UTMVehicle_MechWalker;
+class UTMVMech_ProtypeWalker extends UTMVMech_Walker;
 
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;
@@ -598,6 +598,7 @@ defaultproperties
 		bHoverWheel=true
 	End Object
 	Wheels(1)=LThruster
+        
 
 	Begin Object Class=UTHoverWheel Name=FThruster
 		BoneName="BodyRoot"
@@ -613,7 +614,7 @@ defaultproperties
 		bHoverWheel=true
 	End Object
 	Wheels(2)=FThruster
-	
+
 
         /*
 	Begin Object Class=UTHoverWheel Name=RThruster

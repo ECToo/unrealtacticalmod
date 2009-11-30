@@ -9,7 +9,7 @@
   *
   */
 
-class UTMVehicle_MechWalker extends UTVehicle
+class UTMVMech_Walker extends UTVehicle
       //abstract
       ;
 
