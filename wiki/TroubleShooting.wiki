@@ -37,6 +37,9 @@ Here another error I found.
 //if you miss the name of the bone it will crash if you have other bone name
 }}}
 
+ * Q: *How come my custom vehicle crashes?*
+ * A: One is vehicle main bone name mismatch. Check your UTVehicleSim<name> class. There usually the default names for unreal. Two Check your wheels UT<name>Wheel class. Three Check your AnimTree that matches your wheel class. Third if you makes changes to your code that you need to rebuild the map else it will crash some time. You can change it.
+
  * Q: *Does size matter for the objects?*
  * A: Yes, it does matter for the size. It either you are dealing with the collision or physics to make the object usable in the game. For example, if you create a 2 units for the vehicle it will not work. If you try to use the unreal script to size the object to make it sure it fits. Unreal will calculate what has import to it current mass and object.
 
