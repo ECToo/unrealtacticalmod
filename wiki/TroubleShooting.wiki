@@ -1,4 +1,5 @@
 #summary Trouble Shooting From Blender to Unreal.
+#labels FAQS
 
 = Trouble Shooting =
   Blender Export to Unreal is bit hard if the model is not working probity. If you new at blender modeling will take some time to get it right. The size effect the model a bit if the object is too small. Ratio is the same to unreal for the units. For example creating a box size 32x32x32 it will be the same in unreal once it import to unreal.
@@ -59,3 +60,6 @@ Here another error I found.
 
  * Q:*How come I am getting error with the face?*
  * A: This getting really annoying if you don't connect them correct that it should connect 3-4 vertex to make a polygon to make a face.
+
+ * Q:*How come my vehicle physic are not working?*
+ * A: The main Bone should have skin first and has greater value. To have it own collision to support it.
