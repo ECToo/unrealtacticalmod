@@ -9,7 +9,7 @@
   * This deal with pre build mech default
  */
 
-class UTMVehicle_MechProtypeWalker_Content extends UTMVehicle_MechProtypeWalker;
+class UTMVMech_ProtypeWalker_Content extends UTMVMech_ProtypeWalker;
 
 var SkeletalMeshComponent MeshMechTMP;
 
