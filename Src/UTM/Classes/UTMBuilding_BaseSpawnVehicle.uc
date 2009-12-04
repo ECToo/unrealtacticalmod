@@ -1,7 +1,7 @@
 Class UTMBuilding_BaseSpawnVehicle extends UTMBuilding;
 
-var class<Trigger> VehicleUse;
-var Trigger VehicleUseActor;
+var class<UTMTriggerBuildVehicle> VehicleUse;
+var UTMTriggerBuildVehicle VehicleUseActor;
 
 var class<UTVehicle> UTMVehicle;
 var UTVehicle UTMVehicleActor;
@@ -16,9 +16,11 @@ simulated function PostBeginPlay()
 	//VehicleUseActor = Spawn(VehicleUse,self,, Location+spawnoffset);
 	VehicleUseActor = Spawn(VehicleUse,,, Location+buildcontroloffset);
 	 Attach(VehicleUseActor);
+	 VehicleUseActor.SetBuildingData(self);
 	 `log('spawn');
 	}
-	spawnvehicle();
+
+	//spawnvehicle();
 }
 
 
