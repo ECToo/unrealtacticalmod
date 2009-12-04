@@ -1,4 +1,5 @@
 #summary Simple code to get used to trigger for log
+#labels Trigger,Pawn,SeqEvent
 
 = Simple Version =
 
