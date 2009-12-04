@@ -1,6 +1,8 @@
 #summary This one use trigger to show menu or Scene.
 #labels UIScene,Trigger
 
+= Simple Version =
+
 {{{
 Class UseTriggerScene extends Trigger;
 
@@ -38,3 +40,6 @@ defaultproperties
 	GeneratedEvents.Add(SeqEvent_Used0)
 }
 }}}
+
+=Credits:=
+ * http://utforums.epicgames.com/forumdisplay.php?f=20
