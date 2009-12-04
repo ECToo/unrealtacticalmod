@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Simple code to get used to trigger for log
 
 Class UsedTriggerLog extends Trigger;
 
