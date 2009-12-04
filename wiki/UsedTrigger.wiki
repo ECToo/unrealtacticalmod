@@ -1,5 +1,7 @@
 #summary Simple code to get used to trigger for log
 
+= Simple Version =
+
 Class UsedTriggerLog extends Trigger;
 
 {{{
@@ -22,3 +24,6 @@ defaultproperties
 	GeneratedEvents.Add(SeqEvent_Used0)
 }
 }}}
+
+=Credits:=
+ * http://utforums.epicgames.com/forumdisplay.php?f=20
