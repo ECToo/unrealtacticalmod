@@ -1,0 +1,23 @@
+#summary Simple spawning a Vehicle using UIScene.
+
+= Information: =
+   This section will deal with simple creation on spawning the vehicle using the scene menu to spawn a vehicle for you. Note this just deal with spawning a vehicle from the scene menu.
+
+   You will be dealing with 6 files. Four files for unreal script. One for UIScene build package. One for simple static mesh build.
+
+= src: =
+ * http://unrealtacticalmod.googlecode.com/svn/trunk/Src/SpawnBuildVehicle/classes/
+ * http://unrealtacticalmod.googlecode.com/svn/trunk/Unpublished/CookedPC/ > BuildingSpawnVehicle.upk
+ * http://unrealtacticalmod.googlecode.com/svn/trunk/image/ SpawnBuildVehicle<01-03>.jpg
+
+= Getting started: =
+   Before you can build my unreal script you need to learn few things. You will getting some some errors.
+
+   First thing you need to do is to build the UISceneBuildVehicle.uc. You will get an error in some of my class. Then you have to build the UIScene Package.
+
+Work in progress.
+
+
+
+
+
