@@ -8,7 +8,7 @@
 = src: =
  * http://unrealtacticalmod.googlecode.com/svn/trunk/Src/SpawnBuildVehicle/classes/
  * http://unrealtacticalmod.googlecode.com/svn/trunk/Unpublished/CookedPC/ > BuildingSpawnVehicle.upk
- * http://unrealtacticalmod.googlecode.com/svn/trunk/image/ SpawnBuildVehicle<01-03>.jpg
+ * http://unrealtacticalmod.googlecode.com/svn/trunk/image/ SpawnBuildVehicle[01-03].jpg
 
 = Getting started: =
    Before you can build my unreal script you need to learn few things. You will getting some some errors.
@@ -16,8 +16,6 @@
    First thing you need to do is to build the UISceneBuildVehicle.uc. You will get an error in some of my class. Then you have to build the UIScene Package.
 
 Work in progress.
-
-
 
 
 
