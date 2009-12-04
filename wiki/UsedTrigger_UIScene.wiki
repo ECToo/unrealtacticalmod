@@ -2,6 +2,7 @@
 #labels UIScene,Trigger
 
 = Simple Version =
+   The code is quite simple. This deal with a simple test. To use the Trigger Class to use 'Use' key to able to show the Scene (Menu).
 
 {{{
 Class UseTriggerScene extends Trigger;
