@@ -1,6 +1,7 @@
 #summary This one use trigger to show menu or Scene.
 #labels UIScene,Trigger
 
+{{{
 Class UseTriggerScene extends Trigger;
 
 var UIScene MyUseTriggerScene;//custom class
@@ -36,3 +37,4 @@ defaultproperties
 	End Object
 	GeneratedEvents.Add(SeqEvent_Used0)
 }
+}}}
