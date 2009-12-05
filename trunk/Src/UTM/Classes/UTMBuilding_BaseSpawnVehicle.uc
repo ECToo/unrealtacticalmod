@@ -23,10 +23,23 @@ simulated function PostBeginPlay()
 	//spawnvehicle();
 }
 
+function SetVehicleName(String vehiclename){
+         if(vehiclename == "Scorpion"){
+            UTMVehicle=class'UTVehicle_Scorpion_Content';
+         }
+         if(vehiclename == "Manta"){
+            UTMVehicle=class'UTVehicle_Manta_Content';
+         }
+         if(vehiclename == "Cicada"){
+            UTMVehicle=class'UTVehicle_Cicada_Content';
+         }
+}
 
 function spawnvehicle(){
          //VehicleUseActor = Spawn(UTMVehicle, self,, Location);
-         Spawn(UTMVehicle,,, Location+spawnoffset);
+         local UTVehicle TMPVehicle;
+         TMPVehicle = Spawn(UTMVehicle,,, Location+spawnoffset);
+         TMPVehicle.Mesh.WakeRigidBody();
 }
 
 defaultproperties
