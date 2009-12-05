@@ -16,3 +16,6 @@
    First thing you need to do is to build the UISceneBuildVehicle.uc. You will get an error in some of my class. Then you have to build the UIScene Package.
 
 Work in progress.
+
+= Note: =
+ * When your are testing the use trigger in editor map for the menu scene. It may crash since the trigger may cause to crash when you exit the debug game to return to edit map. That I need to be fix some how.
