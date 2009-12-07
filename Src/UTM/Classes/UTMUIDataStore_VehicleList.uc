@@ -28,6 +28,7 @@ function FillList()
 defaultproperties
 {
    Tag="VehicleList"
+   WriteAccessType=ACCESS_WriteAll
    //pacakge > CustomSceneMenuList.UISceneMenuList_0 > edit
    //pacakge > custom uiscene name > Data > Data Source > Markup String <VehicleList:Vehicle>
    //This will setup the data array in the UIscene

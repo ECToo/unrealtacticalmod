@@ -8,7 +8,6 @@ var UTVehicle UTMVehicleActor;
 var Vector spawnoffset;
 var Vector buildcontroloffset;
 
-
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
@@ -47,8 +46,8 @@ defaultproperties
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
-    spawnoffset=(x=0,y=0,z=128)
-    buildcontroloffset=(x=-512,y=0,z=64)
+    spawnoffset=(x=23,y=64,z=-128)
+    buildcontroloffset=(x=128,y=64,z=64)
     Begin Object Name=StaticMeshBuilding
                 StaticMesh=StaticMesh'UTMBuildingFactory.factoryvehicle_flat'
                 bAcceptsLights=TRUE
