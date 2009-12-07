@@ -11,6 +11,9 @@ var int Health;
 var int MaxHealth;
 var int Armor;
 
+var bool BSpawnVehicle;//Check what ever if this has spawners
+var bool BSpawnPawn;//Check what ever if this has spawners
+
 struct CheckpointRecord
 {
     var bool bCollideActors;
@@ -72,27 +75,27 @@ simulated event TakeDamage(int Damage, Controller EventInstigator, vector HitLoc
 	}
 }
 
-function bool InputKey (int ControllerId, name Key, EInputEvent EventType, optional float AmountDepressed=1.f, optional bool bGamepad)
-{
- `log('Hello input');
 
-  return false;
+event Destroyed(){
+      super.Destroyed();
+      `log('destory');
+
 }
 
 defaultproperties
 {
    Health=500
    MaxHealth=500
-
+   /*
    Begin Object Class=CylinderComponent NAME=CollisionCylinder LegacyClassName=Trigger_TriggerCylinderComponent_Class
          CollideActors=true
          CollisionRadius=+0512.000000
          CollisionHeight=+00128.000000
    End Object
-       CollisionComponent=CollisionCylinder
+       //CollisionComponent=CollisionCylinder
        CylinderComponent=CollisionCylinder
        Components.Add(CollisionCylinder)
-
+   */
    Begin Object Class=StaticMeshComponent Name=StaticMeshBuilding
          AlwaysLoadOnClient=true
          AlwaysLoadOnServer=true
@@ -103,15 +106,28 @@ defaultproperties
 	 MaxDrawDistance=8000
 	 bUseAsOccluder=TRUE
    End Object
+   //BlockRigidBody=true
+
+   CollisionComponent=StaticMeshBuilding
    Mesh=StaticMeshBuilding
    Components.Add(StaticMeshBuilding)
 
+   bBlockActors=True
    bCollideActors=true
-	//bProjTarget=true
-	bStatic=false
-	bNoDelete=False
-	AITriggerDelay=2.0
+   bStatic=false
+   bNoDelete=False
+   
+   /*
+   bStatic=False
+   bAlwaysRelevant=True
+   
+   bNotBased=True
+   bCollideActors=True
+   bCollideWorld=True
+   bIgnoreEncroachers=True
+   bBlockActors=True
+   bProjTarget=True
+   bHidden=False
+   */
 
-	SupportedEvents.Add(class'SeqEvent_Used')
-	//SupportedEvents(3)=class'SeqEvent_HitWall'
 }
