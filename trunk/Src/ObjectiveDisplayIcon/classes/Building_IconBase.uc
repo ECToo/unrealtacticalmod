@@ -10,7 +10,6 @@ Hook to allow objectives to render HUD overlays for themselves.
 Called only if objective was rendered this tick.
 Assumes that appropriate font has already been set
 */
-//simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraPosition, vector CameraDir)
 simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraPosition, vector CameraDir)
 {
 
@@ -25,7 +24,7 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 	// must be in visible and valid target for player to render HUD overlay
 	//if ( bHidden || !ValidTargetFor(PC) )
 	//	return;
-        
+
 	// only render if player can destroy it (ask weapon)
 	if ( PC.Pawn != None )
 	{
@@ -109,7 +108,7 @@ defaultproperties
 {
     ObjectiveNameIn="TEST BASE"
     Begin Object class=StaticMeshComponent Name=StaticMeshBuilding
-                StaticMesh=StaticMesh'UTMBuildingFactory.factoryvehicle_flat'
+                StaticMesh=StaticMesh'UTMEditor.boxstation'
                 bAcceptsLights=TRUE
     End Object
     CollisionComponent=StaticMeshBuilding
