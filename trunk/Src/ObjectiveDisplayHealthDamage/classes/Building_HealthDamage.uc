@@ -1,5 +1,6 @@
-Class Building_HealthBase extends UTGameObjective;
+Class Building_HealthDamage extends UTGameObjective;
 
+//var String ObjectiveNameIn;
 var String NodeNameIn;
 var float Health;
 var float DamageCapacity;
@@ -12,10 +13,7 @@ var StaticMeshComponent Mesh;
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
-	//init var
-	Health = 50;
-	DamageCapacity = 100;
-
+	DamageCapacity = Health;//set max health
 }
 
 simulated function Tick(float DeltaTime)
@@ -93,8 +91,6 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 		BeaconPulseScale = UTPlayerController(PC).BeaconPulseScale;
 	}
 
-	//BeaconPulseScale = 1.0;//hmm
-
 	class'UTHUD'.Static.GetTeamColor( GetTeamNum(), TeamColor, TextColor);
 
 	TeamColor.A = 1.0;
@@ -167,6 +163,10 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 		HealthMaxX = 0.9 * XL;
 		HealthX = HealthMaxX* FMin(1.0, Health/DamageCapacity);
 		Class'UTHUD'.static.DrawHealth(ScreenLoc.X-0.45*XL,ScreenLoc.Y,HealthX,HealthMaxX,HealthY, Canvas, Canvas.DrawColor.A);
+
+                //this draw health bar//testing
+		//HealthX = HealthMaxX* FMin(1.0, Health/DamageCapacity)+10;
+		//Class'UTHUD'.static.DrawHealth(ScreenLoc.X-0.45*XL,ScreenLoc.Y,HealthX,HealthMaxX,HealthY, Canvas, Canvas.DrawColor.A);
 	}
 	Canvas.Font = class'UTHUD'.static.GetFontSizeIndex(0);
 }
@@ -186,11 +186,31 @@ simulated function DrawBeaconIcon(Canvas Canvas, vector IconLocation, float Icon
 	DrawIcon(Canvas, IconLocation, IconWidth, IconAlpha, PlayerOwner, DrawColor);
 }
 
+
+simulated event TakeDamage(int Damage, Controller EventInstigator, vector HitLocation, vector Momentum, class<DamageType> DamageType, optional TraceHitInfo HitInfo, optional Actor DamageCauser)
+{
+	Super.TakeDamage(Damage, EventInstigator, HitLocation, Momentum, DamageType, HitInfo, DamageCauser);
+
+	if (Role == ROLE_Authority)
+	{
+	   `log('Health ' @ Health);
+           `log('damage taken ' @ Damage);
+           `log('DamageCapacity ' @ DamageCapacity);
+           Health -= Damage;
+           if(Health < 0){
+                     Health = DamageCapacity;
+           }
+	}
+}
+
 defaultproperties
-{   Health=20
-    DamageCapacity=100
-    NodeNameIn="TEST BASE NODE"
+{
+    bBlockActors=True
+    bCollideActors=true
+    Health=250.0
+    NodeNameIn="TEST HEALTH"
     bDrawBeaconIcon=false
+    //bDrawBeaconIcon=true
 
     Begin Object class=StaticMeshComponent Name=StaticMeshBuilding
                 StaticMesh=StaticMesh'UTMEditor.boxstation'
