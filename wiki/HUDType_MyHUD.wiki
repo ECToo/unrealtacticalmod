@@ -5,6 +5,8 @@ This will list or show how many classes that is in game that is parent of Naviga
 local UTObjective UTNode;
 `log(' COUNT CLASSES  ');
 ForEach WorldInfo.AllNavigationPoints(class'UTObjective', UTNode){
+        //UTNode.Function();
+        //UTNode.Heath;
         `log("Number of class that matches and sub classes");
 }
 }}}
