@@ -14,6 +14,9 @@ var int Armor;
 var bool BSpawnVehicle;//Check what ever if this has spawners
 var bool BSpawnPawn;//Check what ever if this has spawners
 
+var bool bCapture;//if this building can be capture
+var bool bLocked;//this cant be capture sxample main base
+
 struct CheckpointRecord
 {
     var bool bCollideActors;
