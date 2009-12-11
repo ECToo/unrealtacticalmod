@@ -16,15 +16,20 @@ var UTMBuilding_BaseSpawnVehicle BuildingData;
 
 var transient UTMUIDataStore_VehicleList MenuDataStore;
 
+var transient UTMDrawMapPanel Map;
+
 event PostInitialize()
 {
    InitDataStores();
    Super.PostInitialize();
+   Map = UTMDrawMapPanel(FindChild('MapPanel',true));
+
    ButtonSpawnVehicle = UILabelButton(FindChild('SpawnVehicle', true));
    if(ButtonSpawnVehicle != None){
    ButtonSpawnVehicle.OnClicked = BuildSpawnVehicle;
    `log('FOUND');
    }
+
    MenuList = UTUIMenuList(FindChild('VehicleMenuList', true));
    if(MenuList != none)
 	{
