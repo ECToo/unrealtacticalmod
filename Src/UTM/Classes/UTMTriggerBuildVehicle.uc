@@ -2,6 +2,7 @@ Class UTMTriggerBuildVehicle extends Trigger;
 
 var UTM_UISceneBuildVehicle SceneBuildVehicle;
 var UTMBuilding_BaseSpawnVehicle BuildingData;
+var bool bDisableUsed;
 
 event Touch(Actor Other, PrimitiveComponent OtherComp, vector HitLocation, vector HitNormal)
 {
@@ -16,11 +17,13 @@ function bool UsedBy(Pawn User)
 {
         local UTPlayerController CPlayer;
 	`log('trigger used');
+
 	CPlayer = UTPlayerController(User.Controller);
-	CPlayer.OpenUIScene(SceneBuildVehicle);
+	if(bDisableUsed){
+	   CPlayer.OpenUIScene(SceneBuildVehicle);
+	}
 	return False;
 }
-
 
 function SetBuildingData(UTMBuilding_BaseSpawnVehicle D){
   BuildingData = D;
@@ -33,6 +36,9 @@ defaultproperties
         bHidden=False
         bStatic=false
 	bNoDelete=False
+	
+	//custom code
+	//bDisableUsed=false
 
 	//UIScene
         //SceneBuildVehicle=UIScene'UTMBuildingFactory.UTMBuildVehicle' //will not work code will change a bit.

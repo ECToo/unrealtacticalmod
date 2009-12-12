@@ -8,18 +8,19 @@ var UTVehicle UTMVehicleActor;
 var Vector spawnoffset;
 var Vector buildcontroloffset;
 
+var UTM_UISceneBuildVehicle SceneBuildVehicle; //UI Scene
+
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
 	if(VehicleUse != None){
 	//VehicleUseActor = Spawn(VehicleUse,self,, Location+spawnoffset);
 	VehicleUseActor = Spawn(VehicleUse,,, Location+buildcontroloffset);
+	VehicleUseActor.bDisableUsed = true;
 	 Attach(VehicleUseActor);
 	 VehicleUseActor.SetBuildingData(self);
-	 `log('spawn');
+	 //`log('spawn');
 	}
-
-	//spawnvehicle();
 }
 
 function SetVehicleName(String vehiclename){
@@ -32,6 +33,7 @@ function SetVehicleName(String vehiclename){
          if(vehiclename == "Cicada"){
             UTMVehicle=class'UTVehicle_Cicada_Content';
          }
+         `log('Vehicle name ' @ vehiclename);
 }
 
 function spawnvehicle(){
@@ -39,6 +41,15 @@ function spawnvehicle(){
          local UTVehicle TMPVehicle;
          TMPVehicle = Spawn(UTMVehicle,,, Location+spawnoffset);
          TMPVehicle.Mesh.WakeRigidBody();
+         `log('spawn vehicle');
+}
+
+event Destroyed(){
+      super.Destroyed();
+      VehicleUseActor.SetHidden(true);
+      VehicleUseActor.bDisableUsed = false;
+      `log('destory');
+
 }
 
 defaultproperties
@@ -46,8 +57,8 @@ defaultproperties
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
-    spawnoffset=(x=23,y=64,z=-128)
-    buildcontroloffset=(x=128,y=64,z=64)
+    spawnoffset=(x=23,y=64,z=128)
+    buildcontroloffset=(x=480,y=64,z=64)
     Begin Object Name=StaticMeshBuilding
                 StaticMesh=StaticMesh'UTMBuildingFactory.factoryvehicle_flat'
                 bAcceptsLights=TRUE
