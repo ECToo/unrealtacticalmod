@@ -71,17 +71,16 @@ simulated event TakeDamage(int Damage, Controller EventInstigator, vector HitLoc
            `log('damage taken'@Damage);
            Health= Health-Damage;
            if (Health < 0){
-              `log('Death');
+              //`log('Death');
               Destroy();
               Mesh.SetHidden(true);
            }
 	}
 }
 
-
 event Destroyed(){
       super.Destroyed();
-      `log('destory');
+      //`log('destory');
 
 }
 
