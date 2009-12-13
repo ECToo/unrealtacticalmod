@@ -1,0 +1,1 @@
+Class UTMDisplayLetterIcon extends Actor;
