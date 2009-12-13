@@ -7,7 +7,7 @@ class CustomSceneMenu extends UTUIScene;
 
 This will look for all class that is current in the map that matches it. This will find your class that is extend from Navigation class.
 {{{
-    local UTMBuildingNode UTMNode;// class only
+    local UTMBuildingNode UTMNode;//
     local WorldInfo WI;
     WI = GetWorldInfo();
     
@@ -18,5 +18,3 @@ This will look for all class that is current in the map that matches it. This wi
             }
     }
 }}}
-
-
