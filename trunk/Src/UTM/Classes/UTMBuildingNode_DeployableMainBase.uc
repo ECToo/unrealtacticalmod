@@ -1,4 +1,4 @@
-Class UTMBuilding_DeployableMainBase extends UTMBuilding_BaseSpawnVehicle;
+Class UTMBuildingNode_DeployableMainBase extends UTMBuildingNode_BaseSpawnVehicle;
 
 //var class<UTMTriggerBuildVehicle> VehicleUse;
 //var UTMTriggerBuildVehicle VehicleUseActor;

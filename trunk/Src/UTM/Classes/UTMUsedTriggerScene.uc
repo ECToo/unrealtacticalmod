@@ -1,7 +1,9 @@
 Class UTMUsedTriggerScene extends Trigger;
 
 var UTM_UISceneBuildVehicle SceneBuildVehicle;
-var UTMBuilding_BaseSpawnVehicle BuildingData;
+var UTMBuildingNode_BaseSpawnVehicle BuildingData;
+var Name BuildingNodeName;
+var bool bDisableUsed;
 
 event Touch(Actor Other, PrimitiveComponent OtherComp, vector HitLocation, vector HitNormal)
 {
@@ -16,15 +18,22 @@ function bool UsedBy(Pawn User)
 {
         local UTPlayerController CPlayer;
 	`log('trigger used');
+
 	CPlayer = UTPlayerController(User.Controller);
-	CPlayer.OpenUIScene(SceneBuildVehicle);
+	if(bDisableUsed){
+           //SetBuildingData(BuildingData);//we need to set the current building spawn scene it one scene so we set the building data in the scene.
+           `log("BUILDING INDEX" @ BuildingData.Name);
+           //SceneBuildVehicle.SetBuildingData(BuildingData);
+           SceneBuildVehicle.setbuildingnodename(BuildingData.Name);
+	   CPlayer.OpenUIScene(SceneBuildVehicle);
+	}
+
 	return False;
 }
 
-
-function SetBuildingData(UTMBuilding_BaseSpawnVehicle D){
+function SetBuildingData(UTMBuildingNode_BaseSpawnVehicle D){
   BuildingData = D;
-  SceneBuildVehicle.SetBuildingData(D);
+  //SceneBuildVehicle.SetBuildingData(D);
 }
 
 defaultproperties

@@ -1,4 +1,4 @@
-Class UTMBuilding_MachineFactory extends UTMBuilding_BaseSpawnVehicle;
+Class UTMBuildingNode_MachineFactory extends UTMBuildingNode_BaseSpawnVehicle;
 
 
 simulated function PostBeginPlay()
