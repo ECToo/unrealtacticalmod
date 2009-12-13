@@ -1,5 +1,6 @@
 #summary Basic Scene Information.
 
+Information: There are three way to building the UIScene. One you can create UIScene with pure kismet. Kismet has many lesson about make them work by doing some search engine. Two Create unreal script and design the layout in UIScene. Three Use Kismet and unreal script to make them work together.
 
 {{{
 class CustomSceneMenu extends UTUIScene;
