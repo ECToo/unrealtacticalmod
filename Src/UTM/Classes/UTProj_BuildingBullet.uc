@@ -21,13 +21,14 @@ simulated function ProcessTouch (Actor Other, vector HitLocation, vector HitNorm
 
 simulated event HitWall(vector HitNormal, Actor Wall, PrimitiveComponent WallComp)
 {
+        local Rotator rotatespawn;
 	MomentumTransfer = 1.0;
 
 	Super.HitWall(HitNormal, Wall, WallComp);
 	`log('HIT SOMETHING');
 	
-	spawn(class'UTMBuilding_BaseSpawnVehicle',,,Location);
-
+	spawn(class'UTMBuildingNode_BaseSpawnVehicle',,,Location,rotatespawn);
+ //Spawn (class<Actor> SpawnClass,  SpawnOwner,  SpawnTag,  SpawnLocation,  SpawnRotation, ActorTemplate,  bNoCollisionFail)
 
 }
 

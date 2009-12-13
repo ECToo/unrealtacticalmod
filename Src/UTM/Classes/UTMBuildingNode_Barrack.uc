@@ -1,4 +1,4 @@
-Class UTMBuilding_Barrack extends UTMBuilding;
+Class UTMBuildingNode_Barrack extends UTMBuilding;
 
 defaultproperties
 {

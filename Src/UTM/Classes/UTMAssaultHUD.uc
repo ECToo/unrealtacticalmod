@@ -27,9 +27,9 @@ function DrawLivingHud()
 
 	Canvas.DrawColor = WhiteColor;
 	Canvas.SetPos(35,260);
-	Canvas.DrawText("No. Objectives: " @ buildingcount);
+	//Canvas.DrawText("No. Objectives: " @ buildingcount);
 	Canvas.SetPos(35,280);
-	Canvas.DrawText("Current Objective: ");
+	//Canvas.DrawText("Current Objective: ");
 }
 
 simulated function Timer()

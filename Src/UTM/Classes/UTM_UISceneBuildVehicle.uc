@@ -1,5 +1,17 @@
 class UTM_UISceneBuildVehicle extends UTUIScene;
 
+/*
+foreach AllActors(class'UTGameObjective', O)
+		{
+			if (O != self)
+			{
+				CurrentObjective.NextObjective = O;
+				O.bFirstObjective = false;
+				CurrentObjective = O;
+			}
+		}
+*/
+
 // SpawnVehicle
 // ButtonClose
 
@@ -12,17 +24,15 @@ var transient UTUIMenuList	MenuList;
 var UILabelButton ButtonSpawnVehicle;
 var UILabelButton ButtonCloseScene;
 
-var UTMBuilding_BaseSpawnVehicle BuildingData;
+var UTMBuildingNode_BaseSpawnVehicle Building_Node;
+var Name buildingnodename;
 
 var transient UTMUIDataStore_VehicleList MenuDataStore;
-
-var transient UTMDrawMapPanel Map;
 
 event PostInitialize()
 {
    InitDataStores();
    Super.PostInitialize();
-   Map = UTMDrawMapPanel(FindChild('MapPanel',true));
 
    ButtonSpawnVehicle = UILabelButton(FindChild('SpawnVehicle', true));
    if(ButtonSpawnVehicle != None){
@@ -39,6 +49,17 @@ event PostInitialize()
    ButtonCloseScene = UILabelButton(FindChild('ButtonClose', true));
    ButtonCloseScene.OnClicked = ButtonCloseVehicle;
 }
+
+function setbuildingnodename(Name buildingname){
+         buildingnodename = buildingname;
+         `log('Building ID ' @ buildingnodename);
+}
+
+function SetBuildingData(UTMBuildingNode_BaseSpawnVehicle D){
+  Building_Node = D;
+}
+
+
 
 function InitDataStores() {
 	local DataStoreClient DSClient;
@@ -57,8 +78,6 @@ function InitDataStores() {
 	}
 }
 
-
-
 //
 // * Called when the user presses Enter (or any other action bound to UIKey_SubmitListSelection) while this list has focus.
 // *
@@ -68,6 +87,11 @@ function OnMenu_SubmitSelection(UIObject EventObject, optional int PlayerIndex=0
 {
          local int SelectedItem;
 	local string StringValue;
+	local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+	local WorldInfo WI;
+	//local UTMapInfo MI;
+
+	WI = GetWorldInfo();
 
 	SelectedItem = MenuList.GetCurrentItem();
 
@@ -75,12 +99,22 @@ function OnMenu_SubmitSelection(UIObject EventObject, optional int PlayerIndex=0
 	{
 
 		`log("Description " @ StringValue);
+		/*
 		if(BuildingData != None){
 		                BuildingData.SetVehicleName(StringValue);
 		}
+		*/
+
+		ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawnVehicle', UTMNode)
+                {
+                        if(UTMNode.Name ==  buildingnodename){
+                           UTMNode.SetVehicleName(StringValue);
+                        }
+                }
+
+
 	}
 }
-
 
 ///
 // Called when the user changes the currently selected list item.
@@ -89,29 +123,48 @@ function OnMenu_ValueChanged( UIObject Sender, optional int PlayerIndex=0 )
 {
 	local int SelectedItem;
 	local string StringValue;
+	local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+        local WorldInfo WI;
 
 	SelectedItem = MenuList.GetCurrentItem();
+        WI = GetWorldInfo();
 
 	if(MenuList.GetCellFieldString(MenuList, 'Vehicle', SelectedItem, StringValue))
 	{
 
 		`log("Description " @ StringValue);
+		/*
 		if(BuildingData != None){
 		                BuildingData.SetVehicleName(StringValue);
 		}
+		*/
+		ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawnVehicle', UTMNode)
+                {
+                        if(UTMNode.Name ==  buildingnodename){
+                           UTMNode.SetVehicleName(StringValue);
+                        }
+                }
 	}
-}
-
-function SetBuildingData(UTMBuilding_BaseSpawnVehicle D){
-  BuildingData = D;
 }
 
 
 function bool BuildSpawnVehicle(UIScreenObject EventObject, int PlayerIndex){
+    local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+    local WorldInfo WI;
+    WI = GetWorldInfo();
+    
+    ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawnVehicle', UTMNode)
+    {
+            if(UTMNode.Name ==  buildingnodename){
+                            UTMNode.spawnvehicle();
+            }
+    }
     `log("clicked > spawn vehicle");
+    /*
     if(BuildingData != None){
        BuildingData.spawnvehicle();
     }
+    */
     ExitMenu();
     return true;
 }
@@ -124,6 +177,7 @@ function bool ButtonCloseVehicle(UIScreenObject EventObject, int PlayerIndex){
 
 function ExitMenu()
 {
+        //Building_Node = none;
 	CloseScene(self);
 }
 
