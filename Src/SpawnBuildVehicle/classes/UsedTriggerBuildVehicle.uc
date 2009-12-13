@@ -2,6 +2,7 @@ Class UsedTriggerBuildVehicle extends Trigger;
 
 var UISceneBuildVehicle SceneBuildVehicle;
 var BaseSpawnVehicle BuildingData;
+var Name BaseSpawnVehicleTagName;
 
 event Touch(Actor Other, PrimitiveComponent OtherComp, vector HitLocation, vector HitNormal)
 {
@@ -17,6 +18,7 @@ function bool UsedBy(Pawn User)
         local UTPlayerController CPlayer;
 	`log('trigger used');
 	CPlayer = UTPlayerController(User.Controller);
+	SceneBuildVehicle.setbuildingnametag(BuildingData.Name);//set id when loop match check
 	CPlayer.OpenUIScene(SceneBuildVehicle);
 	return False;
 }
@@ -24,7 +26,6 @@ function bool UsedBy(Pawn User)
 
 function SetBuildingData(BaseSpawnVehicle D){
   BuildingData = D;
-  SceneBuildVehicle.SetBuildingData(D);
 }
 
 defaultproperties
