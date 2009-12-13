@@ -1,5 +1,7 @@
 #summary Creating and using the HUD.
 
+=Game Class=
+
 This will list or show how many classes that is in game that is parent of Navigation class.
 {{{
 local UTObjective UTNode;
@@ -31,3 +33,6 @@ simulated function Timer()
    //`log('hud timer');//this tick every sec
 }
 }}}
+
+= Mutator Class =
+   *None yet*
