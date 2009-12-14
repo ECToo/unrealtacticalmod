@@ -92,16 +92,17 @@ function Actor GetActorUnderMouse(UTPlayerController PlayerOwner)
 {
 	local Vector CursorVector;
 	local int X,Y;
-	local int i;
+	//local int i;
 	local float D;
 	local WorldInfo WI;
 	local UTMapInfo MI;
-	local UTVehicle_Scorpion_Content Levi;
+	//local UTVehicle_Scorpion_Content Levi;
 	local UTMNodePawn NodeP;
 
 	MI = GetMapInfo(WI);
 	if ( WI != none && MI != none )
 	{
+	        //`log('UTMNodePawn');
 		class'UIRoot'.static.GetCursorPosition( X, Y );
 
 		// We can't use OrgX/OrgY here because they won't exist outside of the render loop
@@ -125,17 +126,21 @@ function Actor GetActorUnderMouse(UTPlayerController PlayerOwner)
 			}
 		}
 		*/
-		
-		foreach WI.DynamicActors(class'UTMNodePawn',NodeP)
+		//Levi= UTVehicle_Scorpion_Content;
+		foreach WI.AllNavigationPoints(class'UTMNodePawn',NodeP)
 		{
 			D = VSize(NodeP.HUDLocation - CursorVector);
+			//D = VSize(Levi.HUDLocation - CursorVector);
+			//`log('UTMNodePawn');
 			if ( D < 20 * MI.MapScale )
 			{
+			   `log('GetActorUnderMouse');
 			   return NodeP;
 			}
 			
 		}
 
+                /*
 		foreach WI.DynamicActors(class'UTVehicle_Scorpion_Content',Levi)
 		{
 			D = VSize(Levi.HUDLocation - CursorVector);
@@ -143,14 +148,16 @@ function Actor GetActorUnderMouse(UTPlayerController PlayerOwner)
 			{
 			        `log('GetActorUnderMouse');
                                 return Levi;
-                                /*
+                                /#*
 				if (PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,Levi) )
 				{
 					return Levi;
 					`log('GetActorUnderMouse');
-				}*/
+				}*#/
 			}
 		}
+		*/
+
 
 
 	}
@@ -209,16 +216,17 @@ function FindBestActor()
 
 function ChangeCurrentActor(Vector V, int PlayerIndex)
 {
-	local int i;
+	//local int i;
 	local float Dist,BestDist;
 	local Actor BestActor;
-	local UTVehicle_Scorpion_Content Levi;
+	//local UTVehicle_Scorpion_Content Levi;
 	local float VD;
 	local WorldInfo WI;
 	local UTMapInfo MI;
-	local UTPlayerController PC;
+	//local UTPlayerController PC;
+	local UTMNodePawn NodeP;
 
-	PC = UTHudSceneOwner.GetUTPlayerOwner(PlayerIndex);
+	//PC = UTHudSceneOwner.GetUTPlayerOwner(PlayerIndex);
 
 	MI = GetMapInfo(WI);
 
@@ -229,13 +237,15 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 			FindBestActor();
 			return;
 		}
-                
+                /*
 		for (i=0;i<MI.Objectives.Length;i++)
 		{
+		        /#*
 			if ( !MI.Objectives[i].bIsDisabled && UTMNodePawn(MI.Objectives[i]) != none
-					&& MI.Objectives[i] != MI.CurrentActor /*&& PC.WorldInfo.GRI.OnSameTeam(PC,MI.Objectives[i])*/
+					&& MI.Objectives[i] != MI.CurrentActor /#*&& PC.WorldInfo.GRI.OnSameTeam(PC,MI.Objectives[i])*#/
 					&& (!bAllowTeleport || (UTMNodePawn(MI.Objectives[i]).bIsTeleportDestination && MI.Objectives[i].IsActive())) )
 			{
+			*#/
 	    		Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - MI.Objectives[i].HUDLocation ));
 			    if (BestActor == none || BestDist > Dist)
 			    {
@@ -246,13 +256,33 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 		            	BestActor = MI.Objectives[i];
 		            }
 			    }
-			}
+			//}
 
 		}
-                //vehicle code display
+		*/
+		
+		foreach WI.DynamicActors(class'UTMNodePawn', NodeP)
+		{
+			if ( NodeP != MI.CurrentActor /*&& PC.WorldInfo.GRI.OnSameTeam(PC,Levi)*/ )
+			{
+				Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - NodeP.HUDLocation) );
+			    if (BestActor == none || BestDist > Dist)
+			    {
+			    	VD = V dot Normal(NodeP.HudLocation - MI.GetActorHudLocation(MI.CurrentActor));
+
+			    	if ( VD > 0.7 )
+			    	{
+	    				BestDist = Dist;
+		            	BestActor = NodeP;
+		            }
+			    }
+			}
+		}
+		
+                /*
 		foreach WI.DynamicActors(class'UTVehicle_Scorpion_Content', Levi)
 		{
-			if ( Levi != MI.CurrentActor /*&& PC.WorldInfo.GRI.OnSameTeam(PC,Levi)*/ )
+			if ( Levi != MI.CurrentActor /#*&& PC.WorldInfo.GRI.OnSameTeam(PC,Levi)*#/ )
 			{
 				Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - Levi.HUDLocation) );
 			    if (BestActor == none || BestDist > Dist)
@@ -267,6 +297,8 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 			    }
 			}
 		}
+		*/
+
 
 		if ( BestActor != none )
 		{

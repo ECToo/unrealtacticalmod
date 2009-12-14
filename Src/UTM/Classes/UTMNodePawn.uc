@@ -1,18 +1,38 @@
 Class UTMNodePawn extends UTMObjective
       placeable;
+      
+/*
+  Information: This is a test for spawning control node.
 
-//Class UTMBuilding_DisplayIcon extends NavigationPoint
-//      placeable;
+*/
 
 var bool bIsTeleportDestination;
-
-var String ObjectiveNameIn;
+//var String ObjectiveNameIn;
 var StaticMeshComponent Mesh;
+
+var array<UTMTeamPlayerStart> players;
+
+var class<UTMTeamPlayerStart> UTMTeam;
+
+var array<vector> spawnpoint;
+//var vector
 
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
+	buildspawn();
 
+}
+
+function buildspawn(){
+        local int i;
+        local UTMTeamPlayerStart UTMTeamActor;
+        `log('UTM SPAWNERS');
+        for(i = 0;i < spawnpoint.length;i++){
+              `log('UTM SPAWNERS');
+              UTMTeamActor = spawn(UTMTeam,,,Location + spawnpoint[i]);
+              players.AddItem(UTMTeamActor);
+        }
 }
 
 simulated function Tick(float DeltaTime)
@@ -138,7 +158,11 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 
 defaultproperties
 {
+     UTMTeam=class'UTMTeamPlayerStart'
      bIsTeleportDestination=true;
+     //spawnpoint(0)=(x=0,y=0,z=64) //list of spawn position
+     
+     //TeamIndex=0
 
     ObjectiveNameIn="NODE PAWN"
     //bPostRenderIfNotVisible=False

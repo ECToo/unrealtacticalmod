@@ -1,12 +1,12 @@
 Class UTMBuilding_HealthBase extends UTMObjective;
 
-var String ObjectiveNameIn;
-var String NodeNameIn;
-var int Health;
-var int DamageCapacity;
+//var String ObjectiveNameIn;
+//var String NodeNameIn;
+//var int Health;
+//var int DamageCapacity;
 
 /** whether to render icon on HUD beacon (using DrawBeaconIcon()) */
-var bool bDrawBeaconIcon;
+//var bool bDrawBeaconIcon;
 
 var StaticMeshComponent Mesh;
 
@@ -118,7 +118,7 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 
 	HealthY = PostRenderShowHealth() ? Canvas.ClipX*BeaconPulseScale/64 : 0.0;
 	
-	NodeName =  NodeNameIn;
+	NodeName =  ObjectiveNameIn;
 
 
         /*
@@ -198,7 +198,6 @@ simulated function DrawBeaconIcon(Canvas Canvas, vector IconLocation, float Icon
 defaultproperties
 {   Health=20
     DamageCapacity=500
-    NodeNameIn="TEST BASE NODE"
     ObjectiveNameIn="TEST BASE Node"
     bDrawBeaconIcon=false
     //bDrawBeaconIcon=true

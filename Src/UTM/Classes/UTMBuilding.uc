@@ -10,6 +10,8 @@ var int Health;
 var int MaxHealth;
 var int Armor;
 
+var int TeamIndex;
+
 var bool BSpawnVehicle;//Check what ever if this has spawners
 var bool BSpawnPawn;//Check what ever if this has spawners
 
@@ -49,6 +51,8 @@ event Destroyed(){
 
 defaultproperties
 {
+    TeamIndex=0
+
     Begin Object Class=StaticMeshComponent Name=StaticMeshBuilding
          AlwaysLoadOnClient=true
          AlwaysLoadOnServer=true
