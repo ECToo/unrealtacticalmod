@@ -220,7 +220,8 @@ function AdjustMapCenter(vector Adjustment)
 
 function DisableTeleport()
 {
-	bTeleportDisabled = true;
+	//bTeleportDisabled = true;
+	bTeleportDisabled = false;
 	ButtonBar.ClearButton(1);
 	Caption.SetVisibility(false);
 }

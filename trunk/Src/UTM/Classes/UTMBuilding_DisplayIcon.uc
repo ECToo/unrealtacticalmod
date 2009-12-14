@@ -4,7 +4,7 @@ Class UTMBuilding_DisplayIcon extends UTMObjective
 //Class UTMBuilding_DisplayIcon extends NavigationPoint
 //      placeable;
 
-var String ObjectiveNameIn;
+//var String ObjectiveNameIn;
 var StaticMeshComponent Mesh;
 
 simulated function PostBeginPlay()

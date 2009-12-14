@@ -1,6 +1,6 @@
 Class UTMBuilding_IconBase extends UTMObjective;
 
-var String ObjectiveNameIn;
+//var String ObjectiveNameIn;
 
 var StaticMeshComponent Mesh;
 
