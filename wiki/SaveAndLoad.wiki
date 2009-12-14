@@ -1,0 +1,16 @@
+#summary Basic Information.
+
+
+There is build in function to able to save your files.
+
+{{{
+class package extends packages
+      config(UT<name>); //UT<anem>.ini
+var config string classname;
+//...
+/*
+//SaveConfig();
+*/
+//...
+}}}
+Once save it show in the Config folder. But to note that it will add on to your config. It mean that you have to rewrite to save it. Note this was a test build.
