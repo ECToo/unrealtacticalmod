@@ -1,11 +1,10 @@
 #summary Basic Information.
 
-
 There is build in function to able to save your files.
 
 {{{
 class package extends packages
-      config(UT<name>); //UT<anem>.ini
+      config(UT<name>); //UT<name>.ini
 var config string classname;
 //...
 /*
@@ -13,4 +12,9 @@ var config string classname;
 */
 //...
 }}}
-Once save it show in the Config folder. But to note that it will add on to your config. It mean that you have to rewrite to save it. Note this was a test build.
+
+Once save it show in the Config folder. Note this is a test build. Found in the UDN site. Search Config as the Keyword.
+
+= SRC CODE: =
+ * http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MyData/
+This show up as the scene menu. Package are in the svn.
