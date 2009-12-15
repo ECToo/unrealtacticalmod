@@ -1,19 +1,5 @@
-class UTM_UISceneBuildVehicle extends UTUIScene;
-
-/*
-foreach AllActors(class'UTGameObjective', O)
-		{
-			if (O != self)
-			{
-				CurrentObjective.NextObjective = O;
-				O.bFirstObjective = false;
-				CurrentObjective = O;
-			}
-		}
-*/
-
-// SpawnVehicle
-// ButtonClose
+class UTM_UISceneBuildVehicle extends UTUIScene
+      Config(UTM);
 
 /** Reference to the settings scene. */
 var string	SettingsScene;

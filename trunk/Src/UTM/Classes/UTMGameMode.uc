@@ -1,8 +1,6 @@
-class UTMGameAssault extends UTTeamGame;
+class UTMGameMode extends UTTeamGame;
 
 var	  class<HUD>  HUDObjectives;	// HUD class this game uses.
-var float CreditTeamRed;
-var float CreditTeamBlue;
 
 /** handles all player initialization that is shared between the travel methods
  * (i.e. called from both PostLogin() and HandleSeamlessTravelPlayer())
@@ -38,16 +36,11 @@ function GenericPlayerInitialization(Controller C)
 }
 */
 
-function PreBeginPlay()
-{
-	Super.PreBeginPlay();
-}
-
 
 defaultproperties
 {
-        Acronym="Assualt"
-	MapPrefixes[0]="AS"
-	HUDType=class'UTMAssaultHUD';
+        Acronym="GM"
+	MapPrefixes[0]="GM"
+	HUDType=class'UTMGameModeHUD';
 	//HUDObjectives=class'UTMAssaultHUD';
 }
