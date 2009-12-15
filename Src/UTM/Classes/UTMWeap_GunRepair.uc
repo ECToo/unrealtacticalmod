@@ -187,6 +187,9 @@ simulated function DrawWeaponCrosshair( Hud HUD )
 		H.Canvas.DrawColor = (WorldInfo.TimeSeconds - LastHitEnemyTime < 0.3) ? H.RedColor : CrosshairColor;
 		H.Canvas.SetPos(ScreenX, ScreenY);
 		H.Canvas.DrawTile(CrosshairImage,CrosshairSize.X, CrosshairSize.Y, CrossHairCoordinates.U, CrossHairCoordinates.V, CrossHairCoordinates.UL,CrossHairCoordinates.VL);
+		
+		H.Canvas.SetPos(35,280);
+                H.Canvas.DrawText("Name ");
 	}
 }
 

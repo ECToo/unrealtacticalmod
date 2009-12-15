@@ -10,6 +10,9 @@ var int Health;
 var int MaxHealth;
 var int Armor;
 
+//var float Cost;
+var float BuildTime;
+
 var int TeamIndex;
 
 var bool BSpawnVehicle;//Check what ever if this has spawners
@@ -34,20 +37,11 @@ simulated event TakeDamage(int Damage, Controller EventInstigator, vector HitLoc
 	}
 }
 
-
 simulated function Destroyed(){
       super.Destroyed();
       //`log('destory');
 
 }
-
-/*
-event Destroyed(){
-      super.Destroyed();
-      //`log('destory');
-
-}
-*/
 
 defaultproperties
 {
