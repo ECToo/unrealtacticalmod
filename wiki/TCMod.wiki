@@ -20,4 +20,4 @@
  * UTVehicle
  
 
-This is work in progress.
+This is work in progress. The best way to learn is do a search with simple keywords on the main forum or src page helper.
