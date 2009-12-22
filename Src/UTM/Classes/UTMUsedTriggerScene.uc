@@ -1,9 +1,19 @@
+/**
+Texture2D'UTMEditor.buildtool'
+Texture2D'UTMEditor.maptool'
+Texture2D'UTMEditor.pawntool'
+
+
+
+*/
+
+
 Class UTMUsedTriggerScene extends Trigger;
 
 var UTM_UISceneBuildVehicle SceneBuildVehicle;
-var UTMBuildingNode_BaseSpawnVehicle BuildingData;
+var UTMBuildingNode BuildingData;
 var Name BuildingNodeName;
-var bool bDisableUsed;
+var bool bDisableUsed; //this will deal with disable used key
 
 event Touch(Actor Other, PrimitiveComponent OtherComp, vector HitLocation, vector HitNormal)
 {
@@ -12,6 +22,10 @@ event Touch(Actor Other, PrimitiveComponent OtherComp, vector HitLocation, vecto
 	{
 	   `log('trigger Touch');
 	}
+}
+
+function SetDisableUsed(bool stated){
+   bDisableUsed = stated;
 }
 
 function bool UsedBy(Pawn User)
@@ -31,13 +45,12 @@ function bool UsedBy(Pawn User)
 	return False;
 }
 
-function SetBuildingData(UTMBuildingNode_BaseSpawnVehicle D){
+function SetBuildingData(UTMBuildingNode D){
   BuildingData = D;
-  //SceneBuildVehicle.SetBuildingData(D);
 }
 
 defaultproperties
-{       
+{
         //Actor
         bHidden=False
         bStatic=false
@@ -46,6 +59,13 @@ defaultproperties
 	//UIScene
         //SceneBuildVehicle=UIScene'UTMBuildingFactory.UTMBuildVehicle' //will not work code will change a bit.
         SceneBuildVehicle=UTM_UISceneBuildVehicle'UTMBuildingFactory.UTMBuildVehicle'
+
+        Begin Object Name=Sprite
+		Sprite=Texture2D'UTMEditor.buildtool'
+		HiddenGame=False
+		AlwaysLoadOnClient=False
+		AlwaysLoadOnServer=False
+	End Object
 
         //Used Event
 	Begin Object Class=Sequence Name=Sequence0

@@ -1,49 +1,19 @@
-Class UTMNodePawn extends UTMObjective
-      placeable;
-      
-/*
-  Information: This is a test for spawning control node.
+Class UTMObjectiveBuilding_SpawnPawn extends UTMObjectiveBuilding;
 
-*/
-
-var bool bIsTeleportDestination;
 //var String ObjectiveNameIn;
+
 var StaticMeshComponent Mesh;
-var() bool bFullScreenNameAboveIcon;
-var bool bActive;
-var bool bDisabled;
 
-var array<UTMTeamPlayerStart> players;
-var class<UTMTeamPlayerStart> UTMTeam;
 
-var array<vector> spawnpoint;
-//var vector
+var class<UTMUsedTriggerScene_MapSpawn> PawnUse;
+var UTMUsedTriggerScene_MapSpawn PawnUseActor;
+var Vector buildcontroloffset;
 
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
-	buildspawn();
+	PawnUseActor = Spawn(PawnUse,,, Location+buildcontroloffset);
 
-}
-
-function buildspawn(){
-        local int i;
-        local UTMTeamPlayerStart UTMTeamActor;
-        `log('UTM SPAWNERS');
-        for(i = 0;i < spawnpoint.length;i++){
-              `log('UTM SPAWNERS');
-              UTMTeamActor = spawn(UTMTeam,,,Location + spawnpoint[i]);
-              players.AddItem(UTMTeamActor);
-        }
-}
-
-simulated function bool ValidTargetFor(Controller C)
-{
-	if ( WorldInfo.GRI.OnSameTeam(C,self) )
-	{
-		return false;
-	}
-	return ( (DamageCapacity > 0) && bActive && !bDisabled );
 }
 
 simulated function Tick(float DeltaTime)
@@ -51,12 +21,12 @@ simulated function Tick(float DeltaTime)
           Super.Tick(DeltaTime);
 }
 
+
 simulated function vector GetHUDOffset(PlayerController PC, Canvas Canvas)
 {
 	local float Z;
 
-	//Z = 460;
-	Z = 256;
+	Z = 460;
 	if ( PC.ViewTarget != None )
 	{
 		Z += 0.1 * VSize(PC.ViewTarget.Location - Location);
@@ -163,74 +133,36 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 	//Canvas.DrawTextClipped(ObjectiveNameIn, true);
 	Canvas.DrawText(ObjectiveNameIn, true);
 	//Canvas.DrawTextClipped(ObjectiveName);
-
+	//`log('HUD DRAW');
 }
-
-
-simulated function RenderExtraDetails( UTMapInfo MP, Canvas Canvas, UTPlayerController PlayerOwner, float ColorPercent, bool bSelected )
+//code get detected by UTObjective
+function bool UsedBy(Pawn P)
 {
-	local string ObjName;
-	local float xl,yl;
-
-	if (bSelected)
-	{
-		DrawMapSelection(MP,Canvas,PlayerOwner);
-	}
-
-	//ObjName = GetHumanReadableName();
-	ObjName= string(Name);
-	Canvas.Font = class'UTHUD'.static.GetFontSizeIndex(0);
-	Canvas.StrLen(ObjName,xl,yl);
-	if ( bFullScreenNameAboveIcon )
-	{
-		Canvas.SetPos( HUDLocation.X - 0.5*XL, HUDLocation.Y - 12*MP.MapScale);
-	}
-	else
-	{
-		Canvas.SetPos( HUDLocation.X - 0.5*XL, HUDLocation.Y + 8*MP.MapScale);
-	}
-
-	Canvas.DrawColor = class'UTHUD'.default.BlackColor;
-	Canvas.DrawRect(XL,YL);
-	Canvas.DrawColor = class'UTHUD'.default.WhiteColor;
-	if ( bFullScreenNameAboveIcon )
-	{
-		Canvas.SetPos( HUDLocation.X - 0.5*XL, HUDLocation.Y - 12*MP.MapScale);
-	}
-	else
-	{
-		Canvas.SetPos( HUDLocation.X - 0.5*XL, HUDLocation.Y + 8*MP.MapScale);
-	}
-	Canvas.DrawText(ObjName);
+         super.UsedBy(P);
+         `log('USED');
+	return false;
 }
 
 
 defaultproperties
 {
-     //deafult settings
-     bFullScreenNameAboveIcon=true
-     bHidden=false
-     bActive=true
-     bDisabled=false
-     DefenderTeamIndex=0 //team code 0=Red team //1=Blue team -Simple code test
-     //custom
-     UTMTeam=class'UTMTeamPlayerStart'
-     bIsTeleportDestination=true
-     //spawnpoint(0)=(x=0,y=0,z=64) //list of spawn position
-     
-     //TeamIndex=0
+    ObjectiveNameIn="TEST PAWN BASE"
+    buildcontroloffset=(x=480,y=64,z=32)
+    bCollideActors=true
+    bBlockActors=True
+    PawnUse=class'UTMUsedTriggerScene_MapSpawn'
 
-    ObjectiveNameIn="NODE PAWN"
     //bPostRenderIfNotVisible=False
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
 
-    Begin Object class=StaticMeshComponent Name=StaticMeshBuilding
-                StaticMesh=StaticMesh'UTMEditor.Cube'
+    Begin Object Class=StaticMeshComponent Name=StaticMeshBuilding
+                StaticMesh=StaticMesh'UTMBuildingFactory.factoryvehicle_flat'
                 bAcceptsLights=TRUE
+                Translation=(Z=-48.0)
+                //CollideActors=true
     End Object
-
     CollisionComponent=StaticMeshBuilding
     Mesh=StaticMeshBuilding
     Components.Add(StaticMeshBuilding)
