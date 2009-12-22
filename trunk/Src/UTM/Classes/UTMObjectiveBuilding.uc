@@ -1,0 +1,1 @@
+Class UTMObjectiveBuilding extends UTMObjective;

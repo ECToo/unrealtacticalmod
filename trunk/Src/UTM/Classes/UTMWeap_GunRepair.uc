@@ -109,7 +109,7 @@ replication
 
 simulated function PostBeginPlay()
 {
-	local color DefaultBeamColor, DefaultColor;
+	//local color DefaultBeamColor, DefaultColor;
 
 	Super.PostBeginPlay();
 
@@ -122,10 +122,10 @@ simulated function PostBeginPlay()
 
 	if (WorldInfo.NetMode != NM_DedicatedServer && Mesh != None)
 	{
-		LinkAttachmentClass.static.GetTeamBeamInfo(255, DefaultBeamColor);
+		//LinkAttachmentClass.static.GetTeamBeamInfo(255, DefaultBeamColor);
 		WeaponMaterialInstance = Mesh.CreateAndSetMaterialInstanceConstant(0);
-		WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(DefaultBeamColor));
-		WeaponMaterialInstance.SetVectorParameterValue('Paint_Color', ColorToLinearColor(DefaultColor));
+		//WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(DefaultBeamColor));
+		//WeaponMaterialInstance.SetVectorParameterValue('Paint_Color', ColorToLinearColor(DefaultColor));
 	}
 }
 
@@ -288,7 +288,7 @@ simulated function UpdateBeamEmitter(vector FlashLocation, vector HitNormal, act
 
 	if (WeaponMaterialInstance != None)
 	{
-		WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(BeamColor));
+		//WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(BeamColor));
 	}
 
 	if (WorldInfo.NetMode != NM_DedicatedServer && Instigator != None && Instigator.IsFirstPerson())
@@ -888,7 +888,7 @@ simulated state WeaponBeamFiring
 		LinkAttachmentClass.static.GetTeamBeamInfo(255, EffectColor);
 		if (WeaponMaterialInstance != None)
 		{
-			WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(EffectColor));
+			//WeaponMaterialInstance.SetVectorParameterValue('TeamColor', ColorToLinearColor(EffectColor));
 		}
 		if (MuzzleFlashPSC != None)
 		{
@@ -1165,11 +1165,11 @@ defaultproperties
 		FOV=60.0
 	End Object
 
-	AttachmentClass=class'UTAttachment_Linkgun'
+	AttachmentClass=class'UTAttachment_GunRepair'
 
 	// Pickup staticmesh
 	Begin Object Name=PickupMesh
-		SkeletalMesh=SkeletalMesh'WP_LinkGun.Mesh.SK_WP_LinkGun_3P'
+		SkeletalMesh=SkeletalMesh'UTW_Repair.WeapRepair'
 	End Object
 
 	Begin Object Class=ParticleSystemComponent Name=PoweredUpComponent

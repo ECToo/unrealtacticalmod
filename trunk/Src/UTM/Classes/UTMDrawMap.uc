@@ -1,8 +1,8 @@
 /**
- * Information: top coner of the map is selectable point need to be fixed
+ *
  */
 
-class UTMDrawMapPanel extends UTDrawPanel
+class UTMDrawMap extends UTDrawPanel
 	config(Input);
 
 /** How much of the panel's height will be used for the map */
@@ -10,7 +10,6 @@ var() float MapSizePerc;
 var transient bool bShowExtents;
 var UTUIScene_Hud UTHudSceneOwner;
 var transient bool bAllowTeleport;
-var vector ICONOFFSET;
 
 /**
  * Called when a node is actually double-clicked on.
@@ -97,9 +96,8 @@ function Actor GetActorUnderMouse(UTPlayerController PlayerOwner)
 	local float D;
 	local WorldInfo WI;
 	local UTMapInfo MI;
-	local UTVehicle_Scorpion_Content Levi;
+	//local UTVehicle_Scorpion_Content Levi;
 	local UTMNodePawn NodeP;
-	local Vector mapsizepanel;
 
 	MI = GetMapInfo(WI);
 	if ( WI != none && MI != none )
@@ -111,46 +109,57 @@ function Actor GetActorUnderMouse(UTPlayerController PlayerOwner)
 
 		CursorVector.X = X - GetPosition(UIFACE_Left, EVALPOS_PixelViewport, true);
 		CursorVector.Y = Y - GetPosition(UIFACE_Top, EVALPOS_PixelViewport, true);
-		
-		//`log(GetPosition(UIFACE_Left, EVALPOS_PixelViewport, true));
 
+                /*
+		for (i = 0; i < MI.Objectives.Length; i++)
+		{
+			D = VSize(MI.Objectives[i].HUDLocation - CursorVector);
+			if ( !MI.Objectives[i].bIsDisabled && UTMNodePawn(MI.Objectives[i]) != none && D < 20 * MI.MapScale )
+			{
+
+				if ( /#*PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,MI.Objectives[i])
+					&& *#/ (!bAllowTeleport || (UTMNodePawn(MI.Objectives[i]).bIsTeleportDestination  && MI.Objectives[i].IsActive())) )
+				{
+					return MI.Objectives[i];
+				}
+
+			}
+		}
+		*/
+		//Levi= UTVehicle_Scorpion_Content;
 		foreach WI.AllNavigationPoints(class'UTMNodePawn',NodeP)
 		{
-		        mapsizepanel.X = (NodeP.HUDLocation.X / GetPosition(UIFACE_Left, EVALPOS_PixelViewport, true)) + GetPosition(UIFACE_Left, EVALPOS_PixelViewport, true);
-                        mapsizepanel.Y = (NodeP.HUDLocation.Y / GetPosition(UIFACE_Top, EVALPOS_PixelViewport, true)) + GetPosition(UIFACE_Top, EVALPOS_PixelViewport, true);
-		        //`log('NODE NAME' @ String(NodeP.Name));
-			D = VSize(mapsizepanel - CursorVector);
-
-			//`log('PAWN LOCA ' $ mapsizepanel);
-
-
-			//`log(NodeP.Name $ " Loc: " $ NodeP.HUDLocation $ " CV: " $ CursorVector);
-			//`log(NodeP.Name $ "  POINT  " $  D $ " CURRENT " $ (20 * MI.MapScale));
-			//if ( D < 20 * MI.MapScale )//control circle size detect when mouse over a point icon
-			if ( D < 450 )//control circle size detect when mouse over a point icon
+			D = VSize(NodeP.HUDLocation - CursorVector);
+			//D = VSize(Levi.HUDLocation - CursorVector);
+			//`log('UTMNodePawn');
+			if ( D < 20 * MI.MapScale )
 			{
-			//`log('NODE NAME' @ String(NodeP.Name));
-			   if (PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,NodeP)){
-			      //`log('NODE NAME' @ String(NodeP.Name));
-			      return NodeP;
-			   }
+			   //`log('GetActorUnderMouse');
+			   return NodeP;
 			}
-			//break;
-
+			
 		}
 
+                /*
 		foreach WI.DynamicActors(class'UTVehicle_Scorpion_Content',Levi)
 		{
 			D = VSize(Levi.HUDLocation - CursorVector);
 			if ( D < 20 * MI.MapScale )
 			{
+			        `log('GetActorUnderMouse');
+                                return Levi;
+                                /#*
 				if (PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,Levi) )
 				{
 					return Levi;
-					//`log('GetActorUnderMouse');
-				}
+					`log('GetActorUnderMouse');
+				}*#/
 			}
 		}
+		*/
+
+
+
 	}
 
 	return none;
@@ -173,23 +182,18 @@ function FindBestActor()
 
     	if ( PlayerOwner.Pawn != none )
     	{
-    	//`log('TEST');
 			for (i=0;i<MI.Objectives.Length;i++)
 			{
 				if ( !MI.Objectives[i].bIsDisabled && UTMNodePawn(MI.Objectives[i]) != none )
 				{
 
-
-
 					Dist = VSize(PlayerOwner.Pawn.Location - MI.Objectives[i].Location);
-					//PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,MI.Objectives[i]) //(PlayerOwner.DefenderTeamIndex == MI.Objectives[i].DefenderTeamIndex)
-					if ( BestObj == none || Dist < BestDist && PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,MI.Objectives[i])
+					if ( BestObj == none || Dist < BestDist /*&& PlayerOwner.WorldInfo.GRI.OnSameTeam(PlayerOwner,MI.Objectives[i])*/
 						&& (!bAllowTeleport || (UTMNodePawn(MI.Objectives[i]).bIsTeleportDestination && MI.Objectives[i].IsActive())) )
 					{
 						BestDist = Dist;
 						BestObj = MI.Objectives[i];
 					}
-
 				}
 			}
 		}
@@ -212,17 +216,17 @@ function FindBestActor()
 
 function ChangeCurrentActor(Vector V, int PlayerIndex)
 {
-	local int i;
+	//local int i;
 	local float Dist,BestDist;
 	local Actor BestActor;
-	local UTVehicle_Scorpion_Content Levi;
+	//local UTVehicle_Scorpion_Content Levi;
 	local float VD;
 	local WorldInfo WI;
 	local UTMapInfo MI;
-	local UTPlayerController PC;
-	//local UTMNodePawn NodeP;
+	//local UTPlayerController PC;
+	local UTMNodePawn NodeP;
 
-	PC = UTHudSceneOwner.GetUTPlayerOwner(PlayerIndex);
+	//PC = UTHudSceneOwner.GetUTPlayerOwner(PlayerIndex);
 
 	MI = GetMapInfo(WI);
 
@@ -233,15 +237,15 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 			FindBestActor();
 			return;
 		}
-
+                /*
 		for (i=0;i<MI.Objectives.Length;i++)
 		{
-
+		        /#*
 			if ( !MI.Objectives[i].bIsDisabled && UTMNodePawn(MI.Objectives[i]) != none
-					&& MI.Objectives[i] != MI.CurrentActor && PC.WorldInfo.GRI.OnSameTeam(PC,MI.Objectives[i])
+					&& MI.Objectives[i] != MI.CurrentActor /#*&& PC.WorldInfo.GRI.OnSameTeam(PC,MI.Objectives[i])*#/
 					&& (!bAllowTeleport || (UTMNodePawn(MI.Objectives[i]).bIsTeleportDestination && MI.Objectives[i].IsActive())) )
 			{
-
+			*#/
 	    		Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - MI.Objectives[i].HUDLocation ));
 			    if (BestActor == none || BestDist > Dist)
 			    {
@@ -252,14 +256,14 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 		            	BestActor = MI.Objectives[i];
 		            }
 			    }
-			}
+			//}
 
 		}
-
-		/*
+		*/
+		
 		foreach WI.DynamicActors(class'UTMNodePawn', NodeP)
 		{
-			if ( NodeP != MI.CurrentActor && PC.WorldInfo.GRI.OnSameTeam(PC,Levi) )
+			if ( NodeP != MI.CurrentActor /*&& PC.WorldInfo.GRI.OnSameTeam(PC,Levi)*/ )
 			{
 				Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - NodeP.HUDLocation) );
 			    if (BestActor == none || BestDist > Dist)
@@ -274,11 +278,11 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 			    }
 			}
 		}
-		*/
-
+		
+                /*
 		foreach WI.DynamicActors(class'UTVehicle_Scorpion_Content', Levi)
 		{
-			if ( Levi != MI.CurrentActor && PC.WorldInfo.GRI.OnSameTeam(PC,Levi) )
+			if ( Levi != MI.CurrentActor /#*&& PC.WorldInfo.GRI.OnSameTeam(PC,Levi)*#/ )
 			{
 				Dist = abs( VSize( MI.GetActorHudLocation(MI.CurrentActor) - Levi.HUDLocation) );
 			    if (BestActor == none || BestDist > Dist)
@@ -293,7 +297,7 @@ function ChangeCurrentActor(Vector V, int PlayerIndex)
 			    }
 			}
 		}
-
+		*/
 
 
 		if ( BestActor != none )
@@ -419,13 +423,12 @@ function SelectActor(UTPlayerController UTPC)
 	if ( MI != none && MI.CurrentActor != none )
 	{
 		`log("### OnActorSelected");
-		`log('NAME ' @ MI.CurrentActor.Name);
 		OnActorSelected( MI.CurrentActor, UTPC );
 	}
 }
 
 defaultproperties
-{       //ICONOFFSET=(x=0,y=,z=100)
+{
 	DefaultStates.Add(class'Engine.UIState_Active')
 	MapSizePerc=0.9
 }

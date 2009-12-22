@@ -1,17 +1,9 @@
-class UTMUISceneMapSpawn extends UTUIScene
+class UTMUISceneMapSpawn extends UTUIScene_Hud
       Config(UTM);
-
-/*
-foreach AllActors(class'UTGameObjective', O)
-		{
-			if (O != self)
-			{
-				CurrentObjective.NextObjective = O;
-				O.bFirstObjective = false;
-				CurrentObjective = O;
-			}
-		}
+/**
+Information: Note the code is offline not yet build for online yet.
 */
+
 // Map
 // SpawnPont
 // spawn player
@@ -31,31 +23,36 @@ var transient bool bFineTune;
 
 var transient UTMDrawMapPanel Map;
 
-//var UILabelButton ButtonSpawnVehicle;
 var UILabelButton ButtonCloseScene;
 var UILabelButton ButtonSpawnPlayer;
 
 var UTMBuildingNode_BaseSpawnVehicle Building_Node;
 var Name buildingnodename;
 
-var transient UTMUIDataStore_VehicleList MenuDataStore;
+var transient UTMUIDataStore_SpawnList MenuDataStore;
+var UTUIDataStore_StringList StringStore;
 
 event PostInitialize()
 {
-   Local UTUIDataStore_StringList StringStore;
+
    local UTMNodePawn UTMNode;
    local WorldInfo WI;
    WI = GetWorldInfo();
    InitDataStores();
    Super.PostInitialize();
 
-   StringStore = UTUIDataStore_StringList( ResolveDataStore('VehicleList'));//find this name to add on
-   StringStore.Empty('Vehicle');//clear out the odd string to update spawn point
+   Map = UTMDrawMapPanel(FindChild('Map',true));
+   Map.bAllowTeleport = true;
+   Map.OnActorSelected = MapActorSelected;
+   Map.FindBestActor();
+
+   StringStore = UTUIDataStore_StringList( ResolveDataStore('SpawnList'));//find this name to add on
+   StringStore.Empty('SpawnName');//clear out the old string to update spawn point
 
    ForEach WI.AllNavigationPoints(class'UTMNodePawn', UTMNode)
       {
       if(UTMNode != none){
-      StringStore.AddStr('Vehicle',String(UTMNode.Name));
+      StringStore.AddStr('SpawnName',String(UTMNode.Name));
       }
       }
    //StringStore.AddStr('Vehicle',"Second Entry");
@@ -63,7 +60,7 @@ event PostInitialize()
 
    SpawnList = UTUIList(FindChild('SpawnPoint', true));
    //SpawnList.SetDatastoreBinding("<SpawnList:SpawnName>");
-   SpawnList.SetDatastoreBinding("<VehicleList:Vehicle>");//works!
+   SpawnList.SetDatastoreBinding("<SpawnList:SpawnName>");//works!
    SpawnList.OnSubmitSelection = UIListOnSubmitSelection;
 
     ButtonSpawnPlayer = UILabelButton(FindChild('Spawn', true));
@@ -72,36 +69,6 @@ event PostInitialize()
 
    ButtonCloseScene = UILabelButton(FindChild('ButtonClose', true));
    ButtonCloseScene.OnClicked = ButCloseScene;
-}
-
-function DisplaySpawnListUpdate(){
-      /*
-      local UTMNodePawn UTMNode;
-      local WorldInfo WI;
-      StringStore = UTUIDataStore_StringList( ResolveDataStore('SpawnList'));
-      WI = GetWorldInfo();
-      //StringStore.Empty('SpawnList');
-      //StringStore = UTUIDataStore_StringList( ResolveDataStore('SpawnList'));
-
-      ForEach WI.AllNavigationPoints(class'UTMNodePawn', UTMNode)
-      {
-      if(UTMNode != none){
-      //UTMNode.SetVehicleName(StringValue);
-      StringStore.AddStr('Desscription',String(UTMNode.Name));
-      }
-      }
-      StringStore.AddStr('Desscription',"Second Entry");
-      StringStore.AddStr('Desscription',"Third Entry");
-
-
-      foreach AllActors(class'UTMNodePawn', Nodep)
-      {
-            if(Nodep != none){
-            StringStore.AddStr('ID',Nodep.Name);
-            }
-      }
-      */
-
 }
 
 
@@ -113,7 +80,6 @@ function TeleportToActor(UTPlayerController PCToTeleport, Actor Destination)
 		SceneClient.CloseScene(self);
 	}
 }
-
 
 /*
  * Teleport to the node
@@ -140,6 +106,7 @@ function bool ButtonBarSelect(UIScreenObject InButton, int InPlayerIndex)
 // #/
 function MapActorSelected(Actor Selected, UTPlayerController SelectedBy)
 {
+        `log('MAP SELECTED THIS SCENE');
 	if ( SelectedBy != none && Selected != none && Map != none )
 	{
 		TeleportToActor(SelectedBy, Selected);
@@ -264,7 +231,7 @@ function DisableTeleport()
 
 function setbuildingnodename(Name buildingname){
          buildingnodename = buildingname;
-         `log('Building ID ' @ buildingnodename);
+         //`log('Building ID ' @ buildingnodename);
 }
 
 function SetBuildingData(UTMBuildingNode_BaseSpawnVehicle D){
@@ -277,9 +244,9 @@ function InitDataStores() {
 	DSClient = class'UIInteraction'.static.GetDataStoreClient();
 
 	if(DSClient != None) {
-		MenuDataStore = UTMUIDataStore_VehicleList(FindDataStore(class'UTMUIDataStore_VehicleList'.default.Tag));
+		MenuDataStore = UTMUIDataStore_SpawnList(FindDataStore(class'UTMUIDataStore_SpawnList'.default.Tag));
 		if(MenuDataStore == None) {
-			MenuDataStore = DSClient.CreateDataStore(class'UTMUIDataStore_VehicleList');
+			MenuDataStore = DSClient.CreateDataStore(class'UTMUIDataStore_SpawnList');
 
 			if(MenuDataStore != None) {
 				DSClient.RegisterDataStore(MenuDataStore);
@@ -290,8 +257,58 @@ function InitDataStores() {
 
 
 function UIListOnSubmitSelection(UIList Sender, optional int PlayerIndex){
-  `log('TEST ' @ Sender);
+   //local int SelectedItem;
+   local string StringValue;
+   local UTMNodePawn UTMNode;
+   //local UTPlayerController SelectedBy;
+   local Pawn p;
+   local WorldInfo WI;
+   local UTPlayerController UTPC;
+   WI = GetWorldInfo();
+   UTPC = GetUTPlayerOwner();
+
+    P = GetPawnOwner();
+    //SelectedBy = P.Controller();
+  //`log('TEST ' @ Sender);
+  //SelectedItem = SpawnList.GetCurrentItem();
+  //`log('TEST ' @ SelectedItem );
+  //`log('TEST ' @ SpawnList.Items[SelectedItem] $ Sender.Name);
+  //`log('TEST ' @ SpawnList.GetElementValue(SpawnList.GetCurrentItem(),0));
+  StringValue = SpawnList.GetElementValue(SpawnList.GetCurrentItem(),0);
+  `log('TEST ' @ StringValue);
+
+
+  ForEach WI.AllNavigationPoints(class'UTMNodePawn', UTMNode)
+      {
+      if (UTMNode != none){
+         if (StringValue == String(UTMNode.Name)){
+            //TeleportToActor(UTPC, UTMNode);
+            teleportpawn(UTPC, UTMNode);
+            //`log('name pawn' @ P.Name);
+            P.SetLocation(UTMNode.Location);
+            //`log('TELEPORT TEST');
+            ExitMenu();
+         }
+      }
+      }
 }
+
+function teleportpawn(UTPlayerController PCToTeleport, Actor Destination){
+         PCToTeleport.SetLocation(Destination.Location);
+}
+
+
+/*
+function TeleportToActor(UTPlayerController PCToTeleport, Actor Destination)
+{
+    if ( PCToTeleport != none && Destination != none )
+    {
+        UTPlayerReplicationInfo(PCToTeleport.PlayerReplicationInfo).ServerTeleportToActor(Destination);
+        //CloseParentScene();
+    }
+}
+*/
+
 
 function bool BuildSpawnVehicle(UIScreenObject EventObject, int PlayerIndex){
     /*

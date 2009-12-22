@@ -84,6 +84,7 @@ function bool ButtonBarCancel(UIScreenObject InButton, int InPlayerIndex)
 // #/
 function MapActorSelected(Actor Selected, UTPlayerController SelectedBy)
 {
+ `log('MAP SELECTED');
 	if ( SelectedBy != none && Selected != none && Map != none )
 	{
 		TeleportToActor(SelectedBy, Selected);

@@ -10,7 +10,7 @@ var transient UTUIMenuList	MenuList;
 var UILabelButton ButtonSpawnVehicle;
 var UILabelButton ButtonCloseScene;
 
-var UTMBuildingNode_BaseSpawnVehicle Building_Node;
+var UTMBuildingNode Building_Node;
 var Name buildingnodename;
 
 var transient UTMUIDataStore_VehicleList MenuDataStore;
@@ -41,11 +41,9 @@ function setbuildingnodename(Name buildingname){
          `log('Building ID ' @ buildingnodename);
 }
 
-function SetBuildingData(UTMBuildingNode_BaseSpawnVehicle D){
+function SetBuildingData(UTMBuildingNode D){
   Building_Node = D;
 }
-
-
 
 function InitDataStores() {
 	local DataStoreClient DSClient;
@@ -74,6 +72,7 @@ function OnMenu_SubmitSelection(UIObject EventObject, optional int PlayerIndex=0
          local int SelectedItem;
 	local string StringValue;
 	local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+	local UTMBuildingNode_BaseSpawn UTMNode2;
 	local WorldInfo WI;
 	//local UTMapInfo MI;
 
@@ -90,11 +89,17 @@ function OnMenu_SubmitSelection(UIObject EventObject, optional int PlayerIndex=0
 		                BuildingData.SetVehicleName(StringValue);
 		}
 		*/
-
+                //loop check code that matches that class
 		ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawnVehicle', UTMNode)
                 {
                         if(UTMNode.Name ==  buildingnodename){
                            UTMNode.SetVehicleName(StringValue);
+                        }
+                }
+                ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawn', UTMNode2)
+                {
+                        if(UTMNode2.Name ==  buildingnodename){
+                           UTMNode2.SetVehicleName(StringValue);
                         }
                 }
 
@@ -110,6 +115,7 @@ function OnMenu_ValueChanged( UIObject Sender, optional int PlayerIndex=0 )
 	local int SelectedItem;
 	local string StringValue;
 	local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+	local UTMBuildingNode_BaseSpawn UTMNode2;
         local WorldInfo WI;
 
 	SelectedItem = MenuList.GetCurrentItem();
@@ -130,12 +136,19 @@ function OnMenu_ValueChanged( UIObject Sender, optional int PlayerIndex=0 )
                            UTMNode.SetVehicleName(StringValue);
                         }
                 }
+               ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawn', UTMNode2)
+                {
+                        if(UTMNode2.Name ==  buildingnodename){
+                           UTMNode2.SetVehicleName(StringValue);
+                        }
+                }
 	}
 }
 
 
 function bool BuildSpawnVehicle(UIScreenObject EventObject, int PlayerIndex){
     local UTMBuildingNode_BaseSpawnVehicle UTMNode;
+    local UTMBuildingNode_BaseSpawn UTMNode2;
     local WorldInfo WI;
     WI = GetWorldInfo();
     
@@ -143,6 +156,12 @@ function bool BuildSpawnVehicle(UIScreenObject EventObject, int PlayerIndex){
     {
             if(UTMNode.Name ==  buildingnodename){
                             UTMNode.spawnvehicle();
+            }
+    }
+    ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawn', UTMNode2)
+    {
+            if(UTMNode2.Name ==  buildingnodename){
+                            UTMNode2.spawnvehicle();
             }
     }
     `log("clicked > spawn vehicle");

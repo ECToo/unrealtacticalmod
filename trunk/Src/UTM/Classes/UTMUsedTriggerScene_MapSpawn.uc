@@ -20,8 +20,18 @@ function bool UsedBy(Pawn User)
 defaultproperties
 {
         bDisableUsed=true
+        bStatic=false
+	bNoDelete=False
+        bHidden=false
         SceneMap=UTMUISceneMapSpawn'UTMUISceneHUD.SceneMapSpawn'
         
+        Begin Object Name=Sprite
+		Sprite=Texture2D'UTMEditor.maptool'
+		HiddenGame=False
+		AlwaysLoadOnClient=False
+		AlwaysLoadOnServer=False
+	End Object
+
         //Used Event
 	Begin Object Class=Sequence Name=Sequence0
 	End Object

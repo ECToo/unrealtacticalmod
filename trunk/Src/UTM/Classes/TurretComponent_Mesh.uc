@@ -1,0 +1,1 @@
+class TurretComponent_Mesh extends SkeletalMeshComponent;
