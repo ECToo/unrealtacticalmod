@@ -12,6 +12,7 @@ function bool UsedBy(Pawn User)
 	CPlayer = UTPlayerController(User.Controller);
 	if(bDisableUsed){
 	   CPlayer.OpenUIScene(SceneMap);
+	   //`log("RANDOM" @ Rand(5));
 	}
 
 	return False;

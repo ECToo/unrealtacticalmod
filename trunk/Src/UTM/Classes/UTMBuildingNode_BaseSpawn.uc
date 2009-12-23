@@ -14,6 +14,11 @@ var Vector buildcontroloffset;
 var class<UTVehicle> UTMVehicle;
 var Vector spawnoffset;
 
+var array<PlayerStart> PlayerStarts;
+var class<UTMTeamPlayerStart> PlayerStartClass;
+var array<vector> spawnpoint;
+
+
 //map control for spawn and teleport
 var class<UTMUsedTriggerScene_MapSpawn> MapPanel;
 var UTMUsedTriggerScene_MapSpawn MapPanelActor;
@@ -31,11 +36,22 @@ simulated function PostBeginPlay()
 //setup control panel for map for pawn
 function initspawnpawn()
 {
+        local int i;
+        local UTMTeamPlayerStart UTMTeamActor;
+
 	if(MapPanel != None)
 	{
 		MapPanelActor = Spawn(MapPanel,,, Location+mapcontroloffset);
 		Attach(MapPanelActor);//attach to actor Component
 	}
+	
+	 for(i = 0;i < spawnpoint.length;i++){
+              `log('UTM SPAWNERS');
+              UTMTeamActor = spawn(PlayerStartClass,,,Location + spawnpoint[i]);
+              PlayerStarts.AddItem(UTMTeamActor);
+        }
+	
+
 }
 
 //setup vehicle
@@ -107,7 +123,10 @@ defaultproperties
     spawnoffset=(x=23,y=64,z=128)
     //buildcontroloffset=(x=480,y=64,z=0)
     buildcontroloffset=(x=480,y=64,z=32)
-	mapcontroloffset=(x=480,y=-64,z=32)
+    mapcontroloffset=(x=480,y=-64,z=32)
+    PlayerStartClass=class'UTMTeamPlayerStart'
+    spawnpoint(0)=(x=-480,y=-64,z=64)
+    spawnpoint(1)=(x=-480,y=64,z=64)
 
     Begin Object Name=StaticMeshBuilding
                 StaticMesh=StaticMesh'UTMBuildingFactory.factoryvehicle_flat'

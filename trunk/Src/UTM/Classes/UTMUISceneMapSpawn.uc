@@ -35,7 +35,7 @@ var UTUIDataStore_StringList StringStore;
 event PostInitialize()
 {
 
-   local UTMNodePawn UTMNode;
+   local UTMBuildingNode_BaseSpawn UTMNode;
    local WorldInfo WI;
    WI = GetWorldInfo();
    InitDataStores();
@@ -49,7 +49,7 @@ event PostInitialize()
    StringStore = UTUIDataStore_StringList( ResolveDataStore('SpawnList'));//find this name to add on
    StringStore.Empty('SpawnName');//clear out the old string to update spawn point
 
-   ForEach WI.AllNavigationPoints(class'UTMNodePawn', UTMNode)
+   ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawn', UTMNode)
       {
       if(UTMNode != none){
       StringStore.AddStr('SpawnName',String(UTMNode.Name));
@@ -259,13 +259,13 @@ function InitDataStores() {
 function UIListOnSubmitSelection(UIList Sender, optional int PlayerIndex){
    //local int SelectedItem;
    local string StringValue;
-   local UTMNodePawn UTMNode;
+   local UTMBuildingNode_BaseSpawn UTMNode;
    //local UTPlayerController SelectedBy;
-   local Pawn p;
+   local Pawn P;
    local WorldInfo WI;
-   local UTPlayerController UTPC;
+   //local UTPlayerController UTPC;
    WI = GetWorldInfo();
-   UTPC = GetUTPlayerOwner();
+   //UTPC = GetUTPlayerOwner();
 
     P = GetPawnOwner();
     //SelectedBy = P.Controller();
@@ -278,23 +278,33 @@ function UIListOnSubmitSelection(UIList Sender, optional int PlayerIndex){
   `log('TEST ' @ StringValue);
 
 
-  ForEach WI.AllNavigationPoints(class'UTMNodePawn', UTMNode)
+  ForEach WI.AllNavigationPoints(class'UTMBuildingNode_BaseSpawn', UTMNode)
       {
       if (UTMNode != none){
          if (StringValue == String(UTMNode.Name)){
             //TeleportToActor(UTPC, UTMNode);
-            teleportpawn(UTPC, UTMNode);
+            //teleportpawn(UTPC, UTMNode);
+            TeleportPawnPoint(P, UTMNode);
             //`log('name pawn' @ P.Name);
-            P.SetLocation(UTMNode.Location);
+            //P.SetLocation(UTMNode.Location);//working code
             //`log('TELEPORT TEST');
             ExitMenu();
          }
       }
       }
 }
-
+//test code to teleport //not working yet deal with online code but my be different later
 function teleportpawn(UTPlayerController PCToTeleport, Actor Destination){
          PCToTeleport.SetLocation(Destination.Location);
+}
+//random spawn test
+function TeleportPawnPoint(Pawn PCToTeleport,  UTMBuildingNode_BaseSpawn Destination){
+           //PCToTeleport.SetLocation(Destination.Location);
+         local int numpoint;
+         numpoint = Rand(Destination.PlayerStarts.length);
+         PCToTeleport.SetLocation(Destination.PlayerStarts[numpoint].Location);
+         `log("TLEPORT POINT Random" @ (numpoint) $ " Destination " $ Destination.PlayerStarts[numpoint].Location);
+         //PCToTeleport.SetLocation(Destination.Location);
 }
 
 
@@ -361,7 +371,8 @@ function bool HandleInputKey( const out InputEventParameters EventParms )
 	}
 
 	return bResult;
-}
+}                                                                                                                                                                
+	//bCloseOnLevelChange=true
 
 defaultproperties
 {
@@ -370,5 +381,4 @@ defaultproperties
 	bDisplayCursor=true
 	bRenderParentScenes=false
 	bAlwaysRenderScene=true
-	bCloseOnLevelChange=true
 }

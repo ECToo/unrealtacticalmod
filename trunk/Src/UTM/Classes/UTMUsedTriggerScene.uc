@@ -3,8 +3,6 @@ Texture2D'UTMEditor.buildtool'
 Texture2D'UTMEditor.maptool'
 Texture2D'UTMEditor.pawntool'
 
-
-
 */
 
 

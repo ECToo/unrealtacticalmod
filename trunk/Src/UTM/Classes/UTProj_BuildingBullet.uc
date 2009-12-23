@@ -27,7 +27,8 @@ simulated event HitWall(vector HitNormal, Actor Wall, PrimitiveComponent WallCom
 	Super.HitWall(HitNormal, Wall, WallComp);
 	`log('HIT SOMETHING');
 	
-	spawn(class'UTMBuildingNode_BaseSpawnVehicle',,,Location,rotatespawn);
+	//spawn(class'UTMBuildingNode_BaseSpawnVehicle',,,Location,rotatespawn);
+	spawn(class'UTMBuildingNode_BaseSpawn',,,Location,rotatespawn);
  //Spawn (class<Actor> SpawnClass,  SpawnOwner,  SpawnTag,  SpawnLocation,  SpawnRotation, ActorTemplate,  bNoCollisionFail)
 
 }
