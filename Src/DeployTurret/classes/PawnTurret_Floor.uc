@@ -1,4 +1,4 @@
-class Vehicle_Turret_Floor extends Vehicle_Turret
+class PawnTurret_Floor extends PawnTurret
       placeable;
 
 simulated function PostBeginPlay()
@@ -10,7 +10,7 @@ simulated function PostBeginPlay()
 defaultproperties
 {
    TurretGunBaseClass=class'Turret_Gun'
-   TurretBaseClass=class'Turret_Base'
+   TurretBaseClass=class'TurretBase_Floor'
    Begin Object Name=STurretMesh
          SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
          PhysicsAsset=PhysicsAsset'UTMTurret.TurretStand_Physics'
