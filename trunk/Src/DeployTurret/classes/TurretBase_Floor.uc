@@ -1,10 +1,16 @@
-class Turret_Ceiling extends Turret;
+class TurretBase_Floor extends Turret;
 
 
 
 defaultproperties
 {
-/*
+   Begin Object Name=MeshPart
+         SkeletalMesh=SkeletalMesh'UTMTurret.TurretBase'
+         PhysicsAsset=PhysicsAsset'UTMTurret.TurretBase_Physics'
+         Translation=(X=0.0,Y=0.0,Z=-28.0)
+   End Object
+
+   /*
     Begin Object Name=PartGun
          SkeletalMesh=SkeletalMesh'UTMTurret.TurretGun'
          Translation=(X=0.0,Y=0.0,Z=0.0)
