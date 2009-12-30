@@ -1,3 +1,8 @@
+/**
+ *  Created by: Darknet
+ *  svn:https://unrealtacticalmod.googlecode.com/svn/trunk/Src/DeployTurret
+ */
+
 class TurretBase_Floor extends Turret;
 
 
