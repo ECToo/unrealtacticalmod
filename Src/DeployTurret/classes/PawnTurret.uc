@@ -1,3 +1,7 @@
+/**
+ *  Created by: Darknet
+ *  svn:https://unrealtacticalmod.googlecode.com/svn/trunk/Src/DeployTurret
+ */
 class PawnTurret extends Pawn
       placeable;
       
@@ -6,7 +10,6 @@ var Turret TurretGunBase;
 
 var class<Turret> TurretBaseClass;
 var Turret TurretBase;
-
 
 /** What this Sentinel is currently interested in. */
 var Actor Target;
