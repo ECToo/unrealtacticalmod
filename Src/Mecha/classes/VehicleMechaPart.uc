@@ -102,7 +102,7 @@ simulated function PostBeginPlay()
                    //right hand weapon
                    if(MechPart_RightHand != None){
                       MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
-                      Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+                      MechPartActor_RightArm.Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
                       MechPartActor_RightHand.SetMechVehicle(self);
                    }
                 }
@@ -110,7 +110,7 @@ simulated function PostBeginPlay()
                 //left arm
                 if(MechPart_LeftArm != None){
                 MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftHandSocketName);//'RightHandSocket'
+                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftArmSocketName);//'LeftHandSocket'
                 MechPartActor_LeftArm.SetMechVehicle(self);
                    //left hand weapon
                    if(MechPart_LeftHand != None){
@@ -234,6 +234,9 @@ simulated function SetInputs(float InForward, float InStrafe, float InUp)
           MechPartActor_Leg.EndActionWalk();
           MechPartActor_Leg.DirectionWalk("Stop");
       }
+      
+      //`log("SteerRot " @ Steering); //move to side to side
+      `log("SteerRot " @ bUsingLookSteer);
 }
 
 /*

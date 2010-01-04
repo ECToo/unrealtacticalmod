@@ -36,13 +36,13 @@ function BeginActionWalk(){
       super.BeginActionWalk();
       //PlayAnim( 'Walk' );
       Mesh.PlayAnim('Walk', 1, true, false);//working code for animation
-      `log('move');
+      //`log('move');
 }
 //this will pause the animation and resume animation.
 function EndActionWalk(){
       super.EndActionWalk();
       //`log('Stop Animation');
-      `log('stop');
+      //`log('stop');
       Mesh.StopAnim();
 }
 

@@ -59,7 +59,7 @@ simulated function PostBeginPlay()
 
 
 //===============================================
-// Start Walk Code Animation and Control
+// Walk Code Animation and Control
 //===============================================
 
 function BeginActionWalk();
@@ -67,10 +67,17 @@ function EndActionWalk();
 function DirectionWalk(String dirname);
 
 //===============================================
-//
+// Weapon Code
+// It depend if there weapon mount on the part
 //===============================================
 
+ function BeginFire();
+ function EndFire();
+ function weaponfire();
 
+//===============================================
+//
+//===============================================
 
 //This will deal vehicle parent // This add or remove damge to the parts that depend on how it coded.
 function SetMechVehicle(VehicleMecha V)
@@ -78,6 +85,7 @@ function SetMechVehicle(VehicleMecha V)
 	MechVehicle = V;
 	Instigator = V.Instigator;
 }
+
 state FinishWalkState
 {
     Begin:
@@ -122,21 +130,6 @@ simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
 	Mesh.PlayAnim('Walk', 1, true, false);//working code for animation
 }
 
-function weaponfire()
-{
-
-}
-
-/*
-simulated function PostBeginPlay()
-{
-	Super.PostBeginPlay();
-
-	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
-	PlayAnim( IdleAnim[0] );
-}
-*/
-
 /**
  * Plays a Vehicle Animation
  */
@@ -168,25 +161,11 @@ function playanimationtest(){
       `log('Play Animation test');
       //PlayAnim( 'walk' );
       //Mesh.Animations.AnimationSet('Walk',1.0f,false);
-
 }
 
 
-function mechtransform()
-{
-
-}
-
-function mechdepart()
-{
-
-}
-
-function BeginFire(){}
-
-function EndFire(){}
-
-
+function mechtransform();
+function mechdepart();
 
 defaultproperties
 {
