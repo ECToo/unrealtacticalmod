@@ -6,7 +6,7 @@
 
   For couple of things needed to to do is to place a skeleton mesh in the map editor. Then tell it to rotate one part of the bone. That is the simple explain for this part.
 
-  To create this simple rotate from the skeleton. We need to do is to create a class for this. But this will be explain how the code works. The full code will be shown.
+  To create this simple rotate from the skeleton bone. We need to do is to create a class for this. But this will be explain how the code works. The full code will be shown.
 
 {{{
 class SkeletonFrame extends Actor
@@ -16,10 +16,10 @@ class SkeletonFrame extends Actor
 This is quite simple that first part of the code. Next we next to create a variables for this class.
 
 {{{
-var SkeletalMeshComponent mesh;
+var SkeletalMeshComponent mesh;// skeleton mesh
 var SkelControlSingleBone BoneTurnControl;//This is the animtree SkelControlSingleBone
 var rotator setrotate; //we use a counter to rotate it
-var float size; // this will deal with bone scale with counter
+var float size; // this will deal with bone scale with counter //note I comment it out for testing the rotation.
 }}}
 
 = SkelControlSingleBone Class: =
@@ -44,12 +44,14 @@ BoneTurnControl.BoneRotationSpace = BCS_BoneSpace;//var Name
 
 BoneTurnControl.BoneRotation = setrotate;//this set and get bone rotation
 }}}
-Note this will over ride your current setting from AnimTree if you do this.
+   For noob and pro just use the setting for animtree skelcontrol. That it is quite simple to work with. But it up to you how you want to build it.
+
+* Note this will over ride your current setting from AnimTree if code all the setting in unreal script. *
 
 = SkeletonFrame.uc =
 {{{
 /**
-  Animtree: There is some basic config that is just the controler name.
+  Animtree: There is some basic config that is just the controller name.
 
  [SkelControlSingleBone]
 
@@ -116,3 +118,7 @@ defaultproperties
  Components.Add(MeshFrame)
 }
 }}}
+
+= Tips =
+ * Use unreal wiki pages that found in search engine.
+ * Double check your work that it some time miss something from AnimTree skeleton control settings.
