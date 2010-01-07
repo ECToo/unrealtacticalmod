@@ -47,7 +47,7 @@ function EndActionWalk(){
 }
 
 function DirectionWalk(String dirname ){
-`log(dirname);
+//`log(dirname);
 }
 
 //===============================================

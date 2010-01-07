@@ -155,25 +155,25 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
         //super.OverrideBeginFire(FireModeNum);
 	if (FireModeNum == 1)
 	{
-	`log('ALT FIRE MODE');
+	//`log('ALT FIRE MODE');
 
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
-		//MechPartActor_LeftHand.weaponfire();
-		MechPartActor_LeftHand.BeginFire();
+		MechPartActor_RightHand.BeginFire();
+		//MechPartActor_LeftHand.BeginFire();
 	}
 
 	if (FireModeNum == 0)
 	{
-	`log('FIRE MODE');
+	//`log('FIRE MODE');
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
 		//////////////////////////////MechPartActor_Leg.playanimationtest();
 
-		//MechPartActor_RightHand.weaponfire();
-		MechPartActor_RightHand.BeginFire();
+		MechPartActor_LeftHand.BeginFire();
+		//MechPartActor_RightHand.BeginFire();
 	}
 	return false;
 }
@@ -182,23 +182,24 @@ simulated function bool OverrideEndFire(byte FireModeNum){
         //super.OverrideEndFire(FireModeNum);
 	if (FireModeNum == 1)
 	{
-	`log('ALT FIRE MODE');
+	//`log('ALT FIRE MODE');
 
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
-		MechPartActor_LeftHand.EndFire();
+		//MechPartActor_LeftHand.EndFire();
+		MechPartActor_RightHand.EndFire();
 	}
 
 	if (FireModeNum == 0)
 	{
-	`log('FIRE MODE');
+	//`log('FIRE MODE');
 		//bPressingAltFire = true;
 		//Rise=1.0f;
 		//return true;
 		//////////////////////////////MechPartActor_Leg.playanimationtest();
-
-		MechPartActor_RightHand.EndFire();
+		//MechPartActor_RightHand.EndFire();
+		MechPartActor_LeftHand.EndFire();
 	}
 	return false;
 }
@@ -207,7 +208,19 @@ simulated function bool OverrideEndFire(byte FireModeNum){
 simulated function SwitchWeapon(byte NewGroup)
 {
       //super.SwitchWeapon(NewGroup);
-     `log('Swtich Weapon MODE'); //when press on the number key from 0-9 not the num lock keys
+
+     `log('Swtich Weapon MODE' @ NewGroup); //when press on the number key from 0-9 not the num lock keys
+
+     if(NewGroup == 1){
+      if(MechPartActor_RightHand != None){
+         MechPartActor_RightHand.ToggleDisableWeapon();
+      }}
+      
+      if(NewGroup == 2){
+      if(MechPartActor_LeftHand != None){
+         MechPartActor_LeftHand.ToggleDisableWeapon();
+      }}
+
         /*
 	if ( (DeployedState == EDS_Deployed) || (DeployedState == EDS_Deploying) )
 	{
@@ -215,6 +228,27 @@ simulated function SwitchWeapon(byte NewGroup)
 	}
 	*/
 }
+
+/*
+simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
+{
+	super.DisplayHud(HUD, Canvas, HudPOS, SeatIndex);
+	//Canvas.DrawColor = WhiteColor;
+
+	if(MechPartActor_RightHand != None){
+	Canvas.SetPos(25,280);//x,y screen
+           Canvas.DrawText("Slot 1: " @ MechPartActor_RightHand.bWeaponDisable);
+	}
+
+	if(MechPartActor_LeftHand != None){
+	Canvas.SetPos(25,280+24);//x,y screen
+           Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
+	}
+	Canvas.SetPos(25,280+24);//x,y screen
+	Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
+
+}
+*/
 
 //need to fixed looping since this has tick or loop
 simulated function SetInputs(float InForward, float InStrafe, float InUp)
@@ -234,9 +268,28 @@ simulated function SetInputs(float InForward, float InStrafe, float InUp)
           MechPartActor_Leg.EndActionWalk();
           MechPartActor_Leg.DirectionWalk("Stop");
       }
-      
+
       //`log("SteerRot " @ Steering); //move to side to side
-      `log("SteerRot " @ bUsingLookSteer);
+      //`log("SteerRot " @ bUsingLookSteer);
+}
+
+exec simulated function Duck()
+{
+ `log('duck');
+}
+
+
+
+function bool DoJump(bool bUpdating){
+   super.DoJump(bUpdating);
+   `log('jump');
+   return true;
+}
+
+simulated function SetFiringMode(Weapon Weap, byte FiringModeNum)
+{
+        `log('SetFiringMode');
+	SeatFiringMode(0, FiringModeNum, false);
 }
 
 /*

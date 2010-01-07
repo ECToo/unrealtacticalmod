@@ -39,8 +39,23 @@ simulated function Tick(float DeltaTime)
 function weaponfire()
 {
 	super.weaponfire();
-	`log('Right Weapon Fire');
-	fireweaponprojtile();
+	//`log('Right Weapon Fire');
+	if(bWeaponDisable){
+	  fireweaponprojtile();
+	}
+}
+
+function ToggleDisableWeapon(){
+         local bool OldWeaponDisable;
+         
+         OldWeaponDisable = bWeaponDisable;
+         
+         if(OldWeaponDisable == true){
+         bWeaponDisable = false;
+         }else if(OldWeaponDisable == false){
+           bWeaponDisable= true;
+         }
+         `log('bWeaponDisable' @ bWeaponDisable);
 }
 
 simulated function fireweaponprojtile(){
@@ -49,7 +64,7 @@ simulated function fireweaponprojtile(){
 	local UTProjectile SpawnedProjectile;
 	//local vector RealStartLoc;
 
-	if (bWeaponFire){
+	if ((bWeaponFire == true)&&(bWeaponDisable == false)){
            fireinterval++;
               if (fireinterval > firerate){
                  fireinterval = 0;
@@ -84,6 +99,7 @@ function BeginFire(){
 function EndFire(){
    super.EndFire();
    bWeaponFire = False;
+   fireinterval = firerate;
 }
 
 simulated event GetBarrelLocationAndRotation(Name TagSocketName, out vector TagSocketLocation, optional out rotator TagSocketRotation)

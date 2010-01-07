@@ -1,9 +1,40 @@
+/**
+ *
+ * Created by: Darknet
+ * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/Mecha/classes/
+ * license: CC (Give Credit -> Check readme.txt)
+ 
+ Information: This is on going test and it is Alpha Stage. The coding is not finall yet.
+
+Weapon System:
+There will be weapon system build in for mech parts class. But it depend how it is coded for this class.
+
+CounterMeasure:
+This will deal with Counter incoming missles and other things.
+
+Crawler, Walker, Spider:
+This will be base on the type leg system that will be build some how.
+
+Transform:
+This deal with mech transform or change mech stance. While in animaton or type mode.
+
+*/
+
 class MechaPart extends Actor
       //placeable
       ;
+
 var bool bActionWalk;
 var bool bAnimationFire;
 var bool bTransform;
+
+var bool bFlyMode;
+
+//weapon code
+var bool bWeaponDestory;
+var bool bWeaponDisable;
+var bool bDeplopyAmmo;
+var bool bCounterMeasure;
 
 struct native VehicleAnim
 {
@@ -78,6 +109,24 @@ function DirectionWalk(String dirname);
 //===============================================
 //
 //===============================================
+
+
+function ToggleDisableWeapon(){
+
+
+}
+
+function DestroyWeapon(){//when the part is reach health it disable some functions
+
+
+}
+
+
+
+
+
+
+
 
 //This will deal vehicle parent // This add or remove damge to the parts that depend on how it coded.
 function SetMechVehicle(VehicleMecha V)
@@ -169,6 +218,7 @@ function mechdepart();
 
 defaultproperties
 {
+      bWeaponDisable=false;
       bActionWalk=false;
       Begin Object Class=SkeletalMeshComponent Name=MeshFrame
 		//SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'

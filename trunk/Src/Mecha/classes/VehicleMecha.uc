@@ -1,5 +1,7 @@
 class VehicleMecha extends UTVehicle
-      placeable;
+        //dependson(MyPlayerController)
+	//config(Mecha)
+        placeable;
 
 var() RB_Handle BodyHandle;
 var Color textcolor;
@@ -44,17 +46,36 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 			//Hud.DrawToolTip(Canvas, PC, "GBA_Fire", Canvas.ClipX * 0.5, Canvas.ClipY * 0.92, CameraFireToolTipIconCoords.U, CameraFireToolTipIconCoords.V, CameraFireToolTipIconCoords.UL, CameraFireToolTipIconCoords.VL, Canvas.ClipY / 768);
 		//}
 	//}
-	Canvas.DrawColor = textcolor;
+	//Canvas.DrawColor = textcolor;
+	Canvas.DrawColor = class'HUD'.default.GreenColor;
 
 	count = count + 1;
 	if(count > maxcount){
-	count = 0;
+	 count = 0;
 	}
 	Canvas.SetPos(20,128);
-	//Canvas.DrawText("No. Weapon: " @ count);
-	Canvas.DrawText("Vehicle HUD");
+	Canvas.DrawText("No. Weapon: " @ count);
+	//Canvas.DrawText("Vehicle HUD");
 	//`log('HUD' @ count); //render loop
 }
+
+
+
+/*
+simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
+{
+	local PlayerController PC;
+	super.DisplayHud(HUD, Canvas, HudPOS, SeatIndex);
+
+	PC = PlayerController(Seats[0].SeatPawn.Controller);
+	if (PC != none)
+	{
+            Canvas.DrawColor = textcolor;
+            Canvas.SetPos(20,128);
+	Canvas.DrawText("No. Weapon: " @ count);
+	}
+}
+*/
 
 defaultproperties
 {       maxcount = 10000;
@@ -74,4 +95,11 @@ defaultproperties
 	Eyeheight=300
 
 	//BodyHandleOrientInterpSpeed=5.f
+
+	Health=200
+	MeleeRange=-100.0
+	ExitRadius=160.0
+	
+	IconCoords=(U=859,UL=36,V=0,VL=27)
+	HudCoords=(U=228,V=143,UL=-119,VL=106)
 }
