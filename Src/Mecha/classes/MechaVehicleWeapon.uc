@@ -8,6 +8,15 @@
 
 class MechaVehicleWeapon extends UTVehicleWeapon
 	HideDropDown;
+	
+/*
+simulated function bool SelectWeapon(int WeaponNumber)
+{
+	super.SelectWeapon(WeaponNumber);
+	`log('SelectWeapon');
+	return false;
+}
+*/
 
 defaultproperties
 {
