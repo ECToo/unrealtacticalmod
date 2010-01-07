@@ -1,4 +1,4 @@
-#summary [====This is the main Lesson that will be link to the pages.====]
+#summary * [====This is the main Lesson that will be link to the pages.====] *
 #labels Tutorial-Implementation,Vehicle,Weapon,Blender
 
 = Introduction =
