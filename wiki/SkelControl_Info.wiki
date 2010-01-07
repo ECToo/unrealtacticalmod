@@ -10,7 +10,7 @@
 {{{
 class SkeletonFrame extends Actor
 	placeable;
-}}
+}}}
 
 This is quite simple that first part of the code. Next we next to create a variables for this class.
 
