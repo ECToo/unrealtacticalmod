@@ -21,6 +21,8 @@ var rotator setrotate; //we use a counter to rotate it
 var float size; // this will deal with bone scale with counter
 }}}
 
+= SkelControlSingleBone: =
+   You have two options to make the settings works. One you can do AnimTree or Unreal Script.
 
 {{{
 BoneTurnControl = SkelControlSingleBone(mesh.FindSkelControl('PointYaw')); //this will look for animtree name PointYaw skelcontrol
@@ -31,17 +33,14 @@ BoneTurnControl = SkelControlSingleBone(mesh.FindSkelControl('PointYaw')); //thi
 
 
 {{{
-
 //those are the setting to able to rotate the bone
 BoneTurnControl.bApplyRotation = true;
 BoneTurnControl.bAddRotation = true;
 BoneTurnControl.BoneRotationSpace = BCS_BoneSpace;//var Name
-
 BoneTurnControl.BoneRotation = setrotate;//this set and get bone rotation
-
 }}}
 
-SkeletonFrame.uc
+= SkeletonFrame.uc =
 {{{
 /**
   Animtree: There is some basic config that is just the controler name.
