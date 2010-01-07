@@ -25,6 +25,13 @@ var float size; // this will deal with bone scale with counter
 {{{
 BoneTurnControl = SkelControlSingleBone(mesh.FindSkelControl('PointYaw')); //this will look for animtree name PointYaw skelcontrol
 
+}}}
+
+[http://unrealtacticalmod.googlecode.com/svn/trunk/image/animtree_skelcontrolsinglebone_pawnpoint.jpg]
+
+
+{{{
+
 //those are the setting to able to rotate the bone
 BoneTurnControl.bApplyRotation = true;
 BoneTurnControl.bAddRotation = true;
