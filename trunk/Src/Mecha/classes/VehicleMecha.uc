@@ -49,12 +49,12 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	//Canvas.DrawColor = textcolor;
 	Canvas.DrawColor = class'HUD'.default.GreenColor;
 
-	count = count + 1;
-	if(count > maxcount){
-	 count = 0;
-	}
-	Canvas.SetPos(20,128);
-	Canvas.DrawText("No. Weapon: " @ count);
+	//count = count + 1;
+	//if(count > maxcount){
+	// count = 0;
+	//}
+	//Canvas.SetPos(20,128);
+	//Canvas.DrawText("No. Weapon: " @ count);
 	//Canvas.DrawText("Vehicle HUD");
 	//`log('HUD' @ count); //render loop
 }
