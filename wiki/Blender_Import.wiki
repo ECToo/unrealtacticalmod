@@ -2,7 +2,7 @@
 #labels Blender,Import,PSA,PSK,Unreal
 
 = IMPORT PSK: =
-   I am currently working on the psk import script since the script is outdate and does not support skeleton bones yet. It will only support Mesh and UV for now.
+   There is one that can import psk. It will only support Mesh and UV for now. You can find in the blender forums.
 
 = IMPORT PSA: =
    This part is not yet work on yet.
