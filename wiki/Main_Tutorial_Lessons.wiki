@@ -1,5 +1,7 @@
-#summary * [====This is the main Lesson that will be link to the pages.====] *
+#summary [====This is the main Lesson that will be link to the pages.====]
 #labels Tutorial-Implementation,Vehicle,Weapon,Blender
+
+* Note: On Going work being done to rework my wiki page a bit to sort out the cleaner version of my wiki pages. As well my mod builds. *
 
 = Introduction =
 It will be hard to tell you if you don't read or do lesson about Blender. Please do not rush when your learning blender. It is base on blender term language for blender interface. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page will take time to complete.
