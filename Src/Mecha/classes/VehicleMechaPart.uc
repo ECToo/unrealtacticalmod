@@ -229,26 +229,27 @@ simulated function SwitchWeapon(byte NewGroup)
 	*/
 }
 
-/*
+
 simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
 {
 	super.DisplayHud(HUD, Canvas, HudPOS, SeatIndex);
 	//Canvas.DrawColor = WhiteColor;
+	Canvas.DrawColor = class'HUD'.default.GreenColor;
 
 	if(MechPartActor_RightHand != None){
 	Canvas.SetPos(25,280);//x,y screen
-           Canvas.DrawText("Slot 1: " @ MechPartActor_RightHand.bWeaponDisable);
+           Canvas.DrawText("Weapon Slot 1: " @ MechPartActor_RightHand.bWeaponDisable);
 	}
 
 	if(MechPartActor_LeftHand != None){
 	Canvas.SetPos(25,280+24);//x,y screen
-           Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
+           Canvas.DrawText("Weapon Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
 	}
-	Canvas.SetPos(25,280+24);//x,y screen
-	Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
+	//Canvas.SetPos(25,280+24);//x,y screen
+	//Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
 
 }
-*/
+
 
 //need to fixed looping since this has tick or loop
 simulated function SetInputs(float InForward, float InStrafe, float InUp)
@@ -685,8 +686,11 @@ defaultproperties
 	bIgnoreStallZ=TRUE
 	HUDExtent=250.0
 
-	BaseEyeheight=0
-	Eyeheight=0
+	//BaseEyeheight=0
+	//Eyeheight=0
+	
+	BaseEyeheight=50
+	Eyeheight=200
 
 	bFindGroundExit=false
 	bShouldAutoCenterViewPitch=FALSE

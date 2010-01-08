@@ -36,6 +36,8 @@ var bool bWeaponDisable;
 var bool bDeplopyAmmo;
 var bool bCounterMeasure;
 
+var string WalkName;
+
 struct native VehicleAnim
 {
 	/** Used to look up the animation */
@@ -107,26 +109,15 @@ function DirectionWalk(String dirname);
  function weaponfire();
 
 //===============================================
+// Weapon Function
+//===============================================
+function ToggleDisableWeapon(){}
+function DestroyWeapon(){}//when the part is reach health it disable some functions
+
+
+//===============================================
 //
 //===============================================
-
-
-function ToggleDisableWeapon(){
-
-
-}
-
-function DestroyWeapon(){//when the part is reach health it disable some functions
-
-
-}
-
-
-
-
-
-
-
 
 //This will deal vehicle parent // This add or remove damge to the parts that depend on how it coded.
 function SetMechVehicle(VehicleMecha V)
@@ -135,24 +126,9 @@ function SetMechVehicle(VehicleMecha V)
 	Instigator = V.Instigator;
 }
 
-state FinishWalkState
-{
-    Begin:
-    bActionWalk = false;
-    `log(' finish delay finish delay finish delay finish delay finish delay finish delay finish delay');
-}
-
-state StartWalkState
-{
-    function playaimationstate(){
-        //Mesh.PlayAnim('Walk', 1, false, true);//working code for animation
-        Mesh.PlayAnim('Walk', 1, true, true);//working code for animation
-    }
-    Begin:
-      `log(' WALKING WALKING WALKING WALKING WALKING WALKING WALKING WALKING WALKING WALKING');
-      bActionWalk= true;
-      Sleep(1);//
-}
+//===============================================
+//
+//===============================================
 
 simulated function PlayAnim(name AnimName, optional float AnimDuration = 0.0f)
 {
