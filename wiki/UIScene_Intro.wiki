@@ -1,0 +1,9 @@
+#summary Basic Information.
+
+= Information: =
+  There two basic path in building UIScene. You can look up in UDN site that give you the best information on it. You can purely build every thing using kismet and the UIScene. To handle simple tasks.
+
+  The other one is just the same but you be coding unreal script to have more control. It deal with data management. Where player interact like player choosing spawn points.
+
+= Building Your UIScene: =
+   When building custom class that extends from UIScene. It would have the same function as other UIScene. But be sure you name it right or else you can't delete your UIScene package upk.
