@@ -1,5 +1,5 @@
 #summary Learning how to setup Armature.
 #labels Blender,Animation
 
-Here are the link to the animation that goes in detail of how to work on or less detail depends on the site.
-http://community.crystalspace3d.org/tiki-read_article.php?articleId=16
+= Information: =
+  To do animation for unreal you need Armature object for blender. Once you build the Armature you need to be in pose mode for the bones to be animation.
