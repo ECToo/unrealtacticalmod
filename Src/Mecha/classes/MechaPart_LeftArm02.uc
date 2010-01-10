@@ -5,7 +5,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_LeftArm02 extends MechaPart;
+class MechaPart_LeftArm02 extends MechaPartArm;
 
 
 

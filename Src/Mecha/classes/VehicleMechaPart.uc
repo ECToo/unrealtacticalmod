@@ -49,16 +49,16 @@ var class <MechaPart> MechPart_Leg;
 var MechaPart MechPartActor_Leg;
 //Right Arm
 var() protected const Name BodyAttachRightArmSocketName;
-var class <MechaPart> MechPart_RightArm;
-var MechaPart MechPartActor_RightArm;
+var class <MechaPartArm> MechPart_RightArm;
+var MechaPartArm MechPartActor_RightArm;
 //right weapon
 var() protected const Name BodyAttachRightHandSocketName;
 var class <MechaPart> MechPart_RightHand;
 var MechaPart MechPartActor_RightHand;
 //Left Arm
 var() protected const Name BodyAttachLeftArmSocketName;
-var class <MechaPart> MechPart_LeftArm;
-var MechaPart MechPartActor_LeftArm;
+var class <MechaPartArm> MechPart_LeftArm;
+var MechaPartArm MechPartActor_LeftArm;
 //left weapon
 var() protected const Name BodyAttachLeftHandSocketName;
 var class <MechaPart> MechPart_LeftHand;
@@ -122,6 +122,149 @@ simulated function PostBeginPlay()
 
 	}
 }
+
+
+simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRotation, out rotator out_DeltaRot)
+{
+	local int i, MaxDelta;
+	local float MaxDeltaDegrees;
+        //`log("====================================================================================");
+        if(MechPartActor_RightArm.ArmBoneControl !=none){
+          MechPartActor_RightArm.ArmBoneControl.BoneRotation =  GetClampedViewRotation();
+        }
+
+	if (WorldInfo.bUseConsoleInput)
+	{
+		if (!bSeparateTurretFocus && ShouldClamp())
+		{
+		    `log("bIsConsoleTurning");
+			if (out_DeltaRot.Yaw == 0)
+			{
+				if (bIsConsoleTurning)
+				{
+					// if controller stops rotating on a vehicle whose view rotation yaw gets clamped,
+					// set the controller's yaw to where we got so that there's no control lag
+					out_ViewRotation.Yaw = GetClampedViewRotation().Yaw;
+					bIsConsoleTurning = false;
+					ServerSetConsoleTurning(false);
+					`log("bIsConsoleTurning");
+				}
+			}
+
+			else if (!bIsConsoleTurning)
+			{
+				// don't allow starting a new turn if the view would already be clamped
+				// because that causes nasty jerking
+				if (GetClampedViewRotation().Yaw == Controller.Rotation.Yaw)
+				{
+					bIsConsoleTurning = true;
+					ServerSetConsoleTurning(true);
+					`log("bIsConsoleTurning new turn");
+				}
+				else
+				{
+					// @fixme:  this should be setting to max turn rate so we actually do something when outside of the cone
+					out_DeltaRot.Yaw = 0;
+				}
+			}
+
+			// clamp player rotation to turret rotation speed
+			for (i = 0; i < Seats[0].TurretControllers.length; i++)
+			{
+				MaxDeltaDegrees = FMax(MaxDeltaDegrees, Seats[0].TurretControllers[i].LagDegreesPerSecond);
+				`log("Turret controls");
+			}
+
+			if (MaxDeltaDegrees > 0.0)
+			{
+				MaxDelta = int(MaxDeltaDegrees * 182.0444 * DeltaTime);
+				out_DeltaRot.Pitch = (out_DeltaRot.Pitch >= 0) ? Min(out_DeltaRot.Pitch, MaxDelta) : Max(out_DeltaRot.Pitch, -MaxDelta);
+				out_DeltaRot.Yaw = (out_DeltaRot.Yaw >= 0) ? Min(out_DeltaRot.Yaw, MaxDelta) : Max(out_DeltaRot.Yaw, -MaxDelta);
+				out_DeltaRot.Roll = (out_DeltaRot.Roll >= 0) ? Min(out_DeltaRot.Roll, MaxDelta) : Max(out_DeltaRot.Roll, -MaxDelta);
+			}
+		}
+	}
+	Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
+}
+
+
+/**
+ * this function is called when a weapon rotation value has changed.  It sets the DesiredboneRotations for each controller
+ * associated with the turret.
+ *
+ * Network: Remote clients.  All other cases are handled natively
+ * FIXME: Look at handling remote clients natively as well
+ *
+ * @param	SeatIndex		The seat at which the rotation changed
+ */
+
+simulated function WeaponRotationChanged(int SeatIndex)
+{
+	local int i;
+
+	if ( SeatIndex>=0 )
+	{
+		for (i=0;i<Seats[SeatIndex].TurretControllers.Length;i++)
+		{
+			Seats[SeatIndex].TurretControllers[i].DesiredBoneRotation = SeatWeaponRotation(SeatIndex,,true);
+			`log("WeaponRotationChanged");
+		}
+		`log("WeaponRotationChanged");
+	}
+	
+	if ( SeatIndex ==0 ){
+	    `log("WeaponRotationChanged");
+	    //MechPartActor_RightArm
+	}
+}
+
+
+simulated function InitializeTurrets()
+{
+	local int Seat, i;
+	local UTSkelControl_TurretConstrained Turret;
+	local vector PivotLoc, MuzzleLoc;
+
+	if (Mesh == None)
+	{
+		`warn("No Mesh for" @ self);
+	}
+	else
+	{
+		for (Seat = 0; Seat < Seats.Length; Seat++)
+		{
+			for (i = 0; i < Seats[Seat].TurretControls.Length; i++)
+			{
+				Turret = UTSkelControl_TurretConstrained( Mesh.FindSkelControl(Seats[Seat].TurretControls[i]) );
+				if ( Turret != none )
+				{
+					Turret.AssociatedSeatIndex = Seat;
+					Seats[Seat].TurretControllers[i] = Turret;
+
+					// Initialize turrets to vehicle rotation.
+					Turret.InitTurret(Rotation, Mesh);
+					`log("init turret set");
+				}
+				else
+				{
+					`warn("Failed to find skeletal controller named" @ Seats[Seat].TurretControls[i] @ "(Seat "$Seat$") for" @ self @ "in AnimTree" @ Mesh.AnimTreeTemplate);
+				}
+			}
+
+			if(Role == ROLE_Authority)
+			{
+				SeatWeaponRotation(Seat, Rotation, FALSE);
+			}
+
+			// Calculate Z distance between weapon pivot and muzzle
+			PivotLoc = GetSeatPivotPoint(Seat);
+			GetBarrelLocationAndRotation(Seat, MuzzleLoc);
+
+			Seats[Seat].PivotFireOffsetZ = MuzzleLoc.Z - PivotLoc.Z;
+		}
+	}
+}
+
 /*
 simulated function int PartialTurn(int original, int desired, float PctTurn)
 {
@@ -135,13 +278,13 @@ simulated function int PartialTurn(int original, int desired, float PctTurn)
 		if ( desired > original )
 		{
 			original += 65536;
-			MechPartActor_Leg.playanimationtest();
+			//MechPartActor_Leg.playanimationtest();
 			`log('TURN DIR MODE');
 		}
 		else
 		{
 			desired += 65536;
-			MechPartActor_Leg.playanimationtest();
+			//MechPartActor_Leg.playanimationtest();
 			`log('TURN DIR MODE');
 		}
 	}
@@ -149,6 +292,21 @@ simulated function int PartialTurn(int original, int desired, float PctTurn)
 	return (int(result) & 65535);
 }
 */
+
+
+/*
+event OnAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
+{
+	super.OnAnimEnd(SeqNode,PlayedTime,ExcessTime);
+	if(bDriving)
+	{
+		VehicleEvent('Idle');
+	}
+}
+
+
+*/
+
 
 simulated function bool OverrideBeginFire(byte FireModeNum)
 {

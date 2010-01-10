@@ -62,7 +62,7 @@ defaultproperties
 
 	Begin Object Name=SVehicleMesh
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_body'
-		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
+		//AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype02_animtree'
 		PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechprotype_body_Physics'
 	End Object
 
