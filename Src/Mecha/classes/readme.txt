@@ -1,9 +1,11 @@
 //===============================================
 Created By: Darknet
 
+
 Information: The coding will be format differently
-to deal with Mecha code format or some format for
-unreal. The Controls and Weapon system are not yet
+to deal with Mecha code. It will depend on the format.
+
+The Controls and Weapon system are not yet
 build. The weapon system will be build little
 differently from unreal. This deal with weapon fire
 functions when the weapon over heat or used too much
@@ -21,6 +23,20 @@ Features:
 MechaPart = prefix for changing parts for the mech.
 VehicleMecha = is a vehicle and placeable class.
 Content = prefix those are prefab build for the mecha.
+
+MechaPartArm:
+This deal with Skeleton Control for animtree that
+will work with UTvehicle turret controls that will
+be link to the aim code.
+
+MechaPartWeapon:
+This will deal with weapon fire code and spawning the 
+projectiles. Also the animations.
+
+Animation Set:
+I will be creating a different animation method 
+while testing the mecha build. This deal with the
+delay and the timing of the code. 
 
 Note: Some of the packages will be class name.
 Example class'MechaPart' not class'Mecha.MechaPart'.

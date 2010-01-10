@@ -1,5 +1,9 @@
 /**
-This code handle the skeleton control for animtree by using the class to over ride or replace it.
+ * Created by: Darknet
+ * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
+ * license:  -> Check readme.txt
+
+   Information: This code handle the skeleton control for animtree by using UTVehicle functions.
 */
 
 class MechaPartArm extends MechaPart;
