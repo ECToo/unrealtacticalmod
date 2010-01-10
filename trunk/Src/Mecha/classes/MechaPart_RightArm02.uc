@@ -5,7 +5,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_RightArm02 extends MechaPart;
+class MechaPart_RightArm02 extends MechaPartArm;
 
 
 function playanimationtest(){
@@ -17,7 +17,7 @@ defaultproperties
 {
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechrighthand02'
-		//AnimTreeTemplate=AnimTree''
+		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechrighthand02_animtree'
 	End Object
 
 	//Mesh=MeshFrame

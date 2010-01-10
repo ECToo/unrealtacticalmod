@@ -5,7 +5,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_RightArm extends MechaPart;
+class MechaPart_RightArm extends MechaPartArm;
 
 
 function playanimationtest(){
