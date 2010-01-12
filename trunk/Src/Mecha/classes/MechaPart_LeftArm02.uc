@@ -7,14 +7,10 @@
 
 class MechaPart_LeftArm02 extends MechaPartArm;
 
-
-
-
 defaultproperties
 {
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechlefthand02'
-		//AnimTreeTemplate=AnimTree''
+		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechlefthand02_animtree'
 	End Object
-
 }

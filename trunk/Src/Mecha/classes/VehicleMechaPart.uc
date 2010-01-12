@@ -3,10 +3,12 @@
  * Created by: Darknet
  * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
  * license:  -> Check readme.txt
- Information: This deal with parts build. Meaning each part is changable.
+   Information: This deal with parts build. Meaning each part is changable.
+   
+   Note: The code are copy and paste so it is mess up for testing purpose.
  
  */
- 
+
  /*
  *
  * Build Type: Two leg
@@ -121,70 +123,54 @@ simulated function PostBeginPlay()
                 }
 
 	}
+	
+	InitArmTurret();
 }
 
+function InitArmTurret(){
+      if(MechPartActor_RightArm != none){
+        // Initialize turrets to vehicle rotation.
+          MechPartActor_RightArm.ArmBoneControl.InitTurret(Rotation, Mesh);
+      }
+      
+      if(MechPartActor_LeftArm != none){
+        // Initialize turrets to vehicle rotation.
+          MechPartActor_LeftArm.ArmBoneControl.InitTurret(Rotation, Mesh);
+      }
+}
 
+/**
+ * This event is triggered when a repnotify variable is received
+ *
+ * @param	VarName		The name of the variable replicated
+ */
+// kismet ?
+simulated event ReplicatedEvent(name VarName)
+{
+        super.ReplicatedEvent(VarName);
+}
+
+//note this update or loop to run this
 simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRotation, out rotator out_DeltaRot)
 {
-	local int i, MaxDelta;
-	local float MaxDeltaDegrees;
-        //`log("====================================================================================");
+        Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
         if(MechPartActor_RightArm.ArmBoneControl !=none){
-          MechPartActor_RightArm.ArmBoneControl.BoneRotation =  GetClampedViewRotation();
+           //MaxDeltaDegrees = FMax(MaxDeltaDegrees, MechPartActor_RightArm.ArmBoneControl.LagDegreesPerSecond);
+          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Pitch = GetClampedViewRotation().Pitch + Rotation.Pitch;
+          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = GetClampedViewRotation().Yaw;
+          //`log("pitch " $ GetClampedViewRotation().Pitch);//all plus rotation
+          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = Rotation.Yaw + 8000;
+
+          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
+          //this set the rotation
+          MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
         }
-
-	if (WorldInfo.bUseConsoleInput)
-	{
-		if (!bSeparateTurretFocus && ShouldClamp())
-		{
-		    `log("bIsConsoleTurning");
-			if (out_DeltaRot.Yaw == 0)
-			{
-				if (bIsConsoleTurning)
-				{
-					// if controller stops rotating on a vehicle whose view rotation yaw gets clamped,
-					// set the controller's yaw to where we got so that there's no control lag
-					out_ViewRotation.Yaw = GetClampedViewRotation().Yaw;
-					bIsConsoleTurning = false;
-					ServerSetConsoleTurning(false);
-					`log("bIsConsoleTurning");
-				}
-			}
-
-			else if (!bIsConsoleTurning)
-			{
-				// don't allow starting a new turn if the view would already be clamped
-				// because that causes nasty jerking
-				if (GetClampedViewRotation().Yaw == Controller.Rotation.Yaw)
-				{
-					bIsConsoleTurning = true;
-					ServerSetConsoleTurning(true);
-					`log("bIsConsoleTurning new turn");
-				}
-				else
-				{
-					// @fixme:  this should be setting to max turn rate so we actually do something when outside of the cone
-					out_DeltaRot.Yaw = 0;
-				}
-			}
-
-			// clamp player rotation to turret rotation speed
-			for (i = 0; i < Seats[0].TurretControllers.length; i++)
-			{
-				MaxDeltaDegrees = FMax(MaxDeltaDegrees, Seats[0].TurretControllers[i].LagDegreesPerSecond);
-				`log("Turret controls");
-			}
-
-			if (MaxDeltaDegrees > 0.0)
-			{
-				MaxDelta = int(MaxDeltaDegrees * 182.0444 * DeltaTime);
-				out_DeltaRot.Pitch = (out_DeltaRot.Pitch >= 0) ? Min(out_DeltaRot.Pitch, MaxDelta) : Max(out_DeltaRot.Pitch, -MaxDelta);
-				out_DeltaRot.Yaw = (out_DeltaRot.Yaw >= 0) ? Min(out_DeltaRot.Yaw, MaxDelta) : Max(out_DeltaRot.Yaw, -MaxDelta);
-				out_DeltaRot.Roll = (out_DeltaRot.Roll >= 0) ? Min(out_DeltaRot.Roll, MaxDelta) : Max(out_DeltaRot.Roll, -MaxDelta);
-			}
-		}
-	}
-	Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
+        
+        if(MechPartActor_LeftArm.ArmBoneControl !=none){
+          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
+          //this set the rotation
+          MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+        }
 }
 
 
@@ -218,95 +204,35 @@ simulated function WeaponRotationChanged(int SeatIndex)
 	}
 }
 
-
-simulated function InitializeTurrets()
+/** checks if the given pitch would be limited by the turret controllers, i.e. we cannot possibly fire in that direction
+ * @return whether the pitch would be constrained
+ */
+function bool CheckTurretPitchLimit(int NeededPitch, int SeatIndex)
 {
-	local int Seat, i;
-	local UTSkelControl_TurretConstrained Turret;
-	local vector PivotLoc, MuzzleLoc;
+	local int i;
 
-	if (Mesh == None)
+	if (SeatIndex >= 0)
 	{
-		`warn("No Mesh for" @ self);
-	}
-	else
-	{
-		for (Seat = 0; Seat < Seats.Length; Seat++)
+		if (Seats[SeatIndex].TurretControllers.length > 0)
 		{
-			for (i = 0; i < Seats[Seat].TurretControls.Length; i++)
+			for (i = 0; i < Seats[SeatIndex].TurretControllers.Length; i++ )
 			{
-				Turret = UTSkelControl_TurretConstrained( Mesh.FindSkelControl(Seats[Seat].TurretControls[i]) );
-				if ( Turret != none )
+				if (!Seats[SeatIndex].TurretControllers[i].WouldConstrainPitch(NeededPitch, Mesh))
 				{
-					Turret.AssociatedSeatIndex = Seat;
-					Seats[Seat].TurretControllers[i] = Turret;
-
-					// Initialize turrets to vehicle rotation.
-					Turret.InitTurret(Rotation, Mesh);
-					`log("init turret set");
-				}
-				else
-				{
-					`warn("Failed to find skeletal controller named" @ Seats[Seat].TurretControls[i] @ "(Seat "$Seat$") for" @ self @ "in AnimTree" @ Mesh.AnimTreeTemplate);
+					return false;
 				}
 			}
 
-			if(Role == ROLE_Authority)
-			{
-				SeatWeaponRotation(Seat, Rotation, FALSE);
-			}
-
-			// Calculate Z distance between weapon pivot and muzzle
-			PivotLoc = GetSeatPivotPoint(Seat);
-			GetBarrelLocationAndRotation(Seat, MuzzleLoc);
-
-			Seats[Seat].PivotFireOffsetZ = MuzzleLoc.Z - PivotLoc.Z;
+			return true;
 		}
-	}
-}
-
-/*
-simulated function int PartialTurn(int original, int desired, float PctTurn)
-{
-	local float result;
-        super.PartialTurn(original,desired,PctTurn);
-	original = original & 65535;
-	desired = desired & 65535;
-
-	if ( abs(original - desired) > 32768 )
-	{
-		if ( desired > original )
+		else if (Seats[SeatIndex].Gun != None)
 		{
-			original += 65536;
-			//MechPartActor_Leg.playanimationtest();
-			`log('TURN DIR MODE');
-		}
-		else
-		{
-			desired += 65536;
-			//MechPartActor_Leg.playanimationtest();
-			`log('TURN DIR MODE');
+			return (Cos(Abs(NeededPitch - (Rotation.Pitch & 65535)) / 182.0444) > Seats[SeatIndex].Gun.GetMaxFinalAimAdjustment());
 		}
 	}
-	result = original*(1-PctTurn) + desired*PctTurn;
-	return (int(result) & 65535);
+
+	return false;
 }
-*/
-
-
-/*
-event OnAnimEnd(AnimNodeSequence SeqNode, float PlayedTime, float ExcessTime)
-{
-	super.OnAnimEnd(SeqNode,PlayedTime,ExcessTime);
-	if(bDriving)
-	{
-		VehicleEvent('Idle');
-	}
-}
-
-
-*/
-
 
 simulated function bool OverrideBeginFire(byte FireModeNum)
 {
@@ -403,12 +329,14 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	Canvas.SetPos(25,280+24);//x,y screen
            Canvas.DrawText("Weapon Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
 	}
+	//set postion and draw text
 	//Canvas.SetPos(25,280+24);//x,y screen
 	//Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
-
 }
 
-
+//===============================================
+// INPUTS
+//===============================================
 //need to fixed looping since this has tick or loop
 simulated function SetInputs(float InForward, float InStrafe, float InUp)
 {
@@ -432,153 +360,23 @@ simulated function SetInputs(float InForward, float InStrafe, float InUp)
       //`log("SteerRot " @ bUsingLookSteer);
 }
 
-exec simulated function Duck()
-{
- `log('duck');
-}
-
-
-
+//===============================================
+// CONTROL JUMP > Spacebar
+//===============================================
 function bool DoJump(bool bUpdating){
    super.DoJump(bUpdating);
    `log('jump');
    return true;
 }
 
+//===============================================
+// CONTROL JUMP > Spacebar
+//===============================================
 simulated function SetFiringMode(Weapon Weap, byte FiringModeNum)
 {
         `log('SetFiringMode');
 	SeatFiringMode(0, FiringModeNum, false);
 }
-
-/*
- // Console specific input modification
-
-simulated function SetInputs(float InForward, float InStrafe, float InUp)
-{
-	local bool bReverseThrottle;
-	local UTConsolePlayerController ConsolePC;
-	local rotator SteerRot, VehicleRot;
-	local vector SteerDir, VehicleDir, AngVel;
-	local float VehicleHeading, SteerHeading, DeltaTargetHeading, Deflection;
-
-	Throttle = InForward;
-	Steering = InStrafe;
-	Rise = InUp;
-
-	ConsolePC = UTConsolePlayerController(Controller);
-	if (ConsolePC != None)
-	{
-		Steering = FClamp(Steering * ConsoleSteerScale, -1.0, 1.0);
-
-		UpdateLookSteerStatus();
-
-		// tank, wheeled / heavy vehicles will use this
-
-		// If we desire 'look steering' on this vehicle, do it here.
-		if (bUsingLookSteer && IsHumanControlled())
-		{
-			// If there is a deflection, look at the angle that its point in.
-			Deflection = Sqrt(Throttle*Throttle + Steering*Steering);
-
-			if(bStickDeflectionThrottle)
-			{
-				// The region we consider 'reverse' is anything below DeflectionReverseThresh, or anything withing the triangle below the center position.
-				bReverseThrottle = ((Throttle < DeflectionReverseThresh) || (Throttle < 0.0 && Abs(Steering) < -Throttle));
-				Throttle = Deflection;
-
-				if (bReverseThrottle)
-				{
-					Throttle *= -1;
-				}
-			}
-
-			VehicleRot.Yaw = Rotation.Yaw;
-			VehicleDir = vector(VehicleRot);
-
-			SteerRot.Yaw = DriverViewYaw;
-			SteerDir = vector(SteerRot);
-
-			VehicleHeading = GetHeadingAngle(VehicleDir);
-			SteerHeading = GetHeadingAngle(SteerDir);
-			DeltaTargetHeading = FindDeltaAngle(SteerHeading, VehicleHeading);
-
-			if (DeltaTargetHeading > LookSteerDeadZone)
-			{
-				Steering = FMin((DeltaTargetHeading - LookSteerDeadZone) * LookSteerSensitivity, 1.0);
-			}
-			else if (DeltaTargetHeading < -LookSteerDeadZone)
-			{
-				Steering = FMax((DeltaTargetHeading + LookSteerDeadZone) * LookSteerSensitivity, -1.0);
-			}
-			else
-			{
-				Steering = 0.0;
-			}
-
-			AngVel = Mesh.BodyInstance.GetUnrealWorldAngularVelocity();
-
-			Steering = FClamp(Steering + (AngVel.Z * LookSteerDamping), -1.0, 1.0);
-
-			// Reverse steering when reversing
-			if (Throttle < 0.0 && ForwardVel < 0.0)
-			{
-				Steering = -1.0 * Steering;
-			}
-		}
-		// flying hovering vehicles will use this
-		else
-		{
-			//`log( " flying hovering vehicle" );
-			if (bStickDeflectionThrottle)
-			{
-				// The region we consider 'reverse' is anything below DeflectionReverseThresh, or anything withing the triangle below the center position.
-				bReverseThrottle = ((Throttle < DeflectionReverseThresh) || (Throttle < 0.0 && Abs(Steering) < -Throttle));
-
-				Deflection = Sqrt(Throttle*Throttle + Steering*Steering);
-				Throttle = Deflection;
-
-				if (bReverseThrottle)
-				{
-					Throttle *= -1;
-				}
-			}
-		}
-
-		//`log( "Throttle: " $ Throttle $ " Steering: " $ Steering );
-	}
-}
-
-*/
-
-/*
-simulated function SpawnImpactEmitter(vector HitLocation, vector HitNormal, const out MaterialImpactEffect ImpactEffect, int SeatIndex)
-{
-	Super.SpawnImpactEmitter(HitLocation, HitNormal, ImpactEffect, SeatIndex);
-
-	if ( SeatIndex == 0 )
-	{
-		if (BeamLight == None || BeamLight.bDeleteMe)
-		{
-			BeamLight = Spawn(class'UTDarkWalkerBeamLight');
-			BeamLight.AmbientSound.Play();
-		}
-		BeamLight.SetLocation(HitLocation + HitNormal*128);
-	}
-}
-
-// Overloaded so we can attach the muzzle flash light to a custom socket /
-simulated function CauseMuzzleFlashLight(int SeatIndex)
-{
-	Super.CauseMuzzleFlashLight(SeatIndex);
-
-	if ( (SeatIndex == 0) && Seats[SeatIndex].MuzzleFlashLight != none )
-	{
-		Mesh.DetachComponent(Seats[SeatIndex].MuzzleFlashLight);
-		Mesh.AttachComponentToSocket(Seats[SeatIndex].MuzzleFlashLight, 'PrimaryMuzzleFlash');
-	}
-}
-*/
 
 simulated event Destroyed()
 {

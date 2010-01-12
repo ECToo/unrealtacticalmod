@@ -7,12 +7,6 @@
 
 class MechaPart_RightArm02 extends MechaPartArm;
 
-
-function playanimationtest(){
-         super.playanimationtest();
-}
-
-
 defaultproperties
 {
       Begin Object Name=MeshFrame

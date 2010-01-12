@@ -4,7 +4,6 @@
  * license:  -> Check readme.txt
  */
 
-
 class VehicleMecha extends UTVehicle
         //dependson(MyPlayerController)
 	//config(Mecha)
