@@ -11,16 +11,9 @@
 
 class VehicleMechaPart_DroneWalker_Content extends VehicleMechaPart;
 
-var SkeletalMeshComponent MeshMechTMP;
-
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
-}
-
-simulated event Destroyed()
-{
-	Super.Destroyed();
 }
 
 defaultproperties
@@ -28,7 +21,7 @@ defaultproperties
 
          //VehiclePositionString="in an Mech Walker"
          //VehicleNameString="Mech Walker"
-         
+
          Begin Object Name=CollisionCylinder
 		CollisionHeight=100.0
 		CollisionRadius=140.0

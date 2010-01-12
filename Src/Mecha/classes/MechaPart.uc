@@ -18,6 +18,16 @@ This will be base on the type leg system that will be build some how.
 Transform:
 This deal with mech transform or change mech stance. While in animaton or type mode.
 
+TO DO LIST:
+-Animations
+-Weapons
+-State idle
+-Skeleton mesh
+-Morph Damage
+-Animtree
+-Socket Build
+-Part stats
+
 */
 
 class MechaPart extends Actor

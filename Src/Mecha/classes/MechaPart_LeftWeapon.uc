@@ -9,7 +9,6 @@ class MechaPart_LeftWeapon extends MechaPartWeapon;
 
 defaultproperties
 {
-
         //WeaponProjectiles=class'UTProj_StingerShard'
         WeaponProjectiles=class'UTProj_LinkPlasma'
         SocketName=FlashPointSocket01

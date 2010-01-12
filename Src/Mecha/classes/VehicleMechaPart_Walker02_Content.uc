@@ -11,8 +11,6 @@
 
 class VehicleMechaPart_Walker02_Content extends VehicleMechaPart;
 
-var SkeletalMeshComponent MeshMechTMP;
-
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();

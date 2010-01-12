@@ -7,9 +7,6 @@
 
 class MechaPartHead extends MechaPart;
 
-
-
-
 defaultproperties
 {
 	Begin Object Name=MeshFrame

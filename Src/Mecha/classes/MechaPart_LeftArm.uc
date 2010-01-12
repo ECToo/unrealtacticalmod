@@ -7,9 +7,6 @@
 
 class MechaPart_LeftArm extends MechaPartArm;
 
-
-
-
 defaultproperties
 {
 	Begin Object Name=MeshFrame

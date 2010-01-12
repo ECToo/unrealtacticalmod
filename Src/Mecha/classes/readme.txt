@@ -1,5 +1,11 @@
 //===============================================
-Created By: Darknet
+// Created By: Darknet
+//===============================================
+
+
+//===============================================
+//
+//===============================================
 
 
 Information: The coding will be format differently
@@ -11,6 +17,10 @@ differently from unreal. This deal with weapon fire
 functions when the weapon over heat or used too much
 power. That will create a cool down until it is use
 again.
+
+//===============================================
+//
+//===============================================
 
 Features:
  * Custom Mecha Parts
@@ -37,6 +47,10 @@ Animation Set:
 I will be creating a different animation method 
 while testing the mecha build. This deal with the
 delay and the timing of the code. 
+
+//===============================================
+//
+//===============================================
 
 Note: Some of the packages will be class name.
 Example class'MechaPart' not class'Mecha.MechaPart'.
