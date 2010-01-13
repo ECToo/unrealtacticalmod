@@ -3,13 +3,13 @@
 * Work In Progress *
 
 = Information: =
-   This simple explain about how the animation work for class actor. It will required SkeletalMesh, AnimSets, and AnimTree.
+   This simple explain about how the animation work for class actor. It will required SkeletalMesh, AnimSets, AnimTree and one unreal script file.
 
 
 =Unreal Script:=
-   There are two method of using the animation codes. You can use the SkeletalMeshComponent or AnimNodeSequence. Those method works. Note if using the animation are not working, make sure it working.
-
-  There are different of building your animation code. But learning the basic is the key on improve the code or using the the same code from unreal script prebuild codes. This is for noob to understand how works. But you need to learn how to model and animation them. That is the simple part of import and test out how it works.
+   There are different method on build your unreal script to make your animation work in unreal. Depend on how you want to script your code. For simple build it will work fine. If you building more then simple animation build. You have to use AnimNodeSequence class and other class function to make a working animations. This part will be hard to handle for noob. 
+  You can use the basic build from unreal script from UTVehicle class animation functions. For example when the vehicle need to deploy to be stationary they can't move. Until the animation is finish.
+  But you need to learn how to model and animation them. If you know how to make animation and model. Then it will go easy. That is the simple part of import and test out how it works.
 
 = FAQS: =
  Q)  I create my own class base from Actor class and the animation not working. How Come?
