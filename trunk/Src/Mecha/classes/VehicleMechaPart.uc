@@ -43,27 +43,27 @@ var class <MechaPart> MechPart_Head;
 var MechaPart MechPartActor_Head;
 //Back
 var() protected const Name BodyAttachBackSocketName;
-var class <MechaPart> MechPart_Back;
+var() class <MechaPart> MechPart_Back;
 var MechaPart MechPartActor_Back;
 //Leg
 var() protected const Name BodyAttachLegSocketName;
-var class <MechaPart> MechPart_Leg;
+var() class <MechaPart> MechPart_Leg;
 var MechaPart MechPartActor_Leg;
 //Right Arm
 var() protected const Name BodyAttachRightArmSocketName;
-var class <MechaPartArm> MechPart_RightArm;
+var() class <MechaPartArm> MechPart_RightArm;
 var MechaPartArm MechPartActor_RightArm;
 //right weapon
 var() protected const Name BodyAttachRightHandSocketName;
-var class <MechaPart> MechPart_RightHand;
+var() class <MechaPart> MechPart_RightHand;
 var MechaPart MechPartActor_RightHand;
 //Left Arm
 var() protected const Name BodyAttachLeftArmSocketName;
-var class <MechaPartArm> MechPart_LeftArm;
+var() class <MechaPartArm> MechPart_LeftArm;
 var MechaPartArm MechPartActor_LeftArm;
 //left weapon
 var() protected const Name BodyAttachLeftHandSocketName;
-var class <MechaPart> MechPart_LeftHand;
+var() class <MechaPart> MechPart_LeftHand;
 var MechaPart MechPartActor_LeftHand;
 
 simulated function PostBeginPlay()
@@ -164,6 +164,10 @@ simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRota
           // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
           //this set the rotation
           MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+          
+          //NeededPitch = rotator(Other.GetTargetLocation(self) - Weapon.GetPhysicalFireStartLoc()).Pitch & 65535;
+          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch = rotator(Weapon.GetPhysicalFireStartLoc()).Pitch;
+
         }
         
         if(MechPartActor_LeftArm.ArmBoneControl !=none){

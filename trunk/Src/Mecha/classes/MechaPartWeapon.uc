@@ -3,10 +3,12 @@
  * Link src:http://unrealtacticalmod.googlecode.com/svn/trunk/Src/MechProtypeWalker/classes/
  * license:  -> Check readme.txt
  */
- 
+
  /*
  * Information: This code will deal with custom build fire and drop able and pickup weapon.
  * THis will deal with override fire a bit to deal with indepent part that can fire.
+ TO DO LIST:
+ check if fire control or animation control for firing
  */
 
 class MechaPartWeapon extends MechaPart;
@@ -18,12 +20,13 @@ var vector SocketLocation;
 var rotator SocketRotation;
 var bool bWeaponFire;
 var bool BAltWeaponFire;
-var int firerate;
+var float FireRate;
 var int fireinterval;
 var vector weapondirection;
 
 var vector FireOffset;
 var vector ProjectileSpawnOffset;
+var bool bWeaponPress;
 
 simulated function PostBeginPlay()
 {
@@ -32,75 +35,79 @@ simulated function PostBeginPlay()
 
 simulated function Tick(float DeltaTime)
 {
-          super.Tick(DeltaTime);
-          fireweaponprojtile();
-}
-
-function weaponfire()
-{
-	super.weaponfire();
-	//`log('Right Weapon Fire');
-	if(bWeaponDisable){
-	  fireweaponprojtile();
+	super.Tick(DeltaTime);
+	if(bWeaponPress){
+		InitFireWeapon();
 	}
 }
 
 function ToggleDisableWeapon(){
-         local bool OldWeaponDisable;
-         
-         OldWeaponDisable = bWeaponDisable;
-         
-         if(OldWeaponDisable == true){
-         bWeaponDisable = false;
-         }else if(OldWeaponDisable == false){
-           bWeaponDisable= true;
-         }
-         `log('bWeaponDisable' @ bWeaponDisable);
+	local bool OldWeaponDisable;
+	OldWeaponDisable = bWeaponDisable;
+	if(OldWeaponDisable == true){
+		bWeaponDisable = false;
+	}else if(OldWeaponDisable == false){
+		bWeaponDisable= true;
+	}
+	`log('bWeaponDisable' @ bWeaponDisable);
 }
 
-simulated function fireweaponprojtile(){
+simulated function FireWeaponProjectile(){
 	//Spawn(class'UTProj_LinkPlasma', Self, , Location + Vect(8, 2, 0), Rotation, ,);//working code but not set movement
 
 	local UTProjectile SpawnedProjectile;
 	//local vector RealStartLoc;
 
 	if ((bWeaponFire == true)&&(bWeaponDisable == false)){
-           fireinterval++;
-              if (fireinterval > firerate){
-                 fireinterval = 0;
-	              if (WeaponProjectiles != None){
-		         //SpawnedProjectile = Spawn(WeaponProjectiles,,,MechVehicle.Location,MechVehicle.Rotation);
-		         MechVehicle.Mesh.ForceSkelUpdate();
-		         Mesh.ForceSkelUpdate();
-		         GetBarrelLocationAndRotation(SocketName,SocketLocation,SocketRotation);
-		         //SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,MechVehicle.Location,MechVehicle.Rotation);
-		         SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,SocketLocation);
-
-		         // this is the location where the projectile is spawned.
-		         //RealStartLoc = GetPhysicalFireStartLoc();
-		         //SpawnedProjectile = Spawn(WeaponProjectiles,,, RealStartLoc);
-		         if (SpawnedProjectile != none)
-		            {
-
-			    //SpawnedProjectile.Init(Vector(MechVehicle.Rotation));//this works a bit
-
-			    SpawnedProjectile.Init(Vector(SocketRotation));
-		           }
-                        }
-             }
+		if (WeaponProjectiles != None){
+			MechVehicle.Mesh.ForceSkelUpdate();
+			Mesh.ForceSkelUpdate();
+			GetBarrelLocationAndRotation(SocketName,SocketLocation,SocketRotation);
+			SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,SocketLocation);
+			// this is the location where the projectile is spawned.
+			//RealStartLoc = GetPhysicalFireStartLoc();
+			//SpawnedProjectile = Spawn(WeaponProjectiles,,, RealStartLoc);
+			if (SpawnedProjectile != none){
+				SpawnedProjectile.Init(Vector(SocketRotation));
+			}
+		}
 	}
 }
 
-function BeginFire(){
-   super.BeginFire();
-   bWeaponFire = True;
+//===============================================
+//
+//===============================================
+
+//this is for the timer for animation control finish
+function FireTime(){
+ bWeaponFire = false;
+ //`log("Fire Trigger Time");
 }
 
-function EndFire(){
-   super.EndFire();
-   bWeaponFire = False;
-   fireinterval = firerate;
+function InitFireWeapon(){
+	if(bWeaponFire == false){
+		//animation play goes here just need to build one to get it working
+
+		bWeaponFire=true;//this make sure the fire doesn't loop when firing time
+		FireWeaponProjectile();
+		SetTimer(FireRate, false, 'FireTime');
+		//`log('FireRate ' $ FireRate);
+	}
 }
+
+function BeginFire(){//key press function not a loop trigger
+   super.BeginFire();
+   bWeaponPress=true;
+}
+
+function EndFire(){ //key release function not a loop trigger
+   super.EndFire();
+   bWeaponPress=false;
+}
+
+//===============================================
+//
+//===============================================
 
 simulated event GetBarrelLocationAndRotation(Name TagSocketName, out vector TagSocketLocation, optional out rotator TagSocketRotation)
 {
@@ -118,25 +125,6 @@ simulated event GetBarrelLocationAndRotation(Name TagSocketName, out vector TagS
 	    //}
 	}
 }
-
-/**
- * GetAdjustedAim begins a chain of function class that allows the weapon, the pawn and the controller to make
- * on the fly adjustments to where this weapon is pointing.
- */
-/*
-simulated function Rotator GetAdjustedAim( vector StartFireLoc )
-{
-	local rotator R;
-
-	// Start the chain, see Pawn.GetAdjustedAimFor()
-	if( Instigator != None )
-	{
-		R = Instigator.GetAdjustedAimFor( Self, StartFireLoc );
-	}
-
-	return AddSpread(R);
-}
-*/
 
 simulated function vector GetPhysicalFireStartLoc(optional vector AimDir)
 {
@@ -210,5 +198,8 @@ defaultproperties
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
     weapondirection=(x=1,y=0,z=0)
+    bWeaponPress=false
+    bWeaponFire=false
+    FireRate=1.0
 
 }
