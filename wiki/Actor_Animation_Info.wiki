@@ -25,3 +25,6 @@ simulated function PostBeginPlay()
 	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );//AnimTree
 }
 }}}
+
+= Tips: =
+ * Be sure you name the AnimNodeSequence class correctly and not to over lap them. From your animtree package.
