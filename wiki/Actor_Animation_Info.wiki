@@ -1,0 +1,6 @@
+#summary Information about the animation.
+
+* Work In Progress *
+
+= Information: =
+   This simple explain about how the animation work for class actor. It will required SkeletalMesh, AnimSets, and AnimTree.
