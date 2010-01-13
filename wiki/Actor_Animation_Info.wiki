@@ -12,8 +12,8 @@
 
 
 = FAQS: =
- * Q:  I create my own class base from Actor class and the animation not working. How Come? *
-  A:  You got to setup a link on your animtree and unreal script.
+ * Q)  I create my own class base from Actor class and the animation not working. How Come? *
+  A)  You got to setup a link on your animtree and unreal script.
 
 {{{
 var AnimNodeSequence	AnimPlay;
