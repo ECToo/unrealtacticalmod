@@ -13,21 +13,6 @@
 
 class MechaPart_Leg extends MechaPart;
 
-/*
-simulated function PostInitAnimTree(SkeletalMeshComponent SkelComp)
-{
-	Super.PostInitAnimTree(SkelComp);
-
-	if(SkelComp == Mesh)
-	{
-		RightLegAdjustControl = SkelControlSingleBone( mesh.FindSkelControl('RightLegAdjust') );
-		LeftLegAdjustControl = SkelControlSingleBone( mesh.FindSkelControl('LeftLegAdjust') );
-		RightFootControl = SkelControlSingleBone( mesh.FindSkelControl('RightFoot') );
-		LeftFootControl = SkelControlSingleBone( mesh.FindSkelControl('LeftFoot') );
-	}
-}
-*/
-
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
