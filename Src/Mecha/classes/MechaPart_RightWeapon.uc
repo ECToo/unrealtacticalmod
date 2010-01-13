@@ -10,7 +10,7 @@ defaultproperties
 {
         WeaponProjectiles=class'UTProj_LinkPlasma'
         SocketName=FlashPointSocket01
-        firerate=10
+        firerate=0.2
 
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
