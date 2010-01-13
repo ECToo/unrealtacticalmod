@@ -28,6 +28,8 @@ TO DO LIST:
 -Socket Build
 -Part stats
 
+Need to setup animation nodes and other animation code to make the mecha parts work.
+
 */
 
 class MechaPart extends Actor

@@ -87,7 +87,13 @@ function FireTime(){
 function InitFireWeapon(){
 	if(bWeaponFire == false){
 		//animation play goes here just need to build one to get it working
-
+                Mesh.PlayAnim('fire', 1, false, false);
+                //PlayAnim (name AnimName, optional float Duration, optional bool bLoop, optional bool bRestartIfAlreadyPlaying)
+                if(AnimPlay != None){
+                //AnimPlay.SetAnim('fire');
+                //  AnimPlay.PlayAnim(false,1, 0);
+                `log("PLay ANIMATION");
+                }
 		bWeaponFire=true;//this make sure the fire doesn't loop when firing time
 		FireWeaponProjectile();
 		SetTimer(FireRate, false, 'FireTime');
