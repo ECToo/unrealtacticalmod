@@ -39,7 +39,7 @@ The Result will give Animation Node None error.
 
 To link the Animation to the Skeletal Mesh. We need to setup the AnimTree. It quite simple to do. That we just need to name the node to make our animation working. Then we code it into our script to look for our animation node to set it.
 
-[----]
+[http://unrealtacticalmod.googlecode.com/svn/trunk/image/SkeletalMesh_AnimaitonA_01.jpg]
 {{{
 AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
 }}}
