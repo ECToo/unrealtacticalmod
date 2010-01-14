@@ -28,13 +28,17 @@ AnimPlayControl.PlayAnim(false,0.01,0);//loop play, animation speed, start anima
 }}}
 It will trigger the animation once play. If you loop it in tick it will start at frame 0. Making look still or starting from begin few second.
 
-To make sure it not working while playing the animation again from tick function or other events that may happen.
+To make sure it not loop while playing the animation again from tick function or other events that may happen.
 
 {{{
+...
+simulated event Tick( float DeltaTime )
+...
 if(AnimPlayControl.bPlaying == false){//if animation not playing, play the animation
    AnimPlayControl.SetAnim(AnimSetName);
    AnimPlayControl.PlayAnim(false,0.01,0);//loop play, animation speed, start animation frame
 }
+...
 }}}
 This is with in the tick function. Making sure it finish the animation that is currently in play then loop when it finish the last of the animation.
 
@@ -86,3 +90,4 @@ defaultproperties
 }
 }}}
 
+Note this from my work and testing out the animation nodes. There are many other example out in the site that give a simple example.
