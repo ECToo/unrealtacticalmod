@@ -92,7 +92,6 @@ defaultproperties
 }
 }}}
 
-Tips:
-
+Tips: The image shown there those were added just one kismet and AnimNode name to find in unreal script.
 
 Note: This from my work and testing out the animation nodes. There are many other example out in the site that give a simple example.
