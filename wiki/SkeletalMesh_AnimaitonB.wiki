@@ -19,3 +19,70 @@ simulated function PostBeginPlay()
 	AnimPlayControl = AnimNodeSequence(Mesh.Animations.FindAnimNode('AnimPlayer'));//AnimTree
 }
 }}}
+Once part of the set up is finish you can use the AnimNodeSequence to run your animation instead of Skeletal Mesh class. This will initial the animation set with the skeleton mesh.
+
+Here code line example of how to play your animation. Example:
+{{{
+AnimPlayControl.SetAnim('fire');//name of your animatino
+AnimPlayControl.PlayAnim(false,0.01,0);//loop play, animation speed, start animation frame
+}}}
+It will trigger the animation once play. If you loop it in tick it will start at frame 0. Making look still or starting from begin few second.
+
+To make sure it not working while playing the animation again from tick function or other events that may happen.
+
+{{{
+if(AnimPlayControl.bPlaying == false){//if animation not playing, play the animation
+   AnimPlayControl.SetAnim(AnimSetName);
+   AnimPlayControl.PlayAnim(false,0.01,0);//loop play, animation speed, start animation frame
+}
+}}}
+This is with in the tick function. Making sure it finish the animation that is currently in play then loop when it finish the last of the animation.
+
+
+{{{
+class SkeletonFrame_AnimationB extends Actor
+	placeable;
+
+var SkeletalMeshComponent mesh;
+var bool bplayed;
+var Name AnimSetName;
+
+/** Helper to allow quick access to playing deploy animations */
+var AnimNodeSequence	AnimPlayControl;
+
+simulated function PostBeginPlay()
+{
+	Super.PostBeginPlay();
+	AnimPlayControl = AnimNodeSequence(Mesh.Animations.FindAnimNode('AnimPlayer'));//AnimTree
+}
+
+simulated event Tick( float DeltaTime )
+{
+    super.Tick(DeltaTime);
+
+    if(AnimPlayControl != none){
+		//`log("ANIM RATE " $ AnimPlayControl.Rate);
+		//`log("ANIM GetAnimPlaybackLength " $ AnimPlayControl.GetAnimPlaybackLength());
+		if(AnimPlayControl.bPlaying == false){
+			AnimPlayControl.SetAnim(AnimSetName);
+			AnimPlayControl.PlayAnim(false,0.01,0);//loop play, animation speed, start animation frame
+		}
+		`log("time left " $ AnimPlayControl.GetTimeLeft());
+    }
+}
+
+defaultproperties
+{
+	AnimSetName=fire
+	Begin Object class=SkeletalMeshComponent Name=MeshFrame
+		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mecharm_minigun'
+		AnimSets.Add(AnimSet'VHUTM_MechProtypeWalker.mecharm_minigun_animset')
+		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mecharm_minigun_animtree'
+	End Object
+
+	CollisionComponent=MeshFrame
+	mesh=MeshFrame
+	Components.Add(MeshFrame)
+}
+}}}
+
