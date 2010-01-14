@@ -42,7 +42,9 @@ if(AnimPlayControl.bPlaying == false){//if animation not playing, play the anima
 }}}
 This is with in the tick function. Making sure it finish the animation that is currently in play then loop when it finish the last of the animation.
 
+Here the full code.
 
+SkeletonFrame-AnimationB.uc
 {{{
 class SkeletonFrame_AnimationB extends Actor
 	placeable;
@@ -90,4 +92,7 @@ defaultproperties
 }
 }}}
 
-Note this from my work and testing out the animation nodes. There are many other example out in the site that give a simple example.
+Tips:
+
+
+Note: This from my work and testing out the animation nodes. There are many other example out in the site that give a simple example.
