@@ -6,6 +6,8 @@
    Information: This deal with parts build. Meaning each part is changable.
    
    Note: The code are copy and paste so it is mess up for testing purpose.
+   
+   Get the vehicle to crouch or sit function into to make the hover ground  close to the floor.
  
  */
 
@@ -35,8 +37,8 @@ var SkeletalMeshComponent AntennaMesh2;
 
 //var UTMMechWalkerBody_MechProtypeLeg Mesh2;
 
-var class <MechaPart> MechPart;
-var MechaPart MechPartActor;
+//var class <MechaPart> MechPart;
+//var MechaPart MechPartActor;
 //Head
 var() protected const Name BodyAttachHeadSocketName;
 var class <MechaPart> MechPart_Head;
@@ -71,57 +73,59 @@ simulated function PostBeginPlay()
 	super.PostBeginPlay();
 	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
 	// no spider body on server
-	if ( WorldInfo.NetMode != NM_DedicatedServer )
-	{
-		//GetAxes(Rotation, X,Y,Z);
-		//`log('            x'@ X);
+	if ( WorldInfo.NetMode != NM_DedicatedServer ){
+		//head
+		if(MechPart_Head != None){
+			MechPartActor_Head = Spawn(MechPart_Head, self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
+			MechPartActor_Head.SetMechVehicle(self);
+		}
 
-
-		//MechPartActor = Spawn(class'MechProtypeWalker.UTMMechPart_Leg', self,, Location);
-
-		//MechPartActor = Spawn(MechPart, self,, Location);
-		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'LeftHandSocket');
-		//Mesh.AttachComponentToSocket(MechPartActor.Mesh,'RightHandSocket');
+		//leg
+		if(MechPart_Leg != None){
+			MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
+			MechPartActor_Leg.SetMechVehicle(self);
+		}
 		
-                //head
-                if(MechPart_Head != None){
-                      MechPartActor_Head = Spawn(MechPart_Head, self,, Location);
-                      Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
-                      MechPartActor_Head.SetMechVehicle(self);
-                }
+		//right arm
+		if(MechPart_RightArm != None){
+			MechPartActor_RightArm = Spawn(MechPart_RightArm, self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightArmSocketName);//'RightHandSocket'
+			MechPartActor_RightArm.SetMechVehicle(self);
+			//right hand weapon
+			if(MechPart_RightHand != None){
+				MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
+				MechPartActor_RightArm.Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
+				MechPartActor_RightHand.SetMechVehicle(self);
+			}
+		}else{
+			//This deal with if no arm that will attack to this mech code. For prebuild mech stuff.
+			if(MechPart_RightHand != None){
+				MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
+				Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightArmSocketName);//'RightHandSocket'
+				MechPartActor_RightHand.SetMechVehicle(self);
+			}
+		}
 
-                //leg
-                if(MechPart_Leg != None){
-                   MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
-                   Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
-                   MechPartActor_Leg.SetMechVehicle(self);
-                }
-                //right arm
-                if(MechPart_RightArm != None){
-                MechPartActor_RightArm = Spawn(MechPart_RightArm, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
-                MechPartActor_RightArm.SetMechVehicle(self);
-                   //right hand weapon
-                   if(MechPart_RightHand != None){
-                      MechPartActor_RightHand = Spawn(MechPart_RightHand, self,, Location);
-                      MechPartActor_RightArm.Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'RightHandSocket'
-                      MechPartActor_RightHand.SetMechVehicle(self);
-                   }
-                }
-
-                //left arm
-                if(MechPart_LeftArm != None){
-                MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
-                Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftArmSocketName);//'LeftHandSocket'
-                MechPartActor_LeftArm.SetMechVehicle(self);
-                   //left hand weapon
-                   if(MechPart_LeftHand != None){
-                      MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
-                      MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
-                      MechPartActor_LeftHand.SetMechVehicle(self);
-                   }
-                }
-
+		//left arm
+		if(MechPart_LeftArm != None){
+			MechPartActor_LeftArm = Spawn(MechPart_LeftArm, self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftArmSocketName);//'LeftHandSocket'
+			MechPartActor_LeftArm.SetMechVehicle(self);
+			//left hand weapon
+			if(MechPart_LeftHand != None){
+				MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+				MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
+				MechPartActor_LeftHand.SetMechVehicle(self);
+			}
+		}else{
+			if(MechPart_LeftHand != None){
+				MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+				Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftArmSocketName);//'LeftHandSocket'
+				MechPartActor_LeftHand.SetMechVehicle(self);
+			}
+		}
 	}
 	
 	InitArmTurret();
@@ -515,8 +519,14 @@ function bool RecommendLongRangedAttack()
 
 defaultproperties
 {
+        //Bone Names
+        BodyAttachHeadSocketName=MechHeadSocket
+        BodyAttachLegSocketName=MechLegSocket
+        BodyAttachRightArmSocketName=RightHandSocket
+        BodyAttachRightHandSocketName=RightHandSocket
+        BodyAttachLeftArmSocketName=LeftHandSocket
+        BodyAttachLeftHandSocketName=LeftHandSocket
 
-        //BodyAttachRightHandWeaponSocketName=RightHandSocket
 
 	Begin Object Name=SVehicleMesh
 		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled1=TRUE)

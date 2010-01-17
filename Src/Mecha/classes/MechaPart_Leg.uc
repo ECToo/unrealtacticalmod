@@ -93,7 +93,6 @@ defaultproperties
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
 		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_leg_at'
 		AnimSets(0)=AnimSet'VHUTM_MechProtypeWalker.mechprotype_leg_animation'
-		//VHUTM_MechProtypeWalker.mechprotype_leg_animation
 	End Object
-	//Mesh=MeshFrame
+
 }
