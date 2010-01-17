@@ -30,6 +30,14 @@ TO DO LIST:
 
 Need to setup animation nodes and other animation code to make the mecha parts work.
 
+//===============================================
+
+Rotation=(Yaw=-16384)
+16384 = 45 degree
+
+
+
+
 */
 
 class MechaPart extends Actor
@@ -49,6 +57,9 @@ var bool bDeplopyAmmo;
 var bool bCounterMeasure;
 
 var string WalkName;
+
+/** The pawn's light environment */
+var DynamicLightEnvironmentComponent LightEnvironment;
 
 struct native VehicleAnim
 {
@@ -206,22 +217,29 @@ function mechdepart();
 
 defaultproperties
 {
+
       bWeaponDisable=false;
       bActionWalk=false;
+
+      Begin Object Class=DynamicLightEnvironmentComponent Name=MyLightEnvironment
+                ModShadowFadeoutTime=0.25
+		MinTimeBetweenFullUpdates=0.2
+		AmbientGlow=(R=.01,G=.01,B=.01,A=1)
+		AmbientShadowColor=(R=0.15,G=0.15,B=0.15)
+		LightShadowMode=LightShadow_ModulateBetter
+		ShadowFilterQuality=SFQ_High
+		bSynthesizeSHLight=TRUE
+      End Object
+      LightEnvironment=MyLightEnvironment
+      Components.Add(MyLightEnvironment)
+
       Begin Object Class=SkeletalMeshComponent Name=MeshFrame
-		//SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
-		//AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
-		//ShadowParent = SVehicleMesh
-		BlockRigidBody=false
+		CastShadow=true
+		bCastDynamicShadow=true
 		//LightEnvironment=MyLightEnvironment
-		PhysicsWeight=0.0
-		//TickGroup=TG_PostASyncWork
-		//bUseAsOccluder=FALSE
-		//CullDistance=1300.0
-		//CollideActors=false
-		//bUpdateSkelWhenNotRendered=false
-		//bIgnoreControllersWhenNotRendered=true
-		//bAcceptsDecals=false
+		bOverrideAttachmentOwnerVisibility=true
+		bAcceptsDynamicDecals=FALSE
+		bAllowAmbientOcclusion=false
 	End Object
 	
 	CollisionComponent=MeshFrame
