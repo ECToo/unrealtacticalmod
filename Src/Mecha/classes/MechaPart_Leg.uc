@@ -91,6 +91,7 @@ defaultproperties
 {
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
+		PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechprotype_leg_Physics'
 		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_leg_at'
 		AnimSets(0)=AnimSet'VHUTM_MechProtypeWalker.mechprotype_leg_animation'
 	End Object
