@@ -217,31 +217,43 @@ function mechdepart();
 
 defaultproperties
 {
+	bWeaponDisable=false;
+	bActionWalk=false;
+	
+	//bBlockActors=True
+	bCollideActors=true
 
-      bWeaponDisable=false;
-      bActionWalk=false;
+	bStatic=false
+	bProjTarget=true
+	
+	//RemoteRole=ROLE_None
 
-      Begin Object Class=DynamicLightEnvironmentComponent Name=MyLightEnvironment
-                ModShadowFadeoutTime=0.25
+	//Physics=PHYS_RigidBody
+	  
+	Begin Object Class=DynamicLightEnvironmentComponent Name=MyLightEnvironment
+		ModShadowFadeoutTime=0.25
 		MinTimeBetweenFullUpdates=0.2
 		AmbientGlow=(R=.01,G=.01,B=.01,A=1)
 		AmbientShadowColor=(R=0.15,G=0.15,B=0.15)
 		LightShadowMode=LightShadow_ModulateBetter
 		ShadowFilterQuality=SFQ_High
 		bSynthesizeSHLight=TRUE
-      End Object
-      LightEnvironment=MyLightEnvironment
-      Components.Add(MyLightEnvironment)
+	End Object
+	LightEnvironment=MyLightEnvironment
+	Components.Add(MyLightEnvironment)
 
-      Begin Object Class=SkeletalMeshComponent Name=MeshFrame
+	Begin Object Class=SkeletalMeshComponent Name=MeshFrame
 		CastShadow=true
 		bCastDynamicShadow=true
 		//LightEnvironment=MyLightEnvironment
 		bOverrideAttachmentOwnerVisibility=true
 		bAcceptsDynamicDecals=FALSE
 		bAllowAmbientOcclusion=false
+		CollideActors=true
+		BlockActors=true
+		BlockZeroExtent=true
+		BlockNonZeroExtent=true
 	End Object
-	
 	CollisionComponent=MeshFrame
 	Mesh=MeshFrame
 	Components.Add(MeshFrame)

@@ -38,7 +38,8 @@ defaultproperties
          //head
          MechPart_Head=class'MechaPart_Head'
          //leg
-         MechPart_Leg=class'MechaPart_Leg'
+         //MechPart_Leg=class'MechaPart_Leg'
+         MechPart_Leg=class'MechaPart_Leg01'
 
          //right arm
          MechPart_RightArm=class'MechaPart_RightArm02'

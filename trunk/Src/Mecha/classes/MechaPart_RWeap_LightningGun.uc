@@ -14,5 +14,6 @@ defaultproperties
 
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.RMechaWeaponA01_LightningGun'
+                PhysicsAsset=PhysicsAsset'VH_Mecha.RMechaWeaponA01_LightningGun_Physics'
 	End Object
 }

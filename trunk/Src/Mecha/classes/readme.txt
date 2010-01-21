@@ -2,6 +2,11 @@
 // Created By: Darknet
 //===============================================
 
+license: THIS is "AS-IS" PRoDUCT.
+
+Required: 
+ - Give Credits...
+ - http://utforums.epicgames.com > User > Darknet
 
 //===============================================
 //

@@ -13,6 +13,8 @@ defaultproperties
         firerate=0.2
 
 	Begin Object Name=MeshFrame
-		SkeletalMesh=SkeletalMesh'VH_Mecha.RMechaWeaponA01_Cannon'
+		SkeletalMesh=SkeletalMesh'VH_Mecha.RMechaWeaponA01_minigun4'
+		PhysicsAsset=PhysicsAsset'VH_Mecha.RMechaWeaponA01_minigun4_Physics'
+
 	End Object
 }
