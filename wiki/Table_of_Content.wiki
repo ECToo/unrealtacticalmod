@@ -17,7 +17,8 @@
  * GameInfo
 
  * Input
-  * Input_Custom_Vehicle_Keys
+  * [Input_Custom_Weapon_Keys]
+  * [Input_Custom_Vehicle_Keys]
 
  * Pawn
 
