@@ -16,6 +16,9 @@
 
  * GameInfo
 
+ * Input
+  * Input_Custom_Vehicle_Keys
+
  * Pawn
 
  * HUD
