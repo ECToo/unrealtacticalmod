@@ -13,7 +13,7 @@
 
 = Inputs and others: =
    There are different type of inputs for using the key binds.
-[work in progress]
+{{{ work in progress }}}
 
 = Tips: =
  * Be careful not to over lap your key binds.
