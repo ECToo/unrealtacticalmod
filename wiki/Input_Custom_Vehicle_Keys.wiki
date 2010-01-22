@@ -14,7 +14,7 @@ class CustomVehicle extends UTVehicle;
 
 exec function testkey()
 {
-   `log('"testkey" from vehicle');
+   `log('test key bind from vehicle');
 }
 
 }}}
