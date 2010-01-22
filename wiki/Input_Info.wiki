@@ -1,0 +1,7 @@
+#summary Inputs and KeyBinds.
+
+= Information: =
+  There are couple ways to code your inputs. There are easy ones and there are harder ones. Take your time learning. Easy one are the weapon and vehicle setups. There are other keybinds like kismet and UIScene and other stuff. The harder ones are the pawn. That depends on how much you need to code the game to make your inputs work.
+  You need to add on or override UTPawn inputs but it required game type build. That is quite detail.
+  Weapon and Vehicle input are easy to setup. Following wiki page will show you how.
+  
