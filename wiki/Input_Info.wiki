@@ -10,6 +10,11 @@
  * [Input_Custom_Weapon_Keys]
  * [Input_Custom_Vehicle_Keys]
 
+
+= Inputs and others: =
+   There are different type of inputs for using the key binds.
+[work in progress]
+
 = Tips: =
  * Be careful not to over lap your key binds.
   
