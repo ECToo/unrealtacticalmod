@@ -1,0 +1,27 @@
+#summary Quick and simple way to get a key bind working for vehicle.
+
+= Information:=
+Support:
+ * UDK
+ * UT3
+
+This is the simple way to get your input working for your vehicle. Note your have to play with the input keys to get the desire effects.
+
+{{{
+
+class CustomVehicle extends UTVehicle;
+
+exec function testkey()
+{
+   `log('"testkey" from vehicle');
+}
+
+}}}
+
+UTInput.ini
+{{{
+[Engine.PlayerInput]
+;...
+Bindings=(Name="X",Command="testkey");I just added the key at the end of the key binds
+}}}
+
