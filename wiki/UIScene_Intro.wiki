@@ -7,3 +7,10 @@
 
 = Building Your UIScene: =
    When building custom class that extends from UIScene. It would have the same function as other UIScene. But be sure you name it right or else you can't delete your UIScene package upk.
+
+= FAQS: =
+ Q: Can I rename my class and used my uiscene packages?
+ A: Nope, It will effect the class link to the that class.
+
+ Q: I can't save my UIScene, how fix it?
+ A: Comment out that is reference node to your buttons from the link node from your class script. If you made changes linking the node or delete UI. Comment it out.
