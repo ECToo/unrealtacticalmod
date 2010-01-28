@@ -9,6 +9,7 @@ class MechaPartHead extends MechaPart;
 
 defaultproperties
 {
+        bodytype="head"
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_head'
 		//AnimTreeTemplate=AnimTree''

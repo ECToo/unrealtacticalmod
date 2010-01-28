@@ -92,7 +92,7 @@ function InitFireWeapon(){
                 if(AnimPlay != None){
                 //AnimPlay.SetAnim('fire');
                 //  AnimPlay.PlayAnim(false,1, 0);
-                `log("PLay ANIMATION");
+                //`log("PLay ANIMATION");
                 }
 		bWeaponFire=true;//this make sure the fire doesn't loop when firing time
 		FireWeaponProjectile();

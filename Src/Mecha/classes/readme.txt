@@ -72,3 +72,10 @@ List of Credits:
 UT3 Forums
 -http://utforums.epicgames.com/forumdisplay.php?f=20
 //==========
+
+
+//===============================================
+// NOTES:
+//===============================================
+The Packages may crash the unreal editor. This is
+still under testing.

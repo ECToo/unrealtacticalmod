@@ -35,14 +35,15 @@ Need to setup animation nodes and other animation code to make the mecha parts w
 Rotation=(Yaw=-16384)
 16384 = 45 degree
 
-
-
-
 */
 
 class MechaPart extends Actor
       //placeable
       ;
+      
+var string bodypart;
+var string bodytype;
+var	bool					bIsDead;
 
 var bool bActionWalk;
 var bool bAnimationFire;
@@ -60,24 +61,6 @@ var string WalkName;
 
 /** The pawn's light environment */
 var DynamicLightEnvironmentComponent LightEnvironment;
-
-struct native VehicleAnim
-{
-	/** Used to look up the animation */
-	var() name AnimTag;
-
-	/** Animation Sequence sets to play */
-	var() array<name> AnimSeqs;
-
-	/** Rate to play it at */
-	var() float AnimRate;
-
-	/** Does it loop */
-	var() bool bAnimLoopLastSeq;
-
-	/**  The name of the UTAnimNodeSequence to use */
-	var() name AnimPlayerName;
-};
 
 /** Display name for this Mech Part. */
 var localized string FriendlyName;
@@ -215,6 +198,30 @@ function playanimationtest(){
 function mechtransform();
 function mechdepart();
 
+event Destroyed()
+{
+	Super.Destroyed();
+        `log("delete me please");
+        
+        PlayDying();
+}
+
+
+
+function PlayDying()
+{
+	//local int i;
+
+	Lifespan = 8.0;
+	//CustomGravityScale = 1.5;
+	bCollideWorld = true;
+	bIsDead = true;
+
+	Mesh.SetTraceBlocking(true, false);
+	Mesh.SetBlockRigidBody(true);
+	Mesh.SetShadowParent(None);
+}
+
 defaultproperties
 {
 	bWeaponDisable=false;
@@ -224,6 +231,7 @@ defaultproperties
 	bCollideActors=true
 
 	bStatic=false
+	bNoDelete=False
 	bProjTarget=true
 	
 	//RemoteRole=ROLE_None
