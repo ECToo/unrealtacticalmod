@@ -20,6 +20,7 @@ simulated function PostBeginPlay()
 
 defaultproperties
 {
+     bodytype = "leg"
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.MechaWalkerB01_Leg'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.MechaWalkerB01_Leg_Physics'

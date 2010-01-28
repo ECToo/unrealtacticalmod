@@ -20,12 +20,6 @@ class VehicleMechaPart extends VehicleMecha;
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;
 
-/** When asleep, monitor distance below darkwalker to make sure it isn't in the air. */
-var float LastSleepCheckDistance;
-
-/** Disable aggressive sleeping behaviour. */
-var bool bSkipAggresiveSleep;
-
 var float CustomGravityScaling;
 
 /** @hack: replicated copy of bHoldingDuck for clients */
@@ -33,6 +27,10 @@ var bool bIsDucking;
 
 var SkeletalMeshComponent AntennaMesh;
 var SkeletalMeshComponent AntennaMesh2;
+
+var UTHoverWheel FHThruster;
+var UTHoverWheel RHThruster;
+var UTHoverWheel LHThruster;
 
 //var UTMMechWalkerBody_MechProtypeLeg Mesh2;
 
@@ -70,7 +68,7 @@ var MechaPart MechPartActor_LeftHand;
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
-	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
+	//SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
 	// no spider body on server
 	if ( WorldInfo.NetMode != NM_DedicatedServer ){
 		//head
@@ -131,16 +129,49 @@ simulated function PostBeginPlay()
 }
 
 function InitArmTurret(){
-      if(MechPartActor_RightArm != none){
-        // Initialize turrets to vehicle rotation.
-          MechPartActor_RightArm.ArmBoneControl.InitTurret(Rotation, Mesh);
-      }
+	if(MechPartActor_RightArm != none){
+		// Initialize turrets to vehicle rotation.
+		MechPartActor_RightArm.ArmBoneControl.InitTurret(Rotation, Mesh);
+	}
 
-      if(MechPartActor_LeftArm != none){
-        // Initialize turrets to vehicle rotation.
-          MechPartActor_LeftArm.ArmBoneControl.InitTurret(Rotation, Mesh);
-      }
+	if(MechPartActor_LeftArm != none){
+		// Initialize turrets to vehicle rotation.
+		MechPartActor_LeftArm.ArmBoneControl.InitTurret(Rotation, Mesh);
+	}
 }
+
+/*
+* This code deal this class switching skeleton mesh
+*/
+function changeparts(class<MechaPart> part){
+	if(part != None){
+		if (part.default.bodytype == "leg"){ //class base by using the packagename'default' to get the variables
+			`log("LEGGING");
+			MechPartActor_Leg.Destroyed();
+			MechPartActor_Leg.Mesh.SetHidden(True);
+			MechPartActor_Leg.SetHidden(True);
+			MechPartActor_Leg = None;
+
+			MechPartActor_Leg = Spawn(part,self,,Location);
+			Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);
+		}
+		
+		if(part.default.bodytype == "head"){
+			`log("HEAD");
+			MechPartActor_Head.Destroyed();
+			MechPartActor_Head.Mesh.SetHidden(True);
+			MechPartActor_Head.SetHidden(True);
+			MechPartActor_Head = None;
+		
+			MechPartActor_Head = Spawn(part, self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
+			MechPartActor_Head.SetMechVehicle(self);
+		}
+	}else{
+		`log('Error class is not set');
+	}
+}
+
 
 /**
  * This event is triggered when a repnotify variable is received
@@ -205,66 +236,118 @@ simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRota
 
 }
 
+/*
+function rotator GetAimDirectionArm(MechaPartArm ArmDir)
+{
+         local vector SocketLocation, CameraLocation, RealAimPoint, DesiredAimPoint, HitLocation, HitRotation, DirA, DirB;
+	local rotator CameraRotation, SocketRotation, ControllerAim, AdjustedAim;
+	local float DiffAngle, MaxAdjust;
+	local Controller C;
+	local PlayerController PC;
+	local Quat Q;
+	
+	if(ArmDir != None){
+	   C = Controller;
+	   PC = PlayerController(C);
+	   if (PC != None)
+		{
+			PC.GetPlayerViewPoint(CameraLocation, CameraRotation);
+			DesiredAimPoint = CameraLocation + Vector(CameraRotation);// * ArmDir.GetTraceRange();
+			if (Trace(HitLocation, HitRotation, DesiredAimPoint, CameraLocation) != None)
+			{
+				DesiredAimPoint = HitLocation;
+			}
+		}else if (C != None)
+		{
+			DesiredAimPoint = C.GetFocalPoint();
+		}
+
+	}
+
+}
+*/
+
+
 
 /**
- * this function is called when a weapon rotation value has changed.  It sets the DesiredboneRotations for each controller
- * associated with the turret.
- *
- * Network: Remote clients.  All other cases are handled natively
- * FIXME: Look at handling remote clients natively as well
- *
- * @param	SeatIndex		The seat at which the rotation changed
+ * This function returns the aim for the weapon
  */
-
-simulated function WeaponRotationChanged(int SeatIndex)
+/*
+function rotator GetWeaponAim(UTVehicleWeapon VWeapon)
 {
-	local int i;
+	local vector SocketLocation, CameraLocation, RealAimPoint, DesiredAimPoint, HitLocation, HitRotation, DirA, DirB;
+	local rotator CameraRotation, SocketRotation, ControllerAim, AdjustedAim;
+	local float DiffAngle, MaxAdjust;
+	local Controller C;
+	local PlayerController PC;
+	local Quat Q;
 
-	if ( SeatIndex>=0 )
+	if ( VWeapon != none )
 	{
-		for (i=0;i<Seats[SeatIndex].TurretControllers.Length;i++)
+		C = Seats[VWeapon.SeatIndex].SeatPawn.Controller;
+
+		PC = PlayerController(C);
+		if (PC != None)
 		{
-			Seats[SeatIndex].TurretControllers[i].DesiredBoneRotation = SeatWeaponRotation(SeatIndex,,true);
-			`log("WeaponRotationChanged");
-		}
-		`log("WeaponRotationChanged");
-	}
-
-	if ( SeatIndex ==0 ){
-	    `log("WeaponRotationChanged");
-	    //MechPartActor_RightArm
-	}
-}
-
-/** checks if the given pitch would be limited by the turret controllers, i.e. we cannot possibly fire in that direction
- * @return whether the pitch would be constrained
- */
-function bool CheckTurretPitchLimit(int NeededPitch, int SeatIndex)
-{
-	local int i;
-
-	if (SeatIndex >= 0)
-	{
-		if (Seats[SeatIndex].TurretControllers.length > 0)
-		{
-			for (i = 0; i < Seats[SeatIndex].TurretControllers.Length; i++ )
+			PC.GetPlayerViewPoint(CameraLocation, CameraRotation);
+			DesiredAimPoint = CameraLocation + Vector(CameraRotation) * VWeapon.GetTraceRange();
+			if (Trace(HitLocation, HitRotation, DesiredAimPoint, CameraLocation) != None)
 			{
-				if (!Seats[SeatIndex].TurretControllers[i].WouldConstrainPitch(NeededPitch, Mesh))
-				{
-					return false;
-				}
+				DesiredAimPoint = HitLocation;
 			}
-
-			return true;
 		}
-		else if (Seats[SeatIndex].Gun != None)
+		else if (C != None)
 		{
-			return (Cos(Abs(NeededPitch - (Rotation.Pitch & 65535)) / 182.0444) > Seats[SeatIndex].Gun.GetMaxFinalAimAdjustment());
+			DesiredAimPoint = C.GetFocalPoint();
+		}
+
+		if ( Seats[VWeapon.SeatIndex].GunSocket.Length>0 )
+		{
+			GetBarrelLocationAndRotation(VWeapon.SeatIndex, SocketLocation, SocketRotation);
+			if(VWeapon.bIgnoreSocketPitchRotation || ((DesiredAimPoint.Z - Location.Z)<0 && VWeapon.bIgnoreDownwardPitch))
+			{
+				SocketRotation.Pitch = Rotator(DesiredAimPoint - Location).Pitch;
+			}
+		}
+		else
+		{
+			SocketLocation = Location;
+			SocketRotation = Rotator(DesiredAimPoint - Location);
+		}
+
+		RealAimPoint = SocketLocation + Vector(SocketRotation) * VWeapon.GetTraceRange();
+		DirA = normal(DesiredAimPoint - SocketLocation);
+		DirB = normal(RealAimPoint - SocketLocation);
+		DiffAngle = ( DirA dot DirB );
+		MaxAdjust = VWeapon.GetMaxFinalAimAdjustment();
+		if ( DiffAngle >= MaxAdjust )
+		{
+			// bit of a hack here to make bot aiming and single player autoaim work
+			ControllerAim = (C != None) ? C.Rotation : Rotation;
+			AdjustedAim = VWeapon.GetAdjustedAim(SocketLocation);
+			if (AdjustedAim == VWeapon.Instigator.GetBaseAimRotation() || AdjustedAim == ControllerAim)
+			{
+				// no adjustment
+				return rotator(DesiredAimPoint - SocketLocation);
+			}
+			else
+			{
+				// FIXME: AdjustedAim.Pitch = Instigator.LimitPitch(AdjustedAim.Pitch);
+				return AdjustedAim;
+			}
+		}
+		else
+		{
+			Q = QuatFromAxisAndAngle(Normal(DirB cross DirA), ACos(MaxAdjust));
+			return Rotator( QuatRotateVector(Q,DirB));
 		}
 	}
-
-	return false;
+	else
+	{
+		return Rotation;
+	}
 }
+*/
 
 simulated function bool OverrideBeginFire(byte FireModeNum)
 {
@@ -332,6 +415,47 @@ simulated function SwitchWeapon(byte NewGroup)
 	}
 	*/
 }
+//key L for play horn
+function PlayHorn()
+{
+ super.PlayHorn();
+ `log('PLAY SOUND HORN');
+
+}
+
+function ShouldCrouch( bool bCrouch )
+{
+ super.ShouldCrouch(bCrouch);
+ `log('crouch' @ bCrouch);
+	bWantsToCrouch = bCrouch;
+}
+
+//doesn't work
+function bool Dodge(eDoubleClickDir DoubleClickMove)
+{
+ super.Dodge(DoubleClickMove);
+	Rise = 1;
+	`log('Dodge');
+	return true;
+}
+//doesn't work
+function ThrowActiveWeapon() {
+super.ThrowActiveWeapon();
+`log('ThrowActiveWeapon');
+}
+
+/**
+ * Makes sure a Pawn is not crouching, telling it to stand if necessary.
+ */
+simulated function UnCrouch()
+{         
+          super.UnCrouch();
+          `log('UnCrouch');
+	if( bIsCrouched || bWantsToCrouch )
+	{
+		ShouldCrouch( false );
+	}
+}
 
 
 simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
@@ -385,8 +509,25 @@ simulated function SetInputs(float InForward, float InStrafe, float InUp)
 //===============================================
 function bool DoJump(bool bUpdating){
    super.DoJump(bUpdating);
-   `log('jump');
-   return true;
+   `log('jump' @ bUpdating);
+   if (bJumpCapable && !bIsCrouched && !bWantsToCrouch && (Physics == PHYS_Walking || Physics == PHYS_Ladder || Physics == PHYS_Spider))
+	{
+		if ( Physics == PHYS_Spider )
+			Velocity = JumpZ * Floor;
+		else if ( Physics == PHYS_Ladder )
+			Velocity.Z = 0;
+		else if ( bIsWalking )
+			Velocity.Z = Default.JumpZ;
+		else
+			Velocity.Z = JumpZ;
+		if (Base != None && !Base.bWorldGeometry && Base.Velocity.Z > 0.f)
+		{
+			Velocity.Z += Base.Velocity.Z;
+		}
+		SetPhysics(PHYS_Falling);
+		return true;
+	}
+	return false;
 }
 
 //===============================================
@@ -402,9 +543,10 @@ simulated event Destroyed()
 {
 	super.Destroyed();
 	//KillBeamEmitter();
-	ClearTimer('SleepCheckGroundDistance');
+	//ClearTimer('SleepCheckGroundDistance');
 }
 
+/*
 //this deal some what hover I think.
 simulated function SleepCheckGroundDistance()
 {
@@ -433,6 +575,28 @@ simulated function SleepCheckGroundDistance()
 		}
 	}
 }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function PassengerLeave(int SeatIndex)
@@ -614,11 +778,16 @@ defaultproperties
 	End Object
 	SimObj=SimObject
 	Components.Add(SimObject)
+	
 
+
+	//
+	//wheel height control are here bit hard to deal with
 	Begin Object Class=UTHoverWheel Name=RThruster
 		BoneName="BodyRoot" //need to the bone name else it will crash
 		BoneOffset=(X=-50.0,Y=100.0,Z=-200.0)
 		WheelRadius=10
+		//SuspensionTravel=145
 		SuspensionTravel=145
 		bPoweredWheel=false
 		LongSlipFactor=0.0
@@ -628,12 +797,15 @@ defaultproperties
 		SteerFactor=1.0
 		bHoverWheel=true
 	End Object
+	RHThruster=RThruster
 	Wheels(0)=RThruster
 
 	Begin Object Class=UTHoverWheel Name=LThruster
 		BoneName="BodyRoot"   //need to the bone name else it will crash
+		//BoneOffset=(X=-50.0,Y=-100.0,Z=-200.0)
 		BoneOffset=(X=-50.0,Y=-100.0,Z=-200.0)
 		WheelRadius=10
+		//SuspensionTravel=145
 		SuspensionTravel=145
 		bPoweredWheel=false
 		LongSlipFactor=0.0
@@ -643,12 +815,14 @@ defaultproperties
 		SteerFactor=1.0
 		bHoverWheel=true
 	End Object
+	LHThruster=LThruster
 	Wheels(1)=LThruster
 
 	Begin Object Class=UTHoverWheel Name=FThruster
 		BoneName="BodyRoot"  //need to the bone name else it will crash
 		BoneOffset=(X=80.0,Y=0.0,Z=-200.0)
 		WheelRadius=10
+		//SuspensionTravel=145
 		SuspensionTravel=145
 		bPoweredWheel=false
 		LongSlipFactor=0.0
@@ -658,6 +832,7 @@ defaultproperties
 		SteerFactor=1.0
 		bHoverWheel=true
 	End Object
+	FHThruster=FThruster
 	Wheels(2)=FThruster
 
 	RespawnTime=45.0

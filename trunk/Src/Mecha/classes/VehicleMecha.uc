@@ -8,32 +8,49 @@ class VehicleMecha extends UTVehicle
         //dependson(MyPlayerController)
 	//config(Mecha)
         placeable;
+        
+
+
+enum EWalkerStance
+{
+	WalkerStance_None,
+	WalkerStance_Standing,
+	WalkerStance_Parked,
+	WalkerStance_Crouched
+};
+
+var(Movement)   float   DuckForceMag;
 
 var() RB_Handle BodyHandle;
 var Color textcolor;
 var() int count;
 var() int maxcount;
 
+/** When asleep, monitor distance below darkwalker to make sure it isn't in the air. */
+var float LastSleepCheckDistance;
+
+/** Disable aggressive sleeping behaviour. */
+var bool bSkipAggresiveSleep;
+
 //socket for attaching parts
 var() protected const Name BodyAttachSocketName;
 
 var()	vector	BaseBodyOffset;
+
+var float HoverHeightBody;//deal with hovering
 
 simulated function PostBeginPlay()
 {
 	//local vector X, Y, Z;
 
 	Super.PostBeginPlay();
+	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
+}
 
-	// no spider body on server
-	if ( WorldInfo.NetMode != NM_DedicatedServer )
-	{
-		//GetAxes(Rotation, X,Y,Z);
-		//`log('            x'@ X);
-		//BodyActor = Spawn(BodyType, self,, Location+BaseBodyOffset.X*X+BaseBodyOffset.Y*Y+BaseBodyOffset.Z*Z);
-		//BodyActor.SetWalkerVehicle(self);
-
-	}
+simulated function Tick(float DeltaTime)
+{
+	super.Tick(DeltaTime);
+        //`log('Movement' $ DuckForceMag);
 }
 
 simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
@@ -65,26 +82,193 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	//`log('HUD' @ count); //render loop
 }
 
+//walk up the mesh
+simulated function SleepCheckGroundDistance()
+{
+	local vector HitLocation, HitNormal;
+	local actor HitActor;
+	local float SleepCheckDistance;
+
+	bSkipAggresiveSleep = FALSE;
+
+	if(!bDriving && !Mesh.RigidBodyIsAwake())
+	{
+		HitActor = Trace(HitLocation, HitNormal, Location - vect(0,0,1000), Location, TRUE);
+
+		SleepCheckDistance = 1000;
+		if(HitActor != None)
+		{
+			SleepCheckDistance = VSize(HitLocation - Location);
+		}
+
+		// If distance has changed, wake it
+		if(Abs(SleepCheckDistance - LastSleepCheckDistance) > 10.0)
+		{
+			Mesh.WakeRigidBody();
+			bSkipAggresiveSleep = TRUE;
+			LastSleepCheckDistance = SleepCheckDistance;
+			//`log('dis check');
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*
-simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
+exec function StartRunning()
 {
-	local PlayerController PC;
-	super.DisplayHud(HUD, Canvas, HudPOS, SeatIndex);
 
-	PC = PlayerController(Seats[0].SeatPawn.Controller);
-	if (PC != none)
-	{
-            Canvas.DrawColor = textcolor;
-            Canvas.SetPos(20,128);
-	Canvas.DrawText("No. Weapon: " @ count);
-	}
+//set the current speed to something we can recall later
+
+//set the new groundspeed
+//Pawn.GroundSpeed = Pawn.GroundSpeed * 1.5;
+`log('start running from vehicle');
+
+}
+
+exec function EndRunning()
+{
+
+//reset the groundspeed back to the original value
+//Pawn.GroundSpeed = Pawn.default.GroundSpeed;
+  `log('end running from vehicle');
+
 }
 */
 
+
+exec function testkey()
+{
+   `log('testkey from vehicle');
+}
+
+
+//this deal with missile
+exec function SecondFirePress()
+{
+   `log('SecondFirePress');
+}
+exec function SecondFireRelease()
+{
+   `log('SecondFireRelease');
+}
+
+//this deal with counter measure
+exec function ThirdFirePress()
+{
+   `log('ThirdFirePress');
+}
+exec function ThirdFireRelease()
+{
+   `log('ThirdFireRelease');
+}
+
+exec function MidMousePress()
+{
+   `log('MidMousePress');
+}
+
+exec function MidMouseRelease()
+{
+   `log('MidMouseRelease');
+}
+
+exec function MidMouseScrollDown()
+{
+   `log('MidMouseScrollDown');
+}
+
+exec function MidMouseScrollUp()
+{
+   `log('MidMouseScrollUp');
+}
+
+exec function BoosterPress()
+{
+   `log('BossterPress');
+}
+
+exec function BoosterRelease()
+{
+   `log('BossterPress');
+}
+
+exec function JetPackPress()
+{
+   `log('JetPackPress');
+}
+
+exec function JetPackRelease()
+{
+   `log('JetPackRelease');
+}
+
+exec function CrouchPress()
+{
+   `log('JetPackPress');
+}
+
+exec function CrouchRelease()
+{
+   `log('JetPackRelease');
+}
+
+/*
+Input.ini
+
+Bindings=(Name="SpaceBar",Command="JetPackPress | OnRelease JetPackRelease")
+Bindings=(Name="LeftShift",Command="BoosterPress | OnRelease BoosterRelease")
+Bindings=(Name="MouseScrollUp",Command="MidMouseScrollUp")
+Bindings=(Name="MouseScrollDown",Command="MidMouseScrollDown")
+Bindings=(Name="Q",Command="SecondFirePress | OnRelease SecondFireRelease")
+Bindings=(Name="R",Command="ThirdFirePress | OnRelease ThirdFireRelease")
+Bindings=(Name="MiddleMouseButton",Command="MidMousePress | OnRelease MidMouseRelease")
+//MiddleMouseButton
+*/
+
+
+simulated event Destroyed()
+{
+	super.Destroyed();
+	ClearTimer('SleepCheckGroundDistance');
+}
+
 defaultproperties
-{       maxcount = 10000;
+{      
+    HoverHeightBody=5000
+    	DuckForceMag=-350.0
+        //bHasCrouchMode=true
+        //HoverAdjust()=-280.0
+
+
+         maxcount = 10000;
 	bCanBeBaseForPawns=false
 	CollisionDamageMult=0.0
         textcolor=(R=0,G=0,B=0,A=1)

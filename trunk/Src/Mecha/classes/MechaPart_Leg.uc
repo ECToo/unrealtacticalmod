@@ -89,6 +89,7 @@ function playanimationtest(){
 
 defaultproperties
 {
+      bodytype = "leg"
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
 		PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechprotype_leg_Physics'
