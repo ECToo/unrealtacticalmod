@@ -17,4 +17,5 @@
 
 = Tips: =
  * Be careful not to over lap your key binds.
+ * Be careful of your key that you might over ride your key inputs. Just reuse the name that current use keys.
   
