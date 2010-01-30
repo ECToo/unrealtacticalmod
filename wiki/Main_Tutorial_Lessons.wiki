@@ -83,7 +83,6 @@ This weapon will be base of Shockrifle. The rotation of the weapon is effect by 
 [Blender_Weapon_UV] - UV Layout Texture
 
 Video Lesson Model_1P: 
-http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
 [Blender_Weapon_Model_1P] - Working on the First Person (1P)View Weapon with action.
 
@@ -93,7 +92,7 @@ http://files.filefront.com/Blender+Setup+Unreal+1Prar/;9717529;/fileinfo.html
 
 [Blender_Weapon_Export] - Read Before it save you time.
 
-Video Lesson Model_1P: http://files.filefront.com/Blender+Export+Unreal+WeaPrar/;9717557;/fileinfo.html
+Video Lesson Model_1P: 
 
 [Unreal_Weapon_SkeletalMesh] - Socket Manager And Importing Your Model.
 
