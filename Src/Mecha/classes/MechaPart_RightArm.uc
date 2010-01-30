@@ -9,6 +9,7 @@ class MechaPart_RightArm extends MechaPartArm;
 
 defaultproperties
 {
+     bodytype="rightarm"
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechrightarm'
 		//AnimTreeTemplate=AnimTree''

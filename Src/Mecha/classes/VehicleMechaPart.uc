@@ -144,6 +144,8 @@ function InitArmTurret(){
 * This code deal this class switching skeleton mesh
 */
 function changeparts(class<MechaPart> part){
+         //need to setup some var for changes in the parts
+        //local rotator armrotation;
 	if(part != None){
 		if (part.default.bodytype == "leg"){ //class base by using the packagename'default' to get the variables
 			`log("LEGGING");
@@ -154,6 +156,7 @@ function changeparts(class<MechaPart> part){
 
 			MechPartActor_Leg = Spawn(part,self,,Location);
 			Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);
+			MechPartActor_Leg.SetMechVehicle(self);
 		}
 		
 		if(part.default.bodytype == "head"){
@@ -166,6 +169,93 @@ function changeparts(class<MechaPart> part){
 			MechPartActor_Head = Spawn(part, self,, Location);
 			Mesh.AttachComponentToSocket(MechPartActor_Head.Mesh,BodyAttachHeadSocketName);//'MechHeadSocket'
 			MechPartActor_Head.SetMechVehicle(self);
+		}
+		
+		if(part.default.bodytype == "rightarm"){
+			`log("Right Arm");
+			
+			//if(MechPartActor_RightArm.ArmBoneControl !=none){
+			//   armrotation = MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation;
+			//}
+
+			MechPartActor_RightArm.Destroyed();
+			MechPartActor_RightArm.Mesh.SetHidden(True);
+			MechPartActor_RightArm.SetHidden(True);
+			MechPartActor_RightArm = None;
+
+			MechPartActor_RightArm = Spawn(class<MechaPartArm>(part), self,, Location);//note this different class that support some functions
+			Mesh.AttachComponentToSocket(MechPartActor_RightArm.Mesh,BodyAttachRightArmSocketName);//'MechHeadSocket'
+			MechPartActor_RightArm.SetMechVehicle(self);
+
+			if(MechPartActor_RightHand != None){
+				MechPartActor_RightArm.Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'LeftHandSocket'
+			}
+
+                        //if(MechPartActor_RightArm.ArmBoneControl !=none){
+                        //        MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = armrotation;
+                        //}
+
+		}
+
+		if(part.default.bodytype == "rightweaponhand"){
+			`log("Right Hand Weapon");
+			MechPartActor_RightHand.Destroyed();
+			MechPartActor_RightHand.Mesh.SetHidden(True);
+			MechPartActor_RightHand.SetHidden(True);
+			MechPartActor_RightHand = None;
+			if(MechPartActor_RightArm != None){//with arm
+				MechPartActor_RightHand = Spawn(part, self,, Location);
+				MechPartActor_RightArm.Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'MechHeadSocket'
+				MechPartActor_RightHand.SetMechVehicle(self);
+			}else{//without arm
+				MechPartActor_RightHand = Spawn(part, self,, Location);
+				Mesh.AttachComponentToSocket(MechPartActor_RightHand.Mesh,BodyAttachRightHandSocketName);//'MechHeadSocket'
+				MechPartActor_RightHand.SetMechVehicle(self);
+			}
+		}
+		
+		if(part.default.bodytype == "leftarm"){
+			`log("Left Arm");
+			
+			//if(MechPartActor_RightArm.ArmBoneControl !=none){
+			//   armrotation = MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation;
+			//}
+
+			MechPartActor_LeftArm.Destroyed();
+			MechPartActor_LeftArm.Mesh.SetHidden(True);
+			MechPartActor_LeftArm.SetHidden(True);
+			MechPartActor_LeftArm = None;
+
+
+			MechPartActor_LeftArm = Spawn(class<MechaPartArm>(part), self,, Location);
+			Mesh.AttachComponentToSocket(MechPartActor_LeftArm.Mesh,BodyAttachLeftArmSocketName);//'MechHeadSocket'
+			MechPartActor_LeftArm.SetMechVehicle(self);
+
+			if(MechPartActor_LeftArm != None){
+				MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'LeftHandSocket'
+			}
+
+			//if(MechPartActor_RightArm.ArmBoneControl !=none){
+			//    MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = armrotation;
+			//}
+
+		}
+		
+		if(part.default.bodytype == "leftweaponhand"){
+			`log("Left Hand Weapon");
+			MechPartActor_LeftHand.Destroyed();
+			MechPartActor_LeftHand.Mesh.SetHidden(True);
+			MechPartActor_LeftHand.SetHidden(True);
+			MechPartActor_LeftHand = None;
+			if (MechPartActor_LeftArm != None){//with arm
+				MechPartActor_LeftHand = Spawn(part, self,, Location);
+				MechPartActor_LeftArm.Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftHandSocketName);//'MechHeadSocket'
+				MechPartActor_LeftHand.SetMechVehicle(self);
+			}else{//without arm
+				MechPartActor_LeftHand = Spawn(MechPart_LeftHand, self,, Location);
+				Mesh.AttachComponentToSocket(MechPartActor_LeftHand.Mesh,BodyAttachLeftArmSocketName);//'LeftHandSocket'
+				MechPartActor_LeftHand.SetMechVehicle(self);
+			}
 		}
 	}else{
 		`log('Error class is not set');

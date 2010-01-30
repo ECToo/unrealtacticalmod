@@ -9,6 +9,7 @@ class MechaPart_LeftArm03 extends MechaPartArm;
 
 defaultproperties
 {
+     bodytype="leftarm"
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.mecha_arm03_left'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.mecha_arm03_left_Physics'
