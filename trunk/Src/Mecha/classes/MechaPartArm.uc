@@ -11,7 +11,6 @@
    -Weapon Animation
    -Walk Animation
    -Arm Type
-
 */
 
 class MechaPartArm extends MechaPart;

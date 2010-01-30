@@ -8,9 +8,10 @@ class MechaPart_RWeap_Gun extends MechaPartWeapon;
 
 defaultproperties
 {
-        WeaponProjectiles=class'UTProj_LinkPlasma'
-        SocketName=FlashPointSocket01
-        firerate=0.2
+	bodytype="rightweaponhand"
+	WeaponProjectiles=class'UTProj_LinkPlasma'
+	SocketName=FlashPointSocket01
+	firerate=0.2
 
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.RMechaWeaponA01_gun'
