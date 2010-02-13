@@ -6,7 +6,7 @@
    Information: This code handle the skeleton control for the turret controls from UTVehicle functions.
    This function will be add on and not over ride for UTVehicle Turrets.
    This part is still under testing out some area.
-   
+
    //To DO List:
    -Weapon Animation
    -Walk Animation
@@ -17,6 +17,10 @@ class MechaPartArm extends MechaPart;
 
 //var SkelControlSingleBone ArmBoneControl; //default for basic test
 var UTSkelControl_TurretConstrained ArmBoneControl;
+
+//deal with the update
+var bool bElbowControl; // joint when moving to aim
+var bool bShoulderControl; // joint when moving to aim
 
 simulated function PostBeginPlay()
 {

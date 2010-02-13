@@ -27,7 +27,8 @@ function bool UsedBy(Pawn User)
 	if(bDisableUsed){
            //`log("BUILDING INDEX" @ BuildingData.Name);
            if (VehicleBuildingData != None){
-              SceneBuildVehicle.setvehiclebuild(VehicleBuildingData);
+              //SceneBuildVehicle.setvehiclebuild(VehicleBuildingData); //note this will crash when used
+              SceneBuildVehicle.setvehicleid(VehicleBuildingData.Name); //vehicle id
 	      CPlayer.OpenUIScene(SceneBuildVehicle);
 	      `log("open");
 	   }
@@ -47,12 +48,14 @@ defaultproperties
 
         SceneBuildVehicle=UISceneMechaPart'VH_Mecha.UISceneMechaPartMenu'
 
+        /*
         Begin Object Name=Sprite
 		Sprite=Texture2D'UTMEditor.buildtool'
 		HiddenGame=False
 		AlwaysLoadOnClient=False
 		AlwaysLoadOnServer=False
 	End Object
+	*/
 
         //Used Event
 	Begin Object Class=Sequence Name=Sequence0
