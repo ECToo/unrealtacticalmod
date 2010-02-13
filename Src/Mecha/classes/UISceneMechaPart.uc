@@ -41,6 +41,7 @@ var transient UTUIComboBox UTUICB_MechPartLeg;
 var string MechPartLeg;
 
 var string partname;
+var name mechaid;
 
 var VehicleMechaPart MechBuild;
 var transient UTUIDataStore_MechPartList MenuDataStore;
@@ -88,6 +89,10 @@ event PostInitialize()
 
 function setvehiclebuild(VehicleMechaPart tvb){
 MechBuild = tvb;
+}
+
+function setvehicleid(name tvb){
+mechaid = tvb;
 }
 
 /*
@@ -168,7 +173,7 @@ function InitDataStores() {
 		MenuDataStore = UTUIDataStore_MechPartList(FindDataStore(class'UTUIDataStore_MechPartList'.default.Tag));
 		if(MenuDataStore == None) {
 			MenuDataStore = DSClient.CreateDataStore(class'UTUIDataStore_MechPartList');
-                         //saveconfig();
+                        // saveconfig();
 			if(MenuDataStore != None) {
 				DSClient.RegisterDataStore(MenuDataStore);
 
@@ -228,14 +233,35 @@ function bool ButChangePartEvent(UIScreenObject EventObject, int PlayerIndex){
 */
     local string packages;
     local class<MechaPart> MechData;
+    local WorldInfo WI;
+    local VehicleMechaPart MechaNode;
     /*
     if (partname){
        partname = "MechaPart_Leg01";
     }
     */
+    
+    
+    //mechaid
+    WI = GetWorldInfo();
 
-
+    ForEach WI.AllPawns(class'VehicleMechaPart', MechaNode)
+    {
+		if(MechaNode.Name ==  mechaid){
+			//UTMNode.SetVehicleName(StringValue);
+			`log('FOUND ' $ mechaid);
+			`log("CHANGE PARTS");
+			//MechBuild.changeparts(class'MechaPart_Leg01');
+			//you need to have package and then the class else give "none.MechaPart_Leg01"
+			packages = ("Mecha." $ partname);
+			// Mecha.MechaPart_Leg01 //this works
+			MechData = class<MechaPart>(DynamicLoadObject(packages, class'Class'));
+			MechaNode.changeparts(MechData);
+		}
+    }
+  
      `log("clicked > close ");
+     /*
     if(MechBuild != none){
       `log("CHANGE PARTS");
       //MechBuild.changeparts(class'MechaPart_Leg01');
@@ -245,6 +271,7 @@ function bool ButChangePartEvent(UIScreenObject EventObject, int PlayerIndex){
        MechData = class<MechaPart>(DynamicLoadObject(packages, class'Class'));
       MechBuild.changeparts(MechData);
     }
+    */
     //ExitMenu();
     return true;
 }
@@ -261,13 +288,13 @@ function setpartname(string partnametag){
     */
      `log("clicked > close ");
     if(MechBuild != none){
-      `log("CHANGE PARTS");
-      //MechBuild.changeparts(class'MechaPart_Leg01');
-       //you need to have package and then the class else give "none.MechaPart_Leg01"
-       packages = ("Mecha." $ partnametag);
-       // Mecha.MechaPart_Leg01 //this works
-       MechData = class<MechaPart>(DynamicLoadObject(packages, class'Class'));
-      MechBuild.changeparts(MechData);
+		`log("CHANGE PARTS");
+		//MechBuild.changeparts(class'MechaPart_Leg01');
+		//you need to have package and then the class else give "none.MechaPart_Leg01"
+		packages = ("Mecha." $ partnametag);
+		// Mecha.MechaPart_Leg01 //this works
+		MechData = class<MechaPart>(DynamicLoadObject(packages, class'Class'));
+		MechBuild.changeparts(MechData);
     }
 
 }

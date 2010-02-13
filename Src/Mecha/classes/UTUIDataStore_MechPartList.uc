@@ -1,11 +1,12 @@
-class UTUIDataStore_MechPartList extends UTUIDataStore_StringList;
-      //config(Mecha);
+class UTUIDataStore_MechPartList extends UTUIDataStore_StringList
+      config(Mecha);
 
 event Registered(LocalPlayer PlayerOwner)
 {
 	Super.Registered(PlayerOwner);
 	// In case you don't want to set defaultproperties
 	FillList();
+        //saveconfig();
 }
 
 function FillList()
