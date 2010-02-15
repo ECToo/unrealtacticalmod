@@ -8,7 +8,12 @@ class MechaPart_RWeap_LightningGun extends MechaPartWeapon;
 
 defaultproperties
 {
-        WeaponProjectiles=class'UTProj_LinkPlasma'
+        //WeaponProjectiles=class'UTProj_LinkPlasma'
+        //WeaponProjectiles=class'UTProj_Rocket'
+        //WeaponProjectiles=class'UTProj_ShockBall'
+        //WeaponProjectiles=class'UTProj_Grenade'
+        
+        WeaponProjectiles=class'UTProj_LinkPowerPlasma'
         SocketName=FlashPointSocket01
         firerate=0.2
 

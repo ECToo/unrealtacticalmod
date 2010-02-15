@@ -8,6 +8,17 @@
    Note: The code are copy and paste so it is mess up for testing purpose.
    
    Get the vehicle to crouch or sit function into to make the hover ground  close to the floor.
+   
+   TODOLIST:
+   -Bone Aim Control
+   --Arm control
+   --Elbow Control
+   
+   -damage skin
+   -animation stuff
+   --
+   --
+
  */
 
  /*
@@ -284,65 +295,38 @@ simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRota
 
         Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
 
-        if(MechPartActor_RightArm.ArmBoneControl !=none){           //MaxDeltaDegrees = FMax(MaxDeltaDegrees, MechPartActor_RightArm.ArmBoneControl.LagDegreesPerSecond);          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Pitch = GetClampedViewRotation().Pitch + Rotation.Pitch;          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = GetClampedViewRotation().Yaw;          //`log("pitch " $ GetClampedViewRotation().Pitch);//all plus rotation//MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = Rotation.Yaw + 8000;
-            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('BodyRoot', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
-            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, SeatWeaponRotation(0,,true), DummyVector, BoneRotation);
-            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
-            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('BodyRoot', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
-            //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = BoneRotation;
-          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
-          //this set the rotation
-          /*
-          MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
-          if(MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch == 0){
-            MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch = out_ViewRotation.Pitch + 5000;
-          }
-          */
-          //NeededPitch = rotator(Other.GetTargetLocation(self) - Weapon.GetPhysicalFireStartLoc()).Pitch & 65535;          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch = rotator(Weapon.GetPhysicalFireStartLoc()).Pitch;
-
-          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
-          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = out_ViewRotation;
-          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetClampedViewRotation();
-         //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;//partly works
-           //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, Controller.Rotation, DummyVector, BoneRotation);
-           //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = BoneRotation;//partly works
-             MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+        if(MechPartActor_RightArm.ArmBoneControl !=none){
+             //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+             MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_RightArm);
         }else{
               //`log("none");
         }
 
         if(MechPartActor_LeftArm.ArmBoneControl !=none){
-          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
-          //this set the rotation
-          //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
-          //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
-           //if(MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch == 0){
-            //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch = out_ViewRotation.Pitch + 5000;
-            //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetClampedViewRotation();
-          //}
-          //`log(MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch);
-           MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+        //   //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+           MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_LeftArm);
         }
 
 }
 
-/*
+
 function rotator GetAimDirectionArm(MechaPartArm ArmDir)
 {
-         local vector SocketLocation, CameraLocation, RealAimPoint, DesiredAimPoint, HitLocation, HitRotation, DirA, DirB;
+	local vector SocketLocation, CameraLocation, RealAimPoint, DesiredAimPoint, HitLocation, HitRotation, DirA, DirB;
 	local rotator CameraRotation, SocketRotation, ControllerAim, AdjustedAim;
 	local float DiffAngle, MaxAdjust;
 	local Controller C;
 	local PlayerController PC;
 	local Quat Q;
-	
+
 	if(ArmDir != None){
 	   C = Controller;
 	   PC = PlayerController(C);
 	   if (PC != None)
 		{
 			PC.GetPlayerViewPoint(CameraLocation, CameraRotation);
-			DesiredAimPoint = CameraLocation + Vector(CameraRotation);// * ArmDir.GetTraceRange();
+			//DesiredAimPoint = CameraLocation + Vector(CameraRotation);// * ArmDir.GetTraceRange();
+			DesiredAimPoint = CameraLocation + Vector(CameraRotation) * 10000;// * ArmDir.GetTraceRange();
 			if (Trace(HitLocation, HitRotation, DesiredAimPoint, CameraLocation) != None)
 			{
 				DesiredAimPoint = HitLocation;
@@ -351,13 +335,79 @@ function rotator GetAimDirectionArm(MechaPartArm ArmDir)
 		{
 			DesiredAimPoint = C.GetFocalPoint();
 		}
+		
+		//`log("location:" $ HitLocation);
+		
+		if ( Seats[0].GunSocket.Length>0 )
+		{
+			GetBarrelLocationAndRotation(0, SocketLocation, SocketRotation);
+			//if(VWeapon.bIgnoreSocketPitchRotation || ((DesiredAimPoint.Z - Location.Z)<0 && VWeapon.bIgnoreDownwardPitch))
+			//{
+			//	SocketRotation.Pitch = Rotator(DesiredAimPoint - Location).Pitch;
+			//}
+		}
+		else
+		{
+			SocketLocation = Location;
+			SocketRotation = Rotator(DesiredAimPoint - Location);
+		}
+		
+                SocketLocation = ArmDir.GetElbowLocation();
+		return rotator(DesiredAimPoint - SocketLocation);
 
+		/*
+		//RealAimPoint = SocketLocation + Vector(SocketRotation) * VWeapon.GetTraceRange();
+		RealAimPoint = SocketLocation + Vector(SocketRotation) * 10000;
+		DirA = normal(DesiredAimPoint - SocketLocation);
+		DirB = normal(RealAimPoint - SocketLocation);
+		DiffAngle = ( DirA dot DirB );
+		MaxAdjust = ArmDir.GetMaxFinalAimAdjustment();
+		if ( DiffAngle >= MaxAdjust )
+		{
+			// bit of a hack here to make bot aiming and single player autoaim work
+			ControllerAim = (C != None) ? C.Rotation : Rotation;
+			//AdjustedAim = ArmDir.GetAdjustedAim(SocketLocation);
+			AdjustedAim = rotator(SocketLocation);
+			if (AdjustedAim == ArmDir.Instigator.GetBaseAimRotation() || AdjustedAim == ControllerAim)
+			{
+				// no adjustment
+				return rotator(DesiredAimPoint - SocketLocation);
+			}
+			else
+			{
+				// FIXME: AdjustedAim.Pitch = Instigator.LimitPitch(AdjustedAim.Pitch);
+				return AdjustedAim;
+			}
+		}
+		else
+		{
+			Q = QuatFromAxisAndAngle(Normal(DirB cross DirA), ACos(MaxAdjust));
+			return Rotator( QuatRotateVector(Q,DirB));
+		}
+		*/
+
+	}
+	else
+	{
+		return Rotation;
 	}
 
 }
+
+/* //socket location from mesh
+simulated event GetBarrelLocationAndRotation(int SeatIndex, out vector SocketLocation, optional out rotator SocketRotation)
+{
+	if (Seats[SeatIndex].GunSocket.Length>0)
+	{
+		Mesh.GetSocketWorldLocationAndRotation(Seats[SeatIndex].GunSocket[GetBarrelIndex(SeatIndex)], SocketLocation, SocketRotation);
+	}
+	else
+	{
+		SocketLocation = Location;
+		SocketRotation = Rotation;
+	}
+}
 */
-
-
 
 /**
  * This function returns the aim for the weapon
@@ -438,6 +488,7 @@ function rotator GetWeaponAim(UTVehicleWeapon VWeapon)
 	}
 }
 */
+
 
 simulated function bool OverrideBeginFire(byte FireModeNum)
 {
@@ -667,28 +718,6 @@ simulated function SleepCheckGroundDistance()
 }
 */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function PassengerLeave(int SeatIndex)
 {
 	Super.PassengerLeave(SeatIndex);
@@ -866,10 +895,9 @@ defaultproperties
 		bDisableWheelsWhenOff=false
 		HardLimitAirSpeedScale=1.5
 	End Object
+	//bDisableWheelsWhenOff=false //hover code i think to disable wheel
 	SimObj=SimObject
 	Components.Add(SimObject)
-	
-
 
 	//
 	//wheel height control are here bit hard to deal with
@@ -949,4 +977,72 @@ defaultproperties
 	HornIndex=3
 	//VehicleIndex=1
 	CustomGravityScaling=0.9
+	
+	Seats(0)={( GunClass=class'MechaVehicleWeapon',
+				GunSocket=(MainGun_Fire),
+                                GunPivotPoints=(Body),
+				TurretVarPrefix="",
+				CameraTag=DriverViewSocket,
+				CameraOffset=-280,
+				CameraSafeOffset=(Z=200),
+				DriverDamageMult=0.0,
+				SeatIconPos=(X=0.46,Y=0.2),
+				TurretControls=(MainRotateGun,MainPitchGun,),
+				CameraBaseOffset=(X=40,Y=0,Z=0),
+				//MuzzleFlashLightClass=class'UTDarkWalkerMuzzleFlashLight',
+				MuzzleFlashLightClass=None,
+				WeaponEffects=((SocketName=MainGun_00,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)),(SocketName=MainGun_01,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)))
+				)}
 }
+
+/*
+
+simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRotation, out rotator out_DeltaRot)
+{
+    //local rotator BoneRotation;
+    //local vector DummyVector; //Not used.
+    //bones name::BodyRoot,RightArm2
+
+        Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
+
+        if(MechPartActor_RightArm.ArmBoneControl !=none){           //MaxDeltaDegrees = FMax(MaxDeltaDegrees, MechPartActor_RightArm.ArmBoneControl.LagDegreesPerSecond);          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Pitch = GetClampedViewRotation().Pitch + Rotation.Pitch;          //MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = GetClampedViewRotation().Yaw;          //`log("pitch " $ GetClampedViewRotation().Pitch);//all plus rotation//MechPartActor_RightArm.ArmBoneControl.BoneRotation.Yaw = Rotation.Yaw + 8000;
+            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('BodyRoot', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
+            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, SeatWeaponRotation(0,,true), DummyVector, BoneRotation);
+            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
+            //MechPartActor_RightArm.Mesh.TransformToBoneSpace('BodyRoot', DummyVector, out_ViewRotation, DummyVector, BoneRotation);
+            //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = BoneRotation;
+          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
+          //this set the rotation
+
+          MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+          if(MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch == 0){
+            MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch = out_ViewRotation.Pitch + 5000;
+          }
+
+          //NeededPitch = rotator(Other.GetTargetLocation(self) - Weapon.GetPhysicalFireStartLoc()).Pitch & 65535;          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation.Pitch = rotator(Weapon.GetPhysicalFireStartLoc()).Pitch;
+
+          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = out_ViewRotation;
+          //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetClampedViewRotation();
+         //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;//partly works
+           //MechPartActor_RightArm.Mesh.TransformToBoneSpace('RightArm2', DummyVector, Controller.Rotation, DummyVector, BoneRotation);
+           //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = BoneRotation;//partly works
+             MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+        }else{
+              //`log("none");
+        }
+
+        if(MechPartActor_LeftArm.ArmBoneControl !=none){
+          // doesn't do limit rotations //SeatWeaponRotation(0,,true); built in function for UTVehicle class
+          //this set the rotation
+          //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+          //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = SeatWeaponRotation(0,,true);
+           //if(MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch == 0){
+            //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch = out_ViewRotation.Pitch + 5000;
+            //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetClampedViewRotation();
+          //}
+          //`log(MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation.Pitch);
+           MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+        }
+}
+*/

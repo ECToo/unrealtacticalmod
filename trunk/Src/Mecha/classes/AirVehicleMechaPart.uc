@@ -10,11 +10,6 @@
    Get the vehicle to crouch or sit function into to make the hover ground  close to the floor.
  */
 
- /*
- *
- * Build Type: Two leg
- */
-
 class AirVehicleMechaPart extends AirVehicleMecha;
 
 /** radius to allow players under this darkwalker to gain entry */
@@ -24,15 +19,6 @@ var float CustomEntryRadius;
 
 /** @hack: replicated copy of bHoldingDuck for clients */
 var bool bIsDucking;
-
-var SkeletalMeshComponent AntennaMesh;
-var SkeletalMeshComponent AntennaMesh2;
-
-var UTHoverWheel FHThruster;
-var UTHoverWheel RHThruster;
-var UTHoverWheel LHThruster;
-
-//var UTMMechWalkerBody_MechProtypeLeg Mesh2;
 
 //var class <MechaPart> MechPart;
 //var MechaPart MechPartActor;
@@ -636,58 +622,6 @@ simulated event Destroyed()
 	//ClearTimer('SleepCheckGroundDistance');
 }
 
-/*
-//this deal some what hover I think.
-simulated function SleepCheckGroundDistance()
-{
-	local vector HitLocation, HitNormal;
-	local actor HitActor;
-	local float SleepCheckDistance;
-
-	bSkipAggresiveSleep = FALSE;
-
-	if(!bDriving && !Mesh.RigidBodyIsAwake())
-	{
-		HitActor = Trace(HitLocation, HitNormal, Location - vect(0,0,1000), Location, TRUE);
-
-		SleepCheckDistance = 2000.0;
-		if(HitActor != None)
-		{
-			SleepCheckDistance = VSize(HitLocation - Location);
-		}
-
-		// If distance has changed, wake it
-		if(Abs(SleepCheckDistance - LastSleepCheckDistance) > 10.0)
-		{
-			Mesh.WakeRigidBody();
-			bSkipAggresiveSleep = TRUE;
-			LastSleepCheckDistance = SleepCheckDistance;
-		}
-	}
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function PassengerLeave(int SeatIndex)
 {
@@ -795,11 +729,6 @@ defaultproperties
         BodyAttachLeftArmSocketName=LeftHandSocket
         BodyAttachLeftHandSocketName=LeftHandSocket
 
-
-	Begin Object Name=SVehicleMesh
-		RBCollideWithChannels=(Default=TRUE,GameplayPhysics=TRUE,EffectPhysics=TRUE,Vehicle=TRUE,Untitled1=TRUE)
-	End Object
-
 	Begin Object Name=RB_BodyHandle
 		LinearDamping=100.0
 		LinearStiffness=99000.0
@@ -810,143 +739,64 @@ defaultproperties
 	Health=1000
 	MeleeRange=-100.0
 
-	COMOffset=(x=0,y=0.0,z=150)
-	bCanFlip=false
-
-	AirSpeed=350.0
-	GroundSpeed=350.0
-
-	bFollowLookDir=true
-	bCanStrafe=true
-	bTurnInPlace=true
-	bDuckObstacles=true
-	ObjectiveGetOutDist=750.0
-	ExtraReachDownThreshold=450.0
-	MaxDesireability=1.25
-	SpawnRadius=125.0
-	bNoZSmoothing=true
-	LookForwardDist=40.0
-	TeamBeaconOffset=(z=350.0)
-
-	bUseSuspensionAxis=true
-
-	bStayUpright=true
-	StayUprightRollResistAngle=0.0			// will be "locked"
-	StayUprightPitchResistAngle=0.0
-
-	Begin Object Class=UTVehicleSimHover Name=SimObject
-		WheelSuspensionStiffness=20.0
-		WheelSuspensionDamping=1.0
-		WheelSuspensionBias=0.0
-		MaxThrustForce=600.0
-		MaxReverseForce=600.0
-		LongDamping=0.3
-		MaxStrafeForce=600.0
-		LatDamping=0.3
-		MaxRiseForce=0.0
-		UpDamping=0.0
-		TurnTorqueFactor=2000.0
+	Begin Object Class=UTVehicleSimChopper Name=SimObject
+	//Begin Object Name=SimObject
+	
+		MaxThrustForce=700.0
+		MaxReverseForce=700.0
+		LongDamping=0.6
+		MaxStrafeForce=680.0
+		LatDamping=0.7
+		MaxRiseForce=1000.0
+		UpDamping=0.7
+		TurnTorqueFactor=7000.0
 		TurnTorqueMax=10000.0
-		TurnDamping=0.25
-		MaxYawRate=100000.0
-		PitchTorqueMax=200.0
-		PitchDamping=0.1
-		RollTorqueMax=50.0
+		TurnDamping=1.2
+		MaxYawRate=1.8
+		PitchTorqueFactor=450.0
+		PitchTorqueMax=60.0
+		PitchDamping=0.3
+		RollTorqueTurnFactor=700.0
+		RollTorqueStrafeFactor=100.0
+		RollTorqueMax=300.0
 		RollDamping=0.1
-		MaxRandForce=0.0
-		RandForceInterval=1000.0
-		bCanClimbSlopes=true
-		PitchTorqueFactor=0.0
-		RollTorqueTurnFactor=0.0
-		RollTorqueStrafeFactor=0.0
-		bAllowZThrust=false
-		bStabilizeStops=true
-		StabilizationForceMultiplier=1.0
-		bFullThrustOnDirectionChange=true
-		bDisableWheelsWhenOff=false
-		HardLimitAirSpeedScale=1.5
+		MaxRandForce=30.0
+		RandForceInterval=0.5
+		StopThreshold=100
+		bShouldCutThrustMaxOnImpact=true
 	End Object
 	SimObj=SimObject
 	Components.Add(SimObject)
-	
 
+	COMOffset=(X=-40,Z=-50.0)
 
-	//
-	//wheel height control are here bit hard to deal with
-	Begin Object Class=UTHoverWheel Name=RThruster
-		BoneName="BodyRoot" //need to the bone name else it will crash
-		BoneOffset=(X=-50.0,Y=100.0,Z=-200.0)
-		WheelRadius=10
-		//SuspensionTravel=145
-		SuspensionTravel=145
-		bPoweredWheel=false
-		LongSlipFactor=0.0
-		LatSlipFactor=0.0
-		HandbrakeLongSlipFactor=0.0
-		HandbrakeLatSlipFactor=0.0
-		SteerFactor=1.0
-		bHoverWheel=true
-	End Object
-	RHThruster=RThruster
-	Wheels(0)=RThruster
+        BaseEyeheight=30
+	Eyeheight=30
+	bRotateCameraUnderVehicle=false
+	CameraLag=0.05
+	LookForwardDist=290.0
+	bLimitCameraZLookingUp=true
 
-	Begin Object Class=UTHoverWheel Name=LThruster
-		BoneName="BodyRoot"   //need to the bone name else it will crash
-		//BoneOffset=(X=-50.0,Y=-100.0,Z=-200.0)
-		BoneOffset=(X=-50.0,Y=-100.0,Z=-200.0)
-		WheelRadius=10
-		//SuspensionTravel=145
-		SuspensionTravel=145
-		bPoweredWheel=false
-		LongSlipFactor=0.0
-		LatSlipFactor=0.0
-		HandbrakeLongSlipFactor=0.0
-		HandbrakeLatSlipFactor=0.0
-		SteerFactor=1.0
-		bHoverWheel=true
-	End Object
-	LHThruster=LThruster
-	Wheels(1)=LThruster
+	AirSpeed=2000.0
+	GroundSpeed=1600.0
 
-	Begin Object Class=UTHoverWheel Name=FThruster
-		BoneName="BodyRoot"  //need to the bone name else it will crash
-		BoneOffset=(X=80.0,Y=0.0,Z=-200.0)
-		WheelRadius=10
-		//SuspensionTravel=145
-		SuspensionTravel=145
-		bPoweredWheel=false
-		LongSlipFactor=0.0
-		LatSlipFactor=0.0
-		HandbrakeLongSlipFactor=0.0
-		HandbrakeLatSlipFactor=0.0
-		SteerFactor=1.0
-		bHoverWheel=true
-	End Object
-	FHThruster=FThruster
-	Wheels(2)=FThruster
+	UprightLiftStrength=30.0
+	UprightTorqueStrength=30.0
 
+	bStayUpright=true
+	StayUprightRollResistAngle=5.0
+	StayUprightPitchResistAngle=5.0
+	StayUprightStiffness=1200
+	StayUprightDamping=20
+
+	SpawnRadius=180.0
 	RespawnTime=45.0
 
-	//HoverBoardAttachSockets=(HoverAttach00,HoverAttach01)
+	bOverrideAVRiLLocks=true
 
-	bHasCustomEntryRadius=true
-	CustomEntryRadius=300.0
+	PushForce=50000.0
+	HUDExtent=140.0
 
-	bIgnoreStallZ=TRUE
-	HUDExtent=250.0
+	HornIndex=0
 
-	//BaseEyeheight=0
-	//Eyeheight=0
-	
-	BaseEyeheight=50
-	Eyeheight=200
-
-	bFindGroundExit=false
-	bShouldAutoCenterViewPitch=FALSE
-
-	bIsNecrisVehicle=true
-
-	HornIndex=3
-	//VehicleIndex=1
-	CustomGravityScaling=0.9
 }

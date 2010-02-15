@@ -28,6 +28,14 @@ var vector FireOffset;
 var vector ProjectileSpawnOffset;
 var bool bWeaponPress;
 
+/** Range of Weapon, used for Traces (InstantFire, ProjectileFire, AdjustAim...) */
+var()			float	WeaponRange;
+
+/** This value is used to cap the maximum amount of "automatic" adjustment that will be made to a shot
+    so that it will travel at the crosshair.  If the angle between the barrel aim and the player aim is
+    less than this angle, it will be adjusted to fire at the crosshair.  The value is in radians */
+var float MaxFinalAimAdjustment;
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
@@ -198,6 +206,25 @@ simulated function vector GetPhysicalFireStartLoc(optional vector AimDir)
 	return Location;
 }
 
+
+/**
+ * Range of weapon
+ * Used for Traces (CalcWeaponFire, InstantFire, ProjectileFire, AdjustAim...)
+ * State scoped accessor function. Override in proper state
+ *
+ * @return	range of weapon, to be used mainly for traces.
+ */
+
+simulated event float GetTraceRange()
+{
+	return WeaponRange;
+}
+
+simulated function float GetMaxFinalAimAdjustment()
+{
+	return MaxFinalAimAdjustment;
+}
+
 defaultproperties
 {
     //x= -(back surface)/+(front surface)
@@ -207,5 +234,9 @@ defaultproperties
     bWeaponPress=false
     bWeaponFire=false
     FireRate=1.0
+    
+    WeaponRange=16384
+    // ~ 5 Degrees
+    MaxFinalAimAdjustment=0.995;
 
 }

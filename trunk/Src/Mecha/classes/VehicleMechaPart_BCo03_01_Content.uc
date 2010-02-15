@@ -55,26 +55,10 @@ defaultproperties
 
 	Begin Object Name=SVehicleMesh
 		SkeletalMesh=SkeletalMesh'VH_Mecha.mechabuildco03_body03'
-		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
+		//AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.mechabuildco03_body03_Physics'
 	End Object
 
-
-	Seats(0)={( GunClass=class'MechaVehicleWeapon',
-				GunSocket=(MainGun_Fire),
-                                GunPivotPoints=(Body),
-				TurretVarPrefix="",
-				CameraTag=DriverViewSocket,
-				CameraOffset=-280,
-				CameraSafeOffset=(Z=200),
-				DriverDamageMult=0.0,
-				SeatIconPos=(X=0.46,Y=0.2),
-				TurretControls=(MainRotateGun,MainPitchGun,),
-				CameraBaseOffset=(X=40,Y=0,Z=0),
-				//MuzzleFlashLightClass=class'UTDarkWalkerMuzzleFlashLight',
-				MuzzleFlashLightClass=None,
-				WeaponEffects=((SocketName=MainGun_00,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)),(SocketName=MainGun_01,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)))
-				)}
 
 //	FlagBone=Head
 

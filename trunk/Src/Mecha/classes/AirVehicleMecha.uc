@@ -7,7 +7,7 @@
 class AirVehicleMecha extends UTAirVehicle
         placeable;
 
-var(Movement)   float   DuckForceMag;
+//var(Movement)   float   DuckForceMag;
 
 var() RB_Handle BodyHandle;
 var Color textcolor;
@@ -32,7 +32,7 @@ simulated function PostBeginPlay()
 	//local vector X, Y, Z;
 
 	Super.PostBeginPlay();
-	SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
+	//SetTimer(1.0, TRUE, 'SleepCheckGroundDistance');
 }
 
 simulated function Tick(float DeltaTime)
@@ -176,13 +176,52 @@ simulated event Destroyed()
 	ClearTimer('SleepCheckGroundDistance');
 }
 
+simulated event RigidBodyCollision( PrimitiveComponent HitComponent, PrimitiveComponent OtherComponent,
+					const out CollisionImpactData RigidCollisionData, int ContactIndex )
+{
+	Super.RigidBodyCollision(HitComponent, OtherComponent, RigidCollisionData, ContactIndex);
+	if(!IsTimerActive('ResetTurningSpeed'))
+	{
+		SetTimer(0.7f,false,'ResetTurningSpeed');
+		MaxSpeed = default.MaxSpeed/2.0;
+		MaxAngularVelocity = default.MaxAngularVelocity/4.0;
+		if( UTVehicleSimChopper(SimObj) != none)
+			UTVehicleSimChopper(SimObj).bRecentlyHit = true;
+		//UTVehicleSimChopper(SimObj).TurnDamping = 0.8;
+	}
+}
+
+simulated function ResetTurningSpeed()
+{ // this is safe since this only gets called above after checking SimObj is a chopper.
+	MaxSpeed = default.MaxSpeed;
+	MaxAngularVelocity = default.MaxAngularVelocity;
+	if( UTVehicleSimChopper(SimObj) != none)
+		UTVehicleSimChopper(SimObj).bRecentlyHit = false;
+
+	//UTVehicleSimChopper(SimObj).TurnDamping = UTVehicleSimChopper(default.SimObj).TurnDamping;
+}
+
+simulated function bool ShouldClamp()
+{
+	return false;
+}
+
+function bool RecommendLongRangedAttack()
+{
+	return true;
+}
+
+// AI hint
+/*
+function bool ImportantVehicle()
+{
+	return !bFreelanceStart;
+}
+*/
+
 defaultproperties
 {      
     HoverHeightBody=5000
-    	DuckForceMag=-350.0
-        //bHasCrouchMode=true
-        //HoverAdjust()=-280.0
-
 
          maxcount = 10000;
 	bCanBeBaseForPawns=false
@@ -197,15 +236,23 @@ defaultproperties
 	//BodyHandle=RB_BodyHandle
 	//Components.Add(RB_BodyHandle)
 
-	BaseEyeheight=300
-	Eyeheight=300
-
-	//BodyHandleOrientInterpSpeed=5.f
-
 	Health=200
 	MeleeRange=-100.0
 	ExitRadius=160.0
 	
-	IconCoords=(U=859,UL=36,V=0,VL=27)
-	HudCoords=(U=228,V=143,UL=-119,VL=106)
+		Seats(0)={( GunClass=class'MechaVehicleWeapon',
+				GunSocket=(MainGun_Fire),
+                                GunPivotPoints=(Body),
+				TurretVarPrefix="",
+				CameraTag=DriverViewSocket,
+				CameraOffset=-280,
+				CameraSafeOffset=(Z=200),
+				DriverDamageMult=0.0,
+				SeatIconPos=(X=0.46,Y=0.2),
+				TurretControls=(MainRotateGun,MainPitchGun,),
+				CameraBaseOffset=(X=40,Y=0,Z=0),
+				//MuzzleFlashLightClass=class'UTDarkWalkerMuzzleFlashLight',
+				MuzzleFlashLightClass=None,
+				WeaponEffects=((SocketName=MainGun_00,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)),(SocketName=MainGun_01,Offset=(X=-35,Y=-3),Scale3D=(X=8.0,Y=10.0,Z=10.0)))
+				)}
 }

@@ -6,7 +6,24 @@ license: THIS is "AS-IS" PRoDUCT.
 
 Required: 
  - Give Credits...
+ - Ask permission to use the code.
  - http://utforums.epicgames.com > User > Darknet
+
+//===============================================
+//
+//===============================================
+
+TODOLIST:
+
+-Animation
+-Weapon Aim
+-custom parts
+--config save and load
+--menu design
+
+-Damage mesh
+-Sound effect
+-stationary
 
 //===============================================
 //
@@ -22,6 +39,7 @@ differently from unreal. This deal with weapon fire
 functions when the weapon over heat or used too much
 power. That will create a cool down until it is use
 again.
+
 
 //===============================================
 //

@@ -22,6 +22,31 @@ var UTSkelControl_TurretConstrained ArmBoneControl;
 var bool bElbowControl; // joint when moving to aim
 var bool bShoulderControl; // joint when moving to aim
 
+var() protected const Name ShoulderSocketName;
+var() protected const Name ElbowSocketName;
+var() protected const Name HandSocketName;
+
+var() protected const Name ShoulderBoneName;
+var() protected const Name ElbowBoneName;
+var() protected const Name HandBoneName;
+
+
+//===============================================
+//unreal setting that need to be else another config can mess some part up
+//===============================================
+
+
+/** Range of Weapon, used for Traces (InstantFire, ProjectileFire, AdjustAim...) */
+var()			float	WeaponRange;
+
+/** This value is used to cap the maximum amount of "automatic" adjustment that will be made to a shot
+    so that it will travel at the crosshair.  If the angle between the barrel aim and the player aim is
+    less than this angle, it will be adjusted to fire at the crosshair.  The value is in radians */
+var float MaxFinalAimAdjustment;
+
+//===============================================
+//===============================================
+
 simulated function PostBeginPlay()
 {
    super.PostBeginPlay();
@@ -32,8 +57,59 @@ simulated function PostBeginPlay()
    //ArmBoneControl.BoneRotationSpace = BCS_BoneSpace;//var Name
 }
 
+
+//===============================================
+//
+//===============================================
+
+/**
+ * Range of weapon
+ * Used for Traces (CalcWeaponFire, InstantFire, ProjectileFire, AdjustAim...)
+ * State scoped accessor function. Override in proper state
+ *
+ * @return	range of weapon, to be used mainly for traces.
+ */
+
+simulated event float GetTraceRange()
+{
+	return WeaponRange;
+}
+
+simulated function float GetMaxFinalAimAdjustment()
+{
+	return MaxFinalAimAdjustment;
+}
+
+simulated event GetBarrelLocationAndRotation(Name SocketName, out vector SocketLocation, optional out rotator SocketRotation)
+{
+	//if (SocketName != None)
+	//{
+		Mesh.GetSocketWorldLocationAndRotation(SocketName, SocketLocation, SocketRotation);
+	//}
+	//else
+	//{
+		//SocketLocation = Location;
+		//SocketRotation = Rotation;
+	//}
+}
+
+function vector GetBoneLocation(Name BoneName)
+{
+	return 	Mesh.GetBoneLocation(BoneName);
+}
+
+function vector GetElbowLocation(){
+   return GetBoneLocation(ElbowBoneName);
+}
+
+//===============================================
+//
+//===============================================
+
 defaultproperties
 {
-
+    WeaponRange=16384
+    // ~ 5 Degrees
+    MaxFinalAimAdjustment=0.995;
 
 }
