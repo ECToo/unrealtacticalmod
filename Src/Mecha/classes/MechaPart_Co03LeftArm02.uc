@@ -10,6 +10,7 @@ class MechaPart_Co03LeftArm02 extends MechaPartArm;
 defaultproperties
 {
      bodytype="leftarm"
+     ElbowBoneName=LeftArm2
 	Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.mechabuildco03_LArm02'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.mechabuildco03_LArm02_Physics'

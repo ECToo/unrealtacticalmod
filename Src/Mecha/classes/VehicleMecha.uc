@@ -116,31 +116,6 @@ simulated function SleepCheckGroundDistance()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 exec function StartRunning()
 {
