@@ -15,6 +15,7 @@
 
 
  * GameInfo
+  * [Custom_Game_Pawn]
 
  * Input
   * [Input_Info]
