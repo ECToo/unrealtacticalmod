@@ -32,5 +32,4 @@ defaultproperties
 	Components.Add(WPawnSkeletalMeshComponent)
 }
 }}}
-You need a skeleton mesh and physics. By default for this. It goes in third person.
-
+You need a skeleton mesh and physics. By default for this. It goes in third person. You will notice that there no HUD when you load up the game. Just the cross HUD. Since we do not use UTPawn extend from it.
