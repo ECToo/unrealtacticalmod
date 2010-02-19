@@ -66,3 +66,6 @@ Here another error I found.
 
  * Q:*How come my vehicle physic are not working?*
  * A: The main Bone should have skin first and has greater value. To have it own collision to support it.
+
+ * How come my vehicle die or kill on me?
+ * One or two of the reasons that does that. Fixed your mesh to have correct collision. And the other one is rig your weapon. Just create a dummy weapon socket. This deal with air vehicle death when reach out world death.
