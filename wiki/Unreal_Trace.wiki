@@ -7,5 +7,7 @@
 HitActor = Trace(HitLocation, HitNormal, DesiredAimPoint, CameraLocation);
 }}}
 HitLocation - This return the location where it be hit.
+
 DesiredAimPoint - This deal with a line or ray for where it aiming and camera pointing.
+
 CameraLocation - Starting point.
