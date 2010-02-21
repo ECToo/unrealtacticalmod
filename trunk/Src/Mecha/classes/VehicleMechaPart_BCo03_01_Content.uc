@@ -95,7 +95,7 @@ defaultproperties
 
 	Begin Object  Name=FThruster
 		BoneName="BodyRoot"  //need to the bone name else it will crash
-		BoneOffset=(X=80.0,Y=0.0,Z=-300.0)
+		BoneOffset=(X=80.0,Y=0.0,Z=-400.0)
 		WheelRadius=10
 		//SuspensionTravel=145
 		SuspensionTravel=400
@@ -107,4 +107,7 @@ defaultproperties
 		SteerFactor=1.0
 		bHoverWheel=true
 	End Object
+	
+	BaseEyeheight=100
+	Eyeheight=200
 }

@@ -28,6 +28,10 @@ var vector FireOffset;
 var vector ProjectileSpawnOffset;
 var bool bWeaponPress;
 
+//===============================================
+// Unreal settings Start
+//===============================================
+
 /** Range of Weapon, used for Traces (InstantFire, ProjectileFire, AdjustAim...) */
 var()			float	WeaponRange;
 
@@ -35,6 +39,37 @@ var()			float	WeaponRange;
     so that it will travel at the crosshair.  If the angle between the barrel aim and the player aim is
     less than this angle, it will be adjusted to fire at the crosshair.  The value is in radians */
 var float MaxFinalAimAdjustment;
+
+/** When true, this weapon is locked on target */
+var bool 				bLockedOnTarget;
+
+/** What "target" is this weapon locked on to */
+var Actor 				LockedTarget;
+
+var PlayerReplicationInfo LockedTargetPRI;
+
+/** What "target" is current pending to be locked on to */
+var Actor				PendingLockedTarget;
+
+/** How long since the Lock Target has been valid */
+var float  				LastLockedOnTime;
+
+/** When did the pending Target become valid */
+var float				PendingLockedTargetTime;
+
+/** When was the last time we had a valid target */
+var float				LastValidTargetTime;
+
+/** angle for locking for lock targets */
+var float 				LockAim;
+
+/** angle for locking for lock targets when on Console */
+var float 				ConsoleLockAim;
+
+//===============================================
+//unreal settings End
+//===============================================
+
 
 simulated function PostBeginPlay()
 {
@@ -68,8 +103,8 @@ simulated function FireWeaponProjectile(){
 
 	if ((bWeaponFire == true)&&(bWeaponDisable == false)){
 		if (WeaponProjectiles != None){
-			MechVehicle.Mesh.ForceSkelUpdate();
-			Mesh.ForceSkelUpdate();
+			//MechVehicle.Mesh.ForceSkelUpdate();
+			//Mesh.ForceSkelUpdate();
 			GetBarrelLocationAndRotation(SocketName,SocketLocation,SocketRotation);
 			SpawnedProjectile = Spawn(WeaponProjectiles,MechVehicle,,SocketLocation);
 			// this is the location where the projectile is spawned.
@@ -94,8 +129,10 @@ function FireTime(){
 
 function InitFireWeapon(){
 	if(bWeaponFire == false){
+                if (Mesh.Animations != None){
 		//animation play goes here just need to build one to get it working
                 Mesh.PlayAnim('fire', 1, false, false);
+                }
                 //PlayAnim (name AnimName, optional float Duration, optional bool bLoop, optional bool bRestartIfAlreadyPlaying)
                 if(AnimPlay != None){
                 //AnimPlay.SetAnim('fire');

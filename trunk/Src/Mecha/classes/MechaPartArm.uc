@@ -93,9 +93,30 @@ simulated event GetBarrelLocationAndRotation(Name SocketName, out vector SocketL
 	//}
 }
 
+/**
+ * This code deal with look for the bone location for return vector 
+ * since we create a skelelton mesh class
+*/
 function vector GetBoneLocation(Name BoneName)
-{
-	return 	Mesh.GetBoneLocation(BoneName);
+{	
+	local vector boneposition;
+	//if there is a skeleton mesh
+	if (Mesh != None){
+		//find bone location
+		boneposition = Mesh.GetBoneLocation(BoneName);
+	}
+	return boneposition;
+}
+
+function rotator GetBoneRotation(Name BoneName)
+{	
+	local rotator bonerotation;
+	//if there is a skeleton mesh
+	if (Mesh != None){
+		//find bone location
+		//bonerotation = Mesh.GetBoneAxis(BoneName,3);
+	}
+	return bonerotation;
 }
 
 function vector GetElbowLocation(){
@@ -108,8 +129,16 @@ function vector GetElbowLocation(){
 
 defaultproperties
 {
+
+
+
+
+
+//===============================================
+    //unreal settings
     WeaponRange=16384
     // ~ 5 Degrees
     MaxFinalAimAdjustment=0.995;
+//===============================================
 
 }

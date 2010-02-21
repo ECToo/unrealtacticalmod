@@ -8,16 +8,6 @@ class VehicleMecha extends UTVehicle
         //dependson(MyPlayerController)
 	//config(Mecha)
         placeable;
-        
-
-
-enum EWalkerStance
-{
-	WalkerStance_None,
-	WalkerStance_Standing,
-	WalkerStance_Parked,
-	WalkerStance_Crouched
-};
 
 var(Movement)   float   DuckForceMag;
 
@@ -82,6 +72,47 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	//`log('HUD' @ count); //render loop
 }
 
+/**
+ * PostRenderFor() Hook to allow pawns to render HUD overlays for themselves.
+ * Assumes that appropriate font has already been set
+ *
+ * @param	PC		The Player Controller who is rendering this pawn
+ * @param	Canvas	The canvas to draw on
+ */
+simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraPosition, vector CameraDir)
+{
+		//local actor HitActor2;
+	super.PostRenderFor(PC,Canvas,CameraPosition,CameraDir);
+
+
+}
+
+simulated function VehicleCalcCamera(float DeltaTime, int SeatIndex, out vector out_CamLoc, out rotator out_CamRot, out vector CamStart, optional bool bPivotOnly)
+{
+	/*
+	local float RealCameraScale;
+	local float VelSize;
+	local vector AngVel, NewPos, HitLocation, HitNormal;
+	local int TargetRoll, DeltaRoll;
+	local actor HitActor;
+	*/
+	local vector HitLocation, HitNormal, NewPos;
+	local actor HitActor;
+	super.VehicleCalcCamera(DeltaTime,SeatIndex,out_CamLoc,out_CamRot,CamStart,bPivotOnly);
+	// Line check to see we can do that.
+	HitActor = Trace(HitLocation, HitNormal, NewPos, out_CamLoc, FALSE, vect(12,12,12));
+	if( HitActor != None )
+	{
+		//out_CamLoc = HitLocation;
+                //`log("hit actor:" $ HitActor.Name);
+	}
+	else
+	{
+		//out_CamLoc = NewPos;
+	}
+
+}
+
 //walk up the mesh
 simulated function SleepCheckGroundDistance()
 {
@@ -111,33 +142,6 @@ simulated function SleepCheckGroundDistance()
 		}
 	}
 }
-
-
-
-
-
-/*
-exec function StartRunning()
-{
-
-//set the current speed to something we can recall later
-
-//set the new groundspeed
-//Pawn.GroundSpeed = Pawn.GroundSpeed * 1.5;
-`log('start running from vehicle');
-
-}
-
-exec function EndRunning()
-{
-
-//reset the groundspeed back to the original value
-//Pawn.GroundSpeed = Pawn.default.GroundSpeed;
-  `log('end running from vehicle');
-
-}
-*/
-
 
 exec function testkey()
 {

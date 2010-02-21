@@ -5,12 +5,12 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_Co03RightArm05 extends MechaPartArm;
+class MechaPart_Co03RightArm05 extends MechaPartRightArm;
 
 defaultproperties
 {
      bodytype="rightarm"
-     ElbowBoneName=RightArm2
+     //ElbowBoneName=RightArm2
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.mechabuildco03_RArm05'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.mechabuildco03_RArm05_Physics'

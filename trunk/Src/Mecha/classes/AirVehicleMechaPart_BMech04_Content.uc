@@ -42,13 +42,11 @@ defaultproperties
          BodyAttachLeftHandSocketName=LeftHandSocket
          MechPart_LeftHand=class'MechaPart_LeftWeapon'
 
-        /*
 	Begin Object Name=SVehicleMesh
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechdrone_body'
 		AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
 		PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechdrone_body_Physics'
 	End Object
-	*/
 
         /*
 	Begin Object Name=SVehicleMesh
@@ -58,11 +56,13 @@ defaultproperties
 	End Object
 	*/
 
+        /*
         Begin Object Name=SVehicleMesh
 		SkeletalMesh=SkeletalMesh'VH_Mecha.aircube'
 		//AnimTreeTemplate=AnimTree'VHUTM_MechProtypeWalker.mechprotype_body_at'
 		PhysicsAsset=PhysicsAsset'VH_Mecha.aircube_Physics'
 	End Object
+	*/
 
         /*
 	Begin Object Name=SVehicleMesh
