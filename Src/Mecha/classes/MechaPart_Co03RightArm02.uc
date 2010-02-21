@@ -5,7 +5,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_Co03RightArm02 extends MechaPartArm;
+class MechaPart_Co03RightArm02 extends MechaPartRightArm;
 
 defaultproperties
 {

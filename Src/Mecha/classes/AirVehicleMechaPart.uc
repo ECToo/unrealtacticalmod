@@ -739,9 +739,8 @@ defaultproperties
 	Health=1000
 	MeleeRange=-100.0
 
-	Begin Object Class=UTVehicleSimChopper Name=SimObject
-	//Begin Object Name=SimObject
-	
+	Begin Object Class=UDKVehicleSimChopper Name=SimObject
+
 		MaxThrustForce=700.0
 		MaxReverseForce=700.0
 		LongDamping=0.6

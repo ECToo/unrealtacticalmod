@@ -289,35 +289,47 @@ simulated event ReplicatedEvent(name VarName)
 //need to fixed two type of controling the arms
 simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRotation, out rotator out_DeltaRot)
 {
-    //local rotator BoneRotation;
-    //local vector DummyVector; //Not used.
-    //bones name::BodyRoot,RightArm2
+    local Controller C;
+	local PlayerController PC;
+	local rotator CameraRotation;
+	local vector CameraLocation,DesiredAimPoint,HitLocation,HitNormal;
+	local Actor HitActor;
 
-        Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
+	Super.ProcessViewRotation(DeltaTime, out_ViewRotation, out_DeltaRot);
 
-        if(MechPartActor_RightArm.ArmBoneControl !=none){
-             //MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
-             MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_RightArm);
-        }else{
-              //`log("none");
-        }
+	if(MechPartActor_RightArm.ArmBoneControl !=none){
+		//MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+		MechPartActor_RightArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_RightArm);
+		}else{
+		//`log("none");
+	}
 
-        if(MechPartActor_LeftArm.ArmBoneControl !=none){
-        //   //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
-           MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_LeftArm);
-        }
-
+	if(MechPartActor_LeftArm.ArmBoneControl !=none){
+		//   //MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = Controller.Rotation;
+		MechPartActor_LeftArm.ArmBoneControl.DesiredBoneRotation = GetAimDirectionArm(MechPartActor_LeftArm);
+	}
+        
+	C = Controller;
+	PC = PlayerController(C);
+	if (PC != None){
+		PC.GetPlayerViewPoint(CameraLocation, CameraRotation);
+		DesiredAimPoint = CameraLocation + Vector(CameraRotation) * 10000;// * ArmDir.GetTraceRange();
+		HitActor = Trace(HitLocation, HitNormal, DesiredAimPoint, CameraLocation);
+		if (HitActor != None){
+			`log("Actor " $ HitActor.Name);
+		}   
+	}
 }
 
 
 function rotator GetAimDirectionArm(MechaPartArm ArmDir)
 {
-	local vector SocketLocation, CameraLocation, RealAimPoint, DesiredAimPoint, HitLocation, HitRotation, DirA, DirB;
-	local rotator CameraRotation, SocketRotation, ControllerAim, AdjustedAim;
-	local float DiffAngle, MaxAdjust;
+	local vector SocketLocation, CameraLocation, DesiredAimPoint, HitLocation, HitRotation;//,RealAimPoint, DirA, DirB;
+	local rotator CameraRotation, SocketRotation; //, ControllerAim, AdjustedAim;
+	//local float DiffAngle, MaxAdjust;
 	local Controller C;
 	local PlayerController PC;
-	local Quat Q;
+	//local Quat Q;
 
 	if(ArmDir != None){
 	   C = Controller;
@@ -355,7 +367,7 @@ function rotator GetAimDirectionArm(MechaPartArm ArmDir)
                 SocketLocation = ArmDir.GetElbowLocation();
 		return rotator(DesiredAimPoint - SocketLocation);
 
-		/*
+                /*
 		//RealAimPoint = SocketLocation + Vector(SocketRotation) * VWeapon.GetTraceRange();
 		RealAimPoint = SocketLocation + Vector(SocketRotation) * 10000;
 		DirA = normal(DesiredAimPoint - SocketLocation);
@@ -385,6 +397,7 @@ function rotator GetAimDirectionArm(MechaPartArm ArmDir)
 			return Rotator( QuatRotateVector(Q,DirB));
 		}
 		*/
+
 
 	}
 	else
@@ -836,7 +849,7 @@ defaultproperties
 		AngularStiffness=99000.0
 	End Object
 
-	Health=1000
+	Health=500
 	MeleeRange=-100.0
 
 	COMOffset=(x=0,y=0.0,z=150)
@@ -863,7 +876,8 @@ defaultproperties
 	StayUprightRollResistAngle=0.0			// will be "locked"
 	StayUprightPitchResistAngle=0.0
 
-	Begin Object Class=UTVehicleSimHover Name=SimObject
+	//Begin Object Class=UTVehicleSimHover Name=SimObject
+	Begin Object Class=UDKVehicleSimHover Name=SimObject
 		WheelSuspensionStiffness=20.0
 		WheelSuspensionDamping=1.0
 		WheelSuspensionBias=0.0
