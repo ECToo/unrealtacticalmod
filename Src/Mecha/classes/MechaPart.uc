@@ -44,6 +44,7 @@ class MechaPart extends Actor
 var string bodypart;
 var string bodytype;
 var	bool					bIsDead;
+var	bool     BInternalWeapon;
 
 var bool bActionWalk;
 var bool bAnimationFire;
@@ -226,6 +227,7 @@ defaultproperties
 {
 	bWeaponDisable=false;
 	bActionWalk=false;
+        BInternalWeapon=false;
 	
 	//bBlockActors=True
 	bCollideActors=true
