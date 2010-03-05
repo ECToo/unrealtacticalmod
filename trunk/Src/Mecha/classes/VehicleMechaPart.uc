@@ -59,6 +59,7 @@ var MechaPart MechPartActor_Back;
 var() protected const Name BodyAttachLegSocketName;
 var() class <MechaPart> MechPart_Leg;
 var MechaPart MechPartActor_Leg;
+var vector offsetleg;
 //Right Arm
 var() protected const Name BodyAttachRightArmSocketName;
 var() class <MechaPartArm> MechPart_RightArm;
@@ -91,8 +92,9 @@ simulated function PostBeginPlay()
 
 		//leg
 		if(MechPart_Leg != None){
-			MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location);
+			MechPartActor_Leg = Spawn(MechPart_Leg, self,, Location + offsetleg );
 			Mesh.AttachComponentToSocket(MechPartActor_Leg.Mesh,BodyAttachLegSocketName);//'MechLegSocket'
+			//MechPartActor_Leg.Mesh.RelativeLocation = MechPartActor_Leg.Mesh.RelativeLocation + offsetleg;
 			MechPartActor_Leg.SetMechVehicle(self);
 		}
 
@@ -316,8 +318,8 @@ simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRota
 		DesiredAimPoint = CameraLocation + Vector(CameraRotation) * 10000;// * ArmDir.GetTraceRange();
 		HitActor = Trace(HitLocation, HitNormal, DesiredAimPoint, CameraLocation);
 		if (HitActor != None){
-			`log("Actor " $ HitActor.Name);
-		}   
+			//`log("Actor " $ HitActor.Name);
+		}
 	}
 }
 
@@ -512,6 +514,14 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 		if(MechPartActor_RightHand != none){
 		   MechPartActor_RightHand.BeginFire();
 		}
+		if(MechPartActor_RightArm != none){
+                    if(MechPartActor_RightArm.BInternalWeapon == true){
+                        MechPartActor_RightArm.BeginFire();
+                    }
+		}
+
+
+
 	}
 
 	if (FireModeNum == 0)
@@ -519,6 +529,11 @@ simulated function bool OverrideBeginFire(byte FireModeNum)
 	//`log('FIRE MODE');
                 if(MechPartActor_LeftHand !=none){
 		   MechPartActor_LeftHand.BeginFire();
+		}
+		if(MechPartActor_LeftArm != none){
+                    if(MechPartActor_LeftArm.BInternalWeapon == true){
+                        MechPartActor_LeftArm.BeginFire();
+                    }
 		}
 		//MechPartActor_RightHand.BeginFire();
 	}
@@ -533,6 +548,11 @@ simulated function bool OverrideEndFire(byte FireModeNum){
 		if(MechPartActor_RightHand != none){
 		    MechPartActor_RightHand.EndFire();
 		}
+		if(MechPartActor_RightArm != none){
+                    if(MechPartActor_RightArm.BInternalWeapon == true){
+                        MechPartActor_RightArm.EndFire();
+                    }
+		}
 	}
 
 	if (FireModeNum == 0)
@@ -540,6 +560,11 @@ simulated function bool OverrideEndFire(byte FireModeNum){
 	//`log('FIRE MODE');
 		if(MechPartActor_LeftHand != None){
                     MechPartActor_LeftHand.EndFire();
+		}
+		if(MechPartActor_LeftArm != none){
+                    if(MechPartActor_LeftArm.BInternalWeapon == true){
+                        MechPartActor_LeftArm.EndFire();
+                    }
 		}
 	}
 	return false;

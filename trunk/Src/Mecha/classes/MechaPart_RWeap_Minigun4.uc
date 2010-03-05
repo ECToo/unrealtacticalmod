@@ -9,7 +9,6 @@ class MechaPart_RWeap_Minigun4 extends MechaPartWeapon;
 defaultproperties
 {
         WeaponProjectiles=class'UTProj_LinkPlasma'
-        SocketName=FlashPointSocket01
         firerate=0.2
 
 	Begin Object Name=MeshFrame
