@@ -43,7 +43,8 @@ defaultproperties
 
          //right hand
          BodyAttachRightHandSocketName=HandSocket01
-         MechPart_RightHand=class'MechaPart_RightWeapon'
+         //MechPart_RightHand=class'MechaPart_MR1_RWeap_Gun'
+         MechPart_RightHand=class'MechaPart_MR1_RWeap_Missile'
 
          //left arm
          BodyAttachLeftArmSocketName=LeftArmSocket01

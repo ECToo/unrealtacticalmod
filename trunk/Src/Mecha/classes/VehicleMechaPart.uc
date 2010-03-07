@@ -77,6 +77,9 @@ var() protected const Name BodyAttachLeftHandSocketName;
 var() class <MechaPart> MechPart_LeftHand;
 var MechaPart MechPartActor_LeftHand;
 
+var Actor TargetActor;
+
+
 simulated function PostBeginPlay()
 {
 	super.PostBeginPlay();
@@ -318,7 +321,25 @@ simulated function ProcessViewRotation(float DeltaTime, out rotator out_ViewRota
 		DesiredAimPoint = CameraLocation + Vector(CameraRotation) * 10000;// * ArmDir.GetTraceRange();
 		HitActor = Trace(HitLocation, HitNormal, DesiredAimPoint, CameraLocation);
 		if (HitActor != None){
+		   TargetActor = HitActor;
 			//`log("Actor " $ HitActor.Name);
+			if (MechPartActor_RightArm != None){
+                            MechPartActor_RightArm.TargetActor = HitActor;
+			}
+
+			if (MechPartActor_LeftArm != None){
+                            MechPartActor_LeftArm.TargetActor = HitActor;
+			}
+
+			if (MechPartActor_RightHand != None){
+                            MechPartActor_RightHand.TargetActor = HitActor;
+			}
+
+			if (MechPartActor_LeftHand != None){
+                            MechPartActor_LeftHand.TargetActor = HitActor;
+			}
+		}else{
+		 TargetActor = None;
 		}
 	}
 }
@@ -652,6 +673,12 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	Canvas.SetPos(25,280+24);//x,y screen
            Canvas.DrawText("Weapon Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);
 	}
+	
+	if(TargetActor != None){
+	Canvas.SetPos(25,280+24*2);//x,y screen
+           Canvas.DrawText("Target Lock On: " @ TargetActor.Name);
+	}
+
 	//set postion and draw text
 	//Canvas.SetPos(25,280+24);//x,y screen
 	//Canvas.DrawText("Slot 2: " @ MechPartActor_LeftHand.bWeaponDisable);

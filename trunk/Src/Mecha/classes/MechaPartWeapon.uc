@@ -112,6 +112,12 @@ simulated function FireWeaponProjectile(){
 			//SpawnedProjectile = Spawn(WeaponProjectiles,,, RealStartLoc);
 			if (SpawnedProjectile != none){
 				SpawnedProjectile.Init(Vector(SocketRotation));
+                                //check if actor is not none and projectile type is a seeker
+				if ((TargetActor != None)&&(UTProj_SeekingRocket(SpawnedProjectile) != None)){
+				      `log("TargetActor:" @ TargetActor.Name);
+				      UTProj_SeekingRocket(SpawnedProjectile).SeekTarget = TargetActor;
+                                      `log("locked on!");
+				}
 			}
 		}
 	}
@@ -264,6 +270,7 @@ simulated function float GetMaxFinalAimAdjustment()
 
 defaultproperties
 {
+        SocketName=FlashPointSocket01   
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
@@ -271,7 +278,7 @@ defaultproperties
     bWeaponPress=false
     bWeaponFire=false
     FireRate=1.0
-    
+
     WeaponRange=16384
     // ~ 5 Degrees
     MaxFinalAimAdjustment=0.995;

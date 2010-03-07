@@ -58,6 +58,9 @@ var bool bWeaponDisable;
 var bool bDeplopyAmmo;
 var bool bCounterMeasure;
 
+//
+var Actor TargetActor;
+
 var string WalkName;
 
 /** The pawn's light environment */
