@@ -46,9 +46,16 @@ var name mechaid;
 var VehicleMechaPart MechBuild;
 var transient UTUIDataStore_MechPartList MenuDataStore;
 
+var class<MyClass> StorageClass;
+var class<MechPartObject> StorageMechaParts;
+
+var transient array<MechPartObject> MechaPartsList;
+
 event PostInitialize()
 {
    InitDataStores();
+   LoadMyClasses();
+   LoadMechaParts();
    Super.PostInitialize();
 
    //MenuList =  UTUIMenuList(FindChild('UTUIML_Parts', true));
@@ -85,7 +92,125 @@ event PostInitialize()
 
    ButtonCloseScene = UILabelButton(FindChild('ButClose', true));
    ButtonCloseScene.OnClicked = ButtonCloseMenu;
+
 }
+
+function LoadMyClasses()
+{
+	local array<MyClass> MyClasses;
+	local array<string> Names;
+	local int i,idx;
+	GetPerObjectConfigSections(StorageClass, Names);
+	`log("config list");
+	for (i = 0; i < Names.length; i++){
+		//`log(Names[i]);
+		idx = InStr(Names[i], " ");//split up
+		if (idx != INDEX_NONE){
+			Names[i] = left(Names[i], idx);//start from left and remove space on the right
+		}
+		//`log(Names[i]);
+		MyClasses[MyClasses.length] = new(None, Names[i]) StorageClass;
+		`log(MyClasses[MyClasses.length - 1].Name);
+		//`log(MyClasses[MyClasses.length - 1].var1);
+	}
+}
+
+function LoadMechaParts()
+{
+	local array<MechPartObject> MyClasses;
+	local array<string> Names;
+	local MechPartObject TMPMechaPart;
+	local int i,idx;
+	`log("=========MechaPartsList LEN:" $ MechaPartsList.length);
+	if (MechaPartsList.length == 0){
+	
+		MenuDataStore.Empty('PartHeadName');
+		MenuDataStore.Empty('MechPartHead');
+		MenuDataStore.AddStr('PartHeadName', "None",  false);
+		MenuDataStore.AddStr('MechPartHead', "None",  false);
+		
+		MenuDataStore.Empty('PartLegName');
+		MenuDataStore.Empty('MechPartLeg');
+		MenuDataStore.AddStr('PartLegName', "None",  false);
+		MenuDataStore.AddStr('MechPartLeg', "None",  false);
+				
+		MenuDataStore.Empty('PartRightArmName');
+		MenuDataStore.Empty('MechPartRightArm');
+		MenuDataStore.AddStr('PartRightArmName', "None",  false);
+		MenuDataStore.AddStr('MechPartRightArm', "None",  false);
+		
+		MenuDataStore.Empty('PartLeftArmName');
+		MenuDataStore.Empty('MechPartLeftArm');
+		MenuDataStore.AddStr('PartLeftArmName', "None",  false);
+		MenuDataStore.AddStr('MechPartLeftArm', "None",  false);
+		
+		MenuDataStore.Empty('PartRightWeaponHandName');
+		MenuDataStore.Empty('MechPartRightWeaponHand');
+		MenuDataStore.AddStr('PartRightWeaponHandName', "None",  false);
+		MenuDataStore.AddStr('MechPartRightWeaponHand', "None",  false);
+		
+		MenuDataStore.Empty('PartLeftWeaponHandName');
+		MenuDataStore.Empty('MechPartLeftWeaponHand');
+		MenuDataStore.AddStr('PartLeftWeaponHandName', "None",  false);
+		MenuDataStore.AddStr('MechPartLeftWeaponHand', "None",  false);
+		
+		GetPerObjectConfigSections(StorageMechaParts, Names);
+		`log("config list");
+		for (i = 0; i < Names.length; i++){
+			//`log(Names[i]);
+			idx = InStr(Names[i], " ");//split up
+			if (idx != INDEX_NONE){
+				Names[i] = left(Names[i], idx);//start from left and remove space on the right
+			}
+			//`log(Names[i]);
+			TMPMechaPart = new(None, Names[i]) StorageMechaParts;
+			if(TMPMechaPart !=None){
+				MyClasses[MyClasses.length] = TMPMechaPart;
+		
+				//`log(TMPMechaPart.Name);
+				`log("CLASS NAME:" @ TMPMechaPart.ObjectClass);
+				`log("====================================================");
+				if(TMPMechaPart.PartType == "MechPartHead"){
+					MenuDataStore.AddStr('PartHeadName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartHead', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				if(TMPMechaPart.PartType == "MechPartLeg"){
+					MenuDataStore.AddStr('PartLegName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartLeg', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				if(TMPMechaPart.PartType == "MechPartRightArm"){
+					MenuDataStore.AddStr('PartRightArmName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartRightArm', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				if(TMPMechaPart.PartType == "MechPartLeftArm"){
+					MenuDataStore.AddStr('PartLeftArmName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartLeftArm', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				
+				if(TMPMechaPart.PartType == "MechPartRightWeaponHand"){
+					MenuDataStore.AddStr('PartRightWeaponHandName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartRightWeaponHand', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				if(TMPMechaPart.PartType == "MechPartLeftWeaponHand"){
+					MenuDataStore.AddStr('PartLeftWeaponHandName', TMPMechaPart.FriendlyName,  false);
+					MenuDataStore.AddStr('MechPartLeftWeaponHand', TMPMechaPart.ObjectClass,  false);
+				}
+				
+				//`log(MyClasses[MyClasses.length - 1].var1);
+			}	
+		}
+		MechaPartsList = MyClasses;
+		`log("MechaPartsList LEN:" $ MechaPartsList.length);
+	}
+}
+
+
+
 
 function setvehiclebuild(VehicleMechaPart tvb){
 MechBuild = tvb;
@@ -253,7 +378,8 @@ function bool ButChangePartEvent(UIScreenObject EventObject, int PlayerIndex){
 			`log("CHANGE PARTS");
 			//MechBuild.changeparts(class'MechaPart_Leg01');
 			//you need to have package and then the class else give "none.MechaPart_Leg01"
-			packages = ("Mecha." $ partname);
+			//packages = ("Mecha." $ partname);
+			packages = partname;//requaired full packages name and class
 			// Mecha.MechaPart_Leg01 //this works
 			MechData = class<MechaPart>(DynamicLoadObject(packages, class'Class'));
 			MechaNode.changeparts(MechData);
@@ -314,5 +440,7 @@ function ExitMenu()
 
 defaultproperties
 {
+   StorageClass=class'MyClass'
+   StorageMechaParts=class'MechPartObject'
 
 }

@@ -10,7 +10,7 @@ event Registered(LocalPlayer PlayerOwner)
 }
 
 function FillList()
-{
+{       /*
 	AddStr('PartName', "Leg1",  false);
 	AddStr('PartName', "leg2",  false);
 	AddStr('PartName', "LeftArm",  false);
@@ -32,7 +32,7 @@ function FillList()
 	AddStr('MechPart', "MechaPart_RWeap_Gun",  false);
 	AddStr('MechPart', "MechaPart_LeftWeapon",  false);
 	AddStr('MechPart', "MechaPart_LWeap_Minigun4",  false);
-	
+	*/
 	//================================================
         //
 /**
@@ -44,11 +44,13 @@ There are two type of data that need to to be input to the mech part list for ch
         //================================================
         //Head
 	//================================================
-	AddStr('PartHeadName', "Head",  false);
-	AddStr('PartHeadName', "Head02",  false);
+	AddStr('PartHeadName', "None",  false);
+	//AddStr('PartHeadName', "Head",  false);
+	//AddStr('PartHeadName', "Head02",  false);
 
-	AddStr('MechPartHead', "MechaPart_Head",  false);
-	AddStr('MechPartHead', "MechaPart_Head02",  false);
+        AddStr('MechPartHead', "None",  false);
+	//AddStr('MechPartHead', "MechaPart_Head",  false);
+	//AddStr('MechPartHead', "MechaPart_Head02",  false);
 	
 	//================================================
 	//Right Arm
