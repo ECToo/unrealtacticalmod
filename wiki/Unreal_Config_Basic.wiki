@@ -1,0 +1,13 @@
+#summary Basic Config.
+
+= Support: =
+ * UT3
+ * UDK
+
+= Introduction =
+  For those who are new at this read the lines. You should understand some part of the code. I will put some comments as well to make sure you understand how it works. There are native function that can be use to get the config. Note this is build from scrape. Meaning the code may different on how you build, but the basic area there.
+
+
+
+
+ *Work in Progress*
