@@ -73,11 +73,6 @@ var const string ConfigFile;
 // config variables and logic
 var config string var1;
 
-/*
-[ <name>  MyClass]
-var1 = ""
-*/
-
 defaultproperties
 {
   ConfigFile="System"
