@@ -43,7 +43,7 @@ class MechaPart extends Actor
       
 var string bodypart;
 var string bodytype;
-var	bool					bIsDead;
+var	bool	bIsDead;
 var	bool     BInternalWeapon;
 
 var bool bActionWalk;
@@ -92,6 +92,26 @@ var SkeletalMeshComponent Mesh;
 /** Helper to allow quick access to playing deploy animations */
 var AnimNodeSequence	AnimPlay;
 
+/** Holds the name of the socket to attach a muzzle flash too */
+var name	MuzzleFlashSocket;
+
+/** Allow for multiple muzzle flash sockets **FIXME: will become offsets */
+var array<name> MuzzleFlashSocketList;
+
+/** Holds a list of emitters that make up the muzzle flash */
+var array<UTParticleSystemComponent> MuzzleFlashPSCList;
+var class<UTParticleSystemComponent> MuzzleFlashPS;
+/** Muzzle flash PSC and Templates*/
+var UTParticleSystemComponent	MuzzleFlashPSC;
+
+/** dynamic light */
+var	UDKExplosionLight		MuzzleFlashLight;
+/** dynamic light class */
+var class<UDKExplosionLight> MuzzleFlashLightClass;
+
+/** Set this to true if you want the flash to loop (for a rapid fire weapon like a minigun) */
+var bool					bMuzzleFlashPSCLoops;
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
@@ -99,6 +119,52 @@ simulated function PostBeginPlay()
 	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
 	//PlayAnim( IdleAnim[0] );
 }
+//===============================================
+//  MuzzleFlash
+//===============================================
+
+/**
+ * Turns the MuzzleFlashlight off
+ */
+simulated event MuzzleFlashTimer()
+{
+	if (MuzzleFlashPSC != none && (!bMuzzleFlashPSCLoops) )
+	{
+		MuzzleFlashPSC.DeactivateSystem();
+	}
+}
+
+
+/**
+ * Causes the muzzle flashlight to turn on
+ */
+simulated event CauseMuzzleFlashLight()
+{
+	if ( WorldInfo.bDropDetail )
+		return;
+
+	if ( MuzzleFlashLight != None )
+	{
+		MuzzleFlashLight.ResetLight();
+	}
+	else if ( MuzzleFlashLightClass != None )
+	{
+		MuzzleFlashLight = new(Outer) MuzzleFlashLightClass;
+		Mesh.AttachComponentToSocket(MuzzleFlashLight,MuzzleFlashSocket);
+	}
+}
+
+simulated event StopMuzzleFlash()
+{
+	ClearTimer('MuzzleFlashTimer');
+	MuzzleFlashTimer();
+
+	if ( MuzzleFlashPSC != none )
+	{
+		MuzzleFlashPSC.DeactivateSystem();
+	}
+}
+
 
 
 //===============================================
@@ -206,11 +272,8 @@ event Destroyed()
 {
 	Super.Destroyed();
         `log("delete me please");
-        
         PlayDying();
 }
-
-
 
 function PlayDying()
 {
@@ -228,9 +291,16 @@ function PlayDying()
 
 defaultproperties
 {
-	bWeaponDisable=false;
-	bActionWalk=false;
-        BInternalWeapon=false;
+       	MuzzleFlashSocket=MuzzleFlashSocket
+       	MuzzleFlashLightClass=class'UTGame.UTLinkGunMuzzleFlashLight'
+       	bMuzzleFlashPSCLoops=false
+       	
+       	
+       	
+
+	bWeaponDisable=false
+	bActionWalk=false
+        BInternalWeapon=false
 	
 	//bBlockActors=True
 	bCollideActors=true

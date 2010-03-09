@@ -1,23 +1,24 @@
-class MechaProtypeLeg extends MechaPartLeg
+class MechaProtypeLeg4 extends MechaPartLeg
       placeable;
 
 var() protected const Name FootBackSocketName;
 var() vector GroundMaxLine;
+var() vector GroundMinLine;
+var Name AnimSetName;
 
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
 	AnimPlay = AnimNodeSequence( Mesh.Animations.FindAnimNode('AnimPlayer') );
-	SetTimer(2, true, 'PlayAnimation'); //play every 2 sec then execute function
-	SetTimer(0.01, true, 'checkdistanceground');
+	PlayAnimation();
+	//SetTimer(10, true, 'PlayAnimation'); //play every 2 sec then execute function
+	SetTimer(0.5, true, 'checkdistanceground');
 }
 
 function PlayAnimation(){
-     Mesh.PlayAnim('ActionDown', 2, false, false);//play animation name, play frame speed,play loop,if loop in play do not restart it
-     //Mesh.PlayAnim('ActionDown', 1, false, true);//play animation name, play frame speed,play loop,if loop in play do not restart it
-     //Mesh.PlayAnim('ActionDown');
+     AnimPlay.SetAnim(AnimSetName);
+     AnimPlay.PlayAnim(false,0.1,0);
      //`log("play");
-     //checkdistanceground();
 }
 
 function checkdistanceground(){
@@ -32,9 +33,15 @@ function checkdistanceground(){
               //`log("HIT LCOAL BONE:" $ HitLocation);
 
               if (HitLocation == TagSocketLocation){//if trace is not within the line it will stop
-                    Mesh.StopAnim();
-                    Mesh.PlayAnim('ActionDown',2);
-                    //Mesh.StopAnim();
+                 AnimPlay.StopAnim();
+                 `log("time:" $ AnimPlay.PreviousTime);
+                 AnimPlay.PlayAnim(false,-0.1,AnimPlay.PreviousTime);
+              }else{
+                 //GroundLine = TagSocketLocation + GroundMinLine;
+                 //Trace(HitLocation, HitNormal, GroundLine, TagSocketLocation);//trace to return value
+                 //if (HitLocation != TagSocketLocation){
+                     AnimPlay.PlayAnim(false,0.1,AnimPlay.PreviousTime);
+                 //}
               }
          }
 }
@@ -49,7 +56,9 @@ defaultproperties
 {
    bodytype="legspider"
    //socket=FeetSocket01
-   GroundMaxLine=(X=0.0,Y=1000.00,Z=0.0)
+   AnimSetName=ActionDown
+   GroundMaxLine=(X=0.0,Y=1000.00,Z=0.0)//from ground down
+   GroundMinLine=(X=0.0,Y=-1000.00,Z=0.0)//from leg up to check any collision for it
    FootBackSocketName=FeetSocket01
    Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VH_Mecha.protypeleg1'
