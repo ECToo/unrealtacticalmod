@@ -5,7 +5,7 @@ event Registered(LocalPlayer PlayerOwner)
 {
 	Super.Registered(PlayerOwner);
 	// In case you don't want to set defaultproperties
-	FillList();
+	//FillList();
         //saveconfig();
 }
 
@@ -56,30 +56,30 @@ There are two type of data that need to to be input to the mech part list for ch
 	//Right Arm
         //================================================
 	AddStr('PartRightArmName', "RightArm",  false);
-	AddStr('PartRightArmName', "RightArm02",  false);
-	
+	//AddStr('PartRightArmName', "RightArm02",  false);
+
 	AddStr('MechPartRightArm', "MechaPart_RightArm",  false);
-	AddStr('MechPartRightArm', "MechaPart_RightArm02",  false);
-	
+	//AddStr('MechPartRightArm', "MechaPart_RightArm02",  false);
+
 	//================================================
 	//Left Arm
 	//================================================
 	
 	AddStr('PartLeftArmName', "LeftArm",  false);
-	AddStr('PartLeftArmName', "leftArm02",  false);
-	
+	//AddStr('PartLeftArmName', "leftArm02",  false);
+
 	AddStr('MechPartLeftArm', "MechaPart_LeftArm",  false);
-	AddStr('MechPartLeftArm', "MechaPart_LeftArm02",  false);
-	
+	//AddStr('MechPartLeftArm', "MechaPart_LeftArm02",  false);
+
 	//================================================
 	//Right Weapon
 	//================================================
 
 	AddStr('PartRightWeaponHandName', "RightWeapon",  false);
-	AddStr('PartRightWeaponHandName', "RightWeapon02",  false);
+	//AddStr('PartRightWeaponHandName', "RightWeapon02",  false);
 
 	AddStr('MechPartRightWeaponHand', "MechaPart_RightWeapon",  false);
-	AddStr('MechPartRightWeaponHand', "MechaPart_RWeap_Gun",  false);
+	//AddStr('MechPartRightWeaponHand', "MechaPart_RWeap_Gun",  false);
 
 
 	//================================================
@@ -87,21 +87,21 @@ There are two type of data that need to to be input to the mech part list for ch
 	//================================================
 
 	AddStr('PartLeftWeaponHandName', "LeftWeapon",  false);
-	AddStr('PartLeftWeaponHandName', "LeftWeapon02",  false);
-	
+	//AddStr('PartLeftWeaponHandName', "LeftWeapon02",  false);
+
 	AddStr('MechPartLeftWeaponHand', "MechaPart_LeftWeapon",  false);
-	AddStr('MechPartLeftWeaponHand', "MechaPart_LWeap_Minigun4",  false);
+	//AddStr('MechPartLeftWeaponHand', "MechaPart_LWeap_Minigun4",  false);
 
 	//================================================
 	//Leg
 	//================================================
-	
+
 	AddStr('PartLegName', "Leg1",  false);
-	AddStr('PartLegName', "leg2",  false);
-	
+	//AddStr('PartLegName', "leg2",  false);
+
 	AddStr('MechPartLeg', "MechaPart_Leg",  false);
-	AddStr('MechPartLeg', "MechaPart_Leg01",  false);
-	
+	//AddStr('MechPartLeg', "MechaPart_Leg01",  false);
+
 	//================================================
 }
 

@@ -16,7 +16,7 @@ function PlayAnimation(){
      Mesh.PlayAnim('ActionDown', 1, false, false);//play animation name, play frame speed,play loop,if loop in play do not restart it
      //Mesh.PlayAnim('ActionDown', 1, false, true);//play animation name, play frame speed,play loop,if loop in play do not restart it
      //Mesh.PlayAnim('ActionDown');
-     `log("play");
+     //`log("play");
      //checkdistanceground();
 }
 

@@ -118,6 +118,7 @@ simulated function FireWeaponProjectile(){
 				      UTProj_SeekingRocket(SpawnedProjectile).SeekTarget = TargetActor;
                                       `log("locked on!");
 				}
+				CauseMuzzleFlashLight();
 			}
 		}
 	}
