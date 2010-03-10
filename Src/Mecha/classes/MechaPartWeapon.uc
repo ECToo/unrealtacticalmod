@@ -76,6 +76,33 @@ simulated function PostBeginPlay()
 	Super.PostBeginPlay();
 }
 
+/*
+simulated function AttachMuzzleFlash()
+{
+
+	//local SkeletalMeshComponent SKMesh;
+
+	// Attach the Muzzle Flash
+	bMuzzleFlashAttached = true;
+	//SKMesh = Mesh;
+	`log("spawn flash muzzle");
+	if (  Mesh != none )
+	{
+		if ( (MuzzleFlashPSCTemplate != none) || (MuzzleFlashAltPSCTemplate != none) )
+		{
+			MuzzleFlashPSC = new(Outer) class'UTParticleSystemComponent';
+			MuzzleFlashPSC.bAutoActivate = false;
+			MuzzleFlashPSC.SetDepthPriorityGroup(SDPG_Foreground);
+			MuzzleFlashPSC.SetFOV(UDKSkeletalMeshComponent(Mesh).FOV);
+			Mesh.AttachComponentToSocket(MuzzleFlashPSC, MuzzleFlashSocket);
+			`log("display");
+		}
+	}
+	`log("end flash muzzle");
+
+}
+*/
+
 simulated function Tick(float DeltaTime)
 {
 	super.Tick(DeltaTime);
@@ -118,6 +145,8 @@ simulated function FireWeaponProjectile(){
 				      UTProj_SeekingRocket(SpawnedProjectile).SeekTarget = TargetActor;
                                       `log("locked on!");
 				}
+				//AttachMuzzleFlash();
+				CauseMuzzleFlash();
 				CauseMuzzleFlashLight();
 			}
 		}
