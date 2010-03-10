@@ -120,6 +120,8 @@ var bool					bMuzzleFlashPSCLoops;
 
 /** How long the Muzzle Flash should be there */
 var() float					MuzzleFlashDuration;
+/** If true, always show the muzzle flash even when the weapon is hidden. */
+var bool					bShowAltMuzzlePSCWhenWeaponHidden;
 
 simulated function PostBeginPlay()
 {
@@ -193,9 +195,9 @@ simulated function AttachMuzzleFlash()
 		{
 			MuzzleFlashPSC = new(Outer) class'UTParticleSystemComponent';
 			MuzzleFlashPSC.bAutoActivate = false;
-			MuzzleFlashPSC.SetDepthPriorityGroup(SDPG_Foreground);
-			MuzzleFlashPSC.SetFOV(UDKSkeletalMeshComponent(Mesh).FOV);
-			//Mesh.AttachComponentToSocket(MuzzleFlashPSC, MuzzleFlashSocket);
+			//MuzzleFlashPSC.SetDepthPriorityGroup(SDPG_Foreground);
+			//MuzzleFlashPSC.SetFOV(UDKSkeletalMeshComponent(Mesh).FOV);
+			Mesh.AttachComponentToSocket(MuzzleFlashPSC, MuzzleFlashSocket);
 			//`log("display");
 		}
 	}
@@ -255,7 +257,8 @@ simulated event CauseMuzzleFlash()
 					MuzzleTemplate = MuzzleFlashAltPSCTemplate;
 
 					// Option to not hide alt muzzle
-					//MuzzleFlashPSC.SetIgnoreOwnerHidden(bShowAltMuzzlePSCWhenWeaponHidden);
+					MuzzleFlashPSC.SetIgnoreOwnerHidden(bShowAltMuzzlePSCWhenWeaponHidden);
+
 				}
 				else if (MuzzleFlashPSCTemplate != None)
 				{
@@ -401,7 +404,7 @@ function PlayDying()
 defaultproperties
 {
        	MuzzleFlashSocket=MuzzleFlashSocket
-
+	bShowAltMuzzlePSCWhenWeaponHidden=TRUE
        	bMuzzleFlashPSCLoops=false
        	MuzzleFlashLightClass=class'UTGame.UTLinkGunMuzzleFlashLight'
        	MuzzleFlashDuration=0.33
