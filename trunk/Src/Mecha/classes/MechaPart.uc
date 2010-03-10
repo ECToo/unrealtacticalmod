@@ -109,8 +109,17 @@ var	UDKExplosionLight		MuzzleFlashLight;
 /** dynamic light class */
 var class<UDKExplosionLight> MuzzleFlashLightClass;
 
+/** Normal Fire and Alt Fire Templates */
+var ParticleSystem			MuzzleFlashPSCTemplate, MuzzleFlashAltPSCTemplate;
+
+/** Whether muzzleflash has been initialized */
+var bool					bMuzzleFlashAttached;
+
 /** Set this to true if you want the flash to loop (for a rapid fire weapon like a minigun) */
 var bool					bMuzzleFlashPSCLoops;
+
+/** How long the Muzzle Flash should be there */
+var() float					MuzzleFlashDuration;
 
 simulated function PostBeginPlay()
 {
@@ -166,6 +175,106 @@ simulated event StopMuzzleFlash()
 }
 
 
+/**
+ * Called on a client, this function Attaches the WeaponAttachment
+ * to the Mesh.
+ */
+simulated function AttachMuzzleFlash()
+{
+	//local SkeletalMeshComponent SKMesh;
+	
+	// Attach the Muzzle Flash
+	bMuzzleFlashAttached = true;
+	//SKMesh = Mesh;
+	//`log("spawn flash muzzle");
+	if (  Mesh != none )
+	{
+		if ( (MuzzleFlashPSCTemplate != none) || (MuzzleFlashAltPSCTemplate != none) )
+		{
+			MuzzleFlashPSC = new(Outer) class'UTParticleSystemComponent';
+			MuzzleFlashPSC.bAutoActivate = false;
+			MuzzleFlashPSC.SetDepthPriorityGroup(SDPG_Foreground);
+			MuzzleFlashPSC.SetFOV(UDKSkeletalMeshComponent(Mesh).FOV);
+			//Mesh.AttachComponentToSocket(MuzzleFlashPSC, MuzzleFlashSocket);
+			//`log("display");
+		}
+	}
+	//`log("end flash muzzle");
+
+}
+
+/**
+ * Remove/Detach the muzzle flash components
+ */
+simulated function DetachMuzzleFlash()
+{
+	//local SkeletalMeshComponent SKMesh;
+
+	bMuzzleFlashAttached = false;
+	//SKMesh = Mesh;
+	if (  Mesh != none )
+	{
+		if (MuzzleFlashPSC != none)
+			Mesh.DetachComponent( MuzzleFlashPSC );
+	}
+	MuzzleFlashPSC = None;
+}
+
+
+/**
+ * Causes the muzzle flash to turn on and setup a time to
+ * turn it back off again.
+ */
+simulated event CauseMuzzleFlash()
+{
+	local ParticleSystem MuzzleTemplate;
+	//local UTPawn P;
+	
+	/*
+	if ( WorldInfo.NetMode != NM_Client )
+	{
+		P = UTPawn(MechVehicle.Instigator);
+		if ( (P == None) || !P.bUpdateEyeHeight )
+		{
+			return;
+		}
+	}
+	*/
+
+        if((MuzzleFlashAltPSCTemplate != None)){
+		if ( !bMuzzleFlashAttached )
+		{
+			AttachMuzzleFlash();
+		}
+		if (MuzzleFlashPSC != None)
+		{
+			if (!bMuzzleFlashPSCLoops || (!MuzzleFlashPSC.bIsActive || MuzzleFlashPSC.bWasDeactivated))
+			{
+				if (Instigator != None && MuzzleFlashAltPSCTemplate != None)
+				{
+					MuzzleTemplate = MuzzleFlashAltPSCTemplate;
+
+					// Option to not hide alt muzzle
+					//MuzzleFlashPSC.SetIgnoreOwnerHidden(bShowAltMuzzlePSCWhenWeaponHidden);
+				}
+				else if (MuzzleFlashPSCTemplate != None)
+				{
+					MuzzleTemplate = MuzzleFlashPSCTemplate;
+				}
+				if (MuzzleTemplate != MuzzleFlashPSC.Template)
+				{
+					MuzzleFlashPSC.SetTemplate(MuzzleTemplate);
+				}
+				//SetMuzzleFlashParams(MuzzleFlashPSC);
+				MuzzleFlashPSC.ActivateSystem();
+			}
+		}
+
+		// Set when to turn it off.
+		SetTimer(MuzzleFlashDuration,false,'MuzzleFlashTimer');
+		
+          }
+}
 
 //===============================================
 // Walk Code Animation and Control
@@ -292,11 +401,15 @@ function PlayDying()
 defaultproperties
 {
        	MuzzleFlashSocket=MuzzleFlashSocket
-       	MuzzleFlashLightClass=class'UTGame.UTLinkGunMuzzleFlashLight'
+
        	bMuzzleFlashPSCLoops=false
-       	
-       	
-       	
+       	MuzzleFlashLightClass=class'UTGame.UTLinkGunMuzzleFlashLight'
+       	MuzzleFlashDuration=0.33
+       	//MuzzleFlashPSCTemplate=WP_RocketLauncher.Effects.P_WP_RockerLauncher_Muzzle_Flash
+       	//MuzzleFlashAltPSCTemplate=ParticleSystem'WP_LinkGun.Effects.P_FX_LinkGun_MF_Beam'
+        MuzzleFlashPSCTemplate=WP_ShockRifle.Particles.P_ShockRifle_MF_Alt
+        MuzzleFlashAltPSCTemplate=WP_ShockRifle.Particles.P_ShockRifle_MF_Alt
+
 
 	bWeaponDisable=false
 	bActionWalk=false
