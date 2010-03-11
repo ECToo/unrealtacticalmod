@@ -4,7 +4,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_MR1_RWeap_Sniper extends MechaPartWeapon;
+class MechaPart_MR1_RWeap_Sniper extends MechaPart_RightWeapon;
 
 defaultproperties
 {

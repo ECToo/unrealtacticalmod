@@ -31,7 +31,7 @@ class VehicleMechaPart extends VehicleMecha;
 /** radius to allow players under this darkwalker to gain entry */
 var float CustomEntryRadius;
 
-var float CustomGravityScaling;
+//var float CustomGravityScaling;
 
 /** @hack: replicated copy of bHoldingDuck for clients */
 var bool bIsDucking;

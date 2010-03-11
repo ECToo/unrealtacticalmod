@@ -413,7 +413,6 @@ defaultproperties
         MuzzleFlashPSCTemplate=WP_ShockRifle.Particles.P_ShockRifle_MF_Alt
         MuzzleFlashAltPSCTemplate=WP_ShockRifle.Particles.P_ShockRifle_MF_Alt
 
-
 	bWeaponDisable=false
 	bActionWalk=false
         BInternalWeapon=false
