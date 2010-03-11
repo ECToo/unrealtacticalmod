@@ -4,7 +4,7 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_MR1_RWeap_Auto extends MechaPartWeapon;
+class MechaPart_MR1_RWeap_Auto extends MechaPart_RightWeapon;
 
 defaultproperties
 {

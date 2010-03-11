@@ -4,12 +4,12 @@
  * license:  -> Check readme.txt
  */
 
-class MechaPart_MR1_RWeap_Gun extends MechaPartWeapon;
+class MechaPart_MR1_RWeap_Gun extends MechaPart_RightWeapon;
 
 defaultproperties
 {
         WeaponProjectiles=class'UTProj_LinkPlasma'
-        SocketName=FlashPointSocket01        
+        SocketName=FlashPointSocket01
         firerate=0.2
 
 	Begin Object Name=MeshFrame
