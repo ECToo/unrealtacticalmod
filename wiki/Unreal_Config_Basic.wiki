@@ -9,6 +9,9 @@
 
 This is the main class. This is use to test if the config is loaded into the map. You just need to place in the map to work it.
 
+
+This section give you the file config to loaded in the unreal script. Since there are built in native function to help load .ini file.
+
 MechaActor.uc
 {{{
 class MechaActor extends Actor
