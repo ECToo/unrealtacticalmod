@@ -123,6 +123,13 @@ var() float					MuzzleFlashDuration;
 /** If true, always show the muzzle flash even when the weapon is hidden. */
 var bool					bShowAltMuzzlePSCWhenWeaponHidden;
 
+var array<MaterialList> SpawnMaterialLists;
+
+/** Holds the Damage Morph Targets */
+var	array<FDamageMorphTargets> DamageMorphTargets;
+
+
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
@@ -131,7 +138,7 @@ simulated function PostBeginPlay()
 	//PlayAnim( IdleAnim[0] );
 }
 //===============================================
-//  MuzzleFlash
+// Start  MuzzleFlash
 //===============================================
 
 /**
@@ -144,7 +151,6 @@ simulated event MuzzleFlashTimer()
 		MuzzleFlashPSC.DeactivateSystem();
 	}
 }
-
 
 /**
  * Causes the muzzle flashlight to turn on
@@ -280,6 +286,10 @@ simulated event CauseMuzzleFlash()
 }
 
 //===============================================
+// End  MuzzleFlash
+//===============================================
+
+//===============================================
 // Walk Code Animation and Control
 //===============================================
 
@@ -295,13 +305,19 @@ function DirectionWalk(String dirname);
  function BeginFire();
  function EndFire();
  function weaponfire();
+ 
+ function AdjustWeaponAim();
+ 
+ function AdjustArmAim();
+
+ 
+
 
 //===============================================
 // Weapon Function
 //===============================================
 function ToggleDisableWeapon(){}
 function DestroyWeapon(){}//when the part is reach health it disable some functions
-
 
 //===============================================
 //
@@ -375,7 +391,6 @@ function playanimationtest(){
       //PlayAnim( 'walk' );
       //Mesh.Animations.AnimationSet('Walk',1.0f,false);
 }
-
 
 function mechtransform();
 function mechdepart();
@@ -455,4 +470,7 @@ defaultproperties
 	CollisionComponent=MeshFrame
 	Mesh=MeshFrame
 	Components.Add(MeshFrame)
+	
+	//not yet work on
+	//DamageMorphTargets(0)=()
 }

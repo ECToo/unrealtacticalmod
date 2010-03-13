@@ -85,7 +85,15 @@ simulated function PostBeginPlay()
    }
 }
 
-function rotator UpDateArmControl(){
+
+
+
+function AdjustArmAim(){
+ super.AdjustArmAim();
+ ArmBoneControl.DesiredBoneRotation = UpDateArmControl(SocketName);
+}
+
+function rotator UpDateArmControl(name SocketNameTag){
 	local vector SocketLocation1, CameraLocation, DesiredAimPoint, HitLocation, HitRotation;
 	local rotator CameraRotation, SocketRotation1, AimRotation;
 	local PlayerController PC;
@@ -104,7 +112,7 @@ function rotator UpDateArmControl(){
 		}
 		
 		if ( MechVehicle.Seats[0].GunSocket.Length>0 ){
-			GetBarrelLocationAndRotation(SocketName, SocketLocation1, SocketRotation1);
+			GetBarrelLocationAndRotation(SocketNameTag, SocketLocation1, SocketRotation1);
 		}else{
 			SocketLocation1 = Location;
 			SocketRotation1 = Rotator(DesiredAimPoint - Location);
