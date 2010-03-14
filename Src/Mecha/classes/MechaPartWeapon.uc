@@ -66,6 +66,18 @@ var float 				LockAim;
 /** angle for locking for lock targets when on Console */
 var float 				ConsoleLockAim;
 
+
+
+//var SkelControlSingleBone ArmBoneControl; //default for basic test
+var UTSkelControl_TurretConstrained ArmBoneControl;
+var name ArmNameControl1;
+
+//var SkelControlSingleBone ArmBoneControl; //default for basic test
+var UTSkelControl_TurretConstrained ArmBoneControl2;
+var name ArmNameControl2;
+
+
+
 //===============================================
 //unreal settings End
 //===============================================
@@ -73,6 +85,19 @@ var float 				ConsoleLockAim;
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
+	
+    ArmBoneControl = UTSkelControl_TurretConstrained(mesh.FindSkelControl(ArmNameControl1));
+   if (ArmBoneControl != None){
+       ArmBoneControl.AssociatedSeatIndex = 0;
+   }
+   //ArmBoneControl.bApplyRotation = true;
+   //ArmBoneControl.bAddRotation = true;
+   //ArmBoneControl.BoneRotationSpace = BCS_BoneSpace;//var Name
+
+   ArmBoneControl2 = UTSkelControl_TurretConstrained(mesh.FindSkelControl(ArmNameControl2));
+   if (ArmBoneControl2 != None){
+       ArmBoneControl2.AssociatedSeatIndex = 0;
+   }
 }
 
 simulated function Tick(float DeltaTime)
@@ -272,7 +297,14 @@ simulated function float GetMaxFinalAimAdjustment()
 
 defaultproperties
 {
-        SocketName=FlashPointSocket01   
+    //skeleton control for animtree
+    //Yaw  //default all rotation
+    ArmNameControl1=HandControl
+    //Pitch
+    ArmNameControl2=HandControl2
+
+
+    SocketName=FlashPointSocket01   
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)
@@ -284,5 +316,4 @@ defaultproperties
     WeaponRange=16384
     // ~ 5 Degrees
     MaxFinalAimAdjustment=0.995;
-
 }
