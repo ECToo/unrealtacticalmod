@@ -89,8 +89,19 @@ simulated function PostBeginPlay()
 
 
 function AdjustArmAim(){
+ local rotator adjustrot;
  super.AdjustArmAim();
- ArmBoneControl.DesiredBoneRotation = UpDateArmControl(SocketName);
+
+ if(ArmBoneControl2 == None){
+   //if there no skeleton control for this animtree use this
+   ArmBoneControl.DesiredBoneRotation = UpDateArmControl(SocketName);
+ }else{
+   //if there is control for the second go here
+   adjustrot = UpDateArmControl(SocketName);
+   ArmBoneControl.DesiredBoneRotation.Yaw = adjustrot.Yaw;
+   
+   ArmBoneControl2.DesiredBoneRotation.Pitch = adjustrot.Pitch;
+ }
 }
 
 function rotator UpDateArmControl(name SocketNameTag){
@@ -282,7 +293,10 @@ function vector GetElbowLocation(){
 
 defaultproperties
 {
+    //skeleton control for animtree
+    //Yaw  //default all rotation
     ArmNameControl1=HandControl
+    //Pitch
     ArmNameControl2=HandControl2
     
 
