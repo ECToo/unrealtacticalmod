@@ -2,7 +2,7 @@
 
 
 = Information: =
-  This is code is the simple part of how to play the sound in unreal script. But you need to have Instigator != None for it to work.
+  This is code is the simple part of how to play the sound in unreal script. But you need to have Instigator != None for it to work. To make it work you just need a pawn or vehicle to make the code work.
 
 
 {{{
