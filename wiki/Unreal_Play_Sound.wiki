@@ -1,0 +1,20 @@
+#summary Simple Play Sound Code.
+
+
+= Information: =
+  This is code is the simple part of how to play the sound in unreal script. But you need to have Instigator != None for it to work.
+
+
+{{{
+...
+var SoundCue FireSound;
+...
+Instigator.PlaySound(FireSound, false, true);
+...
+defaultproperties
+{
+...
+FireSound=SoundCue'A_Weapon_Link.Cue.A_Weapon_Link_FireCue'
+...
+}
+}}}
