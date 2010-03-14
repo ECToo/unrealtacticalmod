@@ -18,3 +18,10 @@ FireSound=SoundCue'A_Weapon_Link.Cue.A_Weapon_Link_FireCue'
 ...
 }
 }}}
+
+The code function are found in different part of the class.
+{{{
+...
+simulated function WeaponPlaySound( SoundCue Sound, optional float NoiseLoudness )
+...
+}}}
