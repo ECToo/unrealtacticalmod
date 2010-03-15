@@ -25,3 +25,48 @@ The code function are found in different part of the class.
 simulated function WeaponPlaySound( SoundCue Sound, optional float NoiseLoudness )
 ...
 }}}
+
+PawnPlaySound.uc
+{{{
+/*
+  this only work with pawn or vehicle
+*/
+
+class PawnPlaySound extends Pawn
+	placeable;
+
+var SoundCue FireSound;
+
+simulated function PostBeginPlay()
+{
+	Super.PostBeginPlay();
+	SetTimer(1, true, 'PlaySoundPackage');
+}
+
+function PlaySoundPackage(){
+	if( FireSound == None || Instigator == None ){
+		//do nothing...
+	}else{
+		Instigator.PlaySound(FireSound, false, true);
+		`log("play sound...");
+	}
+	Instigator.PlaySound(FireSound, false, true);
+}
+
+defaultproperties
+{
+	//need to add a display in the editor to see it
+	/*
+	Begin Object Name=Sprite
+		Sprite=Texture2D'EditorResources.S_Trigger'
+		HiddenGame=False
+		AlwaysLoadOnClient=False
+		AlwaysLoadOnServer=False
+	End Object
+
+	Components.Add(Sprite)
+	*/
+	FireSound=SoundCue'A_Weapon_Link.Cue.A_Weapon_Link_FireCue'
+
+}
+}}}
