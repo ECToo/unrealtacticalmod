@@ -26,6 +26,8 @@ simulated function WeaponPlaySound( SoundCue Sound, optional float NoiseLoudness
 ...
 }}}
 
+Here a simple version of the sound being play.
+
 PawnPlaySound.uc
 {{{
 /*
@@ -59,3 +61,5 @@ defaultproperties
 
 }
 }}}
+
+This goes on building a pawn or vehicle class when building a custom players or vehicles.
