@@ -37,7 +37,7 @@ var vector FocalPoint;
 var vector AdjustLoc;
 
 var rotator pointrotation;
-
+var rotator scanrotation;
 
 simulated function PostBeginPlay()
 {
@@ -52,27 +52,62 @@ simulated function PostBeginPlay()
 // This code use direction where bot or player see
 event SeePlayer(Pawn seen)//works
 {
-      local vector aimpoint;
+      //local vector aimpoint;
       local vector AimSpot;
       local vector Origin;
       local Rotator AimRotation;
-`log(seen.GetHumanReadableName());
-//`log('seen player');
-//MoveToward(seen);
+      local rotator baserotation;
+      `log(seen.GetHumanReadableName());
+      //`log('seen player');
+      //MoveToward(seen);
                   AimSpot =  seen.Location;
                   Origin =  Cannon.Location;
                   AimRotation = Rotator(AimSpot - Origin);
-                  Cannon.TurretBase.Mesh.SetRotation(AimRotation);
+                  baserotation.Yaw =  AimRotation.Yaw;
+                  pointrotation = AimRotation;
+                  SetRotation(pointrotation);
+                  Cannon.TurretBase.Mesh.SetRotation(baserotation);
+
                   Cannon.TurretGunBase.Mesh.SetRotation(AimRotation);
+                  
+     if(Cannon != None){
+                  `log("TEAM TURRET " $ Cannon.GetTeamNum() $ " AND " $ seen.GetTeamNum());
+                  //`log("TEAM TURRET " $ Cannon.PlayerReplicationInfo.Team.TeamIndex $ " AND " $ seen.GetTeamNum());
+
+     }
 }
 
 function Tick(float DeltaTime)
 {
+        //local vector position;
         //super.Tick(DeltaTime);
 	//CurrentBehaviour.ComponentTick();
 	//pointrotation.Yaw += 100;
 	//Cannon.TurretBase.Mesh.SetRotation(pointrotation);
         //Cannon.TurretGunBase.Mesh.SetRotation(pointrotation);
+        //scanrotation.Pitch += 1000;
+        //ViewY =  vector(scanrotation).Y;
+        //Rotation = scanrotation;
+        //`log("ROT" $ Rotation);
+        /*
+        if (Pawn != None){
+         //`log("there a pawn in contronller here...");
+                 position = Pawn.Location;
+                 position.Y = Pawn.Location.Y + 1;
+                 Pawn.SetLocation(position);
+        }
+        */
+
+
+        if (!bForceTarget){
+         pointrotation.Yaw += 100;
+         SetRotation(pointrotation);
+         Cannon.TurretGunBase.Mesh.SetRotation(pointrotation);
+
+         //`log("there a pawn in contronller here...");
+        }else{
+          pointrotation = pointrotation;
+        }
 }
 
 function Possess(Pawn inPawn, bool bVehicleTransition)
@@ -158,6 +193,7 @@ function FindAimToHit(Actor A, out Vector AimSpot, out Rotator AimRotation)
 	*/
 
 	AimRotation = Rotator(AimSpot - Origin);
+        pointrotation = AimRotation;
 	Cannon.TurretBase.Mesh.SetRotation(AimRotation);
         Cannon.TurretGunBase.Mesh.SetRotation(AimRotation);
 	//Cannon.SWeapon.AdjustAimToHit(A, AimSpot, AimRotation);
