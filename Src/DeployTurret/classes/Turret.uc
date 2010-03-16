@@ -4,7 +4,7 @@
  */
 
 class Turret extends Actor
-      placeable;
+	placeable;
 
 //var rotator TurretPitch;
 //var rotator TurretYaw;
@@ -169,19 +169,15 @@ state Closing
 
 //=================================================================================================
 */
-
-
 defaultproperties
 {
 
-   Begin Object Class=SkeletalMeshComponent Name=MeshPart
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
-         Translation=(X=0.0,Y=0.0,Z=-78.0)
-   End Object
-   Mesh=MeshPart
-   Components.Add(MeshPart)
+	Begin Object Class=SkeletalMeshComponent Name=MeshPart
+	End Object
+	Mesh=MeshPart
+	Components.Add(MeshPart)
    
-   DrawScale=1.0
+	DrawScale=1.0
 	RemoteRole=Role_None
 	bMovable=false
 	bShouldBaseAtStartup=false
@@ -189,32 +185,6 @@ defaultproperties
 	bCollideActors=true
 	bBlockActors=true
 	bCollideWorld=false
-
-/*
-    Begin Object Class=SkeletalMeshComponent Name=PartGun
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretGun'
-         PhysicsAsset=PhysicsAsset'UTMTurret.TurretGun_Physics'
-         Translation=(X=0.0,Y=0.0,Z=0.0)
-   End Object
-   MeshGun=PartGun
-   Components.Add(PartGun)
-
-   Begin Object Class=SkeletalMeshComponent Name=PartBase
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretBase'
-         SkeletalMesh=PhysicsAsset'UTMTurret.TurretBase_Physics'
-         Translation=(X=0.0,Y=0.0,Z=-28.0)
-   End Object
-   MeshBase=PartBase
-   Components.Add(PartBase)
-
-   Begin Object Class=SkeletalMeshComponent Name=MeshMain
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
-         PhysicsAsset=PhysicsAsset'UTMTurret.TurretStand_Physics'
-         Translation=(X=0.0,Y=0.0,Z=-78.0)
-   End Object
-   Mesh=MeshMain
-   Components.Add(MeshMain)
-   */
 }
 
 

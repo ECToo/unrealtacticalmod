@@ -4,21 +4,21 @@
  */
 
 class PawnTurret_Floor extends PawnTurret
-      placeable;
+	placeable;
 
 simulated function PostBeginPlay()
 {
   super.PostBeginPlay();
-
 }
 
 defaultproperties
 {
-   TurretGunBaseClass=class'Turret_Gun'
-   TurretBaseClass=class'TurretBase_Floor'
-   Begin Object Name=STurretMesh
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
-         PhysicsAsset=PhysicsAsset'UTMTurret.TurretStand_Physics'
-         Translation=(X=0.0,Y=0.0,Z=-78.0)
-   End Object
+	TurretGunBaseClass=class'Turret_Gun'
+	TurretBaseClass=class'TurretBase_Floor'
+
+	Begin Object Name=STurretMesh
+		SkeletalMesh=SkeletalMesh'UTMTurret.sentry_flloor'
+		PhysicsAsset=PhysicsAsset'UTMTurret.sentry_flloor_Physics'
+		Translation=(X=0.0,Y=0.0,Z=-78.0)
+	End Object
 }

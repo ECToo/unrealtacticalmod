@@ -1,10 +1,17 @@
 /**
  *  Created by: Darknet
  *  svn:https://unrealtacticalmod.googlecode.com/svn/trunk/Src/DeployTurret
+ *  Information: This pawn is use for Turret instead of Vehicle turret. For UDK Build.
+ */
+ /**
+ Controller.PlayerReplicationInfo.Team
+
  */
 class PawnTurret extends Pawn
       placeable;
-      
+
+var() int TeamIndex; //offline for testing
+
 var class<Turret> TurretGunBaseClass;
 var Turret TurretGunBase;
 
@@ -66,8 +73,8 @@ var bool bAutoRotateYawReversed;
 /** Set to true if this Sentinel is invisible. */
 var bool bIsInvisible;
 
-
 var class<UTProjectile> WeapProj;
+var bool StandAlone;// this deal with player or self owner of pawn
 
 //var SkeletalMeshComponent MeshGun;
 
@@ -89,42 +96,54 @@ super.PostBeginPlay();
       Attach(TurretBase);//attach to actor Component
       `log('Spawn Turret Gun');
    }
-   
    //AwakeTurret();
+   SetTeamIndex(TeamIndex);
+   //SetTeam(Controller,1,true);
 }
 
-/* awake sleeping AwakeTurret */
-function AwakeTurret()
+/**
+ * Team is changed when vehicle is possessed
+ */
+/*
+event SetTeamNum(byte T)
 {
-	TurretController = AITurretController(Controller);
+	if ( T != Team )
+	{
+		Team = T;
+		TeamChanged();
+	}
 }
+*/
 
+function SetTeamIndex(int index){
+         //local UTPlayerReplicationInfo PRI;
+         //PRI = GetUTPlayerReplicationInfo();
+         //PRI.Team.TeamIndex = index;
+
+   TurretController.PlayerReplicationInfo.Team.TeamIndex = index;
+   Controller.PlayerReplicationInfo.Team.TeamIndex = index;
+   PlayerReplicationInfo.Team.TeamIndex = index;
+   Instigator.PlayerReplicationInfo.Team.TeamIndex = index;
+
+   //TeamIndex = index;
+}
 
 simulated function Tick(float DeltaTime)
 {
  local UTProjectile WeapPro;
           super.Tick(DeltaTime);
-          /*
-          rot.Yaw += 100;
-          OriginalRotation = rot;
-          TurretYaw = rot;
-          TurretBase.Mesh.SetRotation(rot);
-          TurretGunBase.Mesh.SetRotation(rot);
-          */
-
           counttime++;
           if(counttime > 30){
+          if (WeapProj != None){
             WeapPro = Spawn(WeapProj, Self,, Location, OriginalRotation);
             WeapPro.init(Vector(TurretGunBase.Mesh.Rotation));
+            }
             //Vector(Rotation)
-
-
             counttime = 0;
           }
-
-          //`log('tick');
-          //TurretPitch.Pitch += 100;
-          //SetRotation(TurretPitch);
+          //`log("ROT:" $ Instigator.Rotation);
+          //`log("ROT:" $ Controller.Rotation);
+          //Controller.Location.Y = Controller.Location.Y + 1;
 }
 
 /**
@@ -188,7 +207,7 @@ function InitializeFor(Pawn Placer)
 	}
 
 	TurretController = AITurretController(Controller); // this defaultproperties <- ControllerClass=class'AITurretController'
-
+        SetTeamIndex(TeamIndex);
 	NotifyTeamChanged();
 	bForceNetUpdate = true;
 }
@@ -210,9 +229,6 @@ simulated function NotifyTeamChanged()
 
 	//PlaySpawnEffect();
 }
-
-
-
 
 simulated function bool CanBeBaseForPawn(Pawn APawn)
 {
@@ -248,8 +264,6 @@ function PhysicsVolumeChange(PhysicsVolume NewVolume)
 			Died(none, none, Location);
 	}
 }
-
-
 
 //No movement physics
 function SetMovementPhysics(){}
@@ -375,26 +389,20 @@ simulated function CalculateAutoRotateYaw(float DeltaTime)
 	}
 }
 
-
-
 defaultproperties
 {
-   //TurretController=class'AITurretController'
-   ControllerClass=class'AITurretController'
+	TeamIndex=1 //0=red //1=blue
+	ControllerClass=class'AITurretController'//AI BOT
 
-   TurretGunBaseClass=class'Turret_Gun'
-   TurretBaseClass=class'TurretBase_Floor'
-   WeapProj=class'UTProj_LinkPlasma'
+	TurretGunBaseClass=None
+	TurretBaseClass=None
+	WeapProj=None
 
-   Begin Object class=SkeletalMeshComponent Name=STurretMesh
-         SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
-         PhysicsAsset=PhysicsAsset'UTMTurret.TurretStand_Physics'
-         Translation=(X=0.0,Y=0.0,Z=-78.0)
-   End Object
-   Mesh=STurretMesh
-   Components.Add(STurretMesh)
-
-   //Begin Object Name=SVehicleMesh
-         //floor or ceiling skeleton mesh
-   //End Object
+	Begin Object class=SkeletalMeshComponent Name=STurretMesh
+		SkeletalMesh=SkeletalMesh'UTMTurret.TurretStand'
+		PhysicsAsset=PhysicsAsset'UTMTurret.TurretStand_Physics'
+		Translation=(X=0.0,Y=0.0,Z=-78.0)
+	End Object
+	Mesh=STurretMesh
+	Components.Add(STurretMesh)
 }
