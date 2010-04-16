@@ -13,6 +13,9 @@
 
 class MechaPart_Leg extends MechaPart;
 
+var name LegWalkName;
+var name LegIdleName;
+
 simulated function PostBeginPlay()
 {
 	Super.PostBeginPlay();
@@ -90,6 +93,8 @@ function playanimationtest(){
 defaultproperties
 {
       bodytype = "leg"
+      LegWalkName=Walk
+      
       Begin Object Name=MeshFrame
 		SkeletalMesh=SkeletalMesh'VHUTM_MechProtypeWalker.mechprotype_leg'
 		PhysicsAsset=PhysicsAsset'VHUTM_MechProtypeWalker.mechprotype_leg_Physics'

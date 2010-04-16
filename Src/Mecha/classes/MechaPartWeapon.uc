@@ -145,6 +145,7 @@ simulated function FireWeaponProjectile(){
 				//AttachMuzzleFlash();
 				CauseMuzzleFlash();
 				CauseMuzzleFlashLight();
+				WeaponPlaySound(FireSound);
 			}
 		}
 	}
@@ -304,7 +305,7 @@ defaultproperties
     ArmNameControl2=HandControl2
 
 
-    SocketName=FlashPointSocket01   
+    SocketName=FlashPointSocket01
     //x= -(back surface)/+(front surface)
     //y= -(left side surface)/+(right side surface)
     //z= -(down to the ground)/+(up world sky)

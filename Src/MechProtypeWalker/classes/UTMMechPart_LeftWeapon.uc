@@ -12,7 +12,8 @@ class UTMMechPart_LeftWeapon extends UTMMechPartWeapon;
 defaultproperties
 {
 
-        WeaponProjectiles=class'UTProj_StingerShard'
+        //WeaponProjectiles=class'UTProj_StingerShard'
+        WeaponProjectiles=class'UTProj_LinkPlasma'
         SocketName=FlashPointSocket01
         firerate=10
 

@@ -13,6 +13,8 @@ defaultproperties
         //WeaponProjectiles=class'UTProj_ShockBall'
         //WeaponProjectiles=class'UTProj_Grenade'
         
+        FireSound=SoundCue'A_Weapon_Link.Cue.A_Weapon_Link_FireCue'
+        
         WeaponProjectiles=class'UTProj_LinkPowerPlasma'
         SocketName=FlashPointSocket01
         firerate=0.2
