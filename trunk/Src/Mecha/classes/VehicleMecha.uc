@@ -83,8 +83,6 @@ simulated event PostRenderFor(PlayerController PC, Canvas Canvas, vector CameraP
 {
 		//local actor HitActor2;
 	super.PostRenderFor(PC,Canvas,CameraPosition,CameraDir);
-
-
 }
 
 simulated function VehicleCalcCamera(float DeltaTime, int SeatIndex, out vector out_CamLoc, out rotator out_CamRot, out vector CamStart, optional bool bPivotOnly)

@@ -21,7 +21,7 @@ var float LastSleepCheckDistance;
 /** Disable aggressive sleeping behaviour. */
 var bool bSkipAggresiveSleep;
 
-var float CustomGravityScaling;
+//var float CustomGravityScaling;
 
 /** @hack: replicated copy of bHoldingDuck for clients */
 var bool bIsDucking;
@@ -534,7 +534,7 @@ defaultproperties
 	//StayUprightStiffness=10
 	//StayUprightDamping=100
 
-	Begin Object Class=UTVehicleSimHover Name=SimObject
+	Begin Object Class=UDKVehicleSimHover Name=SimObject
 		WheelSuspensionStiffness=100.0
 		WheelSuspensionDamping=40.0
 		WheelSuspensionBias=0.0
@@ -656,12 +656,12 @@ defaultproperties
 	bIsNecrisVehicle=true
 
 	HornIndex=3
-	VehicleIndex=1
+	//VehicleIndex=1
 	CustomGravityScaling=0.9
 
-	HeroBonus=2.0
-	GreedCoinBonus=6
+	//HeroBonus=2.0
+	//GreedCoinBonus=6
 
-	ChargeBarPosY=4
-	ChargeBarPosX=3
+	//ChargeBarPosY=4
+	//ChargeBarPosX=3
 }

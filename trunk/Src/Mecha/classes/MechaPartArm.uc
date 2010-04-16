@@ -37,6 +37,7 @@ var name ArmNameControl1;
 //var SkelControlSingleBone ArmBoneControl; //default for basic test
 var UTSkelControl_TurretConstrained ArmBoneControl2;
 var name ArmNameControl2;
+var name ActionName;
 
 //deal with the update
 var bool bElbowControl; // joint when moving to aim
@@ -69,6 +70,7 @@ var float MaxFinalAimAdjustment;
 
 simulated function PostBeginPlay()
 {
+   //	local float AnimRate;
    super.PostBeginPlay();
    //ArmBoneControl = UTSkelControl_TurretConstrained(mesh.FindSkelControl('HandControl'));
    ArmBoneControl = UTSkelControl_TurretConstrained(mesh.FindSkelControl(ArmNameControl1));
@@ -83,6 +85,13 @@ simulated function PostBeginPlay()
    if (ArmBoneControl2 != None){
        ArmBoneControl2.AssociatedSeatIndex = 0;
    }
+
+   PlayAnim(ActionName);
+   if (AnimPlay != none ){
+   //Mesh.PlayAnim('Idle', 1, true, true);//working code for animation
+   Mesh.PlayAnim('Idle', 1, false, false);//working code for animation
+   }
+   //`log("testing animeiosnt");
 }
 
 
@@ -299,6 +308,7 @@ defaultproperties
     //Pitch
     ArmNameControl2=HandControl2
     
+    ActionName=Idle
 
     weapondirection=(x=1,y=0,z=0)
     bWeaponPress=false

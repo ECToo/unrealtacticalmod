@@ -141,8 +141,8 @@ simulated event Destroyed()
 defaultproperties
 {
 
-         VehiclePositionString="in an Mech Walker"
-         VehicleNameString="Mech Walker"
+         //VehiclePositionString="in an Mech Walker"
+         //VehicleNameString="Mech Walker"
          
          MechPart=class'MechProtypeWalker.UTMMechPart_Leg'
          //head
@@ -168,7 +168,7 @@ defaultproperties
          BodyAttachLeftHandSocketName=LeftHandSocket
          MechPart_LeftHand=class'MechProtypeWalker.UTMMechPart_LeftWeapon'
 
-
+        /*
 	Begin Object Class=SkeletalMeshComponent Name=SAntennaMesh
 		SkeletalMesh=SkeletalMesh'VH_Goliath.Mesh.SK_VH_Goliath_Antenna'
 		AnimTreeTemplate=AnimTree'VH_Goliath.Anims.AT_VH_Goliath_Antenna'
@@ -185,7 +185,7 @@ defaultproperties
 		bAcceptsDecals=false
 	End Object
         AntennaMesh=SAntennaMesh
-
+        */
 	Begin Object Name=CollisionCylinder
 		CollisionHeight=100.0
 		CollisionRadius=140.0
