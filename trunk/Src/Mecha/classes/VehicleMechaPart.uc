@@ -567,6 +567,8 @@ simulated function UnCrouch()
 
 simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optional int SeatIndex)
 {
+          local LinearColor TeamColor;
+	//local Color TextColor;
 	super.DisplayHud(HUD, Canvas, HudPOS, SeatIndex);
 	//Canvas.DrawColor = WhiteColor;
 	Canvas.DrawColor = class'HUD'.default.GreenColor;
@@ -585,6 +587,16 @@ simulated function DisplayHud(UTHud Hud, Canvas Canvas, vector2D HudPOS, optiona
 	Canvas.SetPos(25,280+24*2);//x,y screen
            Canvas.DrawText("Target Lock On: " @ TargetActor.Name);
 	}
+	
+	
+
+	//class'UTHUD'.static.DrawBackground(0.7,100,100,100, TeamColor, Canvas);
+	class'VehicleMechaHUD'.static.DrawBackground2(0.7,100,100,100, TeamColor, Canvas);
+	//Canvas.Font = class'UTHUD'.static.GetFontSizeIndex(0);
+
+
+
+
 
 	//set postion and draw text
 	//Canvas.SetPos(25,280+24);//x,y screen
