@@ -3,7 +3,7 @@ class UTUIDataProvider_MechaPartItems extends UTUIResourceDataProvider
 	PerObjectConfig;
 	
 /** Friendly displayable name to the player. */
-var config string FriendlyName;
+//var config string FriendlyName;
 
 /** Localized description of the map */
 var config string Description;

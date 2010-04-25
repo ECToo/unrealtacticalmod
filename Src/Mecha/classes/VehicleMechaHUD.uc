@@ -12,7 +12,9 @@ static simulated function DrawBackground2(float X, float Y, float Width, float H
 	//DrawColor.G *= 0.25;
 	//DrawColor.B *= 0.25;
 	//DrawCanvas.DrawColorizedTile(Default.VHMechaHUD, Width, Height, 631,202,98,48, DrawColor);
-	DrawCanvas.DrawColorizedTile(Default.VHMechaHUD, Width, Height, 0,0,163,56, DrawColor);
+	//DrawCanvas.DrawColorizedTile(Default.VHMechaHUD, Width, Height, 0,0,163,56, DrawColor);
+	//DrawCanvas.DrawTile(Default.AltHudTexture, Width, Height, 631,202,98,48, DrawColor); //UDK
+	DrawCanvas.DrawTile(Default.VHMechaHUD, Width, Height, 0,0,163,56, DrawColor);
 }
 
 defaultproperties
