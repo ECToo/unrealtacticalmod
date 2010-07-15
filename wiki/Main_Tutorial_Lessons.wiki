@@ -3,6 +3,9 @@
 
 * Note: On Going work being done to rework my wiki page a bit to sort out the cleaner version of my wiki pages. As well my mod builds. *
 
+* UT3 and UDK has made some changes upon their beta release. *
+* This wiki may be out date. *
+
 = Introduction =
 It will be hard to tell you if you don't read or do lesson about Blender. Please do not rush when your learning blender. It is base on blender term language for blender interface. This section will give you the basic information about making game mod still working some area for a bit to update this section of the wiki page. Each part of this section is where I am currently working on. Some of the information can be missing working hard to debug my script to be free of error. Updating the wiki page will take time to complete.
 
