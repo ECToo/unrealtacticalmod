@@ -33,3 +33,7 @@ class Main
 Note the font can't be read. It read as digit zero.
 
 Note I just started it. It a work in progress.
+
+For more information:
+Links:
+ * http://forums.epicgames.com/showthread.php?p=27276051
