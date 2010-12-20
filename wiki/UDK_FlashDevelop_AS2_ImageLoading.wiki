@@ -32,6 +32,7 @@ class Main
 }
 }}}
 
+{{{
 project+
 -bin (folder)
 -+AS2UDKImage.swf
@@ -39,13 +40,13 @@ project+
 -+imagepng.png
 -src (folder)
 -+Main.as
-
-This what I have set up by default. Right click on the file image. Select Add to Library.
+}}}
+   This what I have set up by default. Right click on the file image. Select Add to Library.
 Then edit the file to:
 {{{
 _mc.attachMovie("[here file id]","sybmolimage", _mc.getNextHighestDepth());
 }}}
-If you don't know your file id. Right click on the image file. Select Insert to Document file. By default. libaray.imagepng.png. Since I create a folder and then the file full name and ext.
+   If you don't know your file id. Right click on the image file. Select Insert to Document file. By default. libaray.imagepng.png. Since I create a folder and then the file full name and ext.
 
 Then you press test movie. It should work.
 
