@@ -1,5 +1,11 @@
 #summary Simple way to load the image into udk.
 
+= Require: =
+ * UDK (scaleform)
+ * FlashDevelop
+ * Flex SDK
+ * Actionscript 2
+
 = Setup: =
   The way it setup to get the UDK read the image file and package to upk file. Create your actionscript2 project in FlashDevelop program.
 
