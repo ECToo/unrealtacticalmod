@@ -52,4 +52,5 @@ Then you press test movie. It should work.
 
 You can change the variable "libaray.imagepng.png" to "imagepng". But the variable has to right naming.
 
-Since UDK be sure the name the variable for the image file.
+For more information check the epic form in scale form.
+ * http://forums.epicgames.com/forumdisplay.php?f=392
