@@ -1,0 +1,10 @@
+#summary Information content table.
+
+= Information: =
+   I current working on the pages to be update much as possible. I try to get most in HUD design while work on other projects.
+
+= Area in research: =
+ * HUD
+ * Actionscript2 (work in progress)
+ * Actionscript3 (not yet seen the release yet)
+ * Getting the variable from swf to unreal script and kismet.
