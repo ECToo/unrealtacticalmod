@@ -50,4 +50,6 @@ _mc.attachMovie("[here file id]","sybmolimage", _mc.getNextHighestDepth());
 
 Then you press test movie. It should work.
 
-You can change the variable "libaray.imagepng.png" to "imagepng".
+You can change the variable "libaray.imagepng.png" to "imagepng". But the variable has to right naming.
+
+Since UDK be sure the name the variable for the image file.
