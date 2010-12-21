@@ -61,5 +61,5 @@ For more information check the epic form in scale form.
  * http://forums.epicgames.com/forumdisplay.php?f=392
 
 NOTE:
--*Font loading is not working for FlashDevelop when player custom HUD error*
--It work in kismet stuff.
+ * *Font loading is not working for FlashDevelop when player custom HUD error*
+ * It work in kismet stuff.
