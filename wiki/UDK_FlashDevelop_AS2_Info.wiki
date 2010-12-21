@@ -8,3 +8,12 @@
  * Actionscript2 (work in progress)
  * Actionscript3 (not yet seen the release yet)
  * Getting the variable from swf to unreal script and kismet.
+
+
+== Pros: ==
+ * Able to load image file.
+
+== Cons: ==
+ * File path for font may not work all the time.
+  * Error in the console for font missing file.
+  * Working on the path issued
