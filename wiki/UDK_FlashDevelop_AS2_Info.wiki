@@ -12,6 +12,7 @@
 
 == Pros: ==
  * Able to load image file.
+ * Still looking for good ones.
 
 == Cons: ==
  * used actionscript 2
