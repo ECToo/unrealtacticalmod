@@ -1,13 +1,13 @@
 #summary Simple way to load the image into udk.
 
 = Require: =
- * UDK (scaleform)
+ * UDK
  * FlashDevelop
  * Flex SDK
  * Actionscript 2
 
 = Setup: =
-  The way it setup to get the UDK read the image file and package to upk file. Create your actionscript2 project in FlashDevelop program.
+  The way to setup image file and able to load into the UDK. Create your actionscript2 project in FlashDevelop program.
 
 = Code: =
    Here the simple file on how to load the image to unreal but you need few things before you can export your file to swf and import to UDK.
