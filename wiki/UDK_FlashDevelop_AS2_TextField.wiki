@@ -1,7 +1,7 @@
 #summary One-sentence summary of this page.
 
 = Information: =
-   This is work in progress testing out how the flash files will response.
+   This is work in progress testing out how the flash files will response. This section deal with text change and update script.
 
 
 Main.as
@@ -48,6 +48,7 @@ class Main
 
 Required to add library font in swf file. This will update the font format. Note the UDK give error in font loading.
 
+CustomFxHUD.us
 {{{
 class CustomFxHUD extends GFxMoviePlayer;
 
