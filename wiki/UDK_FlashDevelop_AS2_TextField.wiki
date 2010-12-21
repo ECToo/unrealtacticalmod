@@ -6,10 +6,6 @@
 
 Main.as
 {{{
-/**
- * ...
- * @author Darknet
- */
 import org.flashdevelop.utils.FlashConnect;
 class Main
 {   
