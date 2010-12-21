@@ -17,3 +17,6 @@
  * File path for font may not work all the time.
   * Error in the console for font missing file.
   * Working on the path issued
+
+=== Notes: ===
+ * Takes a while to find right coding and many other things.
