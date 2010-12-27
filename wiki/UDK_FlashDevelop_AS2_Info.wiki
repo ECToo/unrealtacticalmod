@@ -3,7 +3,7 @@
 = Information: =
    I current working on the pages to be update much as possible. I try to get most in HUD design while work on other projects.
 
-  From what I gather. The file have to have xml format correct to load into UDK scaleform HUD. Like image and font file.
+  From what I gather. The file have to have xml format correct to load into UDK scaleform HUD. Like image and font file. It deal with file convert to symbol that is the library added into the swf. Mean it the flash program the editor is similar to FlashDevelop library add to file.
 
 = Area in research: =
  * HUD
