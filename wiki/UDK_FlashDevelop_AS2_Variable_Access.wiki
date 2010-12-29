@@ -50,3 +50,4 @@ function Init(optional LocalPlayer LocPlay) {
 The code is partly for Player HUD( Head Up Display).
 
 Note it not fully coded. I still working how to get some code working.
+Note, it doesn't work in kismet setup, looking into.
