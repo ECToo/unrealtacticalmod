@@ -1,0 +1,48 @@
+#summary Basic variable Access.
+
+== Information: ==
+  The way to create an variable is quite simple. Manage to get it working and digging around the some post for how flash variable are access. Since ActionScript 2 that you can get any with how variable are used. To define a var to number or string.
+
+{{{
+class Main
+{   
+   // create a global MovieClip
+   var _mc = _root.createEmptyMovieClip("mc", 1);
+   
+   public static function main(swfRoot:MovieClip):Void
+   {
+		var app:Main = new Main();
+   }
+   
+   public function Main()
+   {       
+                
+		// entry point
+		_root.MyFlashN = 100;//create a variable
+   }
+}
+}}}
+
+
+{{{
+
+class CustomGFxHUD extends GFxMoviePlayer;
+...
+var float myNumber;
+var GFxObject RootMC;
+...
+
+function Init(optional LocalPlayer LocPlay) {
+
+//Start and load the SWF Movie
+	Start();
+	Advance(0.f);
+       	RootMC = GetVariableObject("_root");
+       	
+	`log("######################### ");
+	`log("#############" @ RootMC.GetFloat("MyFlashN"));
+        myNumber = RootMC.GetFloat("MyFlashN");
+...
+
+}
+}}}
