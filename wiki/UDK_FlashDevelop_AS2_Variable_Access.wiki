@@ -23,7 +23,7 @@ class Main
 }
 }}}
 
-
+CustomGFxHUD.uc
 {{{
 
 class CustomGFxHUD extends GFxMoviePlayer;
