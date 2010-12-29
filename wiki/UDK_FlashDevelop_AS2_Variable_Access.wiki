@@ -1,7 +1,7 @@
 #summary Basic variable Access.
 
 == Information: ==
-  The way to create an variable is quite simple. Manage to get it working and digging around the some posts for how flash variable are access. Since ActionScript 2, that you can get any with it. On how variable are used. To define a var to number or string.
+  The way to create an variable is quite simple. Manage to get it working and digging around the some posts for how flash variable are access. Since ActionScript 2, that you can get any with it. On how variable are used. To define a var to number or string. Work in progress.
 
 {{{
 class Main
