@@ -98,6 +98,11 @@ function click_press(){
 DefaultProperties
 {
 //MovieInfo=SwfMovie'pacakge.filename.swf'
+bIgnoreMouseInput = false
+bDisplayWithHudOff = false
+bEnableGammaCorrection = false
+bPauseGameWhileActive = false
+bCaptureInput = false
 }
 }}}
 
