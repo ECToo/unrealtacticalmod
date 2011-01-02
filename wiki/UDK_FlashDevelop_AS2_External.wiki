@@ -106,4 +106,4 @@ bCaptureInput = false
 }
 }}}
 
-I tested the in kismet to try to see if it work out.
+I tested the in kismet that seem to work when linking the HUD package.
