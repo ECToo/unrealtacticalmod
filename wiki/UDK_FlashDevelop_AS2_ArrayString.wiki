@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary AS2 to UDK GFxMoviePlayer then back again using array string.
 
 = Information: =
   Array string is quite simple to do. Note some functions need to work from GFxMoviePlayer class to able to get and set a variable from actionscript2 flash.
