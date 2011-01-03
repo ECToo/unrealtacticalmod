@@ -78,7 +78,8 @@ function setarrayfromas2(){
   //path is set to root with the variable for array string
   SetVariableStringArray( "_root.flasharray", 0, unrealArray );
 }
-
-
-
 }}}
+
+
+Post found here:
+ * http://forums.epicgames.com/showthread.php?t=754717
