@@ -18,7 +18,7 @@ class AS2UDKArray
    public function AS2UDKArray()
    {    
 	   _root.flasharray = new Array();//assign array to the root to able to find in the path.
-           _root.STR_WeapR.push("hello world flash");
+           _root.flasharray.push("hello world flash");
 	   
 		var cursor:MovieClip = _mc.createEmptyMovieClip("cursor", _mc.getNextHighestDepth());
 		//create a sqaure object
