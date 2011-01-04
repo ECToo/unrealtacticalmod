@@ -107,3 +107,6 @@ bCaptureInput = false
 }}}
 
 I tested the in kismet that seem to work when linking the HUD package.
+
+Post relation to this page:
+ * http://forums.epicgames.com/showthread.php?t=756460
