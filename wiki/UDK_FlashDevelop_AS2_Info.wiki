@@ -24,6 +24,8 @@
 == Pros: ==
  * Able to load image file.
  * Able to set and get array string from flash and unreal script.
+ * Able to Load font.
+ * Able to use External call to unreal script.
 
 == Cons: ==
  * Used Actionscript 2
