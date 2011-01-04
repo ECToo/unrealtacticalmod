@@ -7,7 +7,7 @@ I found the post about.
  * http://utforums.epicgames.com/showthread.php?t=756148
  * http://forums.epicgames.com/showthread.php?t=756460
 
-
+=== Actionscript2 to UDK ===
 Here is an example of the external call for actionscript2 to unrealscript.
 
 AS2UDKExternal.as
@@ -108,3 +108,31 @@ bCaptureInput = false
 }}}
 
 I tested the in kismet that seem to work when linking the HUD package.
+
+
+=== UDK to Actionscript2 ===
+
+unrealscript
+{{{
+class ... extends GFxMoviePlayer;
+...
+
+function MyUnrealFunction(String tag_name){
+   `log("actionscript...");
+   ActionScriptVoid("_root.SetInfo");//path of the function that should match actionscript.
+}
+
+}}}
+
+Actionscript 2
+{{{
+_root.SetInfo = function (Info_Tag:String ){
+   FlashConnect.trace("trigger:" + Info_Tag);
+}
+}}}
+
+This will pass the unreal script to actionscript2 function.
+
+MyUnrealFunction("hello world");
+
+Note you need make sure you assign a path to _root and create a variable or a function to it. To able to execute a script.
