@@ -25,7 +25,7 @@
  * Able to load image file.
  * Able to set and get array string from flash and unreal script.
  * Able to Load font.
- * Able to use External call to unreal script and ActionScrip2.
+ * Able to use External call to unreal script and ActionScript2.
 
 == Cons: ==
  * Used Actionscript 2
