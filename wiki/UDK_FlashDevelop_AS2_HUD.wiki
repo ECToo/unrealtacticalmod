@@ -1,4 +1,4 @@
-#summary FlashDevelop Scaleform GFx HUD
+#summary FlashDevelop  HUD UDK
 
 =Support:=
  * ActionScript 2
