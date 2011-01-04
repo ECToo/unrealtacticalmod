@@ -135,4 +135,17 @@ This will pass the unreal script to actionscript2 function.
 
 MyUnrealFunction("hello world");
 
-Note you need make sure you assign a path to {{{_root}}} and create a variable or a function to it. To able to execute a script.
+Note you need make sure you assign a path to {{{_root}}} and create a variable or a function from it. To able to execute a script.
+
+Example:
+
+{{{
+_root.myfunction = function(){
+
+}
+
+_root.myfunction2 = function(tag_name:String){
+
+}
+
+}}}
