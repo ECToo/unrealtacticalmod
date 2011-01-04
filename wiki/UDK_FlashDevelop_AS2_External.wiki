@@ -139,6 +139,7 @@ Note you need make sure you assign a path to {{{_root}}} and create a variable o
 
 Example:
 
+Actionscript2
 {{{
 _root.myfunction = function(){
 
