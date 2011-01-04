@@ -21,14 +21,12 @@
  * Actionscript3 (not yet seen the release yet)
  * Getting the variable from swf to unreal script and kismet.
 
-
 == Pros: ==
  * Able to load image file.
- * Still looking for good ones.
  * Able to set and get array string from flash and unreal script.
 
 == Cons: ==
- * used actionscript 2
+ * Used Actionscript 2
  * Font error that deal with embed file.
  * You can not fully used scaleform since there are graphic user interface editor. Mean you have to create your own buttons, menus, etc.
  * You can't really use the classes in some area a limited.
@@ -37,3 +35,33 @@
 === Notes: ===
  * Takes a while to find right coding and many other things.
  * Hate writing things down in the cons section. Waiting for actionscript3 if supported.
+
+==== FAQS: ====
+ * Q: How come my font is not show up, but show zero or square.
+  * A: You need to add to library from FlashDevelop. By right clicking the font and there it will say Library. Next you need to assign a variable. Once the font color is blue go right click again. There you see an option. Uncheck in Advanced > Auto-Genrate ID attach Movie(). Name the variable correctly.
+
+ * How can I get my variables?
+  * Only in actionscript2 can get a available in _root.
+{{{
+Example: 
+_root.myvar1 = 100;
+_root.myvar2 = 5;
+
+}}}
+
+{{{
+var GFxObject RootMC;
+	RootMC = GetVariableObject("_root");
+        RootMC.GetFloat("myvar1");
+        RootMC.GetFloat("myvar2");
+}}}
+
+ * Q: How come I can't my variables in kismet that return None.
+ * A: There are two ways. One for kismset is this.
+{{{
+event bool Start(optional bool StartPaused = false){
+
+Advance(0.f);//include this to get your variables.
+return StartPaused;
+}
+}}}
