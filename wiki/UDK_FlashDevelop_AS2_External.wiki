@@ -5,6 +5,7 @@
 
 I found the post about.
  * http://utforums.epicgames.com/showthread.php?t=756148
+ * http://forums.epicgames.com/showthread.php?t=756460
 
 
 Here is an example of the external call for actionscript2 to unrealscript.
@@ -107,6 +108,3 @@ bCaptureInput = false
 }}}
 
 I tested the in kismet that seem to work when linking the HUD package.
-
-Post relation to this page:
- * http://forums.epicgames.com/showthread.php?t=756460
