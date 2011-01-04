@@ -1,9 +1,13 @@
-#summary Information content table.
+#summary Main Actionscript2 Section. Information content table .
 
 = Information: =
    I current working on the pages to be update much as possible. I try to get most in HUD design while work on other projects.
 
   From what I gather. The file have to have xml format correct to load into UDK scaleform HUD. Like image and font file. It deal with file convert to symbol that is the library added into the swf. Mean it the flash program the editor is similar to FlashDevelop library add to file.
+
+=  =
+ * [UDK_FlashDevelop_AS2_TextField]
+
 
 = Area in research: =
  * HUD
@@ -15,12 +19,11 @@
 == Pros: ==
  * Able to load image file.
  * Still looking for good ones.
+ * Able to set and get array string from flash and unreal script.
 
 == Cons: ==
  * used actionscript 2
- * File path for font may not work all the time.
-  * Error in the console for font missing file.
-  * Working on the path issued
+ * Font error that deal with embed file.
  * You can not fully used scaleform since there are graphic user interface editor. Mean you have to create your own buttons, menus, etc.
  * You can't really use the classes in some area a limited.
  * You have to create a render and clear graphic.
