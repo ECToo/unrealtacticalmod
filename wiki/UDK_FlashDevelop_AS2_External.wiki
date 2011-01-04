@@ -147,5 +147,19 @@ _root.myfunction = function(){
 _root.myfunction2 = function(tag_name:String){
 
 }
+}}}
 
+
+unreal script
+{{{
+function MyUnrealFunction(){
+   `log("actionscript...");
+   ActionScriptVoid("_root.myfunction");
+}
+
+function MyUnrealFunction2(String tag_name){
+   `log("actionscript...");
+   ActionScriptVoid("_root.myfunction2");
+
+}
 }}}
