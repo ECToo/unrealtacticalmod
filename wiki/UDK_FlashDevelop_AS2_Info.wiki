@@ -6,7 +6,7 @@
   From what I gather. The file have to have xml format correct to load into UDK scaleform HUD. Like image and font file. It deal with file convert to symbol that is the library added into the swf. Mean it the flash program the editor is similar to FlashDevelop library add to file.
 
 =  =
- * [UDK_FlashDevelop_AS2_TextField]
+ * [UDK_FlashDevelop_AS2_TextField Basic Text Field]
 
 
 = Area in research: =
