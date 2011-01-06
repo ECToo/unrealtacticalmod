@@ -74,5 +74,4 @@ Example:
 
 {{{var myvarable:int = 12;}}} This doesn't work when your coding only.
 
-{{{_root.myvarable}}} This does work. Since it link to the {{{_root}}} path.
-
+{{{_root.myvarable = 12;}}} This does work. Since it link to the {{{_root}}} path.
