@@ -67,3 +67,12 @@ Advance(0.f);//include this to get your variables.
 return StartPaused;
 }
 }}}
+ * Q: Where my path?
+ * A: You path start at {{{_root}}}. Since actionscript2 is your {{_root}} path. To able to get any variables, functions and objects.
+
+Example:
+
+{{{var myvarable:int = 12;}}} This doesn't work when your coding only.
+
+{{{_root.myvarable}}} This does work. Since it link to the {{{_root}}} path.
+
