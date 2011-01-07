@@ -68,7 +68,7 @@ return StartPaused;
 }
 }}}
  * Q: Where my path?
- * A: You path start at {{{_root}}}. Since actionscript2 is your {{_root}} path. To able to get any variables, functions and objects.
+ * A: You path start at {{{_root}}}. Since actionscript2 is your ({{_root}}} path. To able to get any variables, functions and objects.
 
 Example:
 
