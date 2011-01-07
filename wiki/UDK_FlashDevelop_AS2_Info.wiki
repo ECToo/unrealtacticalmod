@@ -28,6 +28,7 @@
  * Able to use External call to unreal script and ActionScript2.
 
 == Cons: ==
+ * Flash Player 8 Version.
  * Used Actionscript 2
  * Can't get Sound working. Required more coding in unreal script to make it work.
  * Font error that deal with embed file.
