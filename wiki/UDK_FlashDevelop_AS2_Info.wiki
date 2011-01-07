@@ -29,6 +29,7 @@
 
 == Cons: ==
  * Used Actionscript 2
+ * No Sound import. Required more coding in unreal script to make it work.
  * Font error that deal with embed file.
  * You can not fully used scaleform since there are graphic user interface editor. Mean you have to create your own buttons, menus, etc.
  * You can't really use the classes in some area a limited.
