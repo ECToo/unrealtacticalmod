@@ -26,6 +26,7 @@
  * Able to set and get array string from flash and unreal script.
  * Able to Load font.
  * Able to use External call to unreal script and ActionScript2.
+ * Able to use fscommand(); from actionscript2 to unreal kismet triggers.
 
 == Cons: ==
  * Flash Player 8 Version.
