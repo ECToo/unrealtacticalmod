@@ -1,4 +1,4 @@
-#summary to able to trigger event from fscommand.
+#summary to able to trigger event from fscommand to kismet trigger.
 
 Work in progress.
 
