@@ -11,6 +11,8 @@
  * Select the Build Tab.
  * In the Post-Build Command Line:
 {{{
+//OutputDir = is the path the file location save in for swf.
+//OutputName = file name for the swf.
 Drive:\UDK\UDK-XXXX-XX\Binaries\GFx\FxMediaPlayer $(OutputDir)\$(OutputName)
 }}}
 
