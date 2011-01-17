@@ -43,6 +43,11 @@
  * Takes a while to find right coding and many other things.
  * Hate writing things down in the cons section. Waiting for actionscript3 if supported.
 
+== Bug: ==
+ * MovieClip.scrollRect is not working for some reason.
+
+
+
 ==== FAQS: ====
  * Q: How come my font is not show up, but show zero or square.
   * A: You need to add to library from FlashDevelop. By right clicking the font and there it will say Library. Next you need to assign a variable. Once the font color is blue go right click again. There you see an option. Uncheck in Advanced > Auto-Genrate ID attach Movie(). Name the variable correctly.
