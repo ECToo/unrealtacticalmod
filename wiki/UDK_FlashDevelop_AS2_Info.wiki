@@ -3,6 +3,22 @@
 = Information: =
    I current working on the pages to be update much as possible. I try to get most in HUD design while work on other projects.
 
+Note you need to learn action script 2. They little different from action script 3. They some time used non exist variable to assign variable form root path.
+
+Example:
+{{{
+
+_root.myvar = 0;
+
+_root// it the main path that unreal will see to link object or variables.
+
+}}}
+
+
+
+When coding HUD from FlashDevelop. The code may different a bit.
+
+
   From what I gather. The file have to have xml format correct to load into UDK scaleform HUD. Like image and font file. It deal with file convert to symbol that is the library added into the swf. Mean it the flash program the editor is similar to FlashDevelop library add to file.
 
 = Content: =
