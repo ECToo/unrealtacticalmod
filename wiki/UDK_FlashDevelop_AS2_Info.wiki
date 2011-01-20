@@ -48,6 +48,11 @@
 
 
 
+ For more information check the UDN page for scale form.
+
+
+
+
 ==== FAQS: ====
  * Q: How come my font is not show up, but show zero or square.
   * A: You need to add to library from FlashDevelop. By right clicking the font and there it will say Library. Next you need to assign a variable. Once the font color is blue go right click again. There you see an option. Uncheck in Advanced > Auto-Genrate ID attach Movie(). Name the variable correctly.
