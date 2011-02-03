@@ -58,3 +58,5 @@ class Main
 }}}
 
 When dealing with read time you need to update the format. But it depend if is needed to be format.
+
+You need to make sure the {{{Textfield.type = "input"}}} like {{{MCTimeClockTF.type = "input";}}}. Also you can restrict letters or symbols.
