@@ -1,0 +1,1 @@
+setbind h Say Hi
